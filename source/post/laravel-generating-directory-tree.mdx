@@ -26,85 +26,91 @@ Laravel 内置了 `Storage::files($directory)`可以读取指定目录下的文�
 
 ### FolderModel
 
-\[prism lang="php"\]namespace App\\Http\\Models;
-use Illuminate\\Support\\Facades\\Storage;
+```php
+namespace App\Http\Models;
+use Illuminate\Support\Facades\Storage;
 
 class FolderModel
 {
-/\*\* \* 获取文件夹树
-\*/
-public function get_folders($dir = "")
+    /**
+     * 获取文件夹树
+     */
+    public function get_folders($dir = "")
     {
         $dirs = Storage::directories($dir);
-$dira = Storage::files($dir);
-foreach ($dirs as $name) {
-            array\_splice($dirs, 0, 1);
-if(Storage::directories($name) == \[\]) {
-                $dirs\[$name\] = Storage::files($name);
+        $dira = Storage::files($dir);
+        foreach ($dirs as $name) {
+            array_splice($dirs, 0, 1);
+            if(Storage::directories($name) == []) {
+                $dirs[$name] = Storage::files($name);
             } else {
-                $dirs\[$name\] = $this->get\_folders($name);
-array_merge($dirs\[$name\],Storage::files($name));
+                $dirs[$name] = $this->get_folders($name);
+                array_merge($dirs[$name],Storage::files($name));
             }
         }
         foreach ($dira as $num => $value) {
-            $dirs\[$num\] = $value;
+            $dirs[$num] = $value;
+        }
+        return $dirs;
+    }
 }
-return $dirs;
-}
-}\[/prism\]
+```
 
 ### FolderController
 
-\[prism lang="php"\]namespace App\\Http\\Controllers;
-use App\\Http\\Controllers\\Controller;
-use App\\Http\\Models\\FolderModel;
+```php
+amespace App\Http\Controllers;
+use App\Http\Controllers\Controller;
+use App\Http\Models\FolderModel;
 
 class FolderController extends Controller
 {
-/\*\* \* 文件夹 html
-\*/
-public $out;
-    public function get\_folders($dir)
-{
-global $out;
+    /**
+     * 文件夹html
+     */
+    public $out;
+    public function get_folders($dir)
+    {
+        global $out;
         $folder = new FolderModel();
-        $arr = $folder->get\_folders($dir);
-$this->print\_folders($arr, "");
-return $out;
+        $arr = $folder->get_folders($dir);
+        $this->print_folders($arr, "");
+        return $out;
     }
-    /\*\*
-     \* 将文件夹树生成html
-     \* @param Array $arr 文件夹树
-     \*/
-    public function print\_folders($arr)
-{
-global $out;
-        if($arr !== \[\]) {
-foreach ($arr as $dir => $file) {
+    /**
+     * 将文件夹树生成html
+     * @param Array $arr 文件夹树
+     */
+    public function print_folders($arr)
+    {
+        global $out;
+        if($arr !== []) {
+            foreach ($arr as $dir => $file) {
                 if(gettype($dir) == 'integer') {
-if(strrpos($file, '/') !== false) {
-                        $file\_name = substr($file, strrpos($file, '/') + 1);
+                    if(strrpos($file, '/') !== false) {
+                        $file_name = substr($file, strrpos($file, '/') + 1);
                     } else {
-                        $file\_name = $file;
+                        $file_name = $file;
                     }
-                    if(preg\_match("/(.txt|.md)/i", $file\_name)) {
-                        $file = str\_replace('uid\_'.Auth::id().'/', '', $file);
-                        $li\_id = str\_replace('.', '', $file);
-                        $li\_id = str\_replace('/', '', $li\_id);
-                        $out .= '<li dir="'.$file.'" id="'.$li\_id.'" class="dc"><a href="#"><i class="icon icon-file-text"></i>'.$file_name.'</a></li>';
-}
-} else {
-$dir = str\_replace('uid\_'.Auth::id().'/', '', $dir);
-                    $dir\_old = $dir;
+                    if(preg_match("/(.txt|.md)/i", $file_name)) {
+                        $file = str_replace('uid_'.Auth::id().'/', '', $file);
+                        $li_id = str_replace('.', '', $file);
+                        $li_id = str_replace('/', '', $li_id);
+                        $out .= '<li dir="'.$file.'" id="'.$li_id.'" class="dc"><a href="#"><i class="icon icon-file-text"></i>'.$file_name.'</a></li>';
+                    }
+                } else {
+                    $dir = str_replace('uid_'.Auth::id().'/', '', $dir);
+                    $dir_old = $dir;
                     if(strrpos($dir, '/') !== false) {
-$dir = substr($dir, strrpos($dir, '/') + 1);
+                        $dir = substr($dir, strrpos($dir, '/') + 1);
                     }
                     $out .= '<li dir="'.$dir_old.'" class="dp"><a href="#"><i class="icon icon-folder-close"></i>'.$dir.'</a><ul>';
-                    $out .= $this->print\_folders($file);
-$out .= '</ul>';
+                    $out .= $this->print_folders($file);
+                    $out .= '</ul>';
+                }
+            }
+        }
+        $out .= '</li>';
+    }
 }
-}
-}
-$out .= '</li>';
-}
-}\[/prism\]
+```
