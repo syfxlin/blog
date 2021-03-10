@@ -11,7 +11,7 @@
   "main": "n/a",
   "scripts": {
     "build": "yarn clean && gatsby build",
-    "clean": "rimraf public",
+    "clean": "gatsby clean && rimraf public",
     "dev": "gatsby develop",
     "start": "yarn dev",
     "serve": "gatsby serve",
