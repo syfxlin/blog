@@ -6,8 +6,10 @@ import { graphql, Link, useStaticQuery } from "gatsby";
 import styled, { useTheme } from "styled-components";
 import classNames from "classnames";
 import { usePrevious, useWindowScroll } from "react-use";
-import Search from "../components/Search";
 import StyledHeader from "./StyledHeader";
+import loadable from "@loadable/component";
+
+const Search = loadable(() => import("../components/Search"), { ssr: false });
 
 type Props = HeadProps;
 
