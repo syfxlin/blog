@@ -301,7 +301,7 @@ const plugins: GatsbyConfig["plugins"] = [
       ],
       matchFields: ["title", "rawBody", "categories", "tags", "date", "link"],
       concurrentQueries: false,
-      skipIndexing: true // default: false, useful for e.g. preview deploys or local development
+      skipIndexing: process.env.ALGOLIA_SKIP_INDEXING // default: false, useful for e.g. preview deploys or local development
     }
   },
   "gatsby-plugin-catch-links"

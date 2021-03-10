@@ -70,7 +70,7 @@ const Search: React.FC<Props> = ({ show, onClose }) => {
   );
   return (
     <Mask show={show} className="grid-md">
-      <Header sticky={true}>
+      <Header sticky={false}>
         <Container className={"navbar"}>
           <InputSection>
             <Input className="has-icon-right">
