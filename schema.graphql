@@ -1,0 +1,58 @@
+type SiteSiteMetadataNav implements Node {
+  title: String!
+  url: String!
+  sub: [SiteSiteMetadataNav]
+}
+
+type SiteSiteMetadataHeroLink {
+  label: String!
+  href: String!
+}
+
+type SiteSiteMetadataHero implements Node {
+  title: String!
+  subtitle: String!
+  link: SiteSiteMetadataHeroLink
+  background: [String!]!
+}
+
+type SiteSiteMetadataAuthor implements Node {
+  name: String!
+  avatar: String!
+  image: String!
+  introduction: String!
+  email: String!
+}
+
+type SiteSiteMetadataLicense implements Node {
+  label: String!
+  href: String!
+}
+
+type SiteSiteMetadataLeancloud implements Node {
+  appId: String!
+  appKey: String!
+  serverURL: String!
+}
+
+type SiteSiteMetadata implements Node {
+  nav: [SiteSiteMetadataNav]
+  hero: SiteSiteMetadataHero!
+  author: SiteSiteMetadataAuthor!
+  license: SiteSiteMetadataLicense!
+  leancloud: SiteSiteMetadataLeancloud
+}
+
+type MdxFrontmatter implements Node {
+  thumbnail: String
+  categories: [String!]
+  tags: [String!]
+  layout: String
+}
+
+type MdxFields {
+  year: String
+  month: String
+  yearMonth: String
+  day: String
+}

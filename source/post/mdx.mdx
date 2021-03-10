@@ -1,0 +1,222 @@
+---
+title: Mdx 样例
+date: 2021-03-10
+thumbnail: "https://cdn.jsdelivr.net/gh/syfxlin/pic/index/assets/img/3.jpg"
+categories:
+  - 样例
+tags:
+  - 样例
+---
+
+import MessageBox from "../../src/mdx/MessageBox";
+import APlayer from "../../src/mdx/APlayer";
+import Spectre from "../../src/mdx/Spectre";
+import { Gist } from "mdx-embed";
+import DPlayer from "../../src/mdx/DPlayer";
+
+## 标题
+
+# Heading 1
+
+## Heading 2
+
+### Heading 3
+
+#### Heading 4
+
+##### Heading 5
+
+###### Heading 6
+
+## 字符效果和横线等
+
+---
+
+~~删除线~~ _斜体_ **粗体** **_粗斜体_**
+
+上标：X<sup>2</sup>，下标：O<sub>2</sub>
+
+## 引用 Blockquotes
+
+> 引用文本 Blockquotes
+
+中间可以书写其他普通文本
+
+> 引用：如果想要插入空白换行`即<br />标签`，在插入处先键入两个以上的空格然后回车即可，[普通链接](http://localhost/)。
+
+## 锚点与链接 Links
+
+[普通链接](http://localhost/)
+
+[普通链接带标题](http://localhost/ "普通链接带标题")
+
+[锚点链接](#锚点与链接-links)
+
+[本地跳转链接](/links)
+
+## 行内代码 Inline code
+
+执行命令：`npm install marked`
+
+## 缩进风格
+
+即缩进四个空格，也做为实现类似 `<pre>` 预格式化文本 ( Preformatted Text ) 的功能。
+
+预格式化文本：
+
+```
+| First Header | Second Header |
+|--------------|---------------|
+| Content Cell | Content Cell  |
+| Content Cell | Content Cell  |
+```
+
+### JS 代码
+
+```javascript
+importScripts(
+  "https://cdn.jsdelivr.net/npm/workbox-cdn@3.6.3/workbox/workbox-sw.js"
+);
+workbox.setConfig({
+  modulePathPrefix: "https://cdn.jsdelivr.net/npm/workbox-cdn@3.6.3/workbox/"
+});
+
+if (workbox) {
+  console.log(`Yay! Workbox is loaded ?`);
+} else {
+  console.log(`Boo! Workbox didn't load ?`);
+}
+```
+
+### HTML 代码 HTML codes
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <mate charest="utf-8" />
+    <title>Hello world!</title>
+  </head>
+  <body>
+    <h1>Hello world!</h1>
+  </body>
+</html>
+```
+
+## 图片 Images
+
+![](https://www.ixk.me/bg.jpg)
+![](https://cn.bing.com/th?id=OHR.CoastalFog_EN-CN6289780759_800x480.jpg)
+
+---
+
+## 列表 Lists
+
+### 无序列表 Unordered Lists1
+
+- 列表一
+- 列表二
+- 列表三
+
+### 无序列表 Unordered Lists2
+
+- 列表一
+- 列表二
+  - 列表二-1
+  - 列表二-2
+  - 列表二-3
+- 列表三
+
+### 有序列表 Ordered Lists
+
+1. 第一行
+2. 第二行
+3. 第三行
+
+### GFM task list
+
+- [x] GFM task list 1
+- [x] GFM task list 2
+- [ ] GFM task list 3
+- [ ] GFM task list 3-1
+- [ ] GFM task list 3-2
+- [ ] GFM task list 3-3
+- [ ] GFM task list 4
+- [ ] GFM task list 4-1
+- [ ] GFM task list 4-2
+
+---
+
+## 绘制表格 Tables
+
+| First Header | Second Header |
+| ------------ | ------------- |
+| Content Cell | Content Cell  |
+| Content Cell | Content Cell  |
+
+| Function name | Description                |
+| ------------- | -------------------------- |
+| `help()`      | Display the help window.   |
+| `destroy()`   | **Destroy your computer!** |
+
+| Left-Aligned  | Center Aligned  | Right Aligned |
+| ------------- | --------------- | ------------- |
+| col 3 is      | some wordy text | $1600         |
+| col 2 is      | centered        | $12           |
+| zebra stripes | are neat        | $1            |
+
+---
+
+## Emoji 表情 :smiley:
+
+:smiley:
+
+## 科学公式 TeX(KaTeX)
+
+$E=mc^2$
+
+$x > y$
+
+$(sqrt{3x-1}+(1+x)^2)$
+
+$sin(alpha)^{theta}=sum_{i=0}^{n}(x^i + cos(f))$
+
+$$
+sin(alpha)^{theta}=sum_{i=0}^{n}(x^i + cos(f))
+$$
+
+## 消息框
+
+<MessageBox type={"success"}>消息框</MessageBox>
+
+## APlayer & DPlayer
+
+<APlayer auto={"https://music.163.com/#/song?id=870554"} />
+
+<DPlayer
+  options={{
+    video: { url: "http://static.smartisanos.cn/common/video/t1-ui.mp4" }
+  }}
+/>
+
+## Spectre.css
+
+<Spectre.Dropdown onClick={() => {}} onBlur={() => {}} initialValue="button">
+  <Spectre.Menu>
+    <Spectre.MenuItem link="#" content="menu-1" />
+  </Spectre.Menu>
+</Spectre.Dropdown>
+
+更多详见：https://toshiaki61.github.io/react-spectre.css/
+
+## Embed
+
+<Gist gistLink={"syfxlin/bef0c2f70beee99061f1612968a3e085"} />
+
+更多详见：https://www.mdx-embed.com/
+
+## 脚注
+
+Katex[^katex]
+
+[^katex]: 支持 Katex 编辑显示支持。
