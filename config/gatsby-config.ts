@@ -57,11 +57,13 @@ const siteMetadata: GatsbyConfig["siteMetadata"] = {
     },
     {
       title: "🍻永远的好朋友",
-      url: "/links"
-    },
-    {
-      title: "📩友链申请",
-      url: "/links-application"
+      url: "/links",
+      sub: [
+        {
+          title: "📩友链申请",
+          url: "/links-application"
+        }
+      ]
     },
     {
       title: "📝时间日志",
@@ -296,6 +298,10 @@ const plugins: GatsbyConfig["plugins"] = [
         {
           httpEquiv: "Content-Security-Policy",
           content: "block-all-mixed-content"
+        },
+        {
+          name: "build-time",
+          content: new Date().toUTCString()
         }
       ],
       linkTags: [
