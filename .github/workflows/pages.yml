@@ -2,6 +2,8 @@ name: Gatsby Deploy
 on: [push, pull_request, repository_dispatch]
 jobs:
   deploy:
+    env:
+      TZ: Asia/Shanghai
     runs-on: ubuntu-latest
     steps:
       - name: checkout
