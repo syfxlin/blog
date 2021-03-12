@@ -43,23 +43,73 @@ const siteMetadata: GatsbyConfig["siteMetadata"] = {
   nav: [
     {
       title: "📦折腾记录",
-      url: "https://blog.ixk.me/category/%e6%8a%98%e8%85%be%e8%ae%b0%e5%bd%95",
+      url: "/category/折腾记录",
       sub: [
         {
           title: "💬站长杂谈",
-          url:
-            "https://blog.ixk.me/category/%e7%ab%99%e9%95%bf%e6%9d%82%e8%b0%88"
+          url: "/category/站长杂谈"
         },
         {
-          title: "💬站长杂谈",
-          url:
-            "https://blog.ixk.me/category/%e7%ab%99%e9%95%bf%e6%9d%82%e8%b0%88"
+          title: "✔️分享推荐",
+          url: "/category/分享推荐"
         }
       ]
     },
     {
-      title: "📦折腾记录",
-      url: "https://blog.ixk.me/category/%e6%8a%98%e8%85%be%e8%ae%b0%e5%bd%95"
+      title: "🍻永远的好朋友",
+      url: "/links"
+    },
+    {
+      title: "📩友链申请",
+      url: "/links-application"
+    },
+    {
+      title: "📝时间日志",
+      url: "https://log.ixk.me",
+      sub: [
+        {
+          title: "⏳时光轴",
+          url: "/timeline"
+        }
+      ]
+    },
+    {
+      title: "🎉开发",
+      url: "https://lab.ixk.me/",
+      sub: [
+        {
+          title: "📐XK-Java – 一个轻量的 Java 框架",
+          url: "https://github.com/syfxlin/xkjava"
+        },
+        {
+          title: "📒XK-Note – 集各种神奇功能的云笔记",
+          url: "https://blog.ixk.me/xknote.html"
+        },
+        {
+          title: "📝XK-Editor(Next) – 一个支持所见即所得的的 Markdown 编辑器",
+          url: "https://github.com/syfxlin/xkeditor-next"
+        },
+        {
+          title: "📝XK-Editor – 一个支持富文本和 Markdown 的编辑器",
+          url: "https://blog.ixk.me/xkeditor.html"
+        },
+        {
+          title: "📐XK-PHP – 一个轻量的 PHP 框架",
+          url: "https://github.com/syfxlin/xkphp"
+        },
+        {
+          title: "🎨Origami – 简洁轻快的 WordPress 主题",
+          url: "https://blog.ixk.me/theme-origami.html"
+        }
+      ]
+    },
+    {
+      title: "😋关于我",
+      url: "/about"
+    },
+    {
+      title: "💬留言板",
+      url: "/message-board"
     }
   ],
   footer: `{face} © 2017-{year} 青空之蓝 By <a href="https://ixk.me">Otstar Lin</a><br>闽ICP备 备案是不可能的<br>站点在各种灾难中运行了{date:07/01/2017 00:00:09}`,
@@ -117,9 +167,14 @@ const plugins: GatsbyConfig["plugins"] = [
       name: "青空之蓝 | 站在时光一端，回忆过往记忆。",
       icons: [
         {
-          src: "/icon.png",
-          type: "image/png",
-          sizes: "512x512"
+          src: "/android-chrome-192x192.png",
+          sizes: "192x192",
+          type: "image/png"
+        },
+        {
+          src: "/android-chrome-512x512.png",
+          sizes: "512x512",
+          type: "image/png"
         }
       ],
       start_url: "/",
@@ -241,6 +296,25 @@ const plugins: GatsbyConfig["plugins"] = [
         {
           httpEquiv: "Content-Security-Policy",
           content: "block-all-mixed-content"
+        }
+      ],
+      linkTags: [
+        {
+          rel: "apple-touch-icon",
+          sizes: "180x180",
+          href: "/apple-touch-icon.png"
+        },
+        {
+          rel: "icon",
+          type: "image/png",
+          sizes: "32x32",
+          href: "/favicon-32x32.png"
+        },
+        {
+          rel: "icon",
+          type: "image/png",
+          sizes: "16x16",
+          href: "/favicon-16x16.png"
         }
       ]
     }
