@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { rgba } from "polished";
 import { Link } from "gatsby";
+import { join } from "../utils/url";
 
 export type NavMenuItem = {
   url: string;
@@ -26,7 +27,7 @@ const NavMenu: React.FC<Props> = ({ className, root, menu, k }) => {
       {menu?.map((item, i) => (
         <StyledMenuItem key={`${k || "nav"}-${i}`}>
           {item.url.startsWith("/") ? (
-            <Link to={item.url}>
+            <Link to={join(item.url)}>
               {item.title}{" "}
               {root && item.sub && item.sub.length > 0 && (
                 <span className="icon icon-arrow-down" />

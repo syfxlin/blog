@@ -31,7 +31,10 @@ export const onCreateNode = ({
 
   if (node.internal.type === "Mdx") {
     // 链接
-    const slug = node.frontmatter.slug || createFilePath({ node, getNode });
+    const slug =
+      node.frontmatter.link ||
+      node.frontmatter.slug ||
+      createFilePath({ node, getNode });
     createNodeField({
       node,
       name: "link",
@@ -81,7 +84,7 @@ export const createPages = async ({
     const perPage = 10;
     const pageSize = Math.ceil(size / perPage);
     createPage({
-      path,
+      path: join(path),
       component,
       context: {
         limit: perPage,
@@ -179,7 +182,7 @@ export const createPages = async ({
   const pages = nodes.filter((n) => n.fields.layout !== "post");
   pages.forEach((page) => {
     createPage({
-      path: `${page.fields.link}`,
+      path: join(page.fields.link),
       component: path.resolve(`src/templates/${page.fields.layout}.tsx`),
       context: {
         link: `${page.fields.link}`,
@@ -194,10 +197,10 @@ export const createPages = async ({
     const prev = index === 0 ? null : posts[index - 1];
 
     createPage({
-      path: `${post.fields.link}`,
+      path: join(post.fields.link),
       component: path.resolve(`src/templates/page.tsx`),
       context: {
-        link: `${post.fields.link}`,
+        link: join(post.fields.link),
         prev,
         next,
         layout: post.fields.layout

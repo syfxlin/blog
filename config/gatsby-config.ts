@@ -139,7 +139,10 @@ const sourcePlugins = fs.readdirSync(sourcePath).map((folder) => {
     options: {
       name: "docs",
       path: path.join(sourcePath, folder),
-      ignore: [`**/\.*`]
+      ignore: [
+        `**/\.*`,
+        ...(process.env.NODE_ENV === "development" ? [] : [`**/_*`])
+      ]
     }
   };
 });

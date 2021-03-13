@@ -39,7 +39,7 @@ const join = (...paths) => {
       .map((path) => `${path || ""}`.replace(/^\/|\/$/g, ""))
       .filter((path) => path)
       .join("/")
-  );
+  ).toLowerCase();
 };
 
 module.exports = {
