@@ -13,10 +13,7 @@ import Card from "../components/Card";
 import { TocItem } from "../components/Toc";
 import loadable from "@loadable/component";
 
-const Nexment = loadable(
-  () => import("nexment").then((m) => m.NexmentContainer),
-  { ssr: false }
-);
+const Artalk = loadable(() => import("../components/Artalk"), { ssr: false });
 
 type Page = {
   body: string;
@@ -50,10 +47,8 @@ type Props = {
           label: string;
           href: string;
         };
-        leancloud?: {
-          appId: string;
-          appKey: string;
-          serverURL: string;
+        artalk: {
+          serverUrl: string;
         };
       };
     };
@@ -131,16 +126,11 @@ const PageTemplate: React.FC<Props> = ({ data, pageContext }) => {
               </ul>
             </PaginationCard>
           )}
-        {Nexment && data.site.siteMetadata.leancloud && (
+        {Artalk && data.site.siteMetadata.artalk && (
           <Card>
-            <Nexment
-              config={{
-                pageKey: pageContext.link,
-                enableLinkInput: true,
-                enableReplyListModal: true,
-                leancloud: data.site.siteMetadata.leancloud,
-                admin: data.site.siteMetadata.author
-              }}
+            <Artalk
+              pageKey={pageContext.link}
+              {...data.site.siteMetadata.artalk}
             />
           </Card>
         )}
@@ -354,10 +344,8 @@ export const query = graphql`
           label
           href
         }
-        leancloud {
-          appId
-          appKey
-          serverURL
+        artalk {
+          serverUrl
         }
       }
     }

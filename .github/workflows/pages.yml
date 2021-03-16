@@ -19,9 +19,6 @@ jobs:
           ALGOLIA_INDEX_NAME: ${{ secrets.ALGOLIA_INDEX_NAME }}
           ALGOLIA_ADMIN_KEY: ${{ secrets.ALGOLIA_ADMIN_KEY }}
           ALGOLIA_SKIP_INDEXING: ${{ secrets.ALGOLIA_SKIP_INDEXING }}
-          LEANCLOUD_APP_ID: ${{ secrets.LEANCLOUD_APP_ID }}
-          LEANCLOUD_APP_KEY: ${{ secrets.LEANCLOUD_APP_KEY }}
-          LEANCLOUD_APP_URL: ${{ secrets.LEANCLOUD_APP_URL }}
           GOOGLE_ANALUTICS_ID: ${{ secrets.GOOGLE_ANALUTICS_ID }}
       - name: delete .git
         run: rm public/.git -rf

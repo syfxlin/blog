@@ -1,4 +1,4 @@
-type SiteSiteMetadataNav implements Node {
+type SiteSiteMetadataNav {
   title: String!
   url: String!
   sub: [SiteSiteMetadataNav]
@@ -9,14 +9,14 @@ type SiteSiteMetadataHeroLink {
   href: String!
 }
 
-type SiteSiteMetadataHero implements Node {
+type SiteSiteMetadataHero {
   title: String!
   subtitle: String!
   link: SiteSiteMetadataHeroLink
   background: [String!]!
 }
 
-type SiteSiteMetadataAuthor implements Node {
+type SiteSiteMetadataAuthor {
   name: String!
   avatar: String!
   image: String!
@@ -24,23 +24,32 @@ type SiteSiteMetadataAuthor implements Node {
   email: String!
 }
 
-type SiteSiteMetadataLicense implements Node {
+type SiteSiteMetadataLicense {
   label: String!
   href: String!
 }
 
-type SiteSiteMetadataLeancloud implements Node {
+type SiteSiteMetadataArtalk {
+  serverUrl: String!
+}
+
+type SiteSiteMetadataAlgolia {
   appId: String!
   appKey: String!
-  serverURL: String!
+  indexName: String!
 }
 
 type SiteSiteMetadata implements Node {
+  title: String!
+  siteUrl: String!
+  description: String!
   nav: [SiteSiteMetadataNav]
   hero: SiteSiteMetadataHero!
   author: SiteSiteMetadataAuthor!
   license: SiteSiteMetadataLicense!
-  leancloud: SiteSiteMetadataLeancloud
+  artalk: SiteSiteMetadataArtalk
+  aplayer: String
+  algolia: SiteSiteMetadataAlgolia
 }
 
 type MdxFrontmatter implements Node {

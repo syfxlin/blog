@@ -1,0 +1,35 @@
+import { default as ArtalkComment } from "artalk";
+import React from "react";
+import { useTheme } from "styled-components";
+import "artalk/dist/Artalk.css";
+
+type Props = {
+  pageKey: string;
+  serverUrl: string;
+};
+
+const Artalk: React.FC<Props> = ({ pageKey, serverUrl }) => {
+  const theme = useTheme() as any;
+  return (
+    <div
+      id={"comment"}
+      ref={() => {
+        // @ts-ignore
+        new ArtalkComment({
+          el: `#comment`,
+          pageKey,
+          serverUrl,
+          placeholder: "留下你的足迹 ∠( ᐛ 」∠)＿",
+          noComment: "快来成为第一个评论的人吧~",
+          readMore: {
+            pageSize: 15,
+            autoLoad: true
+          },
+          darkMode: theme.type === "dark"
+        });
+      }}
+    />
+  );
+};
+
+export default Artalk;

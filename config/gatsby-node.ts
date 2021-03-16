@@ -267,7 +267,7 @@ export const sourceNodes = ({
 }: SourceNodesArgs): GatsbyNode["sourceNodes"] => {
   const { createTypes } = actions;
   const schema = fs
-    .readFileSync(`${__dirname}/../schema.graphql`)
+    .readFileSync(`${__dirname}/schema.graphql`)
     .toString("utf-8");
   createTypes(schema);
 

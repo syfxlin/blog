@@ -119,17 +119,15 @@ const siteMetadata: GatsbyConfig["siteMetadata"] = {
     label: "BY-NC-SA",
     href: "http://creativecommons.org/licenses/by-nc-sa/4.0/"
   },
-  leancloud: {
-    appId: process.env.LEANCLOUD_APP_ID,
-    appKey: process.env.LEANCLOUD_APP_KEY,
-    serverURL: process.env.LEANCLOUD_APP_URL
-  },
   algolia: {
     appId: process.env.ALGOLIA_APP_ID,
     appKey: process.env.ALGOLIA_API_KEY,
     indexName: process.env.ALGOLIA_INDEX_NAME
   },
-  aplayer: "http://music.163.com/playlist?id=387270699"
+  // aplayer: "http://music.163.com/playlist?id=387270699",
+  artalk: {
+    serverUrl: "https://comment.api.ixk.me"
+  }
 };
 
 const sourcePath = `${__dirname}/../source`;

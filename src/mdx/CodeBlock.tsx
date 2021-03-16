@@ -5,8 +5,6 @@ import dark from "react-syntax-highlighter/dist/esm/styles/prism/okaidia";
 import styled, { useTheme } from "styled-components";
 import "../style/prism-light.less";
 import "../style/prism-dark.less";
-// @ts-ignore
-import virtualizedRenderer from "react-syntax-highlighter-virtualized-renderer";
 
 type Props = {
   children: ReactElement;
@@ -38,8 +36,7 @@ const Pre = styled.div`
   background: ${({ theme }) => theme.codeBackground} !important;
   box-shadow: 0 1px 20px -6px ${({ theme }) => theme.shadow};
   position: relative;
-  padding: 1em 0.5em !important;
-  max-height: 50em;
+  padding: 0 !important;
 
   &:before {
     color: ${({ theme }) => theme.text};
@@ -47,13 +44,16 @@ const Pre = styled.div`
     content: attr(data-lang);
     font-size: 1rem;
     position: absolute;
-    right: 0.3rem;
+    right: 0.5rem;
     top: 0.1em;
   }
 `;
 
 const Code = styled.pre`
   margin: 0 !important;
+  max-height: 50em;
+  overflow: auto;
+  padding: 1em 0.5em;
 
   .linenumber {
     border-right: 1px solid #999;
