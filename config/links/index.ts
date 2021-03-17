@@ -114,7 +114,7 @@ export const links: Link[] = [
     name: "无垠",
     author: "Axton",
     url: "https://flyhigher.top",
-    avatar: "flyhigher.top",
+    avatar: "flyhigher.top.png",
     bio: "飞翔的天空无限大"
   },
   {

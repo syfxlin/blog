@@ -299,6 +299,17 @@ const StyledArticle = styled.article`
       background-position: bottom left;
     }
   }
+
+  ul {
+    ul {
+      margin-top: 0;
+      margin-bottom: 0;
+
+      ul {
+        list-style-type: square;
+      }
+    }
+  }
 `;
 
 const PaginationCard = styled(Card)`
