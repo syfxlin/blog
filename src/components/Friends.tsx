@@ -4,7 +4,6 @@ import { links, lostConnection } from "../../config/links";
 import FriendCard from "./FriendCard";
 
 function shuffle(a: any[]): any[] {
-  return a;
   for (let i = a.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     const x = a[i];
@@ -14,13 +13,17 @@ function shuffle(a: any[]): any[] {
   return a;
 }
 
-const Friends: React.FC = () => {
+type Props = {
+  imgBaseUrl: string;
+};
+
+const Friends: React.FC<Props> = ({ imgBaseUrl }) => {
   return (
     <>
       <List className={"columns grid-md"}>
         {shuffle(links).map((link) => (
           <li className={"column col-6 col-md-12"} key={link.name}>
-            <FriendCard {...link} />
+            <FriendCard {...link} imgBaseUrl={imgBaseUrl} />
           </li>
         ))}
       </List>

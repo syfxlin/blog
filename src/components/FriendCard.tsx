@@ -8,14 +8,22 @@ type Props = {
   avatar: string;
   bio?: string;
   author?: string;
+  imgBaseUrl?: string;
 };
 
-const FriendCard: React.FC<Props> = ({ name, url, avatar, bio, author }) => {
+const FriendCard: React.FC<Props> = ({
+  imgBaseUrl,
+  name,
+  url,
+  avatar,
+  bio,
+  author
+}) => {
   return (
     <StyledCard>
       <Link href={url} target={"_blank"} rel={"noreferrer"}>
         <Avatar>
-          <img src={avatar} />
+          <img src={imgBaseUrl + avatar} />
         </Avatar>
         <Info>
           <Name>{name}</Name>
@@ -37,18 +45,22 @@ const Link = styled.a`
 `;
 
 const Avatar = styled.div`
-  width: 25%;
+  width: 5rem;
+  height: 5rem;
   margin-right: 1rem;
   display: flex;
   align-items: center;
 
   img {
     margin-bottom: 0 !important;
+    width: 5rem;
+    height: 5rem;
   }
 `;
 
 const Info = styled.div`
-  width: 75%;
+  flex: 1;
+  overflow: hidden;
 `;
 
 const Name = styled.div`
