@@ -300,8 +300,10 @@ const StyledArticle = styled.article`
     }
   }
 
-  ul {
-    ul {
+  ul,
+  ol {
+    ul,
+    ol {
       margin-top: 0;
       margin-bottom: 0;
 
