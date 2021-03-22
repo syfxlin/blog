@@ -6,6 +6,7 @@ import { graphql, Link, useStaticQuery } from "gatsby";
 import { archive, category, tag } from "../utils/url";
 import { Tag } from "../components/TagList";
 import Toc, { TocItem } from "../components/Toc";
+import TwitterCard from "../components/TwitterCard";
 
 type Props = {
   toc?: TocItem[];
@@ -59,6 +60,7 @@ const Sidebar: React.FC<Props> = ({ className, toc }) => {
   return (
     <StyledAside className={className}>
       <AuthorCard />
+      <TwitterCard />
       <Sticky>
         {toc && <Toc toc={toc} />}
         <SidebarCard title={"分类"}>
