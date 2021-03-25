@@ -113,3 +113,7 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+# Editor
+.vscode
+.idea

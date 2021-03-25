@@ -18,7 +18,7 @@ Laravel 提供了一个强大的文件系统抽象，我们可以直接使用，
 
 Laravel 内置了 `Storage::files($directory)`可以读取指定目录下的文件并生成一个索引数组， `Storage::directories($directory)`可以读取指定目录下的子目录并生成索引数组，利用这两个函数就可以将指定文件夹下的所有文件和所有子文件夹的信息都存入数组中，然后可以递归提取出来的子文件夹进行深层查找，直到没有子文件夹为止，但是这样提取出来的数组会变得乱七八糟的，在生成目录列表的时候就不容易，所以要在递归的同时修改生成的索引数组。
 
-![](https://blog.ixk.me/wp-content/uploads/2019/03/image.png)
+![](https://cdn.jsdelivr.net/gh/syfxlin/pic/2021/03/20210325135236.png)
 
 生成的目录树结构如上，当 key 为数字时则代表 value 为文件，当 key 为字符串时则代表 value 为文件夹。
 
