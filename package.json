@@ -45,6 +45,7 @@
     "gatsby-plugin-mdx-embed": "^0.0.19",
     "gatsby-plugin-next-seo": "^1.7.0",
     "gatsby-plugin-offline": "^4.0.0",
+    "gatsby-plugin-robots-txt": "^1.5.5",
     "gatsby-plugin-sharp": "^3.0.0",
     "gatsby-plugin-sitemap": "^3.0.0",
     "gatsby-plugin-smoothscroll": "^1.2.0",

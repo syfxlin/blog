@@ -385,7 +385,8 @@ const plugins: GatsbyConfig["plugins"] = [
       skipIndexing: process.env.ALGOLIA_SKIP_INDEXING // default: false, useful for e.g. preview deploys or local development
     }
   },
-  "gatsby-plugin-catch-links"
+  "gatsby-plugin-catch-links",
+  "gatsby-plugin-robots-txt"
 ];
 
 export default {
