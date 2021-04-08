@@ -1,12 +1,11 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
-import CodeBlock from "../mdx/CodeBlock";
-import Image from "../mdx/Image";
 import theme from "../theme";
 import { MDXProvider } from "@mdx-js/react";
 import { ThemeProvider } from "styled-components";
 import Background from "../components/Background";
 import APlayer from "../mdx/APlayer";
+import * as mdxComponents from "../mdx";
 
 // css
 import "spectre.css/dist/spectre.min.css";
@@ -25,11 +24,6 @@ type QueryProps = {
   };
 };
 
-const components = {
-  pre: CodeBlock,
-  img: Image
-};
-
 const Global: React.FC = ({ children }) => {
   const { site } = useStaticQuery<QueryProps>(graphql`
     query LayoutQuery {
@@ -44,7 +38,7 @@ const Global: React.FC = ({ children }) => {
   return (
     <>
       <ThemeProvider theme={theme.light}>
-        <MDXProvider components={components}>{children}</MDXProvider>
+        <MDXProvider components={mdxComponents}>{children}</MDXProvider>
         {site.siteMetadata.background && (
           <Background background={site.siteMetadata.background} />
         )}
