@@ -129,7 +129,6 @@ const siteMetadata: GatsbyConfig["siteMetadata"] = {
     serverUrl: "https://comment.api.ixk.me"
   }
 };
-const assetPrefix = "https://cdn.jsdelivr.net/gh/syfxlin/blog@gh-pages";
 
 const sourcePath = `${__dirname}/../source`;
 const sourcePlugins = fs.readdirSync(sourcePath).map((folder) => {
@@ -405,7 +404,6 @@ const plugins: GatsbyConfig["plugins"] = [
 ];
 
 export default {
-  assetPrefix,
   siteMetadata,
   plugins
 };
