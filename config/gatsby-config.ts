@@ -129,6 +129,7 @@ const siteMetadata: GatsbyConfig["siteMetadata"] = {
     serverUrl: "https://comment.api.ixk.me"
   }
 };
+const assetPrefix = "https://cdn.jsdelivr.net/gh/syfxlin/blog@gh-pages";
 
 const sourcePath = `${__dirname}/../source`;
 const sourcePlugins = fs.readdirSync(sourcePath).map((folder) => {
@@ -192,6 +193,14 @@ const plugins: GatsbyConfig["plugins"] = [
     resolve: "gatsby-plugin-mdx",
     options: {
       extensions: [".mdx", ".md"],
+      plugins: [
+        {
+          resolve: `gatsby-remark-images-medium-zoom`,
+          options: {
+            margin: 40
+          }
+        }
+      ],
       remarkPlugins: [require("remark-math"), require("remark-html-katex")],
       gatsbyRemarkPlugins: [
         {
@@ -204,7 +213,13 @@ const plugins: GatsbyConfig["plugins"] = [
         "gatsby-remark-smartypants",
         "gatsby-remark-autolink-headers",
         "gatsby-remark-katex",
-        "gatsby-remark-external-links"
+        "gatsby-remark-external-links",
+        {
+          resolve: "gatsby-remark-images",
+          options: {
+            linkImagesToOriginal: false
+          }
+        }
       ]
     }
   },
@@ -390,6 +405,7 @@ const plugins: GatsbyConfig["plugins"] = [
 ];
 
 export default {
+  assetPrefix,
   siteMetadata,
   plugins
 };
