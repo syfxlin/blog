@@ -1,6 +1,5 @@
 import loadable from "@loadable/component";
 
-export const repo = loadable(() => import("react-repo-card"));
 export const pre = loadable(() => import("./CodeBlock"));
 // export const img = loadable(() => import("./Image"));
 export const aplayer = loadable(() => import("./APlayer"));
