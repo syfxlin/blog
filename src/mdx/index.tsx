@@ -1,7 +1,7 @@
 import loadable from "@loadable/component";
 
 export const pre = loadable(() => import("./CodeBlock"));
-// export const img = loadable(() => import("./Image"));
+export const repo = loadable(() => import("./RepoCard"));
 export const aplayer = loadable(() => import("./APlayer"));
 export const dplayer = loadable(() => import("./DPlayer"));
 export const message = loadable(() => import("./MessageBox"));
