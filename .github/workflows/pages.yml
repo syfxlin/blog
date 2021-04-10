@@ -1,5 +1,12 @@
 name: Gatsby Deploy
-on: [push, pull_request, repository_dispatch]
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+  workflow_dispatch:
 jobs:
   deploy:
     env:
