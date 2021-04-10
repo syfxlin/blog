@@ -10,10 +10,14 @@ type Props = {
 };
 
 const useFetch = (url: string) =>
-  useAsync(async () => {
-    const response = await fetch(url);
-    return await response.json();
-  });
+  useAsync(() =>
+    fetch(url).then((res) => {
+      if (res.status >= 400) {
+        return Promise.reject(true);
+      }
+      return res.json();
+    })
+  );
 
 const useEmojis = () => useFetch("https://api.github.com/emojis");
 
