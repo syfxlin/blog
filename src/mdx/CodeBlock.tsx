@@ -34,7 +34,7 @@ const Pre = styled.div`
   border-radius: 0;
   width: 100%;
   background: ${({ theme }) => theme.codeBackground} !important;
-  box-shadow: 0 1px 20px -6px ${({ theme }) => theme.shadow};
+  box-shadow: 0 1px 15px -6px ${({ theme }) => theme.shadow};
   position: relative;
   padding: 0 !important;
 
