@@ -37,11 +37,12 @@ const PostCard: React.FC<Props> = ({ link }) => {
 const StyledCard = styled.div`
   border: 1px solid ${({ theme }) => rgba(theme.divider, 0.1)};
   border-radius: 0.4rem;
-  padding: 1rem;
+  padding: 0.6rem 1rem;
   background: ${({ theme }) => rgba(theme.background, 0.75)};
   box-shadow: 0 1px 15px -6px ${({ theme }) => theme.shadow};
   position: relative;
   overflow: hidden;
+  margin-bottom: 0.6rem;
 
   &:after {
     position: absolute;
