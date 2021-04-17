@@ -98,3 +98,22 @@ IoC 容器所需要存储的数据：
 - 注入器 & Bean 处理器（Injector & BeanProcessor）：为了方便扩展和实现额外的功能就不能把构建的流程封闭到 IoC 容器，所以需要通过注入器或者 Bean 处理器来处理实例或依赖。
 - 作用域（Context, Scope）：IoC 容器不可能只存储某个作用域的实例，通常有多种作用域，比如单例域、非单例、请求域等多种作用域来存储实例。
 - 临时依赖（DataBinder）：由于部分情况需要临时注入一些依赖，比如 HTTP 的请求参数，这就需要有一个数据容器来临时存储这些参数依赖。
+
+XK-Java IoC 容器所需要的功能：
+
+- 绑定：用于将依赖绑定到容器中，依赖可以是已经构建完成的实例、立即值、工厂类等等。对应 `bind`、`doBind` 方法。
+- 构建：当某个依赖被依赖的时候，而且依赖没有构建的时候就需要对依赖进行构建。对应 `doBuild` 方法。
+- 获取：当我们需要某个实例的时候，就需要从 IoC 容器获取。对应 `make`、`doMake` 方法。
+- 销毁：当依赖被从容器删除，或者容器关闭的时候就需要对依赖进行销毁操作，如关闭连接池等等的操作。对应 `remove`、`doRemove` 方法。
+
+## 实现
+
+有了大致的设计我们就可以开始动工了。
+
+首先需要准备一些周边的类和接口：
+
+- [TypeProvider](https://github.com/syfxlin/xkjava/blob/ce06902e7b8b6650791c41aa0ce13c291b311969/xkjava-framework/src/main/java/me/ixk/framework/ioc/type/TypeProvider.java)：为实现集合、Map 等复合类型注入的类型提供器。因为 Java 有泛型擦除的问题，无法简单的保留泛型，需要从 `Field` 等类中读取然后保存传递到容器中。
+- [TypeWrapper](https://github.com/syfxlin/xkjava/blob/ce06902e7b8b6650791c41aa0ce13c291b311969/xkjava-framework/src/main/java/me/ixk/framework/ioc/type/TypeWrapper.java)：TypeProvider 的实现类。
+- [FactoryBean](https://github.com/syfxlin/xkjava/blob/ce06902e7b8b6650791c41aa0ce13c291b311969/xkjava-framework/src/main/java/me/ixk/framework/ioc/factory/FactoryBean.java)：工厂 Bean，作用和 Spring 的类似，用于创建 Bean 的工厂。
+- [ObjectFactory](https://github.com/syfxlin/xkjava/blob/ce06902e7b8b6650791c41aa0ce13c291b311969/xkjava-framework/src/main/java/me/ixk/framework/ioc/factory/ObjectFactory.java)：作用和 Spring 类似，用于延迟获取 Bean，不过在本框架也用于 Cglib 代理。
+- [ObjectProvider](https://github.com/syfxlin/xkjava/blob/ce06902e7b8b6650791c41aa0ce13c291b311969/xkjava-framework/src/main/java/me/ixk/framework/ioc/factory/ObjectProvider.java)：作用和 Spring 类似，相当于高级的 ObjectFactory。
