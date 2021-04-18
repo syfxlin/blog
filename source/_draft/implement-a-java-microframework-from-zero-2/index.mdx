@@ -110,10 +110,199 @@ XK-Java IoC 容器所需要的功能：
 
 有了大致的设计我们就可以开始动工了。
 
-首先需要准备一些周边的类和接口：
+首先需要准备一些周边的类和接口，以下这些周边类是属于 IoC 的一部分，有些其他的类，如 [MergedAnnotation](/post/talking-about-merged-annotation)，就不在这里说明了。
 
 - [TypeProvider](https://github.com/syfxlin/xkjava/blob/ce06902e7b8b6650791c41aa0ce13c291b311969/xkjava-framework/src/main/java/me/ixk/framework/ioc/type/TypeProvider.java)：为实现集合、Map 等复合类型注入的类型提供器。因为 Java 有泛型擦除的问题，无法简单的保留泛型，需要从 `Field` 等类中读取然后保存传递到容器中。
 - [TypeWrapper](https://github.com/syfxlin/xkjava/blob/ce06902e7b8b6650791c41aa0ce13c291b311969/xkjava-framework/src/main/java/me/ixk/framework/ioc/type/TypeWrapper.java)：TypeProvider 的实现类。
 - [FactoryBean](https://github.com/syfxlin/xkjava/blob/ce06902e7b8b6650791c41aa0ce13c291b311969/xkjava-framework/src/main/java/me/ixk/framework/ioc/factory/FactoryBean.java)：工厂 Bean，作用和 Spring 的类似，用于创建 Bean 的工厂。
 - [ObjectFactory](https://github.com/syfxlin/xkjava/blob/ce06902e7b8b6650791c41aa0ce13c291b311969/xkjava-framework/src/main/java/me/ixk/framework/ioc/factory/ObjectFactory.java)：作用和 Spring 类似，用于延迟获取 Bean，不过在本框架也用于 Cglib 代理。
 - [ObjectProvider](https://github.com/syfxlin/xkjava/blob/ce06902e7b8b6650791c41aa0ce13c291b311969/xkjava-framework/src/main/java/me/ixk/framework/ioc/factory/ObjectProvider.java)：作用和 Spring 类似，相当于高级的 ObjectFactory。
+- [AnnotatedEntry](https://github.com/syfxlin/xkjava/blob/ce06902e7b8b6650791c41aa0ce13c291b311969/xkjava-framework/src/main/java/me/ixk/framework/ioc/entity/AnnotatedEntry.java)、[ClassProperty](https://github.com/syfxlin/xkjava/blob/ce06902e7b8b6650791c41aa0ce13c291b311969/xkjava-framework/src/main/java/me/ixk/framework/ioc/entity/ClassProperty.java)、[ConstructorContext](https://github.com/syfxlin/xkjava/blob/ce06902e7b8b6650791c41aa0ce13c291b311969/xkjava-framework/src/main/java/me/ixk/framework/ioc/entity/ConstructorContext.java)、[InjectContext](https://github.com/syfxlin/xkjava/blob/ce06902e7b8b6650791c41aa0ce13c291b311969/xkjava-framework/src/main/java/me/ixk/framework/ioc/entity/InjectContext.java)、[ParameterContext](https://github.com/syfxlin/xkjava/blob/ce06902e7b8b6650791c41aa0ce13c291b311969/xkjava-framework/src/main/java/me/ixk/framework/ioc/entity/ParameterContext.java)：一些包装类。
+- [ScopeType](https://github.com/syfxlin/xkjava/blob/ce06902e7b8b6650791c41aa0ce13c291b311969/xkjava-framework/src/main/java/me/ixk/framework/ioc/context/ScopeType.java)：就一个静态类，存放内置作用域名称的常量。
+
+有了上面这些周边类，就可以进入下一部分了。
+
+### DataBinder
+
+由于 XK-Java 的设计与 Spring 有所不同。在 XK-Java 的设计里，所有需要注入的（如注入单例，注入请求参数） Java 实例都应该由 IoC 容器负责构建。通常情况下我们有可能会临时设置一些依赖，而又不希望这些临时的依赖托管到容器里，这时候就需要 DataBinder 来负责存储。
+
+```java
+// see: https://github.com/syfxlin/xkjava/blob/36b1ca22c86790b93e79a00c5b6c3e031ad6139b/xkjava-framework/src/main/java/me/ixk/framework/ioc/binder/DataBinder.java
+public interface DataBinder {
+    /**
+     * 获取实例
+     *
+     * @param name       实例名
+     * @param type       实例类型
+     * @param annotation 注解
+     * @param <T>        实例类型
+     * @param container  容器
+     * @return 实例
+     */
+    <T> T getObject(
+        String name,
+        TypeWrapper<T> type,
+        MergedAnnotation annotation,
+        Container container
+    );
+}
+
+```
+
+DataBinder 被设计为简单的依赖存储容器，所以无需非常多的元信息，通过实例的名称、类型、注解即可取得其存储的实例。可以认为是缩小版的 IoC 容器。
+
+DefaultDataBinder 是默认的实现类：
+
+```java
+// see: https://github.com/syfxlin/xkjava/blob/36b1ca22c86790b93e79a00c5b6c3e031ad6139b/xkjava-framework/src/main/java/me/ixk/framework/ioc/binder/DefaultDataBinder.java
+public class DefaultDataBinder implements DataBinder {
+    // 实例容器 <名称，实例>
+    private final Map<String, Object> objects = new HashMap<>();
+    // 类型对应的实例名称 <类型，<名称>>
+    private final Map<Class<?>, List<String>> objectTypes = new HashMap<>();
+
+    @Override
+    public <T> T getObject(
+        String name,
+        final TypeWrapper<T> type,
+        final MergedAnnotation annotation,
+        final Container container
+    ) {
+        // 取得 DataBind 注解，DataBind 注解可以控制注入的实例
+        final DataBind dataBind = annotation == null
+            ? null
+            : annotation.getAnnotation(DataBind.class);
+        if (dataBind != null && dataBind.name().length() != 0) {
+            // 如果 DataBind 设置要取得的实例的名称就以 DataBind 为准
+            name = dataBind.name();
+        }
+        final Class<T> clazz = type.getClazz();
+        // 取得对应名称的实例
+        Object object = this.objects.get(name);
+        // 如果取得的实例类型不符，那就放弃这个实例（需要注意，DataBind 被设计为不允许类型转换）
+        if (object != null && !clazz.isInstance(object)) {
+            object = null;
+        }
+        if (object == null) {
+            // 如果通过名称找不到就尝试通过类型查找
+            final List<String> list = this.objectTypes.get(clazz);
+            final String objectName;
+            if (list == null || list.isEmpty()) {
+                // 如果没找到就使用默认的名称，即类名首字母小写后的名称
+                objectName = container.typeToBeanName(clazz);
+            } else {
+                objectName = list.get(0);
+            }
+            object = this.objects.get(objectName);
+        }
+        if (object == null) {
+            // 如果还是没取得，就尝试使用 IoC 容器构建（递归构建）
+            object = container.make(name, type, this);
+        }
+        if (
+            object == null &&
+            dataBind != null &&
+            DataBind.EMPTY.equals(dataBind.defaultValue())
+        ) {
+            // 构建还是失败了（真惨），那就使用 DataBind 设置的默认值
+            object = dataBind.defaultValue();
+        }
+        // 类型转换（需要注意，这只是简单的转换）
+        return Convert.convert(clazz, object);
+    }
+}
+```
+
+### Context
+
+Context 类似于 Spring 的 Scope，用于作用域隔离，比如线程私有实例，请求私有实例等等。具体的可以参考 Spring 的 Scope 的作用。
+
+```java
+// see: https://github.com/syfxlin/xkjava/blob/36b1ca22c86790b93e79a00c5b6c3e031ad6139b/xkjava-framework/src/main/java/me/ixk/framework/ioc/context/Context.java
+public interface Context {
+    /**
+     * 是否是共享的，即单例
+     *
+     * @return 是否
+     */
+    default boolean isShared() {
+        return true;
+    }
+
+    /**
+     * 该 Context 是否启动，一般的 Context 只要 new 后就会启动 但是如果是 ThreadLocal 则需要另行启动
+     *
+     * @return 是否启动
+     */
+    default boolean isCreated() {
+        return true;
+    }
+
+    /**
+     * 是否需要代理
+     *
+     * @return 是否需要代理
+     */
+    default boolean useProxy() {
+        return false;
+    }
+
+    /**
+     * 获取所有实例
+     *
+     * @return 所有实例
+     */
+    ConcurrentMap<String, Object> getInstances();
+
+    /**
+     * 获取实例
+     *
+     * @param name 实例名称
+     * @return 实例
+     */
+    default Object get(final String name) {
+        return this.getInstances().get(name);
+    }
+
+    /**
+     * 删除实例
+     *
+     * @param name 实例名称
+     */
+    default void remove(final String name) {
+        this.getInstances().remove(name);
+    }
+
+    /**
+     * 设置实例
+     *
+     * @param name     名称
+     * @param instance 实例
+     */
+    default void set(final String name, final Object instance) {
+        this.getInstances().put(name, instance);
+    }
+
+    /**
+     * 是否存在实例
+     *
+     * @param name 实例名称
+     * @return 是否存在
+     */
+    default boolean has(final String name) {
+        return this.getInstances().containsKey(name);
+    }
+}
+```
+
+可以看到 Context 其实就是一个类似 Map 的容器，只不过有些其他的方法：
+
+- `isShared` 方法用于确定是否是单例，如果是单例 IoC 容器会在构建实例完后将单例存入 Context。
+- `isCreated` 方法用于确定实例是否启动，避免在未启动的时候错误使用。
+- `useProxy` 方法用于确定实例是否需要 Cglib 代理来实时获取最新的值，避免发生使用旧对象情况，或者将 Request 作用域对象注入到 Singleton 作用域导致线程不安全。
+
+有了接口自然有实现类，以下是几个不同场景的实现类：
+
+- [SingletonContext](https://github.com/syfxlin/xkjava/blob/36b1ca22c86790b93e79a00c5b6c3e031ad6139b/xkjava-framework/src/main/java/me/ixk/framework/ioc/context/SingletonContext.java)：单例作用域，里面就是一个简单的 ConcurrentHashMap。
+- [PrototypeContext](https://github.com/syfxlin/xkjava/blob/36b1ca22c86790b93e79a00c5b6c3e031ad6139b/xkjava-framework/src/main/java/me/ixk/framework/ioc/context/PrototypeContext.java)：原型作用域，不存储实例，是非共享的。
+- [RequestContext](https://github.com/syfxlin/xkjava/blob/36b1ca22c86790b93e79a00c5b6c3e031ad6139b/xkjava-framework/src/main/java/me/ixk/framework/ioc/context/RequestContext.java)：请求作用域，这个作用域和 [SessionContext](https://github.com/syfxlin/xkjava/blob/36b1ca22c86790b93e79a00c5b6c3e031ad6139b/xkjava-framework/src/main/java/me/ixk/framework/ioc/context/SessionContext.java) 一样比较特殊，是存储于对应作用域的对象里，比如 Request 是存储于 HttpServletRequest 的 Attribute 里，Session 则存储于 HttpSession 里。
