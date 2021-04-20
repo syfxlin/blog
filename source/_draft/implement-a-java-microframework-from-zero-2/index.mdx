@@ -112,13 +112,13 @@ XK-Java IoC 容器所需要的功能：
 
 首先需要准备一些周边的类和接口，以下这些周边类是属于 IoC 的一部分，有些其他的类，如 [MergedAnnotation](/post/talking-about-merged-annotation)，就不在这里说明了。
 
-- [TypeProvider](https://github.com/syfxlin/xkjava/blob/ce06902e7b8b6650791c41aa0ce13c291b311969/xkjava-framework/src/main/java/me/ixk/framework/ioc/type/TypeProvider.java)：为实现集合、Map 等复合类型注入的类型提供器。因为 Java 有泛型擦除的问题，无法简单的保留泛型，需要从 `Field` 等类中读取然后保存传递到容器中。
-- [TypeWrapper](https://github.com/syfxlin/xkjava/blob/ce06902e7b8b6650791c41aa0ce13c291b311969/xkjava-framework/src/main/java/me/ixk/framework/ioc/type/TypeWrapper.java)：TypeProvider 的实现类。
-- [FactoryBean](https://github.com/syfxlin/xkjava/blob/ce06902e7b8b6650791c41aa0ce13c291b311969/xkjava-framework/src/main/java/me/ixk/framework/ioc/factory/FactoryBean.java)：工厂 Bean，作用和 Spring 的类似，用于创建 Bean 的工厂。
-- [ObjectFactory](https://github.com/syfxlin/xkjava/blob/ce06902e7b8b6650791c41aa0ce13c291b311969/xkjava-framework/src/main/java/me/ixk/framework/ioc/factory/ObjectFactory.java)：作用和 Spring 类似，用于延迟获取 Bean，不过在本框架也用于 Cglib 代理。
-- [ObjectProvider](https://github.com/syfxlin/xkjava/blob/ce06902e7b8b6650791c41aa0ce13c291b311969/xkjava-framework/src/main/java/me/ixk/framework/ioc/factory/ObjectProvider.java)：作用和 Spring 类似，相当于高级的 ObjectFactory。
-- [AnnotatedEntry](https://github.com/syfxlin/xkjava/blob/ce06902e7b8b6650791c41aa0ce13c291b311969/xkjava-framework/src/main/java/me/ixk/framework/ioc/entity/AnnotatedEntry.java)、[ClassProperty](https://github.com/syfxlin/xkjava/blob/ce06902e7b8b6650791c41aa0ce13c291b311969/xkjava-framework/src/main/java/me/ixk/framework/ioc/entity/ClassProperty.java)、[ConstructorContext](https://github.com/syfxlin/xkjava/blob/ce06902e7b8b6650791c41aa0ce13c291b311969/xkjava-framework/src/main/java/me/ixk/framework/ioc/entity/ConstructorContext.java)、[InjectContext](https://github.com/syfxlin/xkjava/blob/ce06902e7b8b6650791c41aa0ce13c291b311969/xkjava-framework/src/main/java/me/ixk/framework/ioc/entity/InjectContext.java)、[ParameterContext](https://github.com/syfxlin/xkjava/blob/ce06902e7b8b6650791c41aa0ce13c291b311969/xkjava-framework/src/main/java/me/ixk/framework/ioc/entity/ParameterContext.java)：一些包装类。
-- [ScopeType](https://github.com/syfxlin/xkjava/blob/ce06902e7b8b6650791c41aa0ce13c291b311969/xkjava-framework/src/main/java/me/ixk/framework/ioc/context/ScopeType.java)：就一个静态类，存放内置作用域名称的常量。
+- [TypeProvider](https://github.com/syfxlin/xkjava/blob/36b1ca22c86790b93e79a00c5b6c3e031ad6139b/xkjava-framework/src/main/java/me/ixk/framework/ioc/type/TypeProvider.java)：为实现集合、Map 等复合类型注入的类型提供器。因为 Java 有泛型擦除的问题，无法简单的保留泛型，需要从 `Field` 等类中读取然后保存传递到容器中。
+- [TypeWrapper](https://github.com/syfxlin/xkjava/blob/36b1ca22c86790b93e79a00c5b6c3e031ad6139b/xkjava-framework/src/main/java/me/ixk/framework/ioc/type/TypeWrapper.java)：TypeProvider 的实现类。
+- [FactoryBean](https://github.com/syfxlin/xkjava/blob/36b1ca22c86790b93e79a00c5b6c3e031ad6139b/xkjava-framework/src/main/java/me/ixk/framework/ioc/factory/FactoryBean.java)：工厂 Bean，作用和 Spring 的类似，用于创建 Bean 的工厂。
+- [ObjectFactory](https://github.com/syfxlin/xkjava/blob/36b1ca22c86790b93e79a00c5b6c3e031ad6139b/xkjava-framework/src/main/java/me/ixk/framework/ioc/factory/ObjectFactory.java)：作用和 Spring 类似，用于延迟获取 Bean，不过在本框架也用于 Cglib 代理。
+- [ObjectProvider](https://github.com/syfxlin/xkjava/blob/36b1ca22c86790b93e79a00c5b6c3e031ad6139b/xkjava-framework/src/main/java/me/ixk/framework/ioc/factory/ObjectProvider.java)：作用和 Spring 类似，相当于高级的 ObjectFactory。
+- [AnnotatedEntry](https://github.com/syfxlin/xkjava/blob/36b1ca22c86790b93e79a00c5b6c3e031ad6139b/xkjava-framework/src/main/java/me/ixk/framework/ioc/entity/AnnotatedEntry.java)、[ClassProperty](https://github.com/syfxlin/xkjava/blob/36b1ca22c86790b93e79a00c5b6c3e031ad6139b/xkjava-framework/src/main/java/me/ixk/framework/ioc/entity/ClassProperty.java)、[ConstructorContext](https://github.com/syfxlin/xkjava/blob/36b1ca22c86790b93e79a00c5b6c3e031ad6139b/xkjava-framework/src/main/java/me/ixk/framework/ioc/entity/ConstructorContext.java)、[InjectContext](https://github.com/syfxlin/xkjava/blob/36b1ca22c86790b93e79a00c5b6c3e031ad6139b/xkjava-framework/src/main/java/me/ixk/framework/ioc/entity/InjectContext.java)、[ParameterContext](https://github.com/syfxlin/xkjava/blob/36b1ca22c86790b93e79a00c5b6c3e031ad6139b/xkjava-framework/src/main/java/me/ixk/framework/ioc/entity/ParameterContext.java)：一些包装类。
+- [ScopeType](https://github.com/syfxlin/xkjava/blob/36b1ca22c86790b93e79a00c5b6c3e031ad6139b/xkjava-framework/src/main/java/me/ixk/framework/ioc/context/ScopeType.java)：就一个静态类，存放内置作用域名称的常量。
 
 有了上面这些周边类，就可以进入下一部分了。
 
@@ -306,3 +306,71 @@ public interface Context {
 - [SingletonContext](https://github.com/syfxlin/xkjava/blob/36b1ca22c86790b93e79a00c5b6c3e031ad6139b/xkjava-framework/src/main/java/me/ixk/framework/ioc/context/SingletonContext.java)：单例作用域，里面就是一个简单的 ConcurrentHashMap。
 - [PrototypeContext](https://github.com/syfxlin/xkjava/blob/36b1ca22c86790b93e79a00c5b6c3e031ad6139b/xkjava-framework/src/main/java/me/ixk/framework/ioc/context/PrototypeContext.java)：原型作用域，不存储实例，是非共享的。
 - [RequestContext](https://github.com/syfxlin/xkjava/blob/36b1ca22c86790b93e79a00c5b6c3e031ad6139b/xkjava-framework/src/main/java/me/ixk/framework/ioc/context/RequestContext.java)：请求作用域，这个作用域和 [SessionContext](https://github.com/syfxlin/xkjava/blob/36b1ca22c86790b93e79a00c5b6c3e031ad6139b/xkjava-framework/src/main/java/me/ixk/framework/ioc/context/SessionContext.java) 一样比较特殊，是存储于对应作用域的对象里，比如 Request 是存储于 HttpServletRequest 的 Attribute 里，Session 则存储于 HttpSession 里。
+
+### Binding
+
+Binding 是实例元信息的实现类，与 Spring 中的 BeanDefinition 类似，不过由于不需要太多的功能就只保存了几种元信息：
+
+- 作用域名称（[scope](https://github.com/syfxlin/xkjava/blob/36b1ca22c86790b93e79a00c5b6c3e031ad6139b/xkjava-framework/src/main/java/me/ixk/framework/ioc/entity/Binding.java#L34)）：实例对应的作用域名称。
+- 名称（[name](https://github.com/syfxlin/xkjava/blob/36b1ca22c86790b93e79a00c5b6c3e031ad6139b/xkjava-framework/src/main/java/me/ixk/framework/ioc/entity/Binding.java#L35)）：实例名称，全局唯一。
+- 类型及类注解（[instanceTypeEntry](https://github.com/syfxlin/xkjava/blob/36b1ca22c86790b93e79a00c5b6c3e031ad6139b/xkjava-framework/src/main/java/me/ixk/framework/ioc/entity/Binding.java#L36)）：实例的类型及标记在该类上的组合注解。
+- 是否是主要的实例（[primary](https://github.com/syfxlin/xkjava/blob/36b1ca22c86790b93e79a00c5b6c3e031ad6139b/xkjava-framework/src/main/java/me/ixk/framework/ioc/entity/Binding.java#L37)）：如果是主要注解，当通过类型获取实例，同时该类型下有多个不同的实例，则优先使用 primary 为 true 的实例。
+- 额外信息（[bindingInfos](https://github.com/syfxlin/xkjava/blob/36b1ca22c86790b93e79a00c5b6c3e031ad6139b/xkjava-framework/src/main/java/me/ixk/framework/ioc/entity/Binding.java#L38)）：带软引用缓存的一些信息，有 [init-destory](https://github.com/syfxlin/xkjava/blob/36b1ca22c86790b93e79a00c5b6c3e031ad6139b/xkjava-framework/src/main/java/me/ixk/framework/ioc/entity/Binding.java#L219-L220) 对应的方法反射和 [autowired](https://github.com/syfxlin/xkjava/blob/36b1ca22c86790b93e79a00c5b6c3e031ad6139b/xkjava-framework/src/main/java/me/ixk/framework/ioc/entity/Binding.java#L221) 需要注入的方法，以及字段和方法的[反射以及注解](https://github.com/syfxlin/xkjava/blob/36b1ca22c86790b93e79a00c5b6c3e031ad6139b/xkjava-framework/src/main/java/me/ixk/framework/ioc/entity/Binding.java#L223-L224)。同类型并且有缓存的情况下就不需要再扫描。
+
+除了元信息外 Binding 还保存了一些其他的数据：
+
+- [Context](https://github.com/syfxlin/xkjava/blob/36b1ca22c86790b93e79a00c5b6c3e031ad6139b/xkjava-framework/src/main/java/me/ixk/framework/ioc/entity/Binding.java#L33)：作用域，为了 Binding 内部方法方便操作，避免要使用的时候从 IoC 容器中获取。
+- [FactoryBean](https://github.com/syfxlin/xkjava/blob/36b1ca22c86790b93e79a00c5b6c3e031ad6139b/xkjava-framework/src/main/java/me/ixk/framework/ioc/entity/Binding.java#L40)：创建实例的工厂方法，如果未设置 IoC 容器会默认使用 [doBuild](https://github.com/syfxlin/xkjava/blob/36b1ca22c86790b93e79a00c5b6c3e031ad6139b/xkjava-framework/src/main/java/me/ixk/framework/ioc/Container.java#L799-L812) 方法构建实例。
+- [Mutex](https://github.com/syfxlin/xkjava/blob/36b1ca22c86790b93e79a00c5b6c3e031ad6139b/xkjava-framework/src/main/java/me/ixk/framework/ioc/entity/Binding.java#L44)：Binding 的互斥量（锁）用于避免多次初始化单例使用。将互斥量分散到不同的 Binding 中，避免使用唯一互斥量导致大量阻塞的发生。同时单例也采用双重检查模式，避免每次获取的时候都锁住互斥量导致阻塞。
+
+数据部分说完了就开始看方法吧，首先是初始化，初始化就是对 Binding 内的字段进行赋值，扫描对应类型的方法、注解等等的信息，对于消耗性能的扫描部分则使用软引用，空间换时间，避免重复扫描，同时在内存不足的时候可以时间换空间，一定程度避免 OOM 发生。
+
+然后 Binding 里剩下的重要操作就是对实例的操作了：
+
+```java
+// see: https://github.com/syfxlin/xkjava/blob/36b1ca22c86790b93e79a00c5b6c3e031ad6139b/xkjava-framework/src/main/java/me/ixk/framework/ioc/entity/Binding.java
+public class Binding {
+    public Object getSource() {
+        // 双重检查获取，因为此时实例可能在构建
+        final Object source = this.getSourceUnsafe();
+        if (source == null) {
+            synchronized (this.getMutex()) {
+                return this.getSourceUnsafe();
+            }
+        }
+        return source;
+    }
+
+    public Object getSource(final boolean proxy) {
+        // 是否使用代理，如果使用代理则利用 Cglib 进行代理，避免引用旧实例，否则就直接取得未代理的实例
+        // 因为执行方法的时候，实际上是每次都使用 getSource 方法取出最新的实例，然后执行
+        // 代理需要满足所有条件才会生效：
+        //   1. 是单例
+        //   2. Context 的作用域配置了需要代理
+        //   3. 注入的类型需要代理，在 TypeWrapper 配置（典型的就是 Field）
+        if (proxy && this.useProxy() && this.isShared()) {
+            return ReflectUtils.proxyObjectFactory(
+                (ObjectFactory<Object>) this::getSource,
+                this.getType()
+            );
+        } else {
+            return this.getSource();
+        }
+    }
+
+    private Object getSourceUnsafe() {
+        // 获取实例前需要判断 Context 是否已经启动，如果未启动就直接返回 null，避免 NPE。
+        return this.isCreated() ? this.context.get(name) : null;
+    }
+
+    public void setSource(final Object instance) {
+        // 设置实例的时候锁住互斥量
+        synchronized (this.getMutex()) {
+            // 要确定是单例才可以存入 Context，否则就不能存入
+            if (this.context.isShared()) {
+                this.context.set(name, instance);
+            }
+        }
+    }
+}
+```
