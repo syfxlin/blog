@@ -19,8 +19,8 @@ const siteMetadata: GatsbyConfig["siteMetadata"] = {
     title: "青空之蓝",
     subtitle: "站在时光一端，回忆过往记忆。",
     link: {
-      label: "Resume",
-      href: "https://ixk.me/resume.pdf"
+      label: "Otstar's Space",
+      href: "https://ixk.me"
     },
     background: [
       "https://cdn.jsdelivr.net/gh/syfxlin/pic/index/assets/img/1.jpg",
@@ -66,8 +66,8 @@ const siteMetadata: GatsbyConfig["siteMetadata"] = {
       ]
     },
     {
-      title: "📝时间日志",
-      url: "https://log.ixk.me",
+      title: "📝笔记",
+      url: "https://www.wolai.com/syfxlin/iyEsSMv6GSFWKdFdGJVGUi",
       sub: [
         {
           title: "⏳时光轴",
@@ -117,7 +117,7 @@ const siteMetadata: GatsbyConfig["siteMetadata"] = {
   footer: `{face} © 2017-{year} 青空之蓝 By <a href="https://ixk.me">Otstar Lin</a><br>闽ICP备 备案是不可能的<br>站点在各种灾难中运行了{date:07/01/2017 00:00:09}`,
   license: {
     label: "BY-NC-SA",
-    href: "http://creativecommons.org/licenses/by-nc-sa/4.0/"
+    href: "https://creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   algolia: {
     appId: process.env.ALGOLIA_APP_ID,
