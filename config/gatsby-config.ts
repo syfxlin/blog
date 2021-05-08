@@ -66,14 +66,8 @@ const siteMetadata: GatsbyConfig["siteMetadata"] = {
       ]
     },
     {
-      title: "📝笔记",
-      url: "https://www.wolai.com/syfxlin/iyEsSMv6GSFWKdFdGJVGUi",
-      sub: [
-        {
-          title: "⏳时光轴",
-          url: "/timeline"
-        }
-      ]
+      title: "⏳时光轴",
+      url: "/timeline"
     },
     {
       title: "🎉开发",
