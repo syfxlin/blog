@@ -232,6 +232,12 @@
       "url": "https://cyris.moe/",
       "avatar": "cyris.moe.png",
       "bio": "花如解笑还多事，石不能言最可人"
+    },
+    {
+      "name": "Cotpear",
+      "author": "齊一和其團隊",
+      "url": "https://www.cotpear.com?utm_src=blog.ixk.me",
+      "avatar": "www.cotpear.com.jpg",
     }
   ],
   "lostConnection": [
@@ -253,6 +259,6 @@
       "url": "https://nfz.moe",
       "avatar": "https://static.yecdn.com/syfxlin/friend-icon/neoFelhz.png",
       "bio": "拾穗者的故事"
-    }
+    }    
   ]
 }
