@@ -24,7 +24,7 @@ const plugins: GatsbyConfig["plugins"] = [
     }
   },
   {
-    resolve: "gatsby-source-directus",
+    resolve: "@syfxlin/gatsby-source-directus",
     options: {
       url: process.env.DIRECTUS_URL,
       token: process.env.DIRECTUS_TOKEN

@@ -63,6 +63,7 @@
     "gatsby-remark-katex": "^5.7.0",
     "gatsby-remark-responsive-iframe": "^4.7.0",
     "gatsby-remark-smartypants": "^4.7.0",
+    "@syfxlin/gatsby-source-directus": "git://github.com/syfxlin/gatsby-source-directus",
     "gatsby-source-filesystem": "^3.10.0",
     "gatsby-source-graphql": "^3.10.0",
     "gatsby-transformer-json": "^3.10.0",

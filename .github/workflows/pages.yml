@@ -24,6 +24,8 @@ jobs:
           ALGOLIA_ADMIN_KEY: ${{ secrets.ALGOLIA_ADMIN_KEY }}
           ALGOLIA_SKIP_INDEXING: ${{ secrets.ALGOLIA_SKIP_INDEXING }}
           GOOGLE_ANALUTICS_ID: ${{ secrets.GOOGLE_ANALUTICS_ID }}
+          DIRECTUS_URL: ${{ secrets.DIRECTUS_URL }}
+          DIRECTUS_TOKEN: ${{ secrets.DIRECTUS_TOKEN }}
       - name: delete .git
         run: rm public/.git -rf
       - name: deploy to server
