@@ -5,7 +5,7 @@ import { Link } from "gatsby";
 import { rgba } from "polished";
 
 type Props = {
-  tags: string[];
+  tags?: string[];
 };
 
 const TagList: React.FC<Props> = ({ tags }) => {

@@ -1,4 +1,23 @@
-const light = {
+import { DefaultTheme } from "styled-components";
+
+declare module "styled-components" {
+  export interface DefaultTheme {
+    type: "light" | "dark";
+    primary: string;
+    text: string;
+    text2: string;
+    background: string;
+    shadow: string;
+    divider: string;
+    codeBackground: string;
+    reverse: DefaultTheme;
+    light: DefaultTheme;
+    dark: DefaultTheme;
+  }
+}
+
+// @ts-ignore
+const light: DefaultTheme = {
   type: "light",
   primary: "#5755d9",
   text: "#3b4351",
@@ -9,7 +28,8 @@ const light = {
   codeBackground: "rgba(245, 242, 240, 1)"
 };
 
-const dark = {
+// @ts-ignore
+const dark: DefaultTheme = {
   type: "dark",
   primary: "#5755d9",
   text: "#FFF",
@@ -20,7 +40,10 @@ const dark = {
   codeBackground: "#272822"
 };
 
-const theme = {
+const theme: {
+  light: DefaultTheme;
+  dark: DefaultTheme;
+} = {
   light: {
     ...light,
     reverse: dark,

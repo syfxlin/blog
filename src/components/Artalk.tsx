@@ -9,7 +9,7 @@ type Props = {
 };
 
 const Artalk: React.FC<Props> = ({ pageKey, serverUrl }) => {
-  const theme = useTheme() as any;
+  const theme = useTheme();
   useEffect(() => {
     // @ts-ignore
     new ArtalkComment({

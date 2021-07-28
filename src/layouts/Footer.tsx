@@ -3,7 +3,7 @@ import Container from "./Container";
 import styled from "styled-components";
 import { useInterval } from "react-use";
 import { rgba } from "polished";
-import { graphql, useStaticQuery } from "gatsby";
+import { useFooterData } from "../query";
 
 type Props = {
   copyright?: string;
@@ -41,17 +41,8 @@ const convert = (str?: string) => {
 };
 
 const Footer: React.FC<Props> = ({ align }) => {
-  const { site } = useStaticQuery(graphql`
-    query FooterQuery {
-      site {
-        siteMetadata {
-          footer
-        }
-      }
-    }
-  `);
-  const copyright = site.siteMetadata.footer;
-  const html = useMemo(() => convert(copyright), [site]);
+  const footer = useFooterData();
+  const html = useMemo(() => convert(footer), [footer]);
   useInterval(() => {
     const element = document.querySelector("span[data-start]");
     if (element) {
@@ -82,7 +73,7 @@ const Footer: React.FC<Props> = ({ align }) => {
   return (
     <StyledFooter align={align}>
       <Copyright>
-        {copyright && (
+        {footer && (
           <>
             <span dangerouslySetInnerHTML={{ __html: html || "" }} />
             <br />

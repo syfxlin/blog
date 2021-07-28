@@ -5,12 +5,14 @@ import Card from "./Card";
 import { PageSubInfo } from "./PageInfo";
 import { rgba } from "polished";
 import TagList from "./TagList";
+import { IGatsbyImageData } from "gatsby-plugin-image/dist/src/components/gatsby-image.browser";
+import { BgImage } from "gbimage-bridge";
 
 type Props = {
   title: string;
   excerpt: string;
   date: string;
-  thumbnail?: string;
+  thumbnail?: IGatsbyImageData;
   categories?: string[];
   tags?: string[];
   link: string;
@@ -29,7 +31,9 @@ const PostCard: React.FC<Props> = ({
   return (
     <Card>
       {thumbnail && (
-        <Thumbnail to={link} style={{ backgroundImage: `url(${thumbnail})` }} />
+        <Thumbnail to={link}>
+          <BgImage image={thumbnail} />
+        </Thumbnail>
       )}
       <Info hasThumbnail={!!thumbnail}>
         <h2>
@@ -47,12 +51,14 @@ const PostCard: React.FC<Props> = ({
 };
 
 const Thumbnail = styled(Link)`
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
   height: 14rem;
   display: block;
   margin: -1.3rem -1.5rem 0 -1.5rem;
+
+  > div {
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 const Info = styled.div<{ hasThumbnail: boolean }>`

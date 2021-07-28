@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { useInterval } from "react-use";
-import styled from "styled-components";
 import { rgba } from "polished";
+import { IGatsbyImageData } from "gatsby-plugin-image/dist/src/components/gatsby-image.browser";
+import { BgImage } from "gbimage-bridge";
+import styled from "styled-components";
 
 type Props = {
-  background: string[];
+  background: IGatsbyImageData[];
 };
 
 const Background: React.FC<Props> = ({ background }) => {
@@ -14,14 +16,10 @@ const Background: React.FC<Props> = ({ background }) => {
   }, 10000);
   return (
     <StyledBackground>
-      {background.map((url, i) => (
-        <div
-          key={`background-${i}`}
-          style={{
-            opacity: i === index ? 1 : 0,
-            backgroundImage: `url(${url})`
-          }}
-        />
+      {background.map((image, i) => (
+        <div style={{ opacity: i === index ? 1 : 1 }} key={`background-${i}`}>
+          <BgImage image={image} />
+        </div>
       ))}
     </StyledBackground>
   );

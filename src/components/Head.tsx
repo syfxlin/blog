@@ -1,35 +1,43 @@
 import React from "react";
 import { GatsbySeo } from "gatsby-plugin-next-seo";
-import { GatsbySeoProps } from "gatsby-plugin-next-seo/src/types";
-import { graphql, useStaticQuery } from "gatsby";
+import { useSeoData } from "../query";
 
 export type HeadProps = {
   url?: string;
-} & GatsbySeoProps;
+  title?: string;
+  titleTemplate?: string;
+  description?: string;
+};
 
-const Head: React.FC<HeadProps> = ({ title, description, url, ...props }) => {
-  const { site } = useStaticQuery<{
-    site: { siteMetadata: { siteUrl: string } };
-  }>(graphql`
-    query HeadUrlQuery {
-      site {
-        siteMetadata {
-          siteUrl
-        }
-      }
-    }
-  `);
+const Head: React.FC<HeadProps> = ({
+  title,
+  description,
+  url,
+  titleTemplate
+}) => {
+  const seo = useSeoData();
   return (
     <>
       <GatsbySeo
-        {...props}
-        title={title}
-        description={description}
+        language={seo.language}
+        title={title || seo.title}
+        description={description || seo.description}
+        titleTemplate={titleTemplate || `%s | ${seo.title}`}
         openGraph={{
-          title,
-          description,
-          url: url ? `${site.siteMetadata.siteUrl}${url}` : undefined
+          type: "website",
+          locale: seo.language,
+          site_name: seo.title,
+          title: title || seo.title,
+          description: description || seo.description,
+          url: url ? `${seo.url}${url}` : undefined
         }}
+        twitter={{
+          handle: seo.twitter,
+          site: seo.twitter,
+          cardType: "summary_large_image"
+        }}
+        metaTags={seo.metaTags}
+        linkTags={seo.linkTags}
       />
     </>
   );

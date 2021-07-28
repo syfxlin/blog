@@ -1,46 +1,26 @@
 import React from "react";
-import { graphql, useStaticQuery } from "gatsby";
 import styled from "styled-components";
 import Card from "./Card";
+import { useAuthorData } from "../query";
+import { GatsbyImage } from "gatsby-plugin-image";
 
-type QueryProps = {
-  site: {
-    siteMetadata: {
-      author: {
-        name: string;
-        avatar: string;
-        image: string;
-        introduction: string;
-      };
-    };
-  };
-};
 const AuthorCard: React.FC<{ className?: string }> = ({ className }) => {
-  const { site } = useStaticQuery<QueryProps>(graphql`
-    query AuthorQuery {
-      site {
-        siteMetadata {
-          author {
-            name
-            avatar
-            image
-            introduction
-          }
-        }
-      }
-    }
-  `);
+  const data = useAuthorData();
   return (
     <StyledCard className={className}>
       <Image
-        style={{ backgroundImage: `url(${site.siteMetadata.author.image})` }}
+        style={{
+          backgroundImage: `url('https://cdn.jsdelivr.net/gh/syfxlin/pic/blog/about-card.jpg')`
+        }}
       />
       <Avatar>
-        <img src={site.siteMetadata.author.avatar} alt="Avatar" />
+        <GatsbyImage alt={"Avatar"} image={data.avatar} />
       </Avatar>
       <Introduction>
-        <h5>{site.siteMetadata.author.name}</h5>
-        {site.siteMetadata.author.introduction}
+        <h5>
+          {data.firstName} {data.lastName}
+        </h5>
+        {data.description}
       </Introduction>
     </StyledCard>
   );
@@ -69,7 +49,6 @@ const Avatar = styled.div`
   img {
     border-radius: 50%;
     height: 100%;
-    position: relative;
     width: 100%;
     z-index: 1;
   }

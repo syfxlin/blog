@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import Container from "../layouts/Container";
 import styled from "styled-components";
 import { rgba } from "polished";
-import StyledHeader from "../layouts/StyledHeader";
-import { graphql, useStaticQuery } from "gatsby";
+import StyledHeader from "./StyledHeader";
 import { useDebounce } from "react-use";
 import PostCard from "./PostCard";
 import useAlgolia from "../utils/useAlgolia";
 import Pagination from "./Pagination";
+import { useAlgoliaData } from "../query";
 
 type SearchStore = {
   id: string;
@@ -17,19 +17,7 @@ type SearchStore = {
   date: string;
   link: string;
   excerpt: string;
-};
-
-type QueryProps = {
-  site: {
-    siteMetadata: {
-      author: { name: string };
-      algolia: {
-        appId: string;
-        appKey: string;
-        indexName: string;
-      };
-    };
-  };
+  author: string;
 };
 
 type Props = {
@@ -38,27 +26,12 @@ type Props = {
 };
 
 const Search: React.FC<Props> = ({ show, onClose }) => {
-  const { site } = useStaticQuery<QueryProps>(graphql`
-    query SearchQuery {
-      site {
-        siteMetadata {
-          author {
-            name
-          }
-          algolia {
-            appId
-            appKey
-            indexName
-          }
-        }
-      }
-    }
-  `);
+  const config = useAlgoliaData();
   const [query, setQuery] = useState<string>("");
   const [searchState, requestDispatch] = useAlgolia<SearchStore>(
-    site.siteMetadata.algolia.appId,
-    site.siteMetadata.algolia.appKey,
-    site.siteMetadata.algolia.indexName,
+    config.appId,
+    config.appKey,
+    config.indexName,
     { hitsPerPage: 10 }
   );
   useDebounce(
@@ -97,13 +70,7 @@ const Search: React.FC<Props> = ({ show, onClose }) => {
       <List className="col-8 col-md-12">
         {searchState.hits.map((result: SearchStore) => {
           const post = result as SearchStore;
-          return (
-            <PostCard
-              key={`post-list-${post.link}`}
-              author={site.siteMetadata.author.name}
-              {...post}
-            />
-          );
+          return <PostCard key={`post-list-${post.link}`} {...post} />;
         })}
         {searchState.response && (
           <Pagination

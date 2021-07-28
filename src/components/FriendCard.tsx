@@ -1,29 +1,23 @@
 import React from "react";
 import styled from "styled-components";
 import Card from "./Card";
+import { IGatsbyImageData } from "gatsby-plugin-image/dist/src/components/gatsby-image.browser";
+import { GatsbyImage } from "gatsby-plugin-image";
 
 type Props = {
   name: string;
   url: string;
-  avatar: string;
+  avatar: IGatsbyImageData;
   bio?: string;
   author?: string;
-  imgBaseUrl?: string;
 };
 
-const FriendCard: React.FC<Props> = ({
-  imgBaseUrl,
-  name,
-  url,
-  avatar,
-  bio,
-  author
-}) => {
+const FriendCard: React.FC<Props> = ({ name, url, avatar, bio, author }) => {
   return (
     <StyledCard>
       <Link href={url} target={"_blank"} rel={"noreferrer"}>
         <Avatar>
-          <img src={imgBaseUrl + avatar} />
+          <GatsbyImage alt={name} image={avatar} />
         </Avatar>
         <Info>
           <Name>{name}</Name>
@@ -69,6 +63,7 @@ const Name = styled.div`
 
 const Author = styled.div`
   font-size: 0.5rem;
+  color: ${({ theme }) => theme.text};
 `;
 
 const Bio = styled.div`
@@ -76,6 +71,7 @@ const Bio = styled.div`
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  color: ${({ theme }) => theme.text};
 `;
 
 export default FriendCard;

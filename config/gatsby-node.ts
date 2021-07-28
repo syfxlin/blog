@@ -1,80 +1,20 @@
-import fs from "fs";
 import path from "path";
-import { createFilePath } from "gatsby-source-filesystem";
-import { archive, category, join, layout, tag } from "../src/utils/url";
-import {
-  CreateNodeArgs,
-  CreatePagesArgs,
-  GatsbyNode,
-  SourceNodesArgs
-} from "gatsby";
+import { CreatePagesArgs, CreateResolversArgs, GatsbyNode } from "gatsby";
+import { createRemoteFileNode } from "gatsby-source-filesystem";
+import { archive, category, join, tag } from "../src/utils/url";
+import * as articlesQuery from "./query/articles";
+import * as archivesQuery from "./query/archives";
+import * as categoriesQuery from "./query/categories";
+import * as tagsQuery from "./query/tags";
+import { status } from "./query/filter";
 
-export const onCreateWebpackConfig: GatsbyNode["onCreateWebpackConfig"] = ({
-  actions,
-  plugins
-}) => {
-  actions.setWebpackConfig({
-    plugins: [
-      plugins.define({
-        "global.GENTLY": false
-      })
-    ]
-  });
-};
-
-export const onCreateNode = ({
-  node,
-  actions,
-  getNode
-}: CreateNodeArgs<any>): GatsbyNode["onCreateNode"] => {
-  const { createNodeField } = actions;
-
-  if (node.internal.type === "Mdx") {
-    // 链接
-    const slug =
-      node.frontmatter.link ||
-      node.frontmatter.slug ||
-      createFilePath({ node, getNode });
-    createNodeField({
-      node,
-      name: "link",
-      value: layout(slug, node.frontmatter.layout || "post")
-    });
-    createNodeField({
-      node,
-      name: "slug",
-      value: layout(slug, node.frontmatter.layout || "post")
-    });
-
-    // 布局
-    createNodeField({
-      node,
-      name: "layout",
-      value: node.frontmatter.layout || "post"
-    });
-
-    // 日期时间，用于查询
-    const date = new Date(node.frontmatter.date);
-    const year = date.getFullYear();
-    const month = date.getMonth() + 1;
-    const year_month = `${year}-${month}`;
-    const day = date.getDate();
-    createNodeField({ node, name: "year", value: `${year}` });
-    createNodeField({ node, name: "month", value: `${month}` });
-    createNodeField({ node, name: "yearMonth", value: year_month });
-    createNodeField({ node, name: "day", value: `${day}` });
-  }
-  return undefined;
-};
-
-export const createPages = async ({
+export const createPages: GatsbyNode["createPages"] = async ({
   graphql,
   actions
-}: CreatePagesArgs & {
-  traceId: "initial-createPages";
-}): Promise<GatsbyNode["createPages"]> => {
+}: CreatePagesArgs) => {
   const { createPage } = actions;
 
+  // 创建分页
   const createPagination = (
     size: number,
     path: string,
@@ -109,167 +49,145 @@ export const createPages = async ({
     }
   };
 
-  const res = await graphql<{
-    allMdx: {
-      nodes: {
-        fields: {
-          link: string;
-          layout: string;
-        };
-        frontmatter: {
-          title: string;
-        };
-      }[];
-    };
-    categories: {
-      group: {
-        fieldValue: string;
-        totalCount: number;
-      }[];
-    };
-    tags: {
-      group: {
-        fieldValue: string;
-        totalCount: number;
-      }[];
-    };
-    archives: {
-      group: {
-        fieldValue: string;
-        totalCount: number;
-      }[];
-    };
-  }>(`
-    query CreatePagesQuery {
-      allMdx(sort: { fields: frontmatter___date, order: DESC }) {
-        nodes {
-          fields {
-            link
-            layout
-          }
-          frontmatter {
-            title
-          }
-        }
-      }
-      categories: allMdx(filter: { fields: { layout: { eq: "post" } } }) {
-        group(field: frontmatter___categories) {
-          fieldValue
-          totalCount
-        }
-      }
-      tags: allMdx(filter: { fields: { layout: { eq: "post" } } }) {
-        group(field: frontmatter___tags, limit: 20) {
-          fieldValue
-          totalCount
-        }
-      }
-      archives: allMdx(filter: { fields: { layout: { eq: "post" } } }) {
-        group(field: fields___year) {
-          fieldValue
-          totalCount
-        }
-      }
-    }
-  `);
+  // 查询数据
+  const articles = articlesQuery.convert(
+    (await graphql(articlesQuery.query, { status })).data as any
+  );
+  const categories = categoriesQuery.convert(
+    (await graphql(categoriesQuery.query, { status })).data as any
+  );
+  const tags = tagsQuery.convert(
+    (await graphql(tagsQuery.query, { status })).data as any
+  );
+  const archives = archivesQuery.convert(
+    (await graphql(archivesQuery.query, { status })).data as any
+  );
 
   // 文章或其他类型的页面，通过 layout 区分
-  const data = res.data;
-  if (!data) {
-    return undefined;
-  }
-  const nodes = data.allMdx.nodes;
-  const pages = nodes.filter((n) => n.fields.layout !== "post");
+  // 页面
+  const pages = articles.filter((n) => n.layout !== "post");
   pages.forEach((page) => {
     createPage({
-      path: join(page.fields.link),
-      component: path.resolve(`src/templates/${page.fields.layout}.tsx`),
+      path: join(page.link),
+      component: path.resolve(`src/templates/${page.layout}.tsx`),
       context: {
-        link: `${page.fields.link}`,
-        layout: page.fields.layout
+        link: `${page.link}`,
+        layout: page.layout,
+        status
       }
     });
   });
-
-  const posts = nodes.filter((n) => n.fields.layout === "post");
+  // 文章
+  const posts = articles.filter((n) => n.layout === "post");
   posts.forEach((post, index) => {
     const next = index === posts.length - 1 ? null : posts[index + 1];
     const prev = index === 0 ? null : posts[index - 1];
-
     createPage({
-      path: join(post.fields.link),
+      path: join(post.link),
       component: path.resolve(`src/templates/page.tsx`),
       context: {
-        link: join(post.fields.link),
+        link: join(post.link),
         prev,
         next,
-        layout: post.fields.layout
+        layout: post.layout,
+        status
       }
     });
   });
+
   // 文章列表
-  createPagination(posts.length, "/", path.resolve("src/templates/list.tsx"));
+  createPagination(posts.length, "/", path.resolve("src/templates/list.tsx"), {
+    status
+  });
 
   // 分类
-  const categories = data.categories.group;
   categories.forEach((c) => {
     createPagination(
-      c.totalCount,
-      category(c.fieldValue),
+      c.count,
+      category(c.name),
       path.resolve(`src/templates/category.tsx`),
       {
-        category: c.fieldValue,
-        totalCount: c.totalCount
+        category: c.name,
+        totalCount: c.count,
+        status
       }
     );
   });
   // 标签
-  const tags = data.tags.group;
   tags.forEach((t) => {
     createPagination(
-      t.totalCount,
-      tag(t.fieldValue),
+      t.count,
+      tag(t.name),
       path.resolve(`src/templates/tag.tsx`),
       {
-        tag: t.fieldValue,
-        totalCount: t.totalCount
+        tag: t.name,
+        totalCount: t.count,
+        status
       }
     );
   });
   // 归档
-  const archives = data.archives.group;
   archives.forEach((a) => {
     createPagination(
-      a.totalCount,
-      archive(a.fieldValue),
+      a.count,
+      archive(a.name),
       path.resolve(`src/templates/archive.tsx`),
       {
-        archive: a.fieldValue,
-        totalCount: a.totalCount
+        archive: a.name,
+        totalCount: a.count,
+        status
       }
     );
   });
-  // 所有归档
+
+  // 所有归档（时间轴）
   createPagination(
     posts.length,
     `timeline`,
     path.resolve(`src/templates/archive.tsx`),
     {
-      totalCount: posts.length
+      totalCount: posts.length,
+      status
     }
   );
-
-  return undefined;
+  // 标签云
+  createPage({
+    path: join("tags"),
+    component: path.resolve(`src/templates/tag-cloud.tsx`),
+    context: {
+      status
+    }
+  });
 };
 
-export const sourceNodes = ({
-  actions
-}: SourceNodesArgs): GatsbyNode["sourceNodes"] => {
-  const { createTypes } = actions;
-  const schema = fs
-    .readFileSync(`${__dirname}/schema.graphql`)
-    .toString("utf-8");
-  createTypes(schema);
-
-  return undefined;
+export const createResolvers: GatsbyNode["createResolvers"] = async ({
+  actions,
+  cache,
+  createNodeId,
+  createResolvers,
+  store,
+  reporter
+}: CreateResolversArgs) => {
+  const { createNode } = actions;
+  // Directus System 远程图片
+  await createResolvers({
+    Directus_System_directus_files: {
+      localFile: {
+        type: "File",
+        async resolve(source: any) {
+          if (!source || !source.id) {
+            return null;
+          }
+          return await createRemoteFileNode({
+            url: `${process.env.DIRECTUS_URL}/assets/${source.id}`,
+            store,
+            cache,
+            createNode,
+            createNodeId,
+            reporter
+          });
+        }
+      }
+    }
+  });
 };

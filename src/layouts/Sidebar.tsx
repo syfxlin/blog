@@ -2,61 +2,22 @@ import React from "react";
 import SidebarCard from "../components/SidebarCard";
 import AuthorCard from "../components/AuthorCard";
 import styled from "styled-components";
-import { graphql, Link, useStaticQuery } from "gatsby";
+import { Link } from "gatsby";
 import { archive, category, tag } from "../utils/url";
 import { Tag } from "../components/TagList";
 import Toc, { TocItem } from "../components/Toc";
 import TwitterCard from "../components/TwitterCard";
+import { useArchivesData, useCategoriesData, useTagsData } from "../query";
 
 type Props = {
   toc?: TocItem[];
   className?: string;
 };
 
-type SidebarQuery = {
-  categories: {
-    group: {
-      fieldValue: string;
-      totalCount: number;
-    }[];
-  };
-  tags: {
-    group: {
-      fieldValue: string;
-      totalCount: number;
-    }[];
-  };
-  archives: {
-    group: {
-      fieldValue: string;
-      totalCount: number;
-    }[];
-  };
-};
-
 const Sidebar: React.FC<Props> = ({ className, toc }) => {
-  const { categories, tags, archives } = useStaticQuery<SidebarQuery>(graphql`
-    query SidebarQuery {
-      categories: allMdx(filter: { fields: { layout: { eq: "post" } } }) {
-        group(field: frontmatter___categories) {
-          fieldValue
-          totalCount
-        }
-      }
-      tags: allMdx(filter: { fields: { layout: { eq: "post" } } }) {
-        group(field: frontmatter___tags, limit: 20) {
-          fieldValue
-          totalCount
-        }
-      }
-      archives: allMdx(filter: { fields: { layout: { eq: "post" } } }) {
-        group(field: fields___year) {
-          fieldValue
-          totalCount
-        }
-      }
-    }
-  `);
+  const categories = useCategoriesData();
+  const tags = useTagsData();
+  const archives = useArchivesData();
   return (
     <StyledAside className={className}>
       <AuthorCard />
@@ -65,10 +26,10 @@ const Sidebar: React.FC<Props> = ({ className, toc }) => {
         {toc && <Toc toc={toc} />}
         <SidebarCard title={"分类"}>
           <ul>
-            {categories.group.map((c, i) => (
+            {categories.map((c, i) => (
               <li key={`category-${i}`}>
-                <Link to={category(c.fieldValue)}>
-                  {c.fieldValue} ({c.totalCount})
+                <Link to={category(c.name)}>
+                  {c.name} ({c.count})
                 </Link>
               </li>
             ))}
@@ -76,19 +37,19 @@ const Sidebar: React.FC<Props> = ({ className, toc }) => {
         </SidebarCard>
         <TagCloud title={"标签"}>
           <div>
-            {tags.group.map((t, i) => (
-              <Tag to={tag(t.fieldValue)} key={`tag-${i}`}>
-                {t.fieldValue} ({t.totalCount})
+            {tags.map((t, i) => (
+              <Tag to={tag(t.name)} key={`tag-${i}`}>
+                {t.name} ({t.count})
               </Tag>
             ))}
           </div>
         </TagCloud>
         <SidebarCard title={"归档"}>
           <ul>
-            {archives.group.map((a, i) => (
+            {archives.map((a, i) => (
               <li key={`archive-${i}`}>
-                <Link to={archive(a.fieldValue)}>
-                  {a.fieldValue} ({a.totalCount})
+                <Link to={archive(a.name)}>
+                  {a.name} ({a.count})
                 </Link>
               </li>
             ))}

@@ -2,15 +2,17 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { useInterval } from "react-use";
 import { rgba } from "polished";
+import { IGatsbyImageData } from "gatsby-plugin-image/dist/src/components/gatsby-image.browser";
+import { BgImage } from "gbimage-bridge";
 
 type Props = {
   title: string;
   subtitle: string;
   link: {
-    label: string;
-    href: string;
+    label?: string;
+    href?: string;
   };
-  background: string[];
+  background: IGatsbyImageData[];
 };
 
 const Hero: React.FC<Props> = ({ title, subtitle, link, background }) => {
@@ -21,20 +23,21 @@ const Hero: React.FC<Props> = ({ title, subtitle, link, background }) => {
   return (
     <StyledContainer>
       <StyledImages>
-        {background.map((url, i) => (
+        {background.map((image, i) => (
           <div
             key={`hero-${i}`}
             style={{
-              opacity: i === index ? 1 : 0,
-              backgroundImage: `url(${url})`
+              opacity: i === index ? 1 : 0
             }}
-          />
+          >
+            <BgImage image={image} />
+          </div>
         ))}
       </StyledImages>
       <StyledTitle>
         <h1>{title}</h1>
         <h2>{subtitle}</h2>
-        <a href={link.href}>{link.label}</a>
+        {link.href && link.label && <a href={link.href}>{link.label}</a>}
       </StyledTitle>
     </StyledContainer>
   );
@@ -46,6 +49,8 @@ const StyledContainer = styled.section`
   flex-direction: column;
   align-items: center;
   margin-top: 0.5rem;
+  margin-left: -0.4rem;
+  margin-right: -0.4rem;
 `;
 
 const StyledImages = styled.div`
@@ -54,11 +59,9 @@ const StyledImages = styled.div`
   min-height: 260px;
   box-shadow: 2px 3px 4px ${({ theme }) => theme.shadow};
   border-radius: 8px;
+  overflow: hidden;
 
   > div {
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
     border-radius: 8px;
     position: absolute;
     width: 100%;
@@ -68,6 +71,11 @@ const StyledImages = styled.div`
 
     &:first-child {
       opacity: 1;
+    }
+
+    > div {
+      width: 100%;
+      height: 100%;
     }
   }
 

@@ -1,5 +1,4 @@
 import React from "react";
-import { graphql, useStaticQuery } from "gatsby";
 import theme from "../theme";
 import { MDXProvider } from "@mdx-js/react";
 import { ThemeProvider } from "styled-components";
@@ -14,36 +13,18 @@ import "spectre.css/dist/spectre-icons.min.css";
 import "katex/dist/katex.min.css";
 import "react-medium-image-zoom/dist/styles.css";
 import "../style/index.less";
-
-type QueryProps = {
-  site: {
-    siteMetadata: {
-      background?: string[];
-      aplayer?: string;
-    };
-  };
-};
+import { useAplayerData, useBackgroundData } from "../query";
 
 const Global: React.FC = ({ children }) => {
-  const { site } = useStaticQuery<QueryProps>(graphql`
-    query LayoutQuery {
-      site {
-        siteMetadata {
-          background
-          aplayer
-        }
-      }
-    }
-  `);
+  const background = useBackgroundData();
+  const aplayer = useAplayerData();
   return (
     <>
       <ThemeProvider theme={theme.light}>
         <MDXProvider components={mdxComponents}>{children}</MDXProvider>
-        {site.siteMetadata.background && (
-          <Background background={site.siteMetadata.background} />
-        )}
-        {site.siteMetadata.aplayer && (
-          <APlayer fixed={true} mini={true} auto={site.siteMetadata.aplayer} />
+        {background && <Background background={background} />}
+        {aplayer && (
+          <APlayer fixed={true} mini={true} auto={aplayer.playlist} />
         )}
       </ThemeProvider>
     </>

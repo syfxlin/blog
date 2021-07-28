@@ -1,44 +1,22 @@
 import React, { useEffect, useRef, useState } from "react";
 import Head, { HeadProps } from "../components/Head";
 import Container from "./Container";
-import NavMenu, { NavMenuItem } from "../components/NavMenu";
-import { graphql, Link, useStaticQuery } from "gatsby";
+import NavMenu from "../components/NavMenu";
+import { Link } from "gatsby";
 import styled, { useTheme } from "styled-components";
 import classNames from "classnames";
 import { usePrevious, useWindowScroll } from "react-use";
-import StyledHeader from "./StyledHeader";
+import StyledHeader from "../components/StyledHeader";
 import loadable from "@loadable/component";
+import { useNavData } from "../query";
 
 const Search = loadable(() => import("../components/Search"), { ssr: false });
 
 type Props = HeadProps;
 
-type QueryProps = {
-  site: {
-    siteMetadata: {
-      nav: NavMenuItem[];
-    };
-  };
-};
-
 const Header: React.FC<Props> = ({ children, ...props }) => {
   const [active, setActive] = useState(false);
-  const { site } = useStaticQuery<QueryProps>(graphql`
-    query HeadQuery {
-      site {
-        siteMetadata {
-          nav {
-            title
-            url
-            sub {
-              title
-              url
-            }
-          }
-        }
-      }
-    }
-  `);
+  const nav = useNavData();
   const ref = useRef<HTMLElement>(null);
   const currY = useWindowScroll().y;
   const prevY = usePrevious(currY);
@@ -63,7 +41,7 @@ const Header: React.FC<Props> = ({ children, ...props }) => {
           </section>
           <NavbarSection>
             <NavMenu
-              menu={site.siteMetadata.nav}
+              menu={nav}
               root={true}
               className={classNames({ active })}
             />
