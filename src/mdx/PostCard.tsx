@@ -5,6 +5,7 @@ import { rgba } from "polished";
 import { useFetchJson } from "../utils/useFetchJson";
 import { join } from "../utils/url";
 import { PageSubInfo } from "../components/PageInfo";
+import { convert } from "../templates/page";
 
 type Props = {
   link: string;
@@ -18,16 +19,16 @@ const PostCard: React.FC<Props> = ({ link }) => {
   if (data.loading || data.error) {
     return <Link to={link}>{link}</Link>;
   }
-  const { site, mdx } = data.value.result.data;
+  const article = convert(data.value.result.data);
   return (
     <StyledCard>
       <Link to={link}>
-        <Title>{mdx.frontmatter.title}</Title>
-        <Excerpt>{mdx.excerpt}</Excerpt>
+        <Title>{article.title}</Title>
+        <Excerpt>{article.excerpt}</Excerpt>
         <PageSubInfo
-          date={mdx.frontmatter.date}
-          author={site.siteMetadata.author.name}
-          categories={mdx.frontmatter.categories}
+          date={article.dateCreated}
+          author={article.author}
+          categories={article.categories}
         />
       </Link>
     </StyledCard>

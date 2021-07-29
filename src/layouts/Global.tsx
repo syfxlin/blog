@@ -14,19 +14,22 @@ import "katex/dist/katex.min.css";
 import "react-medium-image-zoom/dist/styles.css";
 import "../style/index.less";
 import { useAplayerData, useBackgroundData } from "../query";
+import ErrorBoundary from "./ErrorBoundary";
 
 const Global: React.FC = ({ children }) => {
   const background = useBackgroundData();
   const aplayer = useAplayerData();
   return (
     <>
-      <ThemeProvider theme={theme.light}>
-        <MDXProvider components={mdxComponents}>{children}</MDXProvider>
-        {background && <Background background={background} />}
-        {aplayer && (
-          <APlayer fixed={true} mini={true} auto={aplayer.playlist} />
-        )}
-      </ThemeProvider>
+      <ErrorBoundary>
+        <ThemeProvider theme={theme.light}>
+          <MDXProvider components={mdxComponents}>{children}</MDXProvider>
+          {background && <Background background={background} />}
+          {aplayer && (
+            <APlayer fixed={true} mini={true} auto={aplayer.playlist} />
+          )}
+        </ThemeProvider>
+      </ErrorBoundary>
     </>
   );
 };

@@ -2,13 +2,13 @@ import React from "react";
 import styled, { ThemeProvider } from "styled-components";
 import theme from "../theme";
 import Footer from "../layouts/Footer";
-import { GatsbySeo } from "gatsby-plugin-next-seo";
+import Head from "../components/Head";
 
 const Page404: React.FC = () => {
   return (
     <Wrapper>
       <ThemeProvider theme={theme.light}>
-        <GatsbySeo title={"404"} />
+        <Head title={"404 Not Found"} />
         <StyledMain>
           <section>
             <h2>404</h2>

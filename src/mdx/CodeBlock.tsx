@@ -1,10 +1,7 @@
 import React, { ReactElement } from "react";
 import { PrismAsyncLight } from "react-syntax-highlighter";
-import light from "react-syntax-highlighter/dist/esm/styles/prism/prism";
-import dark from "react-syntax-highlighter/dist/esm/styles/prism/okaidia";
+import { okaidia, prism } from "react-syntax-highlighter/dist/esm/styles/prism";
 import styled, { useTheme } from "styled-components";
-import "../style/prism-light.less";
-import "../style/prism-dark.less";
 
 type Props = {
   children: ReactElement;
@@ -19,7 +16,7 @@ const CodeBlock: React.FC<Props> = ({ children }) => {
   return (
     <PrismAsyncLight
       language={language}
-      style={theme.type === "light" ? light : dark}
+      style={theme.type === "light" ? prism : okaidia}
       showLineNumbers={true}
       PreTag={Pre}
       CodeTag={Code}
