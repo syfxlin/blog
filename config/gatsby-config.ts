@@ -109,7 +109,7 @@ const plugins: GatsbyConfig["plugins"] = [
     }
   },
   "gatsby-plugin-offline",
-  "gatsby-plugin-sitemap",
+  "gatsby-plugin-advanced-sitemap",
   {
     resolve: `gatsby-plugin-feed-mdx`,
     options: {
@@ -127,7 +127,12 @@ const plugins: GatsbyConfig["plugins"] = [
       ]
     }
   },
-  "gatsby-plugin-robots-txt",
+  {
+    resolve: "gatsby-plugin-robots-txt",
+    options: {
+      sitemap: `${siteMetadata.siteUrl}/sitemap.xml`
+    }
+  },
   // 搜索
   {
     resolve: "gatsby-plugin-algolia",
