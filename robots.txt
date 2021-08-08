@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://blog.ixk.me/sitemap.xml
+Host: https://blog.ixk.me

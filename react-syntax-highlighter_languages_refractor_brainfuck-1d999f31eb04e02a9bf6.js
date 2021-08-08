@@ -1,0 +1,2 @@
+(self.webpackChunk_syfxlin_blog=self.webpackChunk_syfxlin_blog||[]).push([[5539],{84919:function(e){"use strict";function a(e){e.languages.brainfuck={pointer:{pattern:/<|>/,alias:"keyword"},increment:{pattern:/\+/,alias:"inserted"},decrement:{pattern:/-/,alias:"deleted"},branching:{pattern:/\[|\]/,alias:"important"},operator:/[.,]/,comment:/\S+/}}e.exports=a,a.displayName="brainfuck",a.aliases=[]}}]);
+//# sourceMappingURL=react-syntax-highlighter_languages_refractor_brainfuck-1d999f31eb04e02a9bf6.js.map

@@ -1,0 +1,2 @@
+(self.webpackChunk_syfxlin_blog=self.webpackChunk_syfxlin_blog||[]).push([[3140],{79434:function(a){"use strict";function s(a){a.languages.hsts={directive:{pattern:/\b(?:max-age=|includeSubDomains|preload)/,alias:"keyword"},safe:{pattern:/\b\d{8,}\b/,alias:"selector"},unsafe:{pattern:/\b\d{1,7}\b/,alias:"function"}}}a.exports=s,s.displayName="hsts",s.aliases=[]}}]);
+//# sourceMappingURL=react-syntax-highlighter_languages_refractor_hsts-a917d2fbe21e90797014.js.map

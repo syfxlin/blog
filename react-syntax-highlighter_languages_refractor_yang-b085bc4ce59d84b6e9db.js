@@ -1,0 +1,2 @@
+(self.webpackChunk_syfxlin_blog=self.webpackChunk_syfxlin_blog||[]).push([[7393],{11494:function(e){"use strict";function n(e){e.languages.yang={comment:/\/\*[\s\S]*?\*\/|\/\/.*/,string:{pattern:/"(?:[^\\"]|\\.)*"|'[^']*'/,greedy:!0},keyword:{pattern:/(^|[{};\r\n][ \t]*)[a-z_][\w.-]*/i,lookbehind:!0},namespace:{pattern:/(\s)[a-z_][\w.-]*(?=:)/i,lookbehind:!0},boolean:/\b(?:false|true)\b/,operator:/\+/,punctuation:/[{};:]/}}e.exports=n,n.displayName="yang",n.aliases=[]}}]);
+//# sourceMappingURL=react-syntax-highlighter_languages_refractor_yang-b085bc4ce59d84b6e9db.js.map
