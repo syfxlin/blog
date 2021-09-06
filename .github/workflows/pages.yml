@@ -29,15 +29,15 @@ jobs:
           GOOGLE_ANALUTICS_ID: ${{ secrets.GOOGLE_ANALUTICS_ID }}
           DIRECTUS_URL: ${{ secrets.DIRECTUS_URL }}
           DIRECTUS_TOKEN: ${{ secrets.DIRECTUS_TOKEN }}
-      - name: delete .git
-        run: rm public/.git -rf
-      - name: deploy to server
-        uses: burnett01/rsync-deployments@4.1
-        with:
-          switches: -avzr --delete
-          path: public
-          remote_path: ${{ secrets.DEPLOY_REMOTE }}
-          remote_host: ${{ secrets.DEPLOY_HOST }}
-          remote_user: ${{ secrets.DEPLOY_USERNAME }}
-          remote_key: ${{ secrets.DEPLOY_KEY }}
-          remote_port: ${{ secrets.DEPLOY_PORT }}
+#       - name: delete .git
+#         run: rm public/.git -rf
+#       - name: deploy to server
+#         uses: burnett01/rsync-deployments@4.1
+#         with:
+#           switches: -avzr --delete
+#           path: public
+#           remote_path: ${{ secrets.DEPLOY_REMOTE }}
+#           remote_host: ${{ secrets.DEPLOY_HOST }}
+#           remote_user: ${{ secrets.DEPLOY_USERNAME }}
+#           remote_key: ${{ secrets.DEPLOY_KEY }}
+#           remote_port: ${{ secrets.DEPLOY_PORT }}
