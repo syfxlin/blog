@@ -1,4 +1,4 @@
-worker_processes auto;
+worker_processes 1;
 error_log stderr;
 pid nginx.pid;
 daemon off;
@@ -12,14 +12,10 @@ http {
   include mime.types;
   charset UTF-8;
   server {
-    listen {{ $.PORT }};
+    listen 80;
     port_in_redirect off;
     server_name  _;
-    {{ if ne $.NGINX_ROOT "" }}
-      root /app/www/{{ $.NGINX_ROOT }};
-    {{ else }}
-      root /app/www;
-    {{ end }}
+    root /app/www/public;
     index index.html;
     error_page 404 /404/;
 
