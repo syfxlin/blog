@@ -4,5 +4,5 @@ require("dotenv").config({
 });
 
 module.exports = generateConfig({
-  configDir: `${__dirname}/config`
+  configDir: `${__dirname}/conf`
 });
