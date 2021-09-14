@@ -12,7 +12,7 @@ http {
   include mime.types;
   charset UTF-8;
   server {
-    listen 5000;
+    listen {{ $.PORT }};
     port_in_redirect off;
     server_name  _;
     root /app/www/public;
