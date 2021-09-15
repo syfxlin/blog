@@ -1,0 +1,23 @@
+[project]
+id = "me.ixk.buildpacks.blog"
+name = "blog"
+version = "1.0.0"
+authors = ["Otstar Lin"]
+
+[[build.buildpacks]]
+uri = "gcr.io/paketo-buildpacks/nodejs"
+
+[[build.buildpacks]]
+uri = "gcr.io/paketo-buildpacks/nginx"
+
+[[build.env]]
+name = "NODE_ENV"
+value = "development"
+
+[[build.env]]
+name = "BP_NODE_RUN_SCRIPTS"
+value = "build"
+
+[[build.env]]
+name = "BP_NGINX_VERSION"
+value = "1.*"
