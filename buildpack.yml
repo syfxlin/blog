@@ -1,3 +1,0 @@
-# deprecated, but must contain this file
-nginx:
-  version: "1.*"

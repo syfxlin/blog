@@ -1,0 +1,20 @@
+dockerfile: https://raw.githubusercontent.com/syfxlin/dockerfile/master/node-static/Dockerfile
+nginx:
+  error_page:
+    404: 404/
+  include_server: |
+    location ~ ^\/(?<post>[^\/]+)\.html$ {
+    try_files $uri $uri/ @redirect_to_post;
+    }
+
+    location @redirect_to_post {
+    return 301 $scheme://$host/post/$post;
+    }
+
+    location ~ ^\/(?<year>\d\d\d\d)\/\d\d {
+    try_files $uri $uri/ @redirect_to_archive;
+    }
+
+    location @redirect_to_archive {
+    return 301 $scheme://$host/archive/$year;
+    }
