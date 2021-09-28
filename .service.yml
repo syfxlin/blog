@@ -1,27 +1,28 @@
-type: node
+buildpacks:
+  - nodejs
+  - nginx
 env_file: .env
 nodejs:
-  env: web
-  run:
+  run_before:
     - |
-      apk --no-cache add git \
-          shadow \
-          gcc \
-          musl-dev \
-          autoconf \
-          automake \
-          make \
-          libtool \
-          nasm \
-          tiff \
-          jpeg \
-          zlib \
-          zlib-dev \
-          file \
-          pkgconf \
-          util-linux
-    - yarn install --frozen-lockfile
-    - yarn build
+      RUN apk --no-cache add git \
+              shadow \
+              gcc \
+              musl-dev \
+              autoconf \
+              automake \
+              make \
+              libtool \
+              nasm \
+              tiff \
+              jpeg \
+              zlib \
+              zlib-dev \
+              file \
+              pkgconf \
+              util-linux
+  run:
+    - RUN yarn build
 nginx:
   error_page:
     404: 404/
