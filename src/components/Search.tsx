@@ -59,7 +59,7 @@ const Search: React.FC<Props> = ({ show, onClose }) => {
           </InputSection>
           <ButtonSection>
             <Icon>
-              <img src="/img/algolia-blue-mark.svg" alt="Algolia-Icon" />
+              <img src="/algolia-blue-mark.svg" alt="Algolia-Icon" />
             </Icon>
             <Icon>
               <Close className="icon icon-cross" onClick={onClose} />

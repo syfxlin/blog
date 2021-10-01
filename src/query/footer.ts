@@ -2,21 +2,25 @@ import { FooterData } from "./types";
 import { graphql, useStaticQuery } from "gatsby";
 
 type QueryData = {
-  directusFooter: {
-    footer?: string;
+  footerJson: {
+    main: {
+      code: string;
+    };
   };
 };
 
 export const query = graphql`
   query FooterQuery {
-    directusFooter {
-      footer
+    footerJson {
+      main {
+        code
+      }
     }
   }
 `;
 
 export const convert = (data: QueryData): FooterData => {
-  return data.directusFooter.footer;
+  return data.footerJson.main.code;
 };
 
 export const useFooterData = () => convert(useStaticQuery(query));

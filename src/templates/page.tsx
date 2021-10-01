@@ -30,97 +30,73 @@ const PageTemplate: React.FC<Props> = (props) => {
 export default PageTemplate;
 
 type QueryData = {
-  directusArticle: {
-    link: string;
-    title: string;
-    user_created: {
-      first_name: string;
-      last_name: string;
-    };
-    date_created: string;
-    date_updated?: string;
-    thumbnail?: {
-      localFile?: {
+  mdx: {
+    frontmatter: {
+      title: string;
+      date: string;
+      date_updated: string;
+      thumbnail: {
         childImageSharp: {
           gatsbyImageData: IGatsbyImageData;
         };
-      };
+      } | null;
+      categories: string[] | null;
+      tags: string[] | null;
     };
-    categories: {
-      category_id: {
-        name: string;
-      };
-    }[];
-    tags: {
-      tag_id: {
-        name: string;
-      };
-    }[];
-    markdownNode: {
-      childMdx: {
-        tableOfContents: { items: TocItem[] };
-        body: string;
-        excerpt: string;
-      };
+    fields: {
+      slug: string;
     };
+    tableOfContents: { items: TocItem[] };
+    body: string;
+    excerpt: string;
+  };
+  authorJson: {
+    firstName: string;
+    lastName: string;
   };
 };
 
 export const query = graphql`
   query PageQuery($link: String!) {
-    directusArticle(link: { eq: $link }) {
-      link
-      title
-      user_created {
-        first_name
-        last_name
-      }
-      date_created
-      date_updated
-      thumbnail {
-        localFile {
+    mdx(fields: { slug: { eq: $link } }) {
+      frontmatter {
+        title
+        date(formatString: "YYYY-MM-DD")
+        date_updated(formatString: "YYYY-MM-DD")
+        thumbnail {
           childImageSharp {
             gatsbyImageData
           }
         }
+        categories
+        tags
       }
-      categories {
-        category_id {
-          name
-        }
+      fields {
+        slug
       }
-      tags {
-        tag_id {
-          name
-        }
-      }
-      markdownNode {
-        childMdx {
-          tableOfContents
-          body
-          excerpt
-        }
-      }
+      tableOfContents
+      body
+      excerpt
+    }
+    authorJson {
+      firstName
+      lastName
     }
   }
 `;
 
 export const convert = (data: QueryData): PageData => {
   return {
-    link: data.directusArticle.link,
-    title: data.directusArticle.title,
-    author: `${data.directusArticle.user_created.first_name} ${data.directusArticle.user_created.last_name}`,
-    dateCreated: data.directusArticle.date_created.substring(0, 10),
-    dateUpdated: data.directusArticle.date_updated?.substring(0, 10),
-    thumbnail:
-      data.directusArticle.thumbnail?.localFile?.childImageSharp
-        .gatsbyImageData,
-    categories: data.directusArticle.categories.map(
-      (category) => category.category_id.name
-    ),
-    tags: data.directusArticle.tags.map((tag) => tag.tag_id.name),
-    excerpt: data.directusArticle.markdownNode.childMdx.excerpt,
-    toc: data.directusArticle.markdownNode.childMdx.tableOfContents,
-    body: data.directusArticle.markdownNode.childMdx.body
+    link: data.mdx.fields.slug,
+    title: data.mdx.frontmatter.title,
+    author: `${data.authorJson.firstName} ${data.authorJson.lastName}`,
+    dateCreated: data.mdx.frontmatter.date,
+    dateUpdated: data.mdx.frontmatter.date_updated,
+    thumbnail: data.mdx.frontmatter.thumbnail?.childImageSharp.gatsbyImageData,
+    categories: data.mdx.frontmatter.categories || undefined,
+    tags: data.mdx.frontmatter.tags || undefined,
+    excerpt: data.mdx.excerpt,
+    toc: data.mdx.tableOfContents,
+    body: data.mdx.body
   };
 };

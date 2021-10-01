@@ -1,12 +1,43 @@
 import path from "path";
-import { CreatePagesArgs, CreateResolversArgs, GatsbyNode } from "gatsby";
-import { createRemoteFileNode } from "gatsby-source-filesystem";
-import { archive, category, join, tag } from "../src/utils/url";
+import { CreatePagesArgs, GatsbyNode } from "gatsby";
+import { archive, category, join, layout, tag } from "../src/utils/url";
 import * as articlesQuery from "./query/articles";
 import * as archivesQuery from "./query/archives";
 import * as categoriesQuery from "./query/categories";
 import * as tagsQuery from "./query/tags";
 import { status } from "./query/filter";
+
+export const onCreateNode: GatsbyNode["onCreateNode"] = ({ node, actions }) => {
+  const { createNodeField } = actions;
+  if (node.internal.type === "Mdx") {
+    const frontmatter = node.frontmatter as {
+      layout: string;
+      slug: string;
+      date: string;
+    };
+
+    // 固定链接
+    const slug = layout(frontmatter.slug, frontmatter.layout);
+    createNodeField({
+      node,
+      name: "slug",
+      value: slug
+    });
+
+    // 部分日期
+    const date = new Date(frontmatter.date);
+    createNodeField({
+      node,
+      name: "date_year",
+      value: date.getFullYear()
+    });
+    createNodeField({
+      node,
+      name: "date_month",
+      value: date.getMonth()
+    });
+  }
+};
 
 export const createPages: GatsbyNode["createPages"] = async ({
   graphql,
@@ -133,7 +164,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
       archive(a.name),
       path.resolve(`src/templates/archive.tsx`),
       {
-        archive: a.name,
+        archive: parseInt(a.name),
         totalCount: a.count,
         status
       }
@@ -156,38 +187,6 @@ export const createPages: GatsbyNode["createPages"] = async ({
     component: path.resolve(`src/templates/tag-cloud.tsx`),
     context: {
       status
-    }
-  });
-};
-
-export const createResolvers: GatsbyNode["createResolvers"] = async ({
-  actions,
-  cache,
-  createNodeId,
-  createResolvers,
-  store,
-  reporter
-}: CreateResolversArgs) => {
-  const { createNode } = actions;
-  // Directus System 远程图片
-  await createResolvers({
-    Directus_System_directus_files: {
-      localFile: {
-        type: "File",
-        async resolve(source: any) {
-          if (!source || !source.id) {
-            return null;
-          }
-          return await createRemoteFileNode({
-            url: `${process.env.DIRECTUS_URL}/assets/${source.id}`,
-            store,
-            cache,
-            createNode,
-            createNodeId,
-            reporter
-          });
-        }
-      }
     }
   });
 };

@@ -2,23 +2,23 @@ import { AplayerData } from "./types";
 import { graphql, useStaticQuery } from "gatsby";
 
 type QueryData = {
-  directusConfig: {
-    value?: {
-      playlist: string;
-    };
+  aplayerJson: {
+    enable: boolean;
+    playlist: string;
   };
 };
 
 export const query = graphql`
   query AplayerQuery {
-    directusConfig(key: { eq: "aplayer" }) {
-      value
+    aplayerJson {
+      enable
+      playlist
     }
   }
 `;
 
 export const convert = (data: QueryData): AplayerData => {
-  return data.directusConfig.value;
+  return data.aplayerJson;
 };
 
 export const useAplayerData = () => convert(useStaticQuery(query));

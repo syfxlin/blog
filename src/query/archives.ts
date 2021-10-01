@@ -2,7 +2,7 @@ import { ArchivesData } from "./types";
 import { graphql, useStaticQuery } from "gatsby";
 
 type QueryData = {
-  allDirectusArticle: {
+  allMdx: {
     group: {
       fieldValue: string;
       totalCount: number;
@@ -12,10 +12,12 @@ type QueryData = {
 
 export const query = graphql`
   query ArchivesQuery {
-    allDirectusArticle(
-      filter: { layout: { eq: "post" }, status: { in: ["published"] } }
+    allMdx(
+      filter: {
+        frontmatter: { layout: { eq: "post" }, status: { in: ["publish"] } }
+      }
     ) {
-      group(field: fields___date_created_year) {
+      group(field: fields___date_year) {
         fieldValue
         totalCount
       }
@@ -24,7 +26,7 @@ export const query = graphql`
 `;
 
 export const convert = (data: QueryData): ArchivesData => {
-  return data.allDirectusArticle.group.map((item) => ({
+  return data.allMdx.group.map((item) => ({
     name: item.fieldValue,
     count: item.totalCount
   }));

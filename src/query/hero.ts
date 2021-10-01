@@ -3,18 +3,14 @@ import { HeroData } from "./types";
 import { graphql, useStaticQuery } from "gatsby";
 
 type QueryData = {
-  directusHero: {
+  heroJson: {
     title: string;
     subtitle: string;
     link_label?: string;
     link_href?: string;
     background: {
-      directus_files_id: {
-        localFile: {
-          childImageSharp: {
-            gatsbyImageData: IGatsbyImageData;
-          };
-        };
+      childImageSharp: {
+        gatsbyImageData: IGatsbyImageData;
       };
     }[];
   };
@@ -22,18 +18,14 @@ type QueryData = {
 
 export const query = graphql`
   query HeroQuery {
-    directusHero {
+    heroJson {
       title
       subtitle
       link_label
       link_href
       background {
-        directus_files_id {
-          localFile {
-            childImageSharp {
-              gatsbyImageData
-            }
-          }
+        childImageSharp {
+          gatsbyImageData
         }
       }
     }
@@ -42,14 +34,14 @@ export const query = graphql`
 
 export const convert = (data: QueryData): HeroData => {
   return {
-    title: data.directusHero.title,
-    subtitle: data.directusHero.subtitle,
+    title: data.heroJson.title,
+    subtitle: data.heroJson.subtitle,
     link: {
-      label: data.directusHero.link_label,
-      href: data.directusHero.link_href
+      label: data.heroJson.link_label,
+      href: data.heroJson.link_href
     },
-    background: data.directusHero.background.map(
-      (b) => b.directus_files_id.localFile.childImageSharp.gatsbyImageData
+    background: data.heroJson.background.map(
+      (b) => b.childImageSharp.gatsbyImageData
     )
   };
 };

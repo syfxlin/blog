@@ -11,17 +11,17 @@ export type AlgoliaData = {
 export type AuthorData = {
   firstName: string;
   lastName: string;
-  avatar: IGatsbyImageData;
   description: string;
+  avatar: IGatsbyImageData;
+  background: IGatsbyImageData;
 };
 
 export type BackgroundData = IGatsbyImageData[] | undefined;
 
-export type AplayerData =
-  | {
-      playlist: string;
-    }
-  | undefined;
+export type AplayerData = {
+  enable: boolean;
+  playlist: string;
+};
 
 export type NavData = {
   title: string;
@@ -55,7 +55,7 @@ export type ArchivePageData = {
     author: string;
     date: string;
     thumbnail?: IGatsbyImageData;
-    categories: string[];
+    categories?: string[];
     excerpt: string;
   }[];
 }[];

@@ -2,7 +2,7 @@ import { TagsData } from "./types";
 import { graphql, useStaticQuery } from "gatsby";
 
 type QueryData = {
-  allDirectusArticle: {
+  allMdx: {
     group: {
       fieldValue: string;
       totalCount: number;
@@ -12,10 +12,12 @@ type QueryData = {
 
 export const query = graphql`
   query TagsQuery {
-    allDirectusArticle(
-      filter: { layout: { eq: "post" }, status: { in: ["published"] } }
+    allMdx(
+      filter: {
+        frontmatter: { layout: { eq: "post" }, status: { in: ["publish"] } }
+      }
     ) {
-      group(field: tags___tag_id___name) {
+      group(field: frontmatter___tags) {
         fieldValue
         totalCount
       }
@@ -24,7 +26,7 @@ export const query = graphql`
 `;
 
 export const convert = (data: QueryData): TagsData => {
-  return data.allDirectusArticle.group
+  return data.allMdx.group
     .map((item) => ({
       name: item.fieldValue,
       count: item.totalCount

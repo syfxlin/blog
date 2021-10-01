@@ -4,7 +4,7 @@ export type ArchivesData = {
 }[];
 
 type QueryData = {
-  allDirectusArticle: {
+  allMdx: {
     group: {
       fieldValue: string;
       totalCount: number;
@@ -14,10 +14,12 @@ type QueryData = {
 
 export const query = `
   query ArchivesQuery($status: [String!]!) {
-    allDirectusArticle(
-      filter: { layout: { eq: "post" }, status: { in: $status } }
+    allMdx(
+      filter: {
+        frontmatter: { layout: { eq: "post" }, status: { in: $status } }
+      }
     ) {
-      group(field: fields___date_created_year) {
+      group(field: fields___date_year) {
         fieldValue
         totalCount
       }
@@ -26,7 +28,7 @@ export const query = `
 `;
 
 export const convert = (data: QueryData): ArchivesData => {
-  return data.allDirectusArticle.group.map((item) => ({
+  return data.allMdx.group.map((item) => ({
     name: item.fieldValue,
     count: item.totalCount
   }));

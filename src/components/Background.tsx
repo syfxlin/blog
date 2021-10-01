@@ -17,7 +17,7 @@ const Background: React.FC<Props> = ({ background }) => {
   return (
     <StyledBackground>
       {background.map((image, i) => (
-        <div style={{ opacity: i === index ? 1 : 1 }} key={`background-${i}`}>
+        <div style={{ opacity: i === index ? 1 : 0 }} key={`background-${i}`}>
           <BgImage image={image} />
         </div>
       ))}

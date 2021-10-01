@@ -1,61 +1,68 @@
 import { IGatsbyImageData } from "gatsby-plugin-image/dist/src/components/gatsby-image.browser";
 import { SeoData } from "./types";
-import { LinkProps, MetaProps, OpenGraph } from "gatsby-plugin-next-seo";
 import { graphql, useStaticQuery } from "gatsby";
 
 type QueryData = {
-  directusSeo: {
+  seoJson: {
     language: string;
     url: string;
     title: string;
     description?: string;
     logo: {
-      localFile: {
-        childImageSharp: {
-          gatsbyImageData: IGatsbyImageData;
-        };
+      childImageSharp: {
+        gatsbyImageData: IGatsbyImageData;
       };
     };
-    opengraph?: OpenGraph;
+    opengraph?: {
+      code: string;
+    };
     twitter?: string;
-    meta_tags?: MetaProps[];
-    link_tags?: LinkProps[];
+    meta_tags?: {
+      code: string;
+    };
+    link_tags?: {
+      code: string;
+    };
   };
 };
 
 export const query = graphql`
   query SeoQuery {
-    directusSeo {
+    seoJson {
       language
       url
       title
       description
       logo {
-        localFile {
-          childImageSharp {
-            gatsbyImageData
-          }
+        childImageSharp {
+          gatsbyImageData
         }
       }
-      opengraph
+      opengraph {
+        code
+      }
       twitter
-      meta_tags
-      link_tags
+      meta_tags {
+        code
+      }
+      link_tags {
+        code
+      }
     }
   }
 `;
 
 export const convert = (data: QueryData): SeoData => {
   return {
-    language: data.directusSeo.language,
-    url: data.directusSeo.url,
-    title: data.directusSeo.title,
-    description: data.directusSeo.description,
-    logo: data.directusSeo.logo.localFile.childImageSharp.gatsbyImageData,
-    openGraph: data.directusSeo.opengraph,
-    twitter: data.directusSeo.twitter,
-    metaTags: data.directusSeo.meta_tags,
-    linkTags: data.directusSeo.link_tags
+    language: data.seoJson.language,
+    url: data.seoJson.url,
+    title: data.seoJson.title,
+    description: data.seoJson.description,
+    logo: data.seoJson.logo.childImageSharp.gatsbyImageData,
+    openGraph: JSON.parse(data.seoJson.opengraph?.code || "{}"),
+    twitter: data.seoJson.twitter,
+    metaTags: JSON.parse(data.seoJson.meta_tags?.code || "[]"),
+    linkTags: JSON.parse(data.seoJson.link_tags?.code || "[]")
   };
 };
 

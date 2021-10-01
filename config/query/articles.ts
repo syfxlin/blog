@@ -5,30 +5,42 @@ export type ArticlesData = {
 }[];
 
 type QueryData = {
-  allDirectusArticle: {
+  allMdx: {
     nodes: {
-      link: string;
-      layout: string;
-      title: string;
+      frontmatter: {
+        layout: string;
+        title: string;
+      };
+      fields: {
+        slug: string;
+      };
     }[];
   };
 };
 
 export const query = `
   query AllArticleQuery($status: [String!]!) {
-    allDirectusArticle(
-      sort: { order: DESC, fields: date_created }
-      filter: { status: { in: $status } }
+    allMdx(
+      sort: { order: DESC, fields: frontmatter___date }
+      filter: { frontmatter: { status: { in: $status } } }
     ) {
       nodes {
-        link
-        layout
-        title
+        frontmatter {
+          layout
+          title
+        }
+        fields {
+          slug
+        }
       }
     }
   }
 `;
 
 export const convert = (data: QueryData): ArticlesData => {
-  return data.allDirectusArticle.nodes;
+  return data.allMdx.nodes.map((item) => ({
+    link: item.fields.slug,
+    layout: item.frontmatter.layout,
+    title: item.frontmatter.title
+  }));
 };

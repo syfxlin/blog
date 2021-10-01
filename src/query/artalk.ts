@@ -2,23 +2,21 @@ import { ArtalkData } from "./types";
 import { graphql, useStaticQuery } from "gatsby";
 
 type QueryData = {
-  directusConfig: {
-    value?: {
-      serverUrl: string;
-    };
+  artalkJson: {
+    serverUrl: string;
   };
 };
 
 export const query = graphql`
   query ArtalkQuery {
-    directusConfig(key: { eq: "artalk" }) {
-      value
+    artalkJson {
+      serverUrl
     }
   }
 `;
 
 export const convert = (data: QueryData): ArtalkData => {
-  return data.directusConfig.value;
+  return data.artalkJson;
 };
 
 export const useArtalkData = () => convert(useStaticQuery(query));

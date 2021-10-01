@@ -2,7 +2,7 @@ import { status } from "./filter";
 
 export const description = `
   query FeedDescriptionQuery {
-    directusSeo {
+    seoJson {
       title
       description
       site_url: url
@@ -12,19 +12,19 @@ export const description = `
 `;
 
 type QueryData = {
-  allDirectusArticle: {
+  allMdx: {
     nodes: {
-      link: string;
-      title: string;
-      date_created: string;
-      markdownNode: {
-        childMdx: {
-          excerpt: string;
-        };
+      frontmatter: {
+        title: string;
+        date: string;
       };
+      fields: {
+        slug: string;
+      };
+      excerpt: string;
     }[];
   };
-  directusSeo: {
+  seoJson: {
     url: string;
   };
 };
@@ -39,35 +39,37 @@ export type FeedData = {
 
 export const query = `
   query FeedQuery {
-    allDirectusArticle(
-      filter: { layout: { eq: "post" }, status: {in: ${JSON.stringify(
-        status
-      )}} }
-      sort: { order: DESC, fields: date_created }
+    allMdx(
+      filter: {
+        frontmatter: { layout: { eq: "post" }, status: { in: ${JSON.stringify(
+          status
+        )} }
+      }
+      sort: { order: DESC, fields: frontmatter___date }
     ) {
       nodes {
-        link
-        title
-        date_created
-        markdownNode {
-          childMdx {
-            excerpt
-          }
+        frontmatter {
+          title
+          date(formatString: "YYYY-MM-DD")
         }
+        fields {
+          slug
+        }
+        excerpt
       }
     }
-    directusSeo {
+    seoJson {
       url
     }
   }
 `;
 
 export const convert = (data: QueryData): FeedData => {
-  return data.allDirectusArticle.nodes.map((node) => ({
-    title: node.title,
-    date: node.date_created.substring(0, 10),
-    description: node.markdownNode.childMdx.excerpt,
-    guid: data.directusSeo.url + node.link,
-    url: data.directusSeo.url + node.link
+  return data.allMdx.nodes.map((node) => ({
+    title: node.frontmatter.title,
+    date: node.frontmatter.date,
+    description: node.excerpt,
+    guid: data.seoJson.url + node.fields.slug,
+    url: data.seoJson.url + node.fields.slug
   }));
 };

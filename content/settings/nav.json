@@ -1,0 +1,56 @@
+{
+  "main": [
+    {
+      "title": "📦 折腾记录",
+      "url": "/category/折腾记录",
+      "sub": [
+        {
+          "title": "💬 站长杂谈",
+          "url": "/category/站长杂谈"
+        },
+        {
+          "title": "✔️ 分享推荐",
+          "url": "/category/分享推荐"
+        }
+      ]
+    },
+    {
+      "title": "🍻 永远的好朋友",
+      "url": "/links",
+      "sub": [
+        {
+          "title": "📩 友链申请",
+          "url": "/links-application"
+        }
+      ]
+    },
+    {
+      "title": "⏳ 时光轴",
+      "url": "/timeline",
+      "sub": [
+        {
+          "title": "🏷️ 标签云",
+          "url": "/tags"
+        }
+      ]
+    },
+    {
+      "title": "🎉 Github",
+      "url": "https://github.com/syfxlin",
+      "sub": [
+        {
+          "title": "📐 Lab",
+          "url": "https://lab.ixk.me"
+        }
+      ]
+    },
+    {
+      "title": "😋 关于我",
+      "url": "/about"
+    },
+    {
+      "title": "💬 留言板",
+      "url": "/message-board"
+    }
+  ]
+}

@@ -86,39 +86,29 @@ type QueryData = {
       url: string;
     }[];
   };
-  directusArticle: {
-    link: string;
-    title: string;
-    user_created: {
-      first_name: string;
-      last_name: string;
-    };
-    date_created: string;
-    date_updated?: string;
-    thumbnail?: {
-      localFile?: {
+  mdx: {
+    frontmatter: {
+      title: string;
+      date: string;
+      date_updated: string;
+      thumbnail: {
         childImageSharp: {
           gatsbyImageData: IGatsbyImageData;
         };
-      };
+      } | null;
+      categories: string[] | null;
+      tags: string[] | null;
     };
-    categories: {
-      category_id: {
-        name: string;
-      };
-    }[];
-    tags: {
-      tag_id: {
-        name: string;
-      };
-    }[];
-    markdownNode: {
-      childMdx: {
-        tableOfContents: { items: TocItem[] };
-        body: string;
-        excerpt: string;
-      };
+    fields: {
+      slug: string;
     };
+    tableOfContents: { items: TocItem[] };
+    body: string;
+    excerpt: string;
+  };
+  authorJson: {
+    firstName: string;
+    lastName: string;
   };
 };
 
@@ -141,39 +131,29 @@ export const query = graphql`
         url
       }
     }
-    directusArticle(link: { eq: $link }) {
-      link
-      title
-      user_created {
-        first_name
-        last_name
-      }
-      date_created
-      date_updated
-      thumbnail {
-        localFile {
+    mdx(fields: { slug: { eq: $link } }) {
+      frontmatter {
+        title
+        date(formatString: "YYYY-MM-DD")
+        date_updated(formatString: "YYYY-MM-DD")
+        thumbnail {
           childImageSharp {
             gatsbyImageData
           }
         }
+        categories
+        tags
       }
-      categories {
-        category_id {
-          name
-        }
+      fields {
+        slug
       }
-      tags {
-        tag_id {
-          name
-        }
-      }
-      markdownNode {
-        childMdx {
-          tableOfContents
-          body
-          excerpt
-        }
-      }
+      tableOfContents
+      body
+      excerpt
+    }
+    authorJson {
+      firstName
+      lastName
     }
   }
 `;

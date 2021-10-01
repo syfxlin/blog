@@ -13,79 +13,65 @@ export type AlgoliaIndexData = {
 }[];
 
 type QueryData = {
-  allDirectusArticle: {
+  allMdx: {
     nodes: {
       id: string;
-      link: string;
-      title: string;
-      user_created: {
-        first_name: string;
-        last_name: string;
+      fields: {
+        slug: string;
       };
-      date_created: string;
-      categories: {
-        category_id: {
-          name: string;
-        };
-      }[];
-      tags: {
-        tag_id: {
-          name: string;
-        };
-      }[];
-      markdownNode: {
-        childMdx: {
-          excerpt: string;
-        };
+      frontmatter: {
+        title: string;
+        date: string;
+        categories: string[] | null;
+        tags: string[] | null;
       };
-      content: string;
+      excerpt: string;
+      rawBody: string;
     }[];
+  };
+  authorJson: {
+    firstName: string;
+    lastName: string;
   };
 };
 
 export const query = `
   query AlgoliaIndexQuery {
-    allDirectusArticle(filter: { status: {in: ${JSON.stringify(status)}} }) {
+    allMdx(filter: { frontmatter: { status: { in: ${JSON.stringify(
+      status
+    )} } } }) {
       nodes {
         id
-        link
-        title
-        user_created {
-          first_name
-          last_name
+        fields {
+          slug
         }
-        date_created
-        categories {
-          category_id {
-            name
-          }
+        frontmatter {
+          title
+          date(formatString: "YYYY-MM-DD")
+          categories
+          tags
         }
-        tags {
-          tag_id {
-            name
-          }
-        }
-        markdownNode {
-          childMdx {
-            excerpt
-          }
-        }
-        content
+        excerpt
+        rawBody
       }
+    }
+    authorJson {
+      firstName
+      lastName
     }
   }
 `;
 
 export const convert = (data: QueryData): AlgoliaIndexData => {
-  return data.allDirectusArticle.nodes.map((node) => ({
+  return data.allMdx.nodes.map((node) => ({
     objectID: node.id,
-    link: node.link,
-    title: node.title,
-    author: `${node.user_created.first_name} ${node.user_created.last_name}`,
-    date: node.date_created.substring(0, 10),
-    categories: node.categories.map((category) => category.category_id.name),
-    tags: node.tags.map((tag) => tag.tag_id.name),
-    excerpt: node.markdownNode.childMdx.excerpt,
-    content: node.content
+    link: node.fields.slug,
+    title: node.frontmatter.title,
+    author: `${data.authorJson.firstName} ${data.authorJson.lastName}`,
+    date: node.frontmatter.date,
+    categories: node.frontmatter.categories || undefined,
+    tags: node.frontmatter.tags || undefined,
+    excerpt: node.excerpt,
+    content: node.rawBody
   }));
 };

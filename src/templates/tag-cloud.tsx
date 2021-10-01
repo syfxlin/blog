@@ -63,7 +63,7 @@ const Tag = styled(Link)<{ fontSize: number }>`
 export default TagCloudPage;
 
 type QueryData = {
-  allDirectusArticle: {
+  allMdx: {
     group: {
       fieldValue: string;
       totalCount: number;
@@ -73,10 +73,12 @@ type QueryData = {
 
 export const query = graphql`
   query TagsPageQuery($status: [String!]!) {
-    allDirectusArticle(
-      filter: { layout: { eq: "post" }, status: { in: $status } }
+    allMdx(
+      filter: {
+        frontmatter: { layout: { eq: "post" }, status: { in: $status } }
+      }
     ) {
-      group(field: tags___tag_id___name) {
+      group(field: frontmatter___tags) {
         fieldValue
         totalCount
       }
@@ -85,7 +87,7 @@ export const query = graphql`
 `;
 
 export const convert = (data: QueryData): TagsData => {
-  return data.allDirectusArticle.group.map((item) => ({
+  return data.allMdx.group.map((item) => ({
     name: item.fieldValue,
     count: item.totalCount
   }));

@@ -3,18 +3,15 @@ import styled from "styled-components";
 import Card from "./Card";
 import { useAuthorData } from "../query";
 import { GatsbyImage } from "gatsby-plugin-image";
+import { BgImage } from "gbimage-bridge";
 
 const AuthorCard: React.FC<{ className?: string }> = ({ className }) => {
   const data = useAuthorData();
   return (
     <StyledCard className={className}>
-      <Image
-        style={{
-          backgroundImage: `url('https://cdn.jsdelivr.net/gh/syfxlin/pic/blog/about-card.jpg')`
-        }}
-      />
+      <CardImage image={data.background} />
       <Avatar>
-        <GatsbyImage alt={"Avatar"} image={data.avatar} />
+        <AvatarImage alt={"Avatar"} image={data.avatar} />
       </Avatar>
       <Introduction>
         <h5>
@@ -33,7 +30,7 @@ const StyledCard = styled(Card)`
   padding: 0;
 `;
 
-const Image = styled.div`
+const CardImage = styled(BgImage)`
   height: 6rem;
   width: 100%;
   background-position: center;
@@ -45,13 +42,13 @@ const Avatar = styled.div`
   margin-top: -2rem;
   height: 4rem;
   width: 4rem;
+`;
 
-  img {
-    border-radius: 50%;
-    height: 100%;
-    width: 100%;
-    z-index: 1;
-  }
+const AvatarImage = styled(GatsbyImage)`
+  border-radius: 50%;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
 `;
 
 const Introduction = styled.div`

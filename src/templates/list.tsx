@@ -52,93 +52,77 @@ const ListPage: React.FC<Props> = (props) => {
 export default ListPage;
 
 type QueryData = {
-  allDirectusArticle: {
+  allMdx: {
     nodes: {
-      link: string;
-      title: string;
-      user_created: {
-        first_name: string;
-        last_name: string;
-      };
-      date_created: string;
-      thumbnail?: {
-        localFile?: {
+      frontmatter: {
+        title: string;
+        date: string;
+        date_updated: string;
+        thumbnail: {
           childImageSharp: {
             gatsbyImageData: IGatsbyImageData;
           };
-        };
+        } | null;
+        categories: string[] | null;
+        tags: string[] | null;
       };
-      categories: {
-        category_id: {
-          name: string;
-        };
-      }[];
-      tags: {
-        tag_id: {
-          name: string;
-        };
-      }[];
-      markdownNode: {
-        childMdx: {
-          excerpt: string;
-        };
+      fields: {
+        slug: string;
       };
+      excerpt: string;
     }[];
+  };
+  authorJson: {
+    firstName: string;
+    lastName: string;
   };
 };
 
 export const query = graphql`
   query ListPageQuery($skip: Int!, $limit: Int!, $status: [String!]!) {
-    allDirectusArticle(
+    allMdx(
       skip: $skip
       limit: $limit
-      filter: { layout: { eq: "post" }, status: { in: $status } }
-      sort: { order: DESC, fields: date_created }
+      filter: {
+        frontmatter: { layout: { eq: "post" }, status: { in: $status } }
+      }
+      sort: { order: DESC, fields: frontmatter___date }
     ) {
       nodes {
-        link
-        title
-        user_created {
-          first_name
-          last_name
-        }
-        date_created
-        thumbnail {
-          localFile {
+        frontmatter {
+          title
+          date(formatString: "YYYY-MM-DD")
+          date_updated(formatString: "YYYY-MM-DD")
+          thumbnail {
             childImageSharp {
               gatsbyImageData
             }
           }
+          categories
+          tags
         }
-        categories {
-          category_id {
-            name
-          }
+        fields {
+          slug
         }
-        tags {
-          tag_id {
-            name
-          }
-        }
-        markdownNode {
-          childMdx {
-            excerpt
-          }
-        }
+        excerpt
       }
+    }
+    authorJson {
+      firstName
+      lastName
     }
   }
 `;
 
 export const convert = (data: QueryData): ListPageData => {
-  return data.allDirectusArticle.nodes.map((node) => ({
-    link: node.link,
-    title: node.title,
-    author: `${node.user_created.first_name} ${node.user_created.last_name}`,
-    date: node.date_created.substring(0, 10),
-    thumbnail: node.thumbnail?.localFile?.childImageSharp.gatsbyImageData,
-    categories: node.categories.map((category) => category.category_id.name),
-    tags: node.tags.map((tag) => tag.tag_id.name),
-    excerpt: node.markdownNode.childMdx.excerpt
+  return data.allMdx.nodes.map((node) => ({
+    link: node.fields.slug,
+    title: node.frontmatter.title,
+    author: `${data.authorJson.firstName} ${data.authorJson.lastName}`,
+    date: node.frontmatter.date,
+    thumbnail: node.frontmatter.thumbnail?.childImageSharp.gatsbyImageData,
+    categories: node.frontmatter.categories || undefined,
+    tags: node.frontmatter.tags || undefined,
+    excerpt: node.excerpt
   }));
 };

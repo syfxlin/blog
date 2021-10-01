@@ -1,8 +1,7 @@
-const { generateConfig } = require("gatsby-plugin-ts-config");
+const { useGatsbyConfig } = require("gatsby-plugin-ts-config");
+
 require("dotenv").config({
   path: `.env`
 });
 
-module.exports = generateConfig({
-  configDir: `${__dirname}/config`
-});
+module.exports = useGatsbyConfig(() => require("./config/gatsby-config"), {});

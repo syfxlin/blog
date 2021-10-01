@@ -3,38 +3,38 @@ import { AuthorData } from "./types";
 import { graphql, useStaticQuery } from "gatsby";
 
 type QueryData = {
-  directusSystem: {
-    users_me: {
-      first_name: string;
-      last_name: string;
-      avatar: {
-        id: string;
-        localFile: {
-          childImageSharp: {
-            gatsbyImageData: IGatsbyImageData;
-          };
-        };
+  authorJson: {
+    firstName: string;
+    lastName: string;
+    description: string;
+    avatar: {
+      childImageSharp: {
+        gatsbyImageData: IGatsbyImageData;
       };
-      description: string;
+    };
+    background: {
+      childImageSharp: {
+        gatsbyImageData: IGatsbyImageData;
+      };
     };
   };
 };
 
 export const query = graphql`
   query AuthorQuery {
-    directusSystem {
-      users_me {
-        first_name
-        last_name
-        avatar {
-          id
-          localFile {
-            childImageSharp {
-              gatsbyImageData
-            }
-          }
+    authorJson {
+      firstName
+      lastName
+      description
+      avatar {
+        childImageSharp {
+          gatsbyImageData
         }
-        description
+      }
+      background {
+        childImageSharp {
+          gatsbyImageData
+        }
       }
     }
   }
@@ -42,12 +42,11 @@ export const query = graphql`
 
 export const convert = (data: QueryData): AuthorData => {
   return {
-    firstName: data.directusSystem.users_me.first_name,
-    lastName: data.directusSystem.users_me.last_name,
-    avatar:
-      data.directusSystem.users_me.avatar.localFile.childImageSharp
-        .gatsbyImageData,
-    description: data.directusSystem.users_me.description
+    firstName: data.authorJson.firstName,
+    lastName: data.authorJson.lastName,
+    description: data.authorJson.description,
+    avatar: data.authorJson.avatar.childImageSharp.gatsbyImageData,
+    background: data.authorJson.background.childImageSharp.gatsbyImageData
   };
 };
 

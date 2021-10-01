@@ -1,44 +1,44 @@
 import { GatsbyConfig } from "gatsby";
-import { convert as convertIndex, query as queryIndex } from "./query/algolia";
-import {
-  convert as convertFeed,
-  description as queryDescription,
-  query as queryFeed
-} from "./query/feed";
-import path from "path";
+import * as indexQuery from "./query/algolia";
+import seo from "../content/settings/seo.json";
+import remarkMath from "remark-math";
+import remarkHtmlKatex from "remark-html-katex";
 
 const siteMetadata: GatsbyConfig["siteMetadata"] = {
-  title: "青空之蓝",
-  siteUrl: "https://blog.ixk.me",
-  description:
-    "Hi，欢迎来到Otstar Lin的个人博客，来自福建泉州的菜鸟，博客内容主要以Linux和Web为主，哎呀，实在写不下去了_(:з」∠)_"
+  title: seo.title,
+  siteUrl: seo.url,
+  description: seo.description,
+  language: seo.language
 };
 
 const plugins: GatsbyConfig["plugins"] = [
+  // CMS
+  {
+    resolve: "gatsby-plugin-netlify-cms",
+    options: {
+      modulePath: `${__dirname}/../src/cms/index.js`
+    }
+  },
   // 数据源
   {
     resolve: "gatsby-source-filesystem",
     options: {
-      name: "friend-image",
-      path: path.join(__dirname, "links")
+      name: "posts",
+      path: `${__dirname}/../content/posts/`
     }
   },
   {
-    resolve: "@syfxlin/gatsby-source-directus",
+    resolve: "gatsby-source-filesystem",
     options: {
-      url: process.env.DIRECTUS_URL,
-      token: process.env.DIRECTUS_TOKEN
+      name: "pages",
+      path: `${__dirname}/../content/pages/`
     }
   },
   {
-    resolve: "gatsby-source-graphql",
+    resolve: "gatsby-source-filesystem",
     options: {
-      typeName: "Directus_System",
-      fieldName: "directusSystem",
-      url: `${process.env.DIRECTUS_URL}/graphql/system`,
-      headers: {
-        Authorization: `Bearer ${process.env.DIRECTUS_TOKEN}`
-      }
+      name: "settings",
+      path: `${__dirname}/../content/settings/`
     }
   },
   // Mdx 处理
@@ -46,7 +46,7 @@ const plugins: GatsbyConfig["plugins"] = [
     resolve: "gatsby-plugin-mdx",
     options: {
       extensions: [".mdx", ".md"],
-      remarkPlugins: [require("remark-math"), require("remark-html-katex")],
+      remarkPlugins: [remarkMath, remarkHtmlKatex],
       gatsbyRemarkPlugins: [
         {
           resolve: "gatsby-remark-responsive-iframe",
@@ -65,10 +65,21 @@ const plugins: GatsbyConfig["plugins"] = [
   },
   // 项目基础
   "gatsby-plugin-styled-components",
-  "gatsby-plugin-typescript",
+  {
+    resolve: "gatsby-plugin-typescript",
+    options: {
+      isTSX: true,
+      allExtensions: true
+    }
+  },
   "gatsby-plugin-less",
   // 转换器
-  "gatsby-transformer-json",
+  {
+    resolve: "gatsby-transformer-json",
+    options: {
+      typeName: ({ node }: any) => `${node.name}Json`
+    }
+  },
   "gatsby-plugin-image",
   "gatsby-plugin-sharp",
   "gatsby-transformer-sharp",
@@ -110,23 +121,23 @@ const plugins: GatsbyConfig["plugins"] = [
   },
   "gatsby-plugin-offline",
   "gatsby-plugin-advanced-sitemap",
-  {
-    resolve: `gatsby-plugin-feed-mdx`,
-    options: {
-      query: queryDescription,
-      setup({ query: { directusSeo } }: any) {
-        return directusSeo;
-      },
-      feeds: [
-        {
-          serialize: ({ query }: any) => convertFeed(query),
-          query: queryFeed,
-          output: "/rss.xml",
-          title: "青空之蓝"
-        }
-      ]
-    }
-  },
+  // {
+  //   resolve: `gatsby-plugin-feed-mdx`,
+  //   options: {
+  //     query: queryDescription,
+  //     setup({ query: { seoJson } }: any) {
+  //       return seoJson;
+  //     },
+  //     feeds: [
+  //       {
+  //         serialize: ({ query }: any) => convertFeed(query),
+  //         query: queryFeed,
+  //         output: "/rss.xml",
+  //         title: "青空之蓝"
+  //       }
+  //     ]
+  //   }
+  // },
   {
     resolve: "gatsby-plugin-robots-txt",
     options: {
@@ -142,8 +153,8 @@ const plugins: GatsbyConfig["plugins"] = [
       indexName: process.env.ALGOLIA_INDEX_NAME,
       queries: [
         {
-          query: queryIndex,
-          transformer: ({ data }: any) => convertIndex(data)
+          query: indexQuery.query,
+          transformer: ({ data }: any) => indexQuery.convert(data)
         }
       ],
       matchFields: [

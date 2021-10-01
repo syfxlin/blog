@@ -4,7 +4,7 @@ export type CategoriesData = {
 }[];
 
 type QueryData = {
-  allDirectusArticle: {
+  allMdx: {
     group: {
       fieldValue: string;
       totalCount: number;
@@ -14,10 +14,12 @@ type QueryData = {
 
 export const query = `
   query CategoriesQuery($status: [String!]!) {
-    allDirectusArticle(
-      filter: { layout: { eq: "post" }, status: { in: $status } }
+    allMdx(
+      filter: {
+        frontmatter: { layout: { eq: "post" }, status: { in: $status } }
+      }
     ) {
-      group(field: categories___category_id___name) {
+      group(field: frontmatter___categories) {
         fieldValue
         totalCount
       }
@@ -26,7 +28,7 @@ export const query = `
 `;
 
 export const convert = (data: QueryData): CategoriesData => {
-  return data.allDirectusArticle.group.map((item) => ({
+  return data.allMdx.group.map((item) => ({
     name: item.fieldValue,
     count: item.totalCount
   }));

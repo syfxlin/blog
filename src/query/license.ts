@@ -2,24 +2,23 @@ import { LicenseData } from "./types";
 import { graphql, useStaticQuery } from "gatsby";
 
 type QueryData = {
-  directusConfig: {
-    value?: {
-      label: string;
-      href: string;
-    };
+  licenseJson: {
+    label: string;
+    href: string;
   };
 };
 
 export const query = graphql`
   query LicenseQuery {
-    directusConfig(key: { eq: "license" }) {
-      value
+    licenseJson {
+      label
+      href
     }
   }
 `;
 
 export const convert = (data: QueryData): LicenseData => {
-  return data.directusConfig.value;
+  return data.licenseJson;
 };
 
 export const useLicenseData = () => convert(useStaticQuery(query));

@@ -18,7 +18,7 @@ type Props = {
   pageContext: {
     currentPage: number;
     pageSize: number;
-    archive?: string;
+    archive?: number;
     totalCount: number;
   };
 };
@@ -113,100 +113,87 @@ const Title = styled.div`
 export default ArchivePage;
 
 type QueryData = {
-  allDirectusArticle: {
+  allMdx: {
     group: {
       fieldValue: string;
       nodes: {
-        link: string;
-        title: string;
-        user_created: {
-          first_name: string;
-          last_name: string;
-        };
-        date_created: string;
-        thumbnail?: {
-          localFile?: {
+        frontmatter: {
+          title: string;
+          date: string;
+          thumbnail: {
             childImageSharp: {
               gatsbyImageData: IGatsbyImageData;
             };
-          };
+          } | null;
+          categories: string[] | null;
         };
-        categories: {
-          category_id: {
-            name: string;
-          };
-        }[];
-        markdownNode: {
-          childMdx: {
-            excerpt: string;
-          };
+        fields: {
+          slug: string;
         };
+        excerpt: string;
       }[];
     }[];
+  };
+  authorJson: {
+    firstName: string;
+    lastName: string;
   };
 };
 
 export const query = graphql`
   query ArchivePageQuery(
-    $archive: String
+    $archive: Int
     $skip: Int!
     $limit: Int!
     $status: [String!]!
   ) {
-    allDirectusArticle(
+    allMdx(
       skip: $skip
       limit: $limit
       filter: {
-        fields: { date_created_year: { eq: $archive } }
-        layout: { eq: "post" }
-        status: { in: $status }
+        fields: { date_year: { eq: $archive } }
+        frontmatter: { layout: { eq: "post" }, status: { in: $status } }
       }
-      sort: { order: DESC, fields: date_created }
+      sort: { order: DESC, fields: frontmatter___date }
     ) {
-      group(field: fields___date_created_year) {
+      group(field: fields___date_year) {
         fieldValue
         nodes {
-          link
-          title
-          user_created {
-            first_name
-            last_name
-          }
-          date_created
-          thumbnail {
-            localFile {
+          frontmatter {
+            title
+            date(formatString: "YYYY-MM-DD")
+            thumbnail {
               childImageSharp {
                 gatsbyImageData
               }
             }
+            categories
           }
-          categories {
-            category_id {
-              name
-            }
+          fields {
+            slug
           }
-          markdownNode {
-            childMdx {
-              excerpt(pruneLength: 50)
-            }
-          }
+          excerpt(pruneLength: 50)
         }
       }
+    }
+    authorJson {
+      firstName
+      lastName
     }
   }
 `;
 
 export const convert = (data: QueryData): ArchivePageData => {
-  return data.allDirectusArticle.group.map((archive) => ({
+  return data.allMdx.group.map((archive) => ({
     name: archive.fieldValue,
     items: archive.nodes.map((node) => ({
-      link: node.link,
-      title: node.title,
-      author: `${node.user_created.first_name} ${node.user_created.last_name}`,
-      date: node.date_created.substring(0, 10),
-      thumbnail: node.thumbnail?.localFile?.childImageSharp.gatsbyImageData,
-      categories: node.categories.map((category) => category.category_id.name),
-      excerpt: node.markdownNode.childMdx.excerpt
+      link: node.fields.slug,
+      title: node.frontmatter.title,
+      author: `${data.authorJson.firstName} ${data.authorJson.lastName}`,
+      date: node.frontmatter.date,
+      thumbnail: node.frontmatter.thumbnail?.childImageSharp.gatsbyImageData,
+      categories: node.frontmatter.categories || undefined,
+      excerpt: node.excerpt
     }))
   }));
 };

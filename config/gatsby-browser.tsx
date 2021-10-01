@@ -1,10 +1,10 @@
 import React from "react";
 import { CheckSSR } from "../src/utils/ssr";
-import Global from "../src/layouts/Global";
+import Root from "../src/layouts/Root";
 import { WrapRootElementBrowserArgs } from "gatsby";
 
 export const wrapRootElement = ({ element }: WrapRootElementBrowserArgs) => (
   <CheckSSR.Provider value={false}>
-    <Global>{element}</Global>
+    <Root>{element}</Root>
   </CheckSSR.Provider>
 );

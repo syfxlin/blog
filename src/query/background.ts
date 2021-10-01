@@ -3,15 +3,10 @@ import { BackgroundData } from "./types";
 import { graphql, useStaticQuery } from "gatsby";
 
 type QueryData = {
-  directusBackground: {
-    images: {
-      directus_files_id: {
-        localFile: {
-          childImageSharp: {
-            gatsbyImageData: IGatsbyImageData;
-          };
-        };
-        id: string;
+  backgroundJson: {
+    global: {
+      childImageSharp: {
+        gatsbyImageData: IGatsbyImageData;
       };
     }[];
   };
@@ -19,15 +14,10 @@ type QueryData = {
 
 export const query = graphql`
   query BackgroundQuery {
-    directusBackground {
-      images {
-        directus_files_id {
-          localFile {
-            childImageSharp {
-              gatsbyImageData
-            }
-          }
-          id
+    backgroundJson {
+      global {
+        childImageSharp {
+          gatsbyImageData
         }
       }
     }
@@ -35,8 +25,8 @@ export const query = graphql`
 `;
 
 export const convert = (data: QueryData): BackgroundData => {
-  return data.directusBackground.images.map(
-    (image) => image.directus_files_id.localFile.childImageSharp.gatsbyImageData
+  return data.backgroundJson.global.map(
+    (image) => image.childImageSharp.gatsbyImageData
   );
 };
 
