@@ -1,5 +1,3 @@
-import { status } from "./filter";
-
 export const description = `
   query FeedDescriptionQuery {
     seoJson {
@@ -40,12 +38,8 @@ export type FeedData = {
 export const query = `
   query FeedQuery {
     allMdx(
-      filter: {
-        frontmatter: { layout: { eq: "post" }, status: { in: ${JSON.stringify(
-          status
-        )} }
-      }
-      sort: { order: DESC, fields: frontmatter___date }
+      filter: {frontmatter: {layout: {eq: "post"}, status: {in: ["publish"]}}}
+      sort: {order: DESC, fields: frontmatter___date}
     ) {
       nodes {
         frontmatter {

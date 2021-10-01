@@ -1,5 +1,3 @@
-import { status } from "./filter";
-
 export type AlgoliaIndexData = {
   objectID: string;
   link: string;
@@ -37,9 +35,7 @@ type QueryData = {
 
 export const query = `
   query AlgoliaIndexQuery {
-    allMdx(filter: { frontmatter: { status: { in: ${JSON.stringify(
-      status
-    )} } } }) {
+    allMdx(filter: { frontmatter: { status: { in: ["publish"] } } }) {
       nodes {
         id
         fields {

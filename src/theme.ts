@@ -22,7 +22,7 @@ const light: DefaultTheme = {
   primary: "#5755d9",
   text: "#3b4351",
   text2: "#b2bcc3",
-  background: "#FFF",
+  background: "#ffffff",
   shadow: "rgba(0, 0, 0, 0.2)",
   divider: "rgba(0, 0, 0, 0.2)",
   codeBackground: "rgba(245, 242, 240, 1)"
@@ -32,7 +32,7 @@ const light: DefaultTheme = {
 const dark: DefaultTheme = {
   type: "dark",
   primary: "#5755d9",
-  text: "#FFF",
+  text: "#ffffff",
   text2: "#b2bcc3",
   background: "#3b4351",
   shadow: "rgba(0, 0, 0, 0.2)",

@@ -17,7 +17,10 @@ export const onCreateNode: GatsbyNode["onCreateNode"] = ({ node, actions }) => {
     };
 
     // 固定链接
-    const slug = layout(frontmatter.slug, frontmatter.layout);
+    const slug = layout(
+      frontmatter.slug,
+      frontmatter.layout === "post" ? "post" : "page"
+    );
     createNodeField({
       node,
       name: "slug",

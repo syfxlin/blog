@@ -1,4 +1,5 @@
 import { GatsbyConfig } from "gatsby";
+import * as feedQuery from "./query/feed";
 import * as indexQuery from "./query/algolia";
 import seo from "../content/settings/seo.json";
 import remarkMath from "remark-math";
@@ -121,23 +122,23 @@ const plugins: GatsbyConfig["plugins"] = [
   },
   "gatsby-plugin-offline",
   "gatsby-plugin-advanced-sitemap",
-  // {
-  //   resolve: `gatsby-plugin-feed-mdx`,
-  //   options: {
-  //     query: queryDescription,
-  //     setup({ query: { seoJson } }: any) {
-  //       return seoJson;
-  //     },
-  //     feeds: [
-  //       {
-  //         serialize: ({ query }: any) => convertFeed(query),
-  //         query: queryFeed,
-  //         output: "/rss.xml",
-  //         title: "青空之蓝"
-  //       }
-  //     ]
-  //   }
-  // },
+  {
+    resolve: "gatsby-plugin-feed",
+    options: {
+      query: feedQuery.description,
+      setup({ query: { seoJson } }: any) {
+        return seoJson;
+      },
+      feeds: [
+        {
+          serialize: ({ query }: any) => feedQuery.convert(query),
+          query: feedQuery.query,
+          output: "/rss.xml",
+          title: "青空之蓝"
+        }
+      ]
+    }
+  },
   {
     resolve: "gatsby-plugin-robots-txt",
     options: {

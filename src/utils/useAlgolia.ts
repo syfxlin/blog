@@ -47,28 +47,30 @@ interface SearchState<Hit> {
  * @param prevState See `SearchState` interface
  * @param updates Updates to `SearchState`
  */
-const generateSearchReducer = <Hit>() => (
-  prevState: SearchState<Hit>,
-  updates: Partial<SearchState<Hit>>
-): SearchState<Hit> => {
-  const gotMore = updates?.response?.page && updates?.response?.page > 0;
+const generateSearchReducer =
+  <Hit>() =>
+  (
+    prevState: SearchState<Hit>,
+    updates: Partial<SearchState<Hit>>
+  ): SearchState<Hit> => {
+    const gotMore = updates?.response?.page && updates?.response?.page > 0;
 
-  const hits =
-    gotMore && updates.response
-      ? [...prevState.hits, ...updates.response.hits]
-      : // If we’re not getting results from a new page, `hits` is set to:
-        // 1. overwrite `hits` from `updates` (when resetting query),
-        // 2. use the latest `hits` from the response,
-        // 3. use `hits` from the previous state, or
-        // 4. an empty array
-        updates.hits ?? updates.response?.hits ?? prevState.hits ?? [];
+    const hits =
+      gotMore && updates.response
+        ? [...prevState.hits, ...updates.response.hits]
+        : // If we’re not getting results from a new page, `hits` is set to:
+          // 1. overwrite `hits` from `updates` (when resetting query),
+          // 2. use the latest `hits` from the response,
+          // 3. use `hits` from the previous state, or
+          // 4. an empty array
+          updates.hits ?? updates.response?.hits ?? prevState.hits ?? [];
 
-  const hasMore = updates.response
-    ? updates.response.page < updates.response.nbPages - 1
-    : false;
+    const hasMore = updates.response
+      ? updates.response.page < updates.response.nbPages - 1
+      : false;
 
-  return { ...prevState, ...updates, hits, hasMore };
-};
+    return { ...prevState, ...updates, hits, hasMore };
+  };
 
 /**
  * Hook to make Algolia search queries with built-in support for pagination.
