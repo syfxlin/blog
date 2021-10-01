@@ -2,7 +2,8 @@
 locale: zh_Hans
 # storage
 backend:
-  name: git-gateway
+  name: github
+  repo: syfxlin/blog
   branch: master
 local_backend: true
 publish_mode: editorial_workflow
