@@ -1,10 +1,12 @@
 # config
 locale: zh_Hans
+display_url: https://blog.ixk.me
 # storage
 backend:
   name: github
   repo: syfxlin/blog
   branch: master
+  base_url: https://netlify-cms-oauth-syfxlin.vercel.app/
 local_backend: true
 publish_mode: editorial_workflow
 # images
