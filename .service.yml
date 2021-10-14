@@ -1,9 +1,7 @@
-buildpacks:
-  - nodejs
-  - nginx
+buildpack: nodejs-static
 env_file: .env
 nodejs:
-  run_before:
+  run_before_install:
     - |
       RUN apk --no-cache add git \
               shadow \
@@ -21,8 +19,6 @@ nodejs:
               file \
               pkgconf \
               util-linux
-  run:
-    - RUN yarn build
 nginx:
   error_page:
     404: 404/
