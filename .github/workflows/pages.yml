@@ -12,17 +12,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Gatsby build and deploy to gh-pages
-        uses: enriikke/gatsby-gh-pages-action@v2
         with:
-          access-token: ${{ secrets.ACCESS_TOKEN }}
-          deploy-branch: gh-pages
-        env:
-          ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
-          ALGOLIA_INDEX_NAME: ${{ secrets.ALGOLIA_INDEX_NAME }}
-          ALGOLIA_ADMIN_KEY: ${{ secrets.ALGOLIA_ADMIN_KEY }}
-          ALGOLIA_SKIP_INDEXING: ${{ secrets.ALGOLIA_SKIP_INDEXING }}
-          GOOGLE_ANALUTICS_ID: ${{ secrets.GOOGLE_ANALUTICS_ID }}
+          fetch-depth: 0
       - name: Push to dokku
         uses: dokku/github-action@master
         with:
