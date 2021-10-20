@@ -24,7 +24,7 @@
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
     "algoliasearch": "^4.10.3",
-    "artalk": "git://github.com/ArtalkJS/Artalk.git",
+    "artalk": "^2.0.2",
     "axios": "^0.21.1",
     "classnames": "^2.3.1",
     "dotenv": "^10.0.0",

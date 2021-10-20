@@ -1,3 +1,4 @@
 {
-  "serverUrl": "https://comment.api.ixk.me"
+  "server": "https://comment.api.ixk.me/api",
+  "site": "博客"
 }

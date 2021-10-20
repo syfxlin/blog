@@ -1,21 +1,23 @@
-import { default as ArtalkComment } from "artalk";
+import ArtalkComment from "artalk";
 import React, { useEffect } from "react";
 import { useTheme } from "styled-components";
-import "artalk/dist/Artalk.css";
+// module import not working
+import "../../node_modules/artalk/dist/Artalk.css";
 
 type Props = {
   pageKey: string;
-  serverUrl: string;
+  server: string;
+  site: string;
 };
 
-const Artalk: React.FC<Props> = ({ pageKey, serverUrl }) => {
+const Artalk: React.FC<Props> = ({ pageKey, server, site }) => {
   const theme = useTheme();
   useEffect(() => {
-    // @ts-ignore
     new ArtalkComment({
       el: `#comment`,
       pageKey,
-      serverUrl,
+      server,
+      site,
       placeholder: "留下你的足迹 ∠( ᐛ 」∠)＿",
       noComment: "快来成为第一个评论的人吧~",
       readMore: {
@@ -24,7 +26,7 @@ const Artalk: React.FC<Props> = ({ pageKey, serverUrl }) => {
       },
       darkMode: theme.type === "dark"
     });
-  }, [pageKey, serverUrl]);
+  }, [pageKey, server, site, theme]);
   return <div id={"comment"} />;
 };
 

@@ -246,8 +246,11 @@ collections:
         create: true
         delete: false
         fields:
-          - name: serverUrl
+          - name: server
             label: 服务器链接
+            widget: string
+          - name: site
+            label: 站点名称
             widget: string
       - file: content/settings/license.json
         name: license

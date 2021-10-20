@@ -131,7 +131,8 @@ export type PageData = {
 
 export type ArtalkData =
   | {
-      serverUrl: string;
+      server: string;
+      site: string;
     }
   | undefined;
 

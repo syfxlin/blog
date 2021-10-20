@@ -3,14 +3,16 @@ import { graphql, useStaticQuery } from "gatsby";
 
 type QueryData = {
   artalkJson: {
-    serverUrl: string;
+    server: string;
+    site: string;
   };
 };
 
 export const query = graphql`
   query ArtalkQuery {
     artalkJson {
-      serverUrl
+      server
+      site
     }
   }
 `;
