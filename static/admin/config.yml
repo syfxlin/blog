@@ -202,10 +202,6 @@ collections:
           - name: logo
             label: 站点图片
             widget: image
-          - name: opengraph
-            label: OpenGraph
-            widget: code
-            default_language: json
           - name: twitter
             label: Twitter
             widget: string

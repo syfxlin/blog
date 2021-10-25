@@ -8,15 +8,17 @@ import classNames from "classnames";
 import { usePrevious, useWindowScroll } from "react-use";
 import StyledHeader from "../components/StyledHeader";
 import loadable from "@loadable/component";
-import { useNavData } from "../query";
+import { useNavData, useSeoData } from "../query";
+import { GatsbyImage } from "gatsby-plugin-image";
 
 const Search = loadable(() => import("../components/Search"), { ssr: false });
 
 type Props = HeadProps;
 
 const Header: React.FC<Props> = ({ children, ...props }) => {
-  const [active, setActive] = useState(false);
   const nav = useNavData();
+  const seo = useSeoData();
+  const [active, setActive] = useState(false);
   const ref = useRef<HTMLElement>(null);
   const currY = useWindowScroll().y;
   const prevY = usePrevious(currY);
@@ -33,10 +35,7 @@ const Header: React.FC<Props> = ({ children, ...props }) => {
         <Container className={`navbar`}>
           <section className={"navbar-section"}>
             <Icon to={"/"}>
-              <img
-                src="https://cdn.jsdelivr.net/gh/syfxlin/pic/blog/icon.png"
-                alt="Site Logo"
-              />
+              <GatsbyImage alt={"Site Logo"} image={seo.logo} />
             </Icon>
           </section>
           <NavbarSection>

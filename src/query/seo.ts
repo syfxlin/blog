@@ -13,9 +13,6 @@ type QueryData = {
         gatsbyImageData: IGatsbyImageData;
       };
     };
-    opengraph?: {
-      code: string;
-    };
     twitter?: string;
     meta_tags?: {
       code: string;
@@ -38,9 +35,6 @@ export const query = graphql`
           gatsbyImageData
         }
       }
-      opengraph {
-        code
-      }
       twitter
       meta_tags {
         code
@@ -59,7 +53,6 @@ export const convert = (data: QueryData): SeoData => {
     title: data.seoJson.title,
     description: data.seoJson.description,
     logo: data.seoJson.logo.childImageSharp.gatsbyImageData,
-    openGraph: JSON.parse(data.seoJson.opengraph?.code || "{}"),
     twitter: data.seoJson.twitter,
     metaTags: JSON.parse(data.seoJson.meta_tags?.code || "[]"),
     linkTags: JSON.parse(data.seoJson.link_tags?.code || "[]")

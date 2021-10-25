@@ -1,5 +1,5 @@
 import { IGatsbyImageData } from "gatsby-plugin-image/dist/src/components/gatsby-image.browser";
-import { LinkProps, MetaProps, OpenGraph } from "gatsby-plugin-next-seo";
+import { LinkProps, MetaProps } from "gatsby-plugin-next-seo";
 import { TocItem } from "../components/Toc";
 
 export type AlgoliaData = {
@@ -98,7 +98,6 @@ export type SeoData = {
   title: string;
   description?: string;
   logo: IGatsbyImageData;
-  openGraph?: OpenGraph;
   twitter?: string;
   metaTags?: MetaProps[];
   linkTags?: LinkProps[];

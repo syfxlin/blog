@@ -1,8 +1,4 @@
 {
-  "opengraph": {
-    "lang": "json",
-    "code": "{\n    \"type\": \"website\"\n}"
-  },
   "logo": "img/icon.png",
   "url": "https://blog.ixk.me",
   "meta_tags": {
