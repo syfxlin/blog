@@ -175,7 +175,8 @@ const plugins: GatsbyConfig["plugins"] = [
   "gatsby-plugin-smoothscroll",
   "gatsby-plugin-mdx-embed",
   "gatsby-plugin-next-seo",
-  "gatsby-plugin-catch-links"
+  "gatsby-plugin-catch-links",
+  "gatsby-plugin-pnpm"
 ];
 
 export default {

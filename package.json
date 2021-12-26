@@ -45,6 +45,7 @@
     "gatsby-plugin-netlify-cms": "^5.14.0",
     "gatsby-plugin-next-seo": "^1.7.0",
     "gatsby-plugin-offline": "^4.10.0",
+    "gatsby-plugin-pnpm": "^1.2.9",
     "gatsby-plugin-robots-txt": "^1.6.8",
     "gatsby-plugin-sharp": "^3.10.2",
     "gatsby-plugin-smoothscroll": "^1.2.0",
@@ -73,6 +74,7 @@
     "react-dom": "^17.0.2",
     "react-dplayer": "^0.4.2",
     "react-helmet-async": "^1.0.9",
+    "react-is": "^17.0.2",
     "react-medium-image-zoom": "^4.3.4",
     "react-syntax-highlighter": "^15.4.4",
     "react-use": "^17.2.4",
@@ -84,6 +86,9 @@
     "typescript": "^4.3.5"
   },
   "devDependencies": {
+    "@babel/core": "^7.16.5",
+    "@babel/plugin-syntax-flow": "^7.16.5",
+    "@babel/plugin-transform-react-jsx": "^7.16.5",
     "@types/classnames": "^2.3.1",
     "@types/loadable__component": "^5.13.4",
     "@types/mdx-js__react": "^1.5.4",
@@ -94,15 +99,19 @@
     "@types/styled-components": "^5.1.11",
     "@typescript-eslint/eslint-plugin": "^4.28.5",
     "@typescript-eslint/parser": "^4.28.5",
+    "babel-eslint": "^10.1.0",
     "babel-plugin-styled-components": "^1.13.2",
     "eslint": "^7.31.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-config-react-app": "^6.0.0",
+    "eslint-plugin-flowtype": "^8.0.3",
     "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.26.1",
     "eslint-plugin-react-hooks": "^4.2.0",
     "prettier": "2.4.1",
-    "rimraf": "^3.0.2"
+    "rimraf": "^3.0.2",
+    "webpack": "^5.65.0"
   }
 }

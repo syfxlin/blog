@@ -1,7 +1,13 @@
-buildpack: nodejs-static
+name: blog
+template: nodejs-static
+domain: blog.ixk.me
+letsencrypt: true
+port: 80
 env_file: .env
-nodejs:
-  run_before_install:
+nginx:
+  error_page:
+    404: 404/
+  inject_prepare:
     - |
       RUN apk --no-cache add git \
               shadow \
@@ -19,6 +25,3 @@ nodejs:
               file \
               pkgconf \
               util-linux
-nginx:
-  error_page:
-    404: 404/
