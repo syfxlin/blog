@@ -7,6 +7,7 @@ env_file: .env
 nginx:
   error_page:
     404: 404/
+nodejs:
   inject_prepare:
     - |
       RUN apk --no-cache add git \
