@@ -4,6 +4,12 @@ domain: blog.ixk.me
 letsencrypt: true
 port: 80
 env_file: .env
+env:
+  ALGOLIA_APP_ID: "${BLOG_ALGOLIA_APP_ID}"
+  ALGOLIA_API_KEY: "${BLOG_ALGOLIA_API_KEY}"
+  ALGOLIA_INDEX_NAME: "${BLOG_ALGOLIA_INDEX_NAME}"
+  ALGOLIA_ADMIN_KEY: "${BLOG_ALGOLIA_ADMIN_KEY}"
+  GOOGLE_ANALUTICS_ID: "UA-118354380-2"
 nginx:
   error_page:
     404: 404/
