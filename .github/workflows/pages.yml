@@ -12,11 +12,15 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Setup node
+        uses: actions/setup-node@v2
         with:
-          fetch-depth: 0
-      - name: Push to dokku
-        uses: dokku/github-action@master
-        with:
-          git_push_flags: "--force"
-          git_remote_url: "ssh://dokku@ixk.me/blog"
-          ssh_private_key: ${{ secrets.DOKKU_PRIVATE_KEY }}
+          node-version: "16"
+      - name: Install depker-cli
+        run: npm i -g @syfxlin/depker-cli
+      - name: Login to depker
+        run: |
+          depker config:endpoint ${{ secrets.DEPKER_ENDPOINT }} &&
+          depker login:token ${{ secrets.DEPKER_TOKEN }}
+      - name: Deploy to depker
+        run: depker deploy -v
