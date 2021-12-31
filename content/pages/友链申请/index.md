@@ -42,7 +42,7 @@ categories:
   - Bio：一句介绍你或站点的语句，长度不要超过 30 个半角字符或 15 个全角字符，否则在一些分辨率较低的屏幕上可能会被截断。另外内容同样也不应出现不适合展示的元素。
   - Logo：站点的 Favicon 或者头像，要求大小在 `512px` 以下，长宽应相同即正方形，文件格式应为 `png,jpg,svg,ico` 等浏览器能良好展示的格式。Logo 应符合 Gravater `G` 分级要求。
   - 昵称：你在网上的称呼，最好不要是真名或姓名拼音，实名上网并不是件好事。同样也不应出现不适合展示的元素。
-- 当你准备好了，你就可以 fork [syfxlin/blog](https://github.com/syfxlin/blog) 仓库，然后修改 `config/links` 文件夹下的内容。
+- 当你准备好了，你就可以 fork [syfxlin/blog](https://github.com/syfxlin/blog) 仓库，然后修改 `content/settings` 文件夹下的内容。
 - 将你的站点 Logo 放入 `img` 文件夹，文件名的格式为 `[domain].[ext]`，如 `ixk.me.png`。不接受直链，因为大小和速度不可控，毕竟博主我不想友链页面加载半天。
 - 修改 `links.json` 文件，正常显示的友链放置于 `links`，你可以按已有的格式进行增加。
 - 完成步骤后，就可以向我的博客仓库发起 Pull Request 了。如果符合要求，那么当 Pull Request 合并后，你的网站会在不久后出现在我的友链页面 [永远的好朋友](links)。
