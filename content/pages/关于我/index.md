@@ -2,112 +2,118 @@
 title: 关于我
 slug: about
 status: publish
-date: '2017-06-30T16:00:39.000Z'
-date_updated: null
 layout: page
+date: 2017-06-30T16:00:39.000Z
+date_updated: 2022-01-09T08:07:53.279Z
+thumbnail: d5d38535-c953-4072-8859-d9123b7429f6.jpg
 categories:
   - 折腾记录
-thumbnail: d5d38535-c953-4072-8859-d9123b7429f6.jpg
 ---
-## About Otstar
+## Otstar Lin
 
-Otstar，全称 Out the star 即世外繁星，也可以称 繁星。🌟
+Hi，远方的朋友，很高兴能和你在这片小天地相遇。我是 **Otstar Lin**，这个名字是我一拍脑门想出来的 🤣，所以一般我不会用于比较正式的场合，大家也可以用 **繁星** 称呼我。由于一些历史遗留，我也会使用 **syfxlin** 作为用户名，即 **世外繁星**。
 
----
+## Me
 
-世外繁星，其实是一个游戏，虽然这个游戏并不是很出名，而且只是个休闲游戏，但向往星空的我一见倾心。😂
+* **🐈 夜猫子**，夜晚是灵感爆发的时间。
+* **🌈 半二次元**，看番追漫，但没有很强的二次元属性。
+* **😶 内向 & 社恐**，喜欢宅，不擅长主动交际，天生局外人，习惯了旁观而不是加入世间的烟火。
+* 😑 **少言**，在外人看来是一个非常少言的人，也不擅长组织语言，比较喜欢用文字来表达想法。
+* 🚲 **独行**，通常情况下我喜欢独自一个人，喜欢自由和无拘无束，不喜欢被束缚。
+* **🤔 专注**，会为了热衷的事物废寝忘食，目前所热爱的是独立开发，如果时间允许我能从起床写到睡觉，曾经刷到了 Wakatime 的前十。
+* ⚪ **简洁**，尽可能追求简单，不喜欢复杂的事物，也不喜欢混乱的环境。
+* 🌰 性格类型是 [INFP-A](https://www.16personalities.com/ch/infp-%E4%BA%BA%E6%A0%BC)。
+* 📈 间歇性踌躇满志，📉 持续性混吃等死。
+* 🐟 天天划水摸鱼。
+* 🎲 对未来感到迷茫，找不到前进的方向。
+* 💬 会普通话和闽南话，对英语一窍不通。
+* 💊 拥有把代码越写越渣的能力。
+* 🐛 主业写 Bug，副业 Debug。
+* 🍺 秉承着“话不投机半句多”和“不挽留，不讨好，不争吵，不记恨”的社交原则。
+* 📦 能借助 Google 写出一些稀奇古怪的项目。
+* 🛠️ 喜欢折腾，总导致自己处于劳累，不健康和紧张的状态。
+* 🎹 喜欢纯音和日系音乐。
+* 🎮 喜欢的游戏很随机，偶尔 RTS，偶尔 RPG，偶尔 ARPG，偶尔 音游，但不喜欢任何 第一人称视角 的游戏，因为有强烈的 3D 眩晕情况。
+* 🍻 朋友很少，但认为在未来会越来越多。
+* ✔️ 没有所谓的品牌信仰，但我会坚定选择实用的东西或高性价比的东西。
 
-## About Me
+## Stack
 
-- 🎉 常用昵称有很多 世外繁星，繁星，Otstar Lin，syfxlin 等等。
-- 🌰 性格类型是 [INFP-A](https://www.16personalities.com/ch/infp-%E4%BA%BA%E6%A0%BC) 时隔两年有所改变了，之前是 [INFJ-A](https://www.16personalities.com/ch/infj-%E4%BA%BA%E6%A0%BC)。
-- 🐈 夜猫子。
-- 🌈 半二次元。
-- 📈 间歇性踌躇满志，📉 持续性混吃等死。
-- 🐟 天天划水摸鱼。
-- 🎲 对未来感到迷茫，找不到前进的方向。
-- ⏳ 总是在折腾一些没有用的东西，并在上面浪费了很多的时间。
-- 🌴 身处大陆东南方的沿海小城，⛰️ 非假期的时候蜗居在非常潮湿的另一座环山小城。
-- 💬 会普通话和闽南话，对英语一窍不通。
-- 📝 写作能力和语言能力很差。
-- 🤦‍♂️ 拥有阅读 HTML/CSS | JavaScript/TypeScript | C | Java | PHP 代码的能力，但是无一熟悉或精通。
-- 😫 前端苦手，后端菜鸡。
-- 💊 拥有把代码越写越渣的能力。
-- 📦 能借助 Google 写出一些稀奇古怪的项目。
-- 🐛 主业写 Bug，副业 Debug。
-- 💻 使用的 IDE 是 [JetBrains IDEA](https://www.jetbrains.com/idea/)，JB 家的工具真好用.jpg 😂，轻量编辑还是使用 [VSCode](https://code.visualstudio.com/) 不过已经不是主力了。
-- IDEA 装了几十个插件，VSCode 至今装了 130+ 个插件，还在持续增加中，Edge 装了 30+个插件，可以说是插件狂魔了 🤣。
-- 系统独爱 Windows10 🍭 （Dev 通道 Insider），服务器独爱 Debian 系，不过现在 Arch 系用习惯了也很香了 🐧，已将 Windows 的开发环境打造成接近 Linux 的存在 😋。（吐槽：丢人微软啥时候能把 WSL 做到像 ChromeOS 的 Linux 虚拟机的水平。
-- 🐳 Docker 重度使用患者，目前站点已经全部迁移到 Docker 了。
-- 💻 主力工作站是 Hasee ZX6 (i5-8400 GTX1050ti 16G 256G+1T 16G Optane) 以及~~上古 ThinkPad Helix (i5-3337U 4G 128G)~~卖掉了。
-- 📚 不喜欢实体书，电子阅读器是 LikeBook Mars。
-- 📱 用着淘宝捡来的 Nubia Z17 (835 6G 64G)（估计到毕业了也不会再换了吧，不玩机了~）。
-- 🛠️ 喜欢折腾，总导致自己处于劳累，不健康和紧张的状态。
-- 🎹 喜欢纯音和日系音乐。
-- 🎮 喜欢的游戏很随机，偶尔 RTS，偶尔 RPG，偶尔 ARPG，偶尔 音游，但不喜欢任何 第一人称视角 的游戏，因为有强烈的 3D 眩晕情况。
-- 🍻 朋友很少，但认为在未来会越来越多。
-- 见过 [Zohar](https://www.iwch.me/)，[a.k.a. 小黄蜂](https://t.me/AkaFeng_Unofficial)，[⑨BIE](http://9bie.org/) 几位大佬。
+> 了解 `?`，熟悉 `-`，掌握 `+`，熟练 `++`，精通 `+++`
 
----
+**Languages：**
 
-- 🏠 喜欢宅，不善主动交际。天生局外人，习惯了旁观而不是加入世间的烟火。
-- 💬 在外人看来是一个非常少言的人，但我也有自己的交际圈，只是可能不在外人能看到的“身边”。
-- 🍺 秉承着“话不投机半句多”和“不挽留，不讨好，不争吵，不记恨”的社交原则。
-- ❌ 不喜欢与那些一知半解的人谈论相关话题。
-- 💤 生活比较懒散，情感比较随缘，精神比较坚定，性格比较倔强。
-- 😋 较擅长观察他人，非常排斥无中生有的恶意。喜欢尝试新事物，对小众的东西也有特别的兴趣。
-- 😶 曾经因为一些错误的选择失去了许多。
-- 🚩 喜欢自由和无拘无束、不喜欢被束缚。
-- ✔️ 没有所谓的品牌信仰，但我会坚定选择实用的东西或高性价比的东西。
-- 🧱 那堵墙是最讨厌的东西之一。
-- 📰 讨厌任何专制的副产物。
+* HTML ++
+* CSS ++
+* Markdown +++
+* Java ++
+* JavaScript ++
+* TypeScript ++
+* PHP -
+* SQL +
+* C/C++ ?
+* Python ?
+* C# ?
 
-## About Blog
+**Technologies：**
 
-- 建立博客其实大部分是为了自己，博客至今没什么人看，其实就是自己折腾的记录，以后需要用到就很有用。
-- 希望我写的垃圾水文能稍微帮到来访的朋友们。
-- 博客当然不止分享技术，偶尔吐点槽，评价下是非，写点小心情。
-- 从 2018 年 9 月开始持续更新，都是一些水文 2333。
-- 这里没有删帖（崩溃没备份也没办法 🤣），没有封号（就我一个人 😏）。
-- 只要服务器还在，域名有续费，本站就会一直存在下去。不过写博客的朋友们感觉越来越少了，或许本站也会在未来的某一天从互联网上消失吧。
-- 这里有我们需要的言论自由。
-- 站内的文章均为原创 📝（以前的有些不是，不过现在的文章都是原创），当然文章内可能有参考其他文章的部分，可能会有雷同 🤣。
-- 文章均使用 CC BY-NC-SA 许可发布，转载请署名标注来源。不过如果有敏感内容转载到墙内请注意去除本站的任何信息。
+* Spring Projects ++
+* React ++
+* Vue 2 ++
+* Vue 3 +
+* NodeJS +
+* MySQL +
+* Redis +
+* GraphQL -
+* Docker ++
+* Kubernetes ?
+* Git +
 
-## Link Me
+**Soft skills：**
 
-- **Home Page:** [ixk.me](https://ixk.me)
-- **Gmail:** [syfxlin@gmail.com](mailto:syfxlin@gmail.com)
-- **Imail:** [i@ixk.me](mailto:i@ixk.me) 缓慢的迁移到 Imail，主力还是 Gmail。
-- **QQ:** 加 Origami 的群就有了
-- **Github:** [syfxlin](https://github.com/syfxlin)
-- **Telegram:** [@otstar](https://t.me/otstar)
-- **Twitter:** [@syfxlin](https://twitter.com/syfxlin)
-- **Netease Music:** [@Otstar-Lin](https://music.163.com/m/user?id=281301709)
-- **Bilibili:** [@Otstar-Lin](http://space.bilibili.com/16210802)
-- **OSU!:** [syfxlin](https://osu.ppy.sh/users/14926666) 打不动了，偶尔会玩一下。
-- **Location:** 福建泉州
+* Google Search（面向 Google 编程 🤣）
+* GitHub（天天混迹 GitHub，然而基本都没参与到开源项目的开发中，都是写一些自己的项目 🤔）
+* GitHub Action（GitHub Action 好用，强推 😁）
+* DevOps
+* Windows/Linux\[Arch Linux, Ubuntu, Alpine]（虽然我天天喷 Windows，但是它在使用体验上确实挺好的）
+* VSCode（曾经装了 150+ 的插件，插件狂魔就是我了 😅，不过现在很少用了）
+* Jetbrains IDEs（JB 的 IDE 我吹爆 😋）
 
-1. QQ 主要用于联系同学以及和万能的群友摸鱼，要加我 QQ 的话请注明来自博客，否则眼生的就只能拒绝了，一般情况下我都会同意（逃。
-2. 有关文章的问题尽量在评论区提问，这样也能使更多的人看到。
-3. 有关项目的问题或者功能请求请前往 Github 提交 issue。
-4. 对于比较复杂的问题可以邮件或者 QQ 联系我。**提问的智慧:** [Github 查看](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/master/README-zh_CN.md)
-5. 若问题判断为过于简单，或者没有回答的意义，我可能会忽略你的提问（视心情）
-6. 不管通过任何方式联系我请一次性把问题说完整。
-7. [伸手党](https://baike.baidu.com/item/%E4%BC%B8%E6%89%8B%E5%85%9A) 直接拉黑，包括邮件拒绝，Telegram 屏蔽等等，**深受其害**。
-8. 友人可以忽略以上所有条例
+## Blog
 
-## About Theme
+* 关于域名，**ixk** 可以理解为 **我的星空**，是我在互联网上的一片小天地。
+* 建立博客其实大部分是为了自己，博客至今没什么人看，其实就是自己折腾的记录，以后需要用到就很有用。
+* 希望我写的垃圾水文能稍微帮到来访的朋友们。
+* 博客当然不止分享技术，偶尔吐点槽，评价下是非，写点小心情。
+* 从 2018 年 9 月开始持续更新，都是一些水文 2333。
+* 这里没有删帖（崩溃没备份也没办法 🤣），没有封号（就我一个人 😏）。
+* 只要服务器还在，域名有续费，本站就会一直存在下去。不过写博客的朋友们感觉越来越少了，或许本站也会在未来的某一天从互联网上消失吧。
+* 这里有我们需要的言论自由。
+* 站内的文章均为原创 📝（以前的有些不是，不过现在的文章都是原创），当然文章内可能有参考其他文章的部分，可能会有雷同 🤣。
+* 文章均使用 CC BY-NC-SA 许可发布，转载请署名标注来源。不过如果有敏感内容转载到墙内请注意去除本站的任何信息。
 
-这里以后再写吧，请先前往 [这里](https://blog.ixk.me/theme-origami.html) 查看
+## Contact
 
-## Copyright Statement
+* **GitHub**：[@syfxlin](https://github.com/syfxlin)
+* **Mail**：[syfxlin@gmail.com](mailto:syfxlin@gmail.com)
+* **QQ:** 加 Origami 的群就有了
+* **Telegram:** [@otstar](https://t.me/otstar)
+* **Twitter:** [@syfxlin](https://twitter.com/syfxlin)
+* QQ 主要用于联系同学以及和万能的群友摸鱼，要加我 QQ 的话请注明来自博客，否则眼生的就只能拒绝了，一般情况下我都会同意（逃。
+* 有关文章的问题尽量在评论区提问，这样也能使更多的人看到。
+* 有关项目的问题或者功能请求请前往 GitHub 提交 issue。
+* 对于比较复杂的问题可以邮件或者 QQ 联系我。**提问的智慧:** [GitHub 查看](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/master/README-zh_CN.md)。
+* 不管通过任何方式联系我请一次性把问题说完整。
+* 友人可以忽略以上所有条例。
 
-除非单独说明，任何个人或者媒体转载本博客的原创内容（不包含代码），都请遵循 [署名 - 非商业性使用 - 相同方式共享 3.0 未本地化版本](https://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh) 的知识共享协议。
+## Digital Products
 
-文章中的代码若是来自带有 License 的开源项目，则保留原 License，其余若没有单独说明均采用 [MIT License](https://en.wikipedia.org/wiki/MIT_License) ，任何个人或者媒体转载都应遵守相应的的 License。
-
-不过如果有敏感内容转载到墙内请注意去除本站的任何信息。
+* Nubia Z17（Snapdragon 835 / 6G RAM / 64 ROM）
+* Hasee ZX6-CP5T（Intel i5-8400 / 16G RAM / 256G SSD / 16G Optane / 1T HDD）
+* ‎Logitech G502
+* RK 987 / Minira
+* Redmi AirDot 3 Pro
+* Likebook Mars
 
 ## Apply for Links
 
@@ -115,77 +121,6 @@ Otstar，全称 Out the star 即世外繁星，也可以称 繁星。🌟
 
 ## Donate
 
-救救快要破产的博主吧(\*/ω＼\*) （逃
+救救快要破产的博主吧(*/ω＼*) （逃。
 
-注：默认采用收款名作为捐助者名称，若需要其他昵称或者匿名可以备注下，也可以与我取得联系更改。
-
-![](9bd20e26-444a-461a-a26f-2f113c7e05c4.jpg)
-
-![](864d85d7-571a-40f9-ac39-eaf15a14f840.jpg)
-
-或者，您也可以在 [爱发电](https://afdian.net/@syfxlin) 赞助我。
-
-## Thanks very mach
-
-**非常非常感谢下方的捐助者！**（下方按时间先后排序
-
-<table>
-  <tbody>
-    <tr>
-      <td>
-        <strong>捐助者</strong>
-      </td>
-      <td>
-        <strong>金额</strong>
-      </td>
-      <td>
-        <strong>日期</strong>
-      </td>
-    </tr>
-    <tr>
-      <td>alanyhq</td>
-      <td>23.33</td>
-      <td>2019-09-20</td>
-    </tr>
-    <tr>
-      <td>曾菜鸟</td>
-      <td>10.22</td>
-      <td>2020-01-24</td>
-    </tr>
-    <tr>
-      <td>啊蛙哥</td>
-      <td>8.88</td>
-      <td>2020-01-24</td>
-    </tr>
-    <tr>
-      <td>筱某佳同学</td>
-      <td>6.66</td>
-      <td>2020-02-04</td>
-    </tr>
-    <tr>
-      <td>T*n</td>
-      <td>20</td>
-      <td>2020-02-17</td>
-    </tr>
-    <tr>
-      <td>*珂</td>
-      <td>6.66</td>
-      <td>2020-03-01</td>
-    </tr>
-    <tr>
-      <td>*龙</td>
-      <td>20</td>
-      <td>2020-03-03</td>
-    </tr>
-    <tr>
-      <td>*丁</td>
-      <td>99</td>
-      <td>2020-04-03</td>
-    </tr>
-    <tr>
-      <td>さくら</td>
-      <td>50</td>
-      <td>2020-04-04</td>
-    </tr>
-  </tbody>
-</table>
+您可以在 [爱发电](https://afdian.net/@syfxlin) 赞助我。
