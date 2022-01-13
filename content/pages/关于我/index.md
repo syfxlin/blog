@@ -66,7 +66,7 @@ Hi，远方的朋友，很高兴能和你在这片小天地相遇。我是 **Ots
 * Redis +
 * GraphQL -
 * Docker ++
-* Kubernetes ?
+* Kubernetes -
 * Git +
 
 **Soft skills：**
