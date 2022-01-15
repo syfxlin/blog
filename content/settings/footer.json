@@ -1,6 +1,6 @@
 {
   "main": {
     "lang": "html",
-    "code": "{face} © 2017-{year} 青空之蓝 By <a href=\"https://ixk.me\">Otstar Lin</a>\n<br>\n闽ICP备 备案是不可能的\n<br>\n站点在各种灾难中运行了 {date:07/01/2017 00:00:09}"
+    "code": "{face} © 2017-{year} 青空之蓝 By <a href=\"https://ixk.me\">Otstar Lin</a>\n<br>\n<a href=\"https://ixk.me\">Home</a> | <a href=\"https://github.com/syfxlin\">GitHub</a> | <a href=\"https://status.ixk.me/\">Status</a>\n<br>\n站点在各种灾难中运行了 {date:07/01/2017 00:00:09}"
   }
 }
