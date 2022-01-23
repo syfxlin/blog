@@ -95,7 +95,7 @@ Hi，远方的朋友，很高兴能和你在这片小天地相遇。我是 **Ots
 ## Contact
 
 * **GitHub**：[@syfxlin](https://github.com/syfxlin)
-* **Mail**：[syfxlin@gmail.com](mailto:syfxlin@gmail.com)
+* **Mail**：[i@ixk.me](mailto:i@ixk.me), [syfxlin@gmail.com](mailto:syfxlin@gmail.com) (deprecated, gmail 将在未来逐渐弃用)
 * **QQ:** 加 Origami 的群就有了
 * **Telegram:** [@otstar](https://t.me/otstar)
 * **Twitter:** [@syfxlin](https://twitter.com/syfxlin)
