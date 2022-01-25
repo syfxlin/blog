@@ -17,7 +17,7 @@ const FriendCard: React.FC<Props> = ({ name, url, avatar, bio, author }) => {
     <StyledCard>
       <Link href={url} target={"_blank"} rel={"noreferrer"}>
         <Avatar>
-          <GatsbyImage alt={name} image={avatar} color={"transparent"} />
+          <GatsbyImage alt={name} image={avatar} />
         </Avatar>
         <Info>
           <Name>{name}</Name>

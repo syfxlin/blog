@@ -82,7 +82,15 @@ const plugins: GatsbyConfig["plugins"] = [
     }
   },
   "gatsby-plugin-image",
-  "gatsby-plugin-sharp",
+  {
+    resolve: "gatsby-plugin-sharp",
+    options: {
+      defaults: {
+        placeholder: "blurred",
+        backgroundColor: "transparent"
+      }
+    }
+  },
   "gatsby-transformer-sharp",
   {
     resolve: "gatsby-plugin-canonical-urls",
