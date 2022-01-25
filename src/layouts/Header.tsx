@@ -35,7 +35,11 @@ const Header: React.FC<Props> = ({ children, ...props }) => {
         <Container className={`navbar`}>
           <section className={"navbar-section"}>
             <Icon to={"/"}>
-              <GatsbyImage alt={"Site Logo"} image={seo.logo} />
+              <GatsbyImage
+                alt={"Site Logo"}
+                image={seo.logo}
+                color={"transparent"}
+              />
             </Icon>
           </section>
           <NavbarSection>
