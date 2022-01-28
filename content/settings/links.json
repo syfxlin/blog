@@ -245,6 +245,19 @@
       "url": "https://qwqaq.com/",
       "avatar": "img/qwqaq.com.png",
       "bio": "生命不止，折腾不息 ( ゜- ゜)"
+    },
+    {
+      "name": "OS0day",
+      "url": "https://blog.os0day.cn/",
+      "author": "OS0day",
+      "bio": "一位医疗行业的软件工程师",
+      "avatar": "img/blog.os0day.cn.png"
+    },
+    {
+      "url": "https://0m0.co/",
+      "name": "冰糕Luminous の 小窝",
+      "author": "冰糕Luminous",
+      "avatar": "img/0m0.co.png"
     }
   ],
   "lostConnection": [
