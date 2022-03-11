@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blog
+  labels:
+    app: blog
+spec:
+  selector:
+    matchLabels:
+      app: blog
+  replicas: 1
+  template:
+    metadata:
+      name: blog
+      labels:
+        app: blog
+    spec:
+      containers:
+        - name: blog
+          image: cr.ixk.me/syfxlin/blog
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 80
+      restartPolicy: Always
