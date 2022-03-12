@@ -37,4 +37,5 @@ RUN --mount=type=secret,id=build,dst=/app/.env pnpm run build
 FROM nginx:alpine
 
 # copy static pages
+RUN rm -f /usr/share/nginx/html/*
 COPY --chown=nginx:nginx --from=builder /app/public /usr/share/nginx/html
