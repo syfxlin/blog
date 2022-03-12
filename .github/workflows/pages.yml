@@ -2,7 +2,7 @@ name: Next Deploy
 on:
   push:
     branches:
-      - dev
+      - master
   workflow_dispatch:
 jobs:
   deploy:
