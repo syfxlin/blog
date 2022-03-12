@@ -6,9 +6,6 @@ images:
   app:
     image: ${image}
     dockerfile: ./deploy/Dockerfile
-    tags:
-      - "latest"
-      - "#####"
     build:
       buildKit:
         args:
