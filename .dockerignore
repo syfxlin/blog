@@ -118,5 +118,6 @@ $RECYCLE.BIN/
 .vscode
 .idea
 
-.devspace
+deploy/
+.devspace/
 devspace.yaml
