@@ -5,7 +5,7 @@ import Card from "./Card";
 const TwitterCard: React.FC = () => {
   return (
     <StyledCard>
-      <iframe src={"/twitter.html"} frameBorder={0} />
+      <iframe src={"/twitter/index.html"} frameBorder={0} />
     </StyledCard>
   );
 };

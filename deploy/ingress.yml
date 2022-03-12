@@ -6,18 +6,10 @@ metadata:
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
     nginx.ingress.kubernetes.io/server-snippet: |-
       location ~ ^\/(?<post>[^\/]+)\.html$ {
-        try_files $uri $uri/ @redirect_to_post;
-      }
-
-      location @redirect_to_post {
         return 301 $scheme://$host/post/$post;
       }
 
       location ~ ^\/(?<year>\d\d\d\d)\/\d\d {
-        try_files $uri $uri/ @redirect_to_archive;
-      }
-
-      location @redirect_to_archive {
         return 301 $scheme://$host/archive/$year;
       }
 spec:
