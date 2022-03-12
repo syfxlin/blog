@@ -1,6 +1,6 @@
 namespace: production
 commonLabels:
-  app: home
+  app: blog
 resources:
   - deployment.yml
   - service.yml
