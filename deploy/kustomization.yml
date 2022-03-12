@@ -1,0 +1,7 @@
+namespace: production
+commonLabels:
+  app: home
+resources:
+  - deployment.yml
+  - service.yml
+  - ingress.yml

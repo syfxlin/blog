@@ -1,0 +1,24 @@
+version: v1beta11
+vars:
+  - name: image
+    value: cr.ixk.me/syfxlin/blog
+images:
+  app:
+    image: ${image}
+    dockerfile: ./deploy/Dockerfile
+    tags:
+      - "latest"
+      - "#####"
+    build:
+      buildKit:
+        args:
+          - --secret=id=build,src=.env
+        inCluster:
+          name: buildkit
+          namespace: kube-system
+deployments:
+  - name: blog
+    kubectl:
+      kustomize: true
+      manifests:
+        - deploy/
