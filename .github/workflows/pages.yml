@@ -1,4 +1,4 @@
-name: Next Deploy
+name: Gatsby Deploy
 on:
   push:
     branches:
@@ -9,19 +9,16 @@ jobs:
     env:
       TZ: Asia/Shanghai
     runs-on: ubuntu-latest
-    container: quay.io/syfxlin/devspace
+    container: quay.io/syfxlin/tilt
     steps:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Setup Kubernetes & Docker
         run: |
           mkdir -p ~/.kube
-          mkdir -p ~/.docker
           echo "$KUBE_CONFIG" > ~/.kube/config
-          echo "$DOCKER_CONFIG" > ~/.docker/config.json
         env:
           KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
-          DOCKER_CONFIG: ${{ secrets.DOCKER_CONFIG }}
       - name: Setup secret env
         run: |
           echo "$SECRET_ENV" > .env
@@ -29,4 +26,4 @@ jobs:
           SECRET_ENV: ${{ secrets.SECRET_ENV }}
       - name: Deploy to Kubernetes
         run: |
-          devspace deploy -n production
+          tilt ci

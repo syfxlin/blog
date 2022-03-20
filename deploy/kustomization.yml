@@ -1,7 +1,0 @@
-namespace: production
-commonLabels:
-  app: blog
-resources:
-  - deployment.yml
-  - service.yml
-  - ingress.yml

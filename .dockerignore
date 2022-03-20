@@ -64,9 +64,6 @@ typings/
 # Yarn Integrity file
 .yarn-integrity
 
-# dotenv environment variables file
-.env
-
 # =========================
 # Operating System Files
 # =========================
@@ -118,5 +115,4 @@ $RECYCLE.BIN/
 .vscode
 .idea
 
-.devspace/
-devspace.yaml
+.git/
