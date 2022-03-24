@@ -1,3 +1,7 @@
+from api import v1alpha1
+from deployment import *
+from nodejs_template import *
+
 v1alpha1.extension_repo(name='tilt-extensions', url='https://github.com/syfxlin/tilt-extensions')
 v1alpha1.extension(name='deployment', repo_name='tilt-extensions', repo_path='deployment')
 v1alpha1.extension(name='nodejs_template', repo_name='tilt-extensions', repo_path='nodejs_template')

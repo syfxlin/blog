@@ -26,4 +26,4 @@ jobs:
           SECRET_ENV: ${{ secrets.SECRET_ENV }}
       - name: Deploy to Kubernetes
         run: |
-          tilt ci
+          tilt-re ci
