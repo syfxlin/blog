@@ -15,5 +15,6 @@
     "preserveConstEnums": true,
     "resolveJsonModule": true
   },
-  "include": ["./src/**/*", "**/*.ts", "**/*.d.ts", "**/*.tsx", "**/*.d.tsx"]
+  "include": ["./src/**/*", "**/*.ts", "**/*.d.ts", "**/*.tsx", "**/*.d.tsx"],
+  "exclude": [".depker"]
 }

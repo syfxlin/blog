@@ -1,8 +1,8 @@
-/* eslint-disable no-undef */
+/// <reference path="https://raw.githubusercontent.com/syfxlin/depker/master/src/types/index.ts" />
 
 export const deploy = async () => {
   // prettier-ignore
-  const dockerfile = depker.template.nodejsStatic({
+  const dockerfile = depker.template.nodejs_static({
     inject_prepare: [`
       RUN apk --no-cache add git \
           shadow \
