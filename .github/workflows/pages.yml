@@ -27,7 +27,7 @@ jobs:
 
           echo "$SECRET_ENV" > .env
 
-          depker do deploy -f .depker/depker.ts
+          depker do deploy up -f .depker/depker.ts
         env:
           CA_PEM: ${{ secrets.CA_PEM }}
           CERT_PEM: ${{ secrets.CERT_PEM }}
