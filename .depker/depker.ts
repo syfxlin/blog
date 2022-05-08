@@ -6,6 +6,7 @@ export const deploy = depker.docker.of(() => ({
   build: {
     secret: { build: ".env" },
     dockerfile_contents: depker.template.nodejs_static({
+      version: "node16",
       // prettier-ignore
       inject_prepare: [`RUN apk --no-cache add git \
           shadow \
@@ -22,7 +23,10 @@ export const deploy = depker.docker.of(() => ({
           zlib-dev \
           file \
           pkgconf \
-          util-linux
+          util-linux \
+          g++ \
+          make \
+          python3
       `]
     })
   },
