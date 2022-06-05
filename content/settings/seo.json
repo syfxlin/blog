@@ -1,0 +1,16 @@
+{
+  "logo": "img/icon.png",
+  "url": "https://blog.ixk.me",
+  "meta_tags": {
+    "lang": "json",
+    "code": "[\n    {\n        \"name\": \"keywords\",\n        \"content\": \"Otstar Lin, otstar, syfxlin, blog, 博客, Java, Web, Linux, XK-Lab\"\n    },\n    {\n        \"httpEquiv\": \"Content-Security-Policy\",\n        \"content\": \"block-all-mixed-content\"\n    }\n]"
+  },
+  "twitter": "@syfxlin",
+  "title": "青空之蓝",
+  "language": "zh_CN",
+  "description": "Hi，欢迎来到Otstar Lin的个人博客，来自福建泉州的菜鸟，博客内容主要以Linux和Web为主，哎呀，实在写不下去了_(:з」∠)_",
+  "link_tags": {
+    "lang": "json",
+    "code": "[\n    {\n        \"rel\": \"apple-touch-icon\",\n        \"sizes\": \"180x180\",\n        \"href\": \"/apple-touch-icon.png\"\n    },\n    {\n        \"rel\": \"icon\",\n        \"type\": \"image/png\",\n        \"sizes\": \"32x32\",\n        \"href\": \"/favicon-32x32.png\"\n    },\n    {\n        \"rel\": \"icon\",\n        \"type\": \"image/png\",\n        \"sizes\": \"16x16\",\n        \"href\": \"/favicon-16x16.png\"\n    }\n]"
+  }
+}

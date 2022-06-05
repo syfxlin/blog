@@ -1,15 +1,51 @@
-import type { GatsbyConfig } from "gatsby";
+import { GatsbyConfig } from "gatsby";
+import seo from "./content/settings/seo.json";
+
+const siteMetadata: GatsbyConfig["siteMetadata"] = {
+  title: seo.title,
+  siteUrl: seo.url,
+  description: seo.description,
+  language: seo.language,
+};
+
+const plugins: GatsbyConfig["plugins"] = [
+  // 数据源
+  {
+    resolve: "gatsby-source-filesystem",
+    options: {
+      name: "settings",
+      path: "content/settings/",
+    },
+  },
+  // 转换器
+  {
+    resolve: "gatsby-transformer-json",
+    options: {
+      typeName: ({ node }: any) => `${node.name}Json`,
+    },
+  },
+  "gatsby-plugin-image",
+  "gatsby-transformer-sharp",
+  {
+    resolve: "gatsby-plugin-sharp",
+    options: {
+      defaults: {
+        placeholder: "blurred",
+        backgroundColor: "transparent",
+      },
+    },
+  },
+  // 基础组件
+  "gatsby-plugin-next-seo",
+  // 基础设施
+  "gatsby-plugin-pnpm",
+  "gatsby-plugin-emotion",
+];
 
 const config: GatsbyConfig = {
-  siteMetadata: {
-    title: `blog`,
-    siteUrl: `https://www.yourdomain.tld`
-  },
-  // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
-  // If you use VSCode you can also use the GraphQL plugin
-  // Learn more at: https://gatsby.dev/graphql-typegen
   graphqlTypegen: true,
-  plugins: ["gatsby-plugin-netlify-cms"]
+  siteMetadata,
+  plugins,
 };
 
 export default config;
