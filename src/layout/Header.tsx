@@ -1,9 +1,12 @@
 import React from "react";
-import { Link } from "gatsby";
+import { Link as GLink } from "gatsby";
 import { GatsbySeo } from "gatsby-plugin-next-seo";
 import { useSeoData } from "../queries/seo";
 import { GatsbyImage } from "gatsby-plugin-image";
-import { useU } from "@syfxlin/ustyled";
+import { useU, useUp } from "@syfxlin/ustyled";
+import { LinkButton } from "../components/Button";
+import { NavViewType, useNavData } from "../queries/nav";
+import { Icon } from "../components/Icon";
 
 export type HeaderProps = {
   title?: string;
@@ -15,7 +18,9 @@ export type HeaderProps = {
 
 export const Header: React.FC<HeaderProps> = (props) => {
   const { css } = useU();
+  const desktop = useUp("md");
   const seo = useSeoData();
+  const nav = useNavData();
   return (
     <>
       <GatsbySeo
@@ -45,18 +50,43 @@ export const Header: React.FC<HeaderProps> = (props) => {
         metaTags={seo.metaTags}
         linkTags={seo.linkTags}
       />
-      <header>
-        <Link
-          to={"/"}
+      <header
+        css={css`
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        `}
+      >
+        <GLink
+          to="/"
           css={css`
             display: block;
             width: .fs(2.5);
             height: .fs(2.5);
             margin: .fs(1.5);
+            border-radius: 50%;
           `}
         >
-          <GatsbyImage alt={"Site logo"} image={seo.logo} />
-        </Link>
+          <GatsbyImage alt="Site logo" image={seo.logo} />
+        </GLink>
+        <div
+          css={css`
+            display: flex;
+            gap: .sp(1);
+            padding-right: .sp(4);
+          `}
+        >
+          {nav.map((item) => {
+            return (
+              <LinkButton to={item.url} key={item.url}>
+                {item.view === NavViewType.FULL && item.title}
+                {item.view === NavViewType.ICON && <Icon data={item.icon} />}
+                {item.view === NavViewType.ELASTIC &&
+                  (desktop ? item.title : <Icon data={item.icon} />)}
+              </LinkButton>
+            );
+          })}
+        </div>
       </header>
     </>
   );

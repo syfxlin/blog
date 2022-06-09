@@ -54,7 +54,7 @@ export const LinkButton: React.FC<LinkButtonProps> = ({ to, ...other }) => {
     font-size: .fs(1);
     line-height: 1;
     height: .fs(2);
-    padding: .sp(2);
+    padding: .sp(2) .sp(2.5);
     border-radius: .r(0.8);
     color: .c(primary7, primary3);
     transition: color 0.3s, background-color 0.3s, box-shadow 0.3s;
@@ -67,6 +67,11 @@ export const LinkButton: React.FC<LinkButtonProps> = ({ to, ...other }) => {
     &:focus,
     &:active {
       box-shadow: 0 0 0 .bw(2) .c(primary1, primary9);
+    }
+
+    .i-icon {
+      margin: 0 .sp(-0.5);
+      transform: scale(1.1);
     }
   `;
 

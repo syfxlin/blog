@@ -3,8 +3,9 @@ import React from "react";
 
 const CMS = loadable(
   async () => {
-    const cms = await import("netlify-cms-app").then((m) => m.default);
-    cms.init();
+    const netlify = await import("netlify-cms-app").then((m) => m.default);
+    const cms = await import("../cms");
+    netlify.init({ config: cms.config });
     return { default: () => null } as any;
   },
   { ssr: false }
