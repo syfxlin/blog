@@ -58,9 +58,10 @@ export const config: CmsConfig = {
                   default: "elastic",
                   required: true,
                   options: [
-                    { value: "full", label: "完整显示描述" },
-                    { value: "elastic", label: "弹性显示描述或图标" },
-                    { value: "icon", label: "只显示图标" },
+                    { value: "always", label: "总是显示描述" },
+                    { value: "elastic", label: "弹性显示描述" },
+                    { value: "always-icon", label: "总是显示图标" },
+                    { value: "elastic-icon", label: "弹性显示图标" },
                   ],
                 },
               ],

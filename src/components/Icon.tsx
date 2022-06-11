@@ -6,15 +6,17 @@ export type IconProps = SVGAttributes<SVGElement> & {
 
 export const Icon: React.FC<IconProps> = ({ data, ...props }) => {
   return (
-    <svg
-      width="1em"
-      height="1em"
-      viewBox="0 0 48 48"
-      fill="none"
-      {...props}
-      dangerouslySetInnerHTML={{
-        __html: data,
-      }}
-    />
+    <span className="i-icon">
+      <svg
+        width="1em"
+        height="1em"
+        viewBox="0 0 48 48"
+        fill="none"
+        {...props}
+        dangerouslySetInnerHTML={{
+          __html: data,
+        }}
+      />
+    </span>
   );
 };

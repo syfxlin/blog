@@ -20,6 +20,7 @@ export const GlobalStyles: React.FC = () => {
           background-color: .c(white, dark7);
           color: .c(black, dark0);
           line-height: 1.5;
+          transition: color 0.3s, background-color 0.3s;
         }
 
         .i-icon {

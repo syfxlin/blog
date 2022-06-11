@@ -1,9 +1,10 @@
 import { graphql, useStaticQuery } from "gatsby";
 
 export enum NavViewType {
-  FULL = "full",
+  ALWAYS = "always",
   ELASTIC = "elastic",
-  ICON = "icon",
+  ALWAYS_ICON = "always-icon",
+  ELASTIC_ICON = "elastic-icon",
 }
 
 export type NavData = {

@@ -4,9 +4,10 @@ import { GatsbySeo } from "gatsby-plugin-next-seo";
 import { useSeoData } from "../queries/seo";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { useU, useUp } from "@syfxlin/ustyled";
-import { LinkButton } from "../components/Button";
+import { Button, LinkButton } from "../components/Button";
 import { NavViewType, useNavData } from "../queries/nav";
 import { Icon } from "../components/Icon";
+import { DarkMode } from "@icon-park/react";
 
 export type HeaderProps = {
   title?: string;
@@ -17,10 +18,12 @@ export type HeaderProps = {
 };
 
 export const Header: React.FC<HeaderProps> = (props) => {
-  const { css } = useU();
+  const { css, setMode } = useU();
   const desktop = useUp("md");
   const seo = useSeoData();
   const nav = useNavData();
+
+  // prettier-ignore
   return (
     <>
       <GatsbySeo
@@ -65,27 +68,56 @@ export const Header: React.FC<HeaderProps> = (props) => {
             height: .fs(2.5);
             margin: .fs(1.5);
             border-radius: 50%;
+            overflow: hidden;
+            transition: filter 0.3s;
+
+            .dark() {
+              filter: brightness(0.7);
+            }
           `}
         >
-          <GatsbyImage alt="Site logo" image={seo.logo} />
+          <GatsbyImage alt="Site logo" image={seo.logo}/>
         </GLink>
         <div
           css={css`
             display: flex;
             gap: .sp(1);
-            padding-right: .sp(4);
+            padding-right: .fs(1.5);
           `}
         >
           {nav.map((item) => {
             return (
-              <LinkButton to={item.url} key={item.url}>
-                {item.view === NavViewType.FULL && item.title}
-                {item.view === NavViewType.ICON && <Icon data={item.icon} />}
-                {item.view === NavViewType.ELASTIC &&
-                  (desktop ? item.title : <Icon data={item.icon} />)}
+              <LinkButton
+                key={item.url}
+                to={item.url}
+                title={item.title}
+                aria-label={item.title}
+              >
+                {desktop ? (
+                  <>
+                    {item.view === NavViewType.ALWAYS && item.title}
+                    {item.view === NavViewType.ELASTIC && item.title}
+                    {item.view === NavViewType.ALWAYS_ICON && <Icon data={item.icon}/>}
+                    {item.view === NavViewType.ELASTIC_ICON && <Icon data={item.icon}/>}
+                  </>
+                ) : (
+                  <>
+                    {item.view === NavViewType.ALWAYS && item.title}
+                    {item.view === NavViewType.ELASTIC && <Icon data={item.icon}/>}
+                    {item.view === NavViewType.ALWAYS_ICON && <Icon data={item.icon}/>}
+                    {item.view === NavViewType.ALWAYS_ICON && null}
+                  </>
+                )}
               </LinkButton>
             );
           })}
+          <Button
+            title="切换暗色模式"
+            aria-label="切换暗色模式"
+            onClick={() => setMode()}
+          >
+            <DarkMode/>
+          </Button>
         </div>
       </header>
     </>
