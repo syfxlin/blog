@@ -4,23 +4,16 @@ import { NormalizeCSS } from "../theme/NormalizeCSS";
 import { GlobalStyles } from "../theme/GlobalStyles";
 import { Main } from "../layout/Main";
 import { Header } from "../layout/Header";
+import { Footer } from "../layout/Footer";
 
-// markup
-const IndexPage = (props: any) => {
+const IndexPage = () => {
   return (
     <UstyledProvider>
       <NormalizeCSS />
       <GlobalStyles />
-      {/*<TestColor>*/}
-      {/*  <Link to={"https://ixk.me/admin"}>Link</Link>*/}
-      {/*  <Button>Button</Button>*/}
-      {/*  <Button>*/}
-      {/*    <Github />*/}
-      {/*  </Button>*/}
-      {/*  <LinkButton to={"https://blog.ixk.me/admin"}>LinkButton</LinkButton>*/}
-      {/*</TestColor>*/}
-      <Header></Header>
+      <Header />
       <Main></Main>
+      <Footer />
     </UstyledProvider>
   );
 };

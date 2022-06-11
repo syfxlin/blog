@@ -69,6 +69,19 @@ export const config: CmsConfig = {
           ],
         },
         {
+          file: "content/settings/footer.json",
+          name: "footer",
+          label: "页脚",
+          fields: [
+            {
+              name: "main",
+              label: "主页脚",
+              widget: "code",
+              default_language: "html",
+            },
+          ],
+        },
+        {
           file: "content/settings/seo.json",
           name: "seo",
           label: "SEO",
