@@ -1,20 +1,15 @@
 import * as React from "react";
-import { UstyledProvider } from "@syfxlin/ustyled";
-import { NormalizeCSS } from "../theme/NormalizeCSS";
-import { GlobalStyles } from "../theme/GlobalStyles";
-import { Main } from "../layout/Main";
-import { Header } from "../layout/Header";
-import { Footer } from "../layout/Footer";
+import { Main } from "../layouts/Main";
+import { Header } from "../layouts/Header";
+import { Footer } from "../layouts/Footer";
 
 const IndexPage = () => {
   return (
-    <UstyledProvider>
-      <NormalizeCSS />
-      <GlobalStyles />
+    <>
       <Header />
       <Main></Main>
       <Footer />
-    </UstyledProvider>
+    </>
   );
 };
 

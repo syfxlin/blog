@@ -3,35 +3,14 @@ import { LinkProps, MetaProps } from "gatsby-plugin-next-seo";
 import { IGatsbyImageData } from "gatsby-plugin-image";
 
 export type SeoData = {
-  language: string;
-  url: string;
-  title: string;
-  description?: string;
-  logo: IGatsbyImageData;
-  twitter?: string;
-  metaTags?: MetaProps[];
-  linkTags?: LinkProps[];
-};
-
-type QueryData = {
-  seoJson: {
-    language: string;
-    url: string;
-    title: string;
-    description?: string;
-    logo: {
-      childImageSharp: {
-        gatsbyImageData: IGatsbyImageData;
-      };
-    };
-    twitter?: string;
-    meta_tags?: {
-      code: string;
-    };
-    link_tags?: {
-      code: string;
-    };
-  };
+  language: string | undefined;
+  url: string | undefined;
+  title: string | undefined;
+  description: string | undefined;
+  logo: IGatsbyImageData | undefined;
+  twitter: string | undefined;
+  metaTags: MetaProps[] | undefined;
+  linkTags: LinkProps[] | undefined;
 };
 
 export const query = graphql`
@@ -57,16 +36,16 @@ export const query = graphql`
   }
 `;
 
-export const convert = (data: QueryData): SeoData => {
+export const convert = (data: Queries.SeoQueryQuery): SeoData => {
   return {
-    language: data.seoJson.language,
-    url: data.seoJson.url,
-    title: data.seoJson.title,
-    description: data.seoJson.description,
-    logo: data.seoJson.logo.childImageSharp.gatsbyImageData,
-    twitter: data.seoJson.twitter,
-    metaTags: JSON.parse(data.seoJson.meta_tags?.code || "[]"),
-    linkTags: JSON.parse(data.seoJson.link_tags?.code || "[]"),
+    language: data.seoJson?.language ?? undefined,
+    url: data.seoJson?.url ?? undefined,
+    title: data.seoJson?.title ?? undefined,
+    description: data.seoJson?.description ?? undefined,
+    logo: data.seoJson?.logo?.childImageSharp?.gatsbyImageData ?? undefined,
+    twitter: data.seoJson?.twitter ?? undefined,
+    metaTags: JSON.parse(data.seoJson?.meta_tags?.code || "[]"),
+    linkTags: JSON.parse(data.seoJson?.link_tags?.code || "[]"),
   };
 };
 

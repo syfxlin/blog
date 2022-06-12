@@ -2,14 +2,6 @@ import { graphql, useStaticQuery } from "gatsby";
 
 export type FooterData = string | undefined;
 
-type QueryData = {
-  footerJson: {
-    main: {
-      code: string;
-    };
-  };
-};
-
 export const query = graphql`
   query FooterQuery {
     footerJson {
@@ -20,8 +12,8 @@ export const query = graphql`
   }
 `;
 
-export const convert = (data: QueryData): FooterData => {
-  return data.footerJson.main.code;
+export const convert = (data: Queries.FooterQueryQuery): FooterData => {
+  return data.footerJson?.main?.code ?? undefined;
 };
 
 export const useFooterData = () => convert(useStaticQuery(query));

@@ -14,17 +14,6 @@ export type NavData = {
   view: NavViewType;
 }[];
 
-type QueryData = {
-  navJson: {
-    main: {
-      title: string;
-      url: string;
-      icon: string;
-      view: string;
-    }[];
-  };
-};
-
 export const query = graphql`
   query NavQuery {
     navJson {
@@ -38,8 +27,10 @@ export const query = graphql`
   }
 `;
 
-export const convert = (data: QueryData): NavData => {
-  return data.navJson.main.map((i) => ({
+export const convert = (data: Queries.NavQueryQuery): NavData => {
+  // prettier-ignore
+  const items = data.navJson?.main?.filter((i) => i?.title && i?.url && i?.icon && i?.view) ?? [];
+  return items.map((i: any) => ({
     title: i.title,
     url: i.url,
     icon: i.icon,
