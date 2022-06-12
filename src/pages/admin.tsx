@@ -1,5 +1,6 @@
 import loadable from "@loadable/component";
 import React from "react";
+import { useU } from "@syfxlin/ustyled";
 
 const CMS = loadable(
   async () => {
@@ -12,9 +13,16 @@ const CMS = loadable(
 );
 
 const AdminPage: React.FC = () => {
+  const { css } = useU();
   return (
     <>
-      <div id="nc-root" />
+      <div
+        id="nc-root"
+        css={css`
+          height: 100vh;
+          width: 100vw;
+        `}
+      />
       <CMS />
     </>
   );

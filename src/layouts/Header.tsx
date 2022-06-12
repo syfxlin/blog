@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import { Link as GLink } from "gatsby";
 import { GatsbySeo } from "gatsby-plugin-next-seo";
 import { useSeoData } from "../queries/seo";
@@ -23,7 +23,6 @@ export const Header: React.FC<HeaderProps> = (props) => {
   const seo = useSeoData();
   const nav = useNavData();
 
-  // prettier-ignore
   return (
     <>
       <GatsbySeo
@@ -40,7 +39,7 @@ export const Header: React.FC<HeaderProps> = (props) => {
           description: props.description || seo.description,
           images: [
             {
-              url: props.image || seo.logo.images.fallback?.src || "",
+              url: props.image || seo.logo?.images?.fallback?.src || "",
               alt: props.title || seo.title,
             },
           ],
@@ -76,7 +75,7 @@ export const Header: React.FC<HeaderProps> = (props) => {
             }
           `}
         >
-          <GatsbyImage alt="Site logo" image={seo.logo}/>
+          {seo.logo && <GatsbyImage alt="站点图标" image={seo.logo} />}
         </GLink>
         <div
           css={css`
@@ -86,29 +85,46 @@ export const Header: React.FC<HeaderProps> = (props) => {
           `}
         >
           {nav.map((item) => {
+            let element: ReactNode = null;
+
+            if (desktop) {
+              if (item.view === NavViewType.ALWAYS) {
+                element = item.title;
+              }
+              if (item.view === NavViewType.ELASTIC) {
+                element = item.title;
+              }
+              if (item.view === NavViewType.ALWAYS_ICON) {
+                element = <Icon data={item.icon} />;
+              }
+              if (item.view === NavViewType.ELASTIC_ICON) {
+                element = <Icon data={item.icon} />;
+              }
+            } else {
+              if (item.view === NavViewType.ALWAYS) {
+                element = item.title;
+              }
+              if (item.view === NavViewType.ELASTIC) {
+                element = <Icon data={item.icon} />;
+              }
+              if (item.view === NavViewType.ALWAYS_ICON) {
+                element = <Icon data={item.icon} />;
+              }
+              if (item.view === NavViewType.ALWAYS_ICON) {
+                element = null;
+              }
+            }
             return (
-              <LinkButton
-                key={item.url}
-                to={item.url}
-                title={item.title}
-                aria-label={item.title}
-              >
-                {desktop ? (
-                  <>
-                    {item.view === NavViewType.ALWAYS && item.title}
-                    {item.view === NavViewType.ELASTIC && item.title}
-                    {item.view === NavViewType.ALWAYS_ICON && <Icon data={item.icon}/>}
-                    {item.view === NavViewType.ELASTIC_ICON && <Icon data={item.icon}/>}
-                  </>
-                ) : (
-                  <>
-                    {item.view === NavViewType.ALWAYS && item.title}
-                    {item.view === NavViewType.ELASTIC && <Icon data={item.icon}/>}
-                    {item.view === NavViewType.ALWAYS_ICON && <Icon data={item.icon}/>}
-                    {item.view === NavViewType.ALWAYS_ICON && null}
-                  </>
-                )}
-              </LinkButton>
+              element && (
+                <LinkButton
+                  key={item.url}
+                  to={item.url}
+                  title={item.title}
+                  aria-label={item.title}
+                >
+                  {element}
+                </LinkButton>
+              )
             );
           })}
           <Button
@@ -116,7 +132,7 @@ export const Header: React.FC<HeaderProps> = (props) => {
             aria-label="切换暗色模式"
             onClick={() => setMode()}
           >
-            <DarkMode/>
+            <DarkMode />
           </Button>
         </div>
       </header>

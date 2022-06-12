@@ -24,6 +24,33 @@ export const config: CmsConfig = {
       public_folder: "img",
       files: [
         {
+          file: "content/settings/author.json",
+          name: "author",
+          label: "作者",
+          fields: [
+            {
+              name: "firstName",
+              label: "名",
+              widget: "string",
+            },
+            {
+              name: "lastName",
+              label: "姓",
+              widget: "string",
+            },
+            {
+              name: "avatar",
+              label: "头像",
+              widget: "image",
+            },
+            {
+              name: "description",
+              label: "描述",
+              widget: "text",
+            },
+          ],
+        },
+        {
           file: "content/settings/nav.json",
           name: "nav",
           label: "菜单",
