@@ -1,13 +1,18 @@
 import React, { ButtonHTMLAttributes } from "react";
 import { GatsbyLinkProps, Link as GLink } from "gatsby";
 import { useU } from "@syfxlin/ustyled";
+import Tippy, { TippyProps } from "@tippyjs/react";
 
-export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
-export type LinkButtonProps = Omit<GatsbyLinkProps<any>, "ref">;
+export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+  tippy?: TippyProps;
+};
+export type LinkButtonProps = Omit<GatsbyLinkProps<any>, "ref"> & {
+  tippy?: TippyProps;
+};
 
-export const Button: React.FC<ButtonProps> = (props) => {
+export const Button: React.FC<ButtonProps> = ({ tippy, ...props }) => {
   const { css } = useU();
-  return (
+  const element = (
     <button
       {...props}
       css={css`
@@ -43,9 +48,14 @@ export const Button: React.FC<ButtonProps> = (props) => {
       `}
     />
   );
+  return tippy ? <Tippy {...tippy}>{element}</Tippy> : element;
 };
 
-export const LinkButton: React.FC<LinkButtonProps> = ({ to, ...other }) => {
+export const LinkButton: React.FC<LinkButtonProps> = ({
+  to,
+  tippy,
+  ...props
+}) => {
   const { css } = useU();
 
   const style = css`
@@ -83,13 +93,11 @@ export const LinkButton: React.FC<LinkButtonProps> = ({ to, ...other }) => {
   const internet = /^https?:/.test(to);
   const file = /\.[\da-z]+$/i.test(to);
   if (internet || file) {
-    return <a href={to} {...other} css={style} />;
+    // eslint-disable-next-line jsx-a11y/anchor-has-content
+    const element = <a href={to} {...props} css={style} />;
+    return tippy ? <Tippy {...tippy}>{element}</Tippy> : element;
   } else {
-    return <GLink to={to} {...other} css={style} />;
+    const element = <GLink to={to} {...props} css={style} />;
+    return tippy ? <Tippy {...tippy}>{element}</Tippy> : element;
   }
-};
-
-export const IconButton: React.FC<LinkButtonProps> = (props) => {
-  const { css } = useU();
-  return <GLink {...props} css={css``} />;
 };

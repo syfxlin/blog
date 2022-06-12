@@ -9,7 +9,11 @@ export const Hero: React.FC<HeroProps> = () => {
   const { css } = useU();
   const author = useAuthorData();
   return (
-    <div>
+    <div
+      css={css`
+        margin: .sp(4) 0;
+      `}
+    >
       <GatsbyImage
         alt="头像"
         image={author.avatar}
@@ -17,6 +21,11 @@ export const Hero: React.FC<HeroProps> = () => {
           width: .s(25);
           height: .s(25);
           border-radius: 50%;
+          transition: filter 0.3s;
+
+          .dark() {
+            filter: brightness(0.7);
+          }
         `}
       />
       <div

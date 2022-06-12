@@ -6,6 +6,8 @@ import { GlobalStyles } from "../theme/GlobalStyles";
 
 // styles
 import "katex/dist/katex.min.css";
+import "tippy.js/dist/tippy.css";
+import "tippy.js/animations/shift-away.css";
 
 export type RootProps = PropsWithChildren<{}>;
 

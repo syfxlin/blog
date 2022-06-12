@@ -6,7 +6,8 @@ specifiers:
   '@loadable/component': ^5.15.2
   '@mdx-js/mdx': v1
   '@mdx-js/react': v1
-  '@syfxlin/ustyled': ^2.0.4
+  '@syfxlin/ustyled': ^2.0.6
+  '@tippyjs/react': ^4.2.6
   '@types/loadable__component': ^5.13.4
   '@types/mdx-js__react': ^1.5.5
   '@types/node': ^17.0.38
@@ -57,7 +58,8 @@ dependencies:
   '@loadable/component': 5.15.2_react@18.1.0
   '@mdx-js/mdx': 1.6.22
   '@mdx-js/react': 1.6.22_react@18.1.0
-  '@syfxlin/ustyled': 2.0.4_@types+react@18.0.10
+  '@syfxlin/ustyled': 2.0.6_@types+react@18.0.10
+  '@tippyjs/react': 4.2.6_ef5jwxihqo6n7gxfmzogljlgcm
   '@types/reach__router': 1.3.10
   classnames: 2.3.1
   deepmerge: 4.2.2
@@ -3200,6 +3202,10 @@ packages:
       webpack: 5.73.0
     dev: false
 
+  /@popperjs/core/2.11.5:
+    resolution: {integrity: sha512-9X2obfABZuDVLCgPK9aX0a/x4jaOEweTTWE2+9sr0Qqqevj2Uv5XorvusThmc9XGYpS9yI+fhh8RTafBtGposw==}
+    dev: false
+
   /@react-dnd/asap/4.0.1:
     resolution: {integrity: sha512-kLy0PJDDwvwwTXxqTFNAAllPHD73AycE9ypWeln/IguoGBEbvFcPDbCV03G52bEcC5E+YgupBE0VzHGdC8SIXg==}
     dev: false
@@ -3262,8 +3268,8 @@ packages:
       tslib: 2.4.0
     dev: false
 
-  /@syfxlin/ustyled/2.0.4_@types+react@18.0.10:
-    resolution: {integrity: sha512-FOZtXeHGGPsByU1aUOBoONy+n5XpEt1PuZfyefxHmRN1Y4RIxZmTIOxLvid/5RPhqiKb520TWxFCM4/gioSing==}
+  /@syfxlin/ustyled/2.0.6_@types+react@18.0.10:
+    resolution: {integrity: sha512-OTC/DjMmHtaSj5vhx35S7DKBIEeeMp9mMAIv9Wx9wgy1flXWxMJdDnd5LJ64AoJ/xpK+JbWqBbjz8FbOJHwTTg==}
     dependencies:
       '@emotion/react': 11.9.0_4mg53anm6bsgggist7tcqrzb4y
       '@emotion/serialize': 1.0.3
@@ -3288,6 +3294,17 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       defer-to-connect: 2.0.1
+    dev: false
+
+  /@tippyjs/react/4.2.6_ef5jwxihqo6n7gxfmzogljlgcm:
+    resolution: {integrity: sha512-91RicDR+H7oDSyPycI13q3b7o4O60wa2oRbjlz2fyRLmHImc4vyDwuUP8NtZaN0VARJY5hybvDYrFzhY9+Lbyw==}
+    peerDependencies:
+      react: '>=16.8'
+      react-dom: '>=16.8'
+    dependencies:
+      react: 18.1.0
+      react-dom: 18.1.0_react@18.1.0
+      tippy.js: 6.3.7
     dev: false
 
   /@tokenizer/token/0.3.0:
@@ -15232,6 +15249,12 @@ packages:
 
   /tinycolor2/1.4.2:
     resolution: {integrity: sha512-vJhccZPs965sV/L2sU4oRQVAos0pQXwsvTLkWYdqJ+a8Q5kPFzJTuOFwy7UniPli44NKQGAglksjvOcpo95aZA==}
+    dev: false
+
+  /tippy.js/6.3.7:
+    resolution: {integrity: sha512-E1d3oP2emgJ9dRQZdf3Kkn0qJgI6ZLpyS5z6ZkY1DF3kaQaBsGZsndEpHwx+eC+tYM41HaSNvNtLx8tU57FzTQ==}
+    dependencies:
+      '@popperjs/core': 2.11.5
     dev: false
 
   /title-case/2.1.1:

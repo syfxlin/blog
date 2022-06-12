@@ -18,11 +18,10 @@ export type HeaderProps = {
 };
 
 export const Header: React.FC<HeaderProps> = (props) => {
-  const { css, setMode } = useU();
+  const { css, mode, setMode } = useU();
   const desktop = useUp("md");
   const seo = useSeoData();
   const nav = useNavData();
-
   return (
     <>
       <GatsbySeo
@@ -119,8 +118,11 @@ export const Header: React.FC<HeaderProps> = (props) => {
                 <LinkButton
                   key={item.url}
                   to={item.url}
-                  title={item.title}
                   aria-label={item.title}
+                  tippy={{
+                    content: item.title,
+                    animation: "shift-away",
+                  }}
                 >
                   {element}
                 </LinkButton>
@@ -128,8 +130,11 @@ export const Header: React.FC<HeaderProps> = (props) => {
             );
           })}
           <Button
-            title="切换暗色模式"
             aria-label="切换暗色模式"
+            tippy={{
+              content: `当前模式：${mode}`,
+              animation: "shift-away",
+            }}
             onClick={() => setMode()}
           >
             <DarkMode />
