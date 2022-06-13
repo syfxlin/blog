@@ -135,7 +135,20 @@ export const Header: React.FC<HeaderProps> = (props) => {
               content: `当前模式：${mode}`,
               animation: "shift-away",
             }}
-            onClick={() => setMode()}
+            onClick={() =>
+              setMode((p) => {
+                if (p === "auto") {
+                  return "light";
+                }
+                if (p === "light") {
+                  return "dark";
+                }
+                if (p === "dark") {
+                  return "auto";
+                }
+                return "auto";
+              })
+            }
           >
             <DarkMode />
           </Button>

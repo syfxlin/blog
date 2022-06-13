@@ -27,7 +27,7 @@ export const Button: React.FC<ButtonProps> = ({ tippy, ...props }) => {
         line-height: 1;
         height: .fs(2);
         padding: .sp(2) .sp(2.5);
-        border-radius: .r(0.8);
+        border-radius: .br(0.8);
         color: .c(primary7, primary3);
         transition: color 0.3s, background-color 0.3s, box-shadow 0.3s;
         cursor: pointer;
@@ -70,7 +70,7 @@ export const LinkButton: React.FC<LinkButtonProps> = ({
     line-height: 1;
     height: .fs(2);
     padding: .sp(2) .sp(2.5);
-    border-radius: .r(0.8);
+    border-radius: .br(0.8);
     color: .c(primary7, primary3);
     transition: color 0.3s, background-color 0.3s, box-shadow 0.3s;
     cursor: pointer;

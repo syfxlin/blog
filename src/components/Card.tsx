@@ -32,7 +32,7 @@ export const Card: React.FC<CardProps> = (props) => {
         flex-direction: column;
         padding: .sp(4) .sp(5);
         margin: .sp(2) .sp(-5);
-        border-radius: .r(0.8);
+        border-radius: .br(0.8);
         color: .c(primary7, primary3);
         transition: color 0.3s, background-color 0.3s, box-shadow 0.3s;
         cursor: pointer;
