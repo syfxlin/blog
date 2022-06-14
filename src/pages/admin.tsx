@@ -19,8 +19,7 @@ const AdminPage: React.FC = () => {
       <div
         id="nc-root"
         css={css`
-          height: 100vh;
-          width: 100vw;
+          min-height: 100vh;
         `}
       />
       <CMS />

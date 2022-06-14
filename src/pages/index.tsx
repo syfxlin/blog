@@ -5,6 +5,7 @@ import { Footer } from "../layouts/Footer";
 import { Hero } from "../components/Hero";
 import { graphql, useStaticQuery } from "gatsby";
 import { Card } from "../components/Card";
+import { Pagination } from "../components/Pagination";
 
 const IndexPage = () => {
   const items = useStaticQuery(graphql`
@@ -49,12 +50,15 @@ const IndexPage = () => {
               link={i.fields.slug}
               date={i.frontmatter.date}
               excerpt={i.excerpt}
-              thumbnail={i.frontmatter.thumbnail}
+              thumbnail={
+                i.frontmatter.thumbnail?.childImageSharp?.gatsbyImageData
+              }
               categories={i.frontmatter.categories}
               tags={i.frontmatter.tags}
             />
           ))}
         </section>
+        <Pagination current={5} size={10} onLink={(page) => `/page/${page}`} />
       </Main>
       <Footer />
     </>

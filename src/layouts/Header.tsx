@@ -1,5 +1,4 @@
 import React, { ReactNode } from "react";
-import { Link as GLink } from "gatsby";
 import { GatsbySeo } from "gatsby-plugin-next-seo";
 import { useSeoData } from "../queries/seo";
 import { GatsbyImage } from "gatsby-plugin-image";
@@ -58,24 +57,34 @@ export const Header: React.FC<HeaderProps> = (props) => {
           align-items: center;
         `}
       >
-        <GLink
+        <LinkButton
           to="/"
           css={css`
-            display: block;
-            width: .fs(2.5);
-            height: .fs(2.5);
-            margin: .fs(1.5);
-            border-radius: 50%;
-            overflow: hidden;
-            transition: filter 0.3s;
-
-            .dark() {
-              filter: brightness(0.7);
-            }
+            display: flex;
+            margin: .fs(1);
           `}
         >
-          {seo.logo && <GatsbyImage alt="站点图标" image={seo.logo} />}
-        </GLink>
+          {seo.logo && (
+            <GatsbyImage
+              alt="站点图标"
+              image={seo.logo}
+              css={css`
+                display: block;
+                width: .fs(2);
+                height: .fs(2);
+                border-radius: 50%;
+                overflow: hidden;
+                transition: filter 0.3s;
+                margin-right: .sp(2);
+
+                .dark() {
+                  filter: brightness(0.7);
+                }
+              `}
+            />
+          )}
+          {seo.title}
+        </LinkButton>
         <div
           css={css`
             display: flex;
