@@ -6,6 +6,7 @@ import { Hero } from "../components/Hero";
 import { graphql, useStaticQuery } from "gatsby";
 import { Card } from "../components/Card";
 import { Pagination } from "../components/Pagination";
+import { Canvas } from "../components/Canvas";
 
 const IndexPage = () => {
   const items = useStaticQuery(graphql`
@@ -39,6 +40,7 @@ const IndexPage = () => {
   `);
   return (
     <>
+      <Canvas />
       <Header />
       <Main>
         <Hero />

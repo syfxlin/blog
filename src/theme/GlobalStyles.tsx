@@ -13,11 +13,14 @@ export const GlobalStyles: React.FC = () => {
           box-sizing: border-box;
         }
 
+        html {
+          background-color: .c(white, dark7);
+        }
+
         html,
         body {
           --mode: ${mode};
           font-family: .f(sans);
-          background-color: .c(white, dark7);
           color: .c(gray9, dark0);
           font-size: .fs(1);
           font-weight: 400;

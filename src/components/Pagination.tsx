@@ -1,6 +1,6 @@
 import React from "react";
 import { Left, Right } from "@icon-park/react";
-import { range } from "../utils/range";
+import { range } from "../utils/vender";
 import { LinkButton } from "./Button";
 import { useU, useUp } from "@syfxlin/ustyled";
 
