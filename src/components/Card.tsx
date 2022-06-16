@@ -2,9 +2,9 @@ import React, { ReactNode } from "react";
 import { Link as GLink } from "gatsby";
 import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image";
 import { Link } from "./Link";
-import { archive, category, tag } from "../utils/urls";
 import { Divider } from "./Divider";
 import { useU } from "@syfxlin/ustyled";
+import { layout, LayoutType } from "../utils/urls";
 
 export type CardProps = {
   title: string;
@@ -79,7 +79,7 @@ export const Card: React.FC<CardProps> = (props) => {
           `}
         >
           <Link
-            to={archive(props.date.substring(0, 4))}
+            to={layout(LayoutType.ARCHIVE, props.date.substring(0, 4))}
             aria-label={`归档：${props.date.substring(0, 4)}`}
             tippy={{
               content: `归档：${props.date.substring(0, 4)}`,
@@ -94,7 +94,7 @@ export const Card: React.FC<CardProps> = (props) => {
             .map((c) => (
               <Link
                 key={`category-${c}`}
-                to={category(c)}
+                to={layout(LayoutType.CATEGORY, c)}
                 aria-label={`分类：${c}`}
                 tippy={{
                   content: `分类：${c}`,
@@ -117,7 +117,7 @@ export const Card: React.FC<CardProps> = (props) => {
             .map((t) => (
               <Link
                 key={`tag-${t}`}
-                to={tag(t)}
+                to={layout(LayoutType.TAG, t)}
                 aria-label={`标签：${t}`}
                 tippy={{
                   content: `标签：${t}`,

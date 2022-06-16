@@ -1,23 +1,25 @@
 import { graphql } from "gatsby";
 import React from "react";
-import { convert } from "../queries/articles";
+import { convert } from "../queries/archives";
 import { Header } from "../layouts/Header";
+import { layout, LayoutType } from "../utils/urls";
 import { Main } from "../layouts/Main";
 import { Hero } from "../components/Hero";
 import { Card } from "../components/Card";
 import { Pagination } from "../components/Pagination";
-import { join } from "../utils/urls";
 import { Footer } from "../layouts/Footer";
 
-export type ArticlesPageProps = {
-  data: Queries.ArticlesPageQueryQuery;
+export type ArchivesPageProps = {
+  data: Queries.ArchivesPageQueryQuery;
   pageContext: {
+    archive: number;
     current: number;
     size: number;
+    total: number;
   };
 };
 
-const ArticlesPage: React.FC<ArticlesPageProps> = (props) => {
+const ArchivesPage: React.FC<ArchivesPageProps> = (props) => {
   const data = convert(props.data);
   const ctx = props.pageContext;
 
@@ -26,12 +28,12 @@ const ArticlesPage: React.FC<ArticlesPageProps> = (props) => {
       {/*prettier-ignore*/}
       <Header
         title={ctx.current === 1
-          ? "{title}"
-          : `文章列表：第 ${ctx.current} 页 | {title}`
+          ? `归档：${ctx.archive} | {title}`
+          : `归档：${ctx.archive} - 第 ${ctx.current} 页 | {title}`
         }
         url={ctx.current === 1
-          ? "{url}"
-          : `{url}${join("page", ctx.current)}`
+          ? `{url}${layout(LayoutType.ARCHIVE, ctx.archive)}`
+          : `{url}${layout(LayoutType.ARCHIVE, ctx.archive, "page", ctx.current)}`
         }
       />
       <Main>
@@ -53,7 +55,9 @@ const ArticlesPage: React.FC<ArticlesPageProps> = (props) => {
         <Pagination
           current={ctx.current}
           size={ctx.size}
-          onLink={(page) => join("page", page)}
+          onLink={(page) => {
+            return layout(LayoutType.ARCHIVE, ctx.archive, "page", page);
+          }}
         />
       </Main>
       <Footer />
@@ -61,14 +65,20 @@ const ArticlesPage: React.FC<ArticlesPageProps> = (props) => {
   );
 };
 
-export default ArticlesPage;
+export default ArchivesPage;
 
 export const query = graphql`
-  query ArticlesPageQuery($skip: Int!, $limit: Int!, $status: [String!]!) {
+  query ArchivesPageQuery(
+    $archive: Int
+    $skip: Int!
+    $limit: Int!
+    $status: [String!]!
+  ) {
     allMdx(
       skip: $skip
       limit: $limit
       filter: {
+        fields: { date_year: { eq: $archive } }
         frontmatter: { layout: { eq: "post" }, status: { in: $status } }
       }
       sort: { order: DESC, fields: frontmatter___date }
@@ -77,7 +87,6 @@ export const query = graphql`
         frontmatter {
           title
           date(formatString: "YYYY-MM-DD")
-          date_updated(formatString: "YYYY-MM-DD")
           thumbnail {
             childImageSharp {
               gatsbyImageData

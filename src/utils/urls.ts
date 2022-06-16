@@ -1,40 +1,19 @@
-export const isAbs = (url: string) => {
-  return url.startsWith("http://") || url.startsWith("https://");
-};
+export enum LayoutType {
+  POST = "post",
+  PAGE = "page",
+  ARCHIVE = "archive",
+  CATEGORY = "category",
+  TAG = "tag",
+}
 
 export const layout = (
-  slug: string | number,
-  layout: string,
-  siteUrl?: string
+  layout: string | LayoutType,
+  ...paths: (string | number)[]
 ) => {
-  slug = String(slug);
-  if (isAbs(slug)) {
-    return slug;
-  }
   if (layout === "page") {
     layout = "";
   }
-  return join(siteUrl || "/", layout, slug);
-};
-
-export const post = (slug: string, siteUrl?: string) => {
-  return layout(slug, "post", siteUrl);
-};
-
-export const page = (slug: string, siteUrl?: string) => {
-  return layout(slug, "page", siteUrl);
-};
-
-export const category = (slug: string, siteUrl?: string) => {
-  return layout(slug, "category", siteUrl);
-};
-
-export const tag = (slug: string, siteUrl?: string) => {
-  return layout(slug, "tag", siteUrl);
-};
-
-export const archive = (slug: string, siteUrl?: string) => {
-  return layout(slug, "archive", siteUrl);
+  return join("/", layout, ...paths);
 };
 
 export const join = (...paths: (string | number)[]) => {

@@ -10,10 +10,16 @@ import { DarkMode } from "@icon-park/react";
 
 export type HeaderProps = {
   title?: string;
-  titleTemplate?: string;
   description?: string;
   url?: string;
   image?: string;
+};
+
+const format = (value: string, vars: Record<string, any>) => {
+  return value.replace(
+    /\{(\w+)}/g,
+    (match, name) => vars[name] ?? `{${match}}`
+  );
 };
 
 export const Header: React.FC<HeaderProps> = (props) => {
@@ -25,20 +31,20 @@ export const Header: React.FC<HeaderProps> = (props) => {
     <>
       <GatsbySeo
         language={seo.language}
-        title={props.title || seo.title}
-        description={props.description || seo.description}
-        titleTemplate={props.titleTemplate || "%s"}
+        title={format(props.title || "{title}", seo)}
+        description={format(props.description || "{description}", seo)}
         openGraph={{
           site_name: seo.title,
-          url: props.url ? `${seo.url}${props.url}` : seo.url,
           type: "website",
           locale: seo.language,
-          title: props.title || seo.title,
-          description: props.description || seo.description,
+          url: format(props.url || "{url}", seo),
+          title: format(props.title || "{title}", seo),
+          description: format(props.description || "{description}", seo),
           images: [
+            // prettier-ignore
             {
-              url: props.image || seo.logo?.images?.fallback?.src || "",
-              alt: props.title || seo.title,
+              url: format(props.image || seo.logo?.images?.fallback?.src || "", seo),
+              alt: format(props.title || "{title}", seo),
             },
           ],
         }}

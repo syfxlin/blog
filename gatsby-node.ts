@@ -1,8 +1,9 @@
-import { GatsbyNode } from "gatsby";
-import { join, layout } from "./src/utils/urls";
-import * as articlesQuery from "./src/queries/init/articles";
-import { status } from "./src/queries/init/status";
 import path from "path";
+import { GatsbyNode } from "gatsby";
+import { join, layout, LayoutType } from "./src/utils/urls";
+import { status } from "./src/queries/init/status";
+import * as articlesQuery from "./src/queries/init/articles";
+import * as archivesQuery from "./src/queries/init/archives";
 
 export const onCreateNode: GatsbyNode["onCreateNode"] = (args) => {
   if (args.node.internal.type === "Mdx") {
@@ -92,6 +93,9 @@ export const createPages: GatsbyNode["createPages"] = async (args) => {
   const articles = articlesQuery.convert(
     (await graphql(articlesQuery.query, { status })).data as any
   );
+  const archives = archivesQuery.convert(
+    (await graphql(archivesQuery.query, { status })).data as any
+  );
 
   const pages = articles.filter((i) => i.layout !== "post");
   const posts = articles.filter((i) => i.layout === "post");
@@ -103,4 +107,18 @@ export const createPages: GatsbyNode["createPages"] = async (args) => {
     path.resolve("src/templates/articles.tsx"),
     { status }
   );
+
+  // 归档列表
+  for (const archive of archives) {
+    createPageable(
+      archive.count,
+      layout(LayoutType.ARCHIVE, archive.name),
+      path.resolve("src/templates/archives.tsx"),
+      {
+        archive: parseInt(archive.name),
+        total: archive.count,
+        status,
+      }
+    );
+  }
 };
