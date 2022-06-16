@@ -26,6 +26,7 @@ export const GlobalStyles: React.FC = () => {
           font-weight: 400;
           line-height: 1.5;
           transition: color 0.3s, background-color 0.3s;
+          scroll-behavior: smooth;
         }
 
         .i-icon {

@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, ReactNode } from "react";
+import React, { ReactNode } from "react";
 import { Link as GLink } from "gatsby";
 import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image";
 import { Link } from "./Link";
@@ -6,7 +6,7 @@ import { archive, category, tag } from "../utils/urls";
 import { Divider } from "./Divider";
 import { useU } from "@syfxlin/ustyled";
 
-export type CardProps = PropsWithChildren<{
+export type CardProps = {
   title: string;
   link: string;
   date: string;
@@ -14,7 +14,7 @@ export type CardProps = PropsWithChildren<{
   thumbnail?: IGatsbyImageData;
   categories?: string[];
   tags?: string[];
-}>;
+};
 
 export const Card: React.FC<CardProps> = (props) => {
   const { css } = useU();

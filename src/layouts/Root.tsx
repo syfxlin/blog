@@ -8,6 +8,7 @@ import { GlobalStyles } from "../theme/GlobalStyles";
 import "katex/dist/katex.min.css";
 import "tippy.js/dist/tippy.css";
 import "tippy.js/animations/shift-away.css";
+import { Canvas } from "../components/Canvas";
 
 export type RootProps = PropsWithChildren<{}>;
 
@@ -16,6 +17,7 @@ export const Root: React.FC<RootProps> = ({ children }) => {
     <UstyledProvider>
       <NormalizeCSS />
       <GlobalStyles />
+      <Canvas />
       <MDXProvider components={{}}>{children}</MDXProvider>
     </UstyledProvider>
   );
