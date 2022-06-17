@@ -60,7 +60,9 @@ export const Pagination: React.FC<PaginationProps> = ({
           1
         </LinkButton>
       )}
-      {current >= 3 && <span className="pagination-more">...</span>}
+      {current >= (desktop ? 4 : 3) && (
+        <span className="pagination-more">...</span>
+      )}
       {range(current - (desktop ? 2 : 1), current + (desktop ? 2 : 1))
         .filter((i) => i > 1 && i < size)
         .map((i) => (
@@ -73,7 +75,9 @@ export const Pagination: React.FC<PaginationProps> = ({
             {i}
           </LinkButton>
         ))}
-      {current < size - 3 && <span className="pagination-more">...</span>}
+      {current <= size - (desktop ? 4 : 3) && (
+        <span className="pagination-more">...</span>
+      )}
       {size >= 2 && (
         <LinkButton
           to={onLink?.(size) ?? "#"}

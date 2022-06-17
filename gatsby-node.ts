@@ -3,7 +3,7 @@ import { GatsbyNode } from "gatsby";
 import { join, layout, LayoutType } from "./src/utils/urls";
 import { status } from "./src/queries/init/status";
 import * as articlesQuery from "./src/queries/init/articles";
-import * as archivesQuery from "./src/queries/init/archives";
+import * as groupsQuery from "./src/queries/init/groups";
 
 export const onCreateNode: GatsbyNode["onCreateNode"] = (args) => {
   if (args.node.internal.type === "Mdx") {
@@ -93,8 +93,14 @@ export const createPages: GatsbyNode["createPages"] = async (args) => {
   const articles = articlesQuery.convert(
     (await graphql(articlesQuery.query, { status })).data as any
   );
-  const archives = archivesQuery.convert(
-    (await graphql(archivesQuery.query, { status })).data as any
+  const archives = groupsQuery.convert(
+    (await graphql(groupsQuery.archives, { status })).data as any
+  );
+  const categories = groupsQuery.convert(
+    (await graphql(groupsQuery.categories, { status })).data as any
+  );
+  const tags = groupsQuery.convert(
+    (await graphql(groupsQuery.tags, { status })).data as any
   );
 
   const pages = articles.filter((i) => i.layout !== "post");
@@ -117,6 +123,32 @@ export const createPages: GatsbyNode["createPages"] = async (args) => {
       {
         archive: parseInt(archive.name),
         total: archive.count,
+        status,
+      }
+    );
+  }
+  // 分类列表
+  for (const category of categories) {
+    createPageable(
+      category.count,
+      layout(LayoutType.CATEGORY, category.name),
+      path.resolve("src/templates/categories.tsx"),
+      {
+        category: category.name,
+        total: category.count,
+        status,
+      }
+    );
+  }
+  // 标签列表
+  for (const tag of tags) {
+    createPageable(
+      tag.count,
+      layout(LayoutType.TAG, tag.name),
+      path.resolve("src/templates/tags.tsx"),
+      {
+        tag: tag.name,
+        total: tag.count,
         status,
       }
     );

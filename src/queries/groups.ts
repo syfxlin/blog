@@ -1,6 +1,6 @@
 import { IGatsbyImageData } from "gatsby-plugin-image";
 
-export type ArchivesPageData = {
+export type GroupsPageData = {
   link: string;
   title: string;
   date: string;
@@ -11,8 +11,8 @@ export type ArchivesPageData = {
 }[];
 
 // prettier-ignore
-export const convert = (data: Queries.ArchivesPageQueryQuery): ArchivesPageData => {
-  return data.allMdx.nodes.map((node) => ({
+export const convert = (data: any): GroupsPageData => {
+  return data.allMdx.nodes.map((node: any) => ({
     link: node.fields?.slug as string,
     title: node.frontmatter?.title as string,
     date: node.frontmatter?.date as string,
