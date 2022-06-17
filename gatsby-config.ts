@@ -38,6 +38,7 @@ const plugins: GatsbyConfig["plugins"] = [
         "gatsby-remark-smartypants",
         "gatsby-remark-autolink-headers",
         "gatsby-remark-external-links",
+        "gatsby-remark-images",
       ],
     },
   },
@@ -61,6 +62,15 @@ const plugins: GatsbyConfig["plugins"] = [
   },
   // 基础组件
   "gatsby-plugin-next-seo",
+  "gatsby-plugin-smoothscroll",
+  "gatsby-plugin-catch-links",
+  "gatsby-transformer-sharp",
+  {
+    resolve: "gatsby-plugin-canonical-urls",
+    options: {
+      siteUrl: siteMetadata.siteUrl,
+    },
+  },
   // 基础设施
   "gatsby-plugin-pnpm",
   "gatsby-plugin-emotion",

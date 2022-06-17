@@ -2,7 +2,7 @@ import { graphql } from "gatsby";
 import React from "react";
 import { convert } from "../queries/groups";
 import { LayoutType } from "../utils/urls";
-import GroupsPage from "./groups";
+import GroupsTemplate from "./groups-template";
 
 export type ArchivesPageProps = {
   data: Queries.ArchivesPageQueryQuery;
@@ -18,7 +18,7 @@ const ArchivesPage: React.FC<ArchivesPageProps> = (props) => {
   const data = convert(props.data);
   const ctx = props.pageContext;
   return (
-    <GroupsPage
+    <GroupsTemplate
       data={data}
       id={ctx.archive}
       type="归档"

@@ -26,15 +26,19 @@ specifiers:
   eslint-plugin-react: ^7.30.0
   eslint-plugin-react-hooks: ^4.5.0
   gatsby: ^4.15.2
+  gatsby-plugin-canonical-urls: ^4.16.0
+  gatsby-plugin-catch-links: ^4.16.0
   gatsby-plugin-emotion: ^7.15.0
   gatsby-plugin-image: ^2.15.1
   gatsby-plugin-mdx: ^3.16.1
   gatsby-plugin-next-seo: ^1.10.0
   gatsby-plugin-pnpm: ^1.2.10
   gatsby-plugin-sharp: ^4.15.1
+  gatsby-plugin-smoothscroll: ^1.2.0
   gatsby-remark-autolink-headers: ^5.16.0
   gatsby-remark-copy-linked-files: ^5.16.0
   gatsby-remark-external-links: ^0.0.4
+  gatsby-remark-images: ^6.16.0
   gatsby-remark-responsive-iframe: ^5.16.0
   gatsby-remark-smartypants: ^5.16.0
   gatsby-source-filesystem: ^4.15.0
@@ -64,15 +68,19 @@ dependencies:
   classnames: 2.3.1
   deepmerge: 4.2.2
   gatsby: 4.15.2_2nek625ujnrrv5v7v4uw3mafsa
+  gatsby-plugin-canonical-urls: 4.16.0_gatsby@4.15.2
+  gatsby-plugin-catch-links: 4.16.0_gatsby@4.15.2
   gatsby-plugin-emotion: 7.15.0_6pe24sy2aksrlkcf52psjgfr4i
   gatsby-plugin-image: 2.15.1_elil3chvyymr223c7wrhnprxuy
   gatsby-plugin-mdx: 3.16.1_elemxvttjgldln5hrqbrmxjaai
   gatsby-plugin-next-seo: 1.10.0_wizj3wz3wsjqgmkt45lbcrtjda
   gatsby-plugin-pnpm: 1.2.10_gatsby@4.15.2
   gatsby-plugin-sharp: 4.15.1_gatsby@4.15.2
+  gatsby-plugin-smoothscroll: 1.2.0
   gatsby-remark-autolink-headers: 5.16.0_umlbq2ifwlh7vln6iicvgh5w6m
   gatsby-remark-copy-linked-files: 5.16.0_gatsby@4.15.2
   gatsby-remark-external-links: 0.0.4
+  gatsby-remark-images: 6.16.0_xv3wveiaviweh37bfvfophhvoa
   gatsby-remark-responsive-iframe: 5.16.0_gatsby@4.15.2
   gatsby-remark-smartypants: 5.16.0_gatsby@4.15.2
   gatsby-source-filesystem: 4.15.0_gatsby@4.15.2
@@ -1713,7 +1721,7 @@ packages:
       '@babel/runtime': 7.18.3
       '@parcel/namer-default': 2.5.0_@parcel+core@2.5.0
       '@parcel/plugin': 2.5.0_@parcel+core@2.5.0
-      gatsby-core-utils: 3.15.0
+      gatsby-core-utils: 3.16.0
     transitivePeerDependencies:
       - '@parcel/core'
     dev: false
@@ -5793,6 +5801,10 @@ packages:
       nth-check: 2.1.1
     dev: false
 
+  /css-selector-parser/1.4.1:
+    resolution: {integrity: sha512-HYPSb7y/Z7BNDCOrakL4raGO2zltZkbeXyAd6Tg9obzix6QhzxCotdBl6VT0Dv4vZfJGVz3WL/xaEI9Ly3ul0g==}
+    dev: false
+
   /css-tree/1.0.0-alpha.37:
     resolution: {integrity: sha512-DMxWJg0rnz7UgxKT0Q1HU/L9BeJI0M6ksor0OgqOnF+aRCDWg/N2641HmVyU9KVIu0OVVWOb2IpC9A+BJRnejg==}
     engines: {node: '>=8.0.0'}
@@ -7882,6 +7894,27 @@ packages:
       '@parcel/transformer-react-refresh-wrap': 2.5.0_@parcel+core@2.5.0
     dev: false
 
+  /gatsby-plugin-canonical-urls/4.16.0_gatsby@4.15.2:
+    resolution: {integrity: sha512-JrKnW+Jb/OcPJAGjaj7sTtSttcvRhvBvB5VGUCRGnmfIECxtD8igJwGGwTKh3CdR/XisNilcJXNciEF+tavtCA==}
+    engines: {node: '>=14.15.0'}
+    peerDependencies:
+      gatsby: ^4.0.0-next
+    dependencies:
+      '@babel/runtime': 7.18.3
+      gatsby: 4.15.2_2nek625ujnrrv5v7v4uw3mafsa
+    dev: false
+
+  /gatsby-plugin-catch-links/4.16.0_gatsby@4.15.2:
+    resolution: {integrity: sha512-4Jev1vUfb85uT1aDlpjNZTQ6iuFJmeSaVXIkJX28vIbddtLcARhqyi3OHced3OGTdwtMl2DVviofMMwU3Zke+g==}
+    engines: {node: '>=14.15.0'}
+    peerDependencies:
+      gatsby: ^4.0.0-next
+    dependencies:
+      '@babel/runtime': 7.18.3
+      escape-string-regexp: 1.0.5
+      gatsby: 4.15.2_2nek625ujnrrv5v7v4uw3mafsa
+    dev: false
+
   /gatsby-plugin-emotion/7.15.0_6pe24sy2aksrlkcf52psjgfr4i:
     resolution: {integrity: sha512-r9H3bACPDog0twVx1LNQOtTslj5ZUtUwH1JBfSP4u+Hp1YmBviCczx53TyJO+Hq27lyHuFQY+smHtSn34DZYfw==}
     engines: {node: '>=14.15.0'}
@@ -8067,6 +8100,12 @@ packages:
       - supports-color
     dev: false
 
+  /gatsby-plugin-smoothscroll/1.2.0:
+    resolution: {integrity: sha512-wfIK06xwbNx91nHVg1YJwlLUJc0EmfWqV8KgvlNr6gFa9pqMx5Mprdp5jDRloAi3+9K0dVCybPO8FfaZ0i4HgA==}
+    dependencies:
+      smoothscroll-polyfill: 0.4.4
+    dev: false
+
   /gatsby-plugin-typescript/4.15.0_gatsby@4.15.2:
     resolution: {integrity: sha512-2Ul7XndL9fbZG1cltPOU16IabJ5dTvC30WHP06/yze46p66MQx/K6G5Br3c7J0yL7A7tCuLmWtsuwo9+3+Te/Q==}
     engines: {node: '>=14.15.0'}
@@ -8188,6 +8227,28 @@ packages:
       is-relative-url: 2.0.0
       unist-util-find: 1.0.2
       unist-util-visit: 1.4.1
+    dev: false
+
+  /gatsby-remark-images/6.16.0_xv3wveiaviweh37bfvfophhvoa:
+    resolution: {integrity: sha512-aSFdp1G9r/O74puk5gtxppHqbVlNL6KVjUmOsSak/sL61X7TxUImwDTlEv+5dY+8KklV90XWVIWdvSwk+3B9rA==}
+    engines: {node: '>=14.15.0'}
+    peerDependencies:
+      gatsby: ^4.0.0-next
+      gatsby-plugin-sharp: ^4.0.0-next
+    dependencies:
+      '@babel/runtime': 7.18.3
+      '@gatsbyjs/potrace': 2.2.0
+      chalk: 4.1.2
+      cheerio: 1.0.0-rc.11
+      gatsby: 4.15.2_2nek625ujnrrv5v7v4uw3mafsa
+      gatsby-core-utils: 3.16.0
+      gatsby-plugin-sharp: 4.15.1_gatsby@4.15.2
+      is-relative-url: 3.0.0
+      lodash: 4.17.21
+      mdast-util-definitions: 4.0.0
+      query-string: 6.14.1
+      unist-util-select: 3.0.4
+      unist-util-visit-parents: 3.1.1
     dev: false
 
   /gatsby-remark-responsive-iframe/5.16.0_gatsby@4.15.2:
@@ -11794,6 +11855,10 @@ packages:
     engines: {node: '>=10'}
     dev: false
 
+  /not/0.1.0:
+    resolution: {integrity: sha512-5PDmaAsVfnWUgTUbJ3ERwn7u79Z0dYxN9ErxCpVJJqe2RK0PJ3z+iFUxuqjwtlDDegXvtWoxD/3Fzxox7tFGWA==}
+    dev: false
+
   /npm-run-path/2.0.2:
     resolution: {integrity: sha512-lJxZYlT4DW/bRUtFh1MQIWqmLwQfAxnqWG4HhEdjMlkrJYnJn0Jrr2u3mgxqaWsdiBc76TYkTG/mhrnYTuzfHw==}
     engines: {node: '>=4'}
@@ -14619,6 +14684,10 @@ packages:
     engines: {node: '>=8.0.0'}
     dev: false
 
+  /smoothscroll-polyfill/0.4.4:
+    resolution: {integrity: sha512-TK5ZA9U5RqCwMpfoMq/l1mrH0JAR7y7KRvOBx0n2869aLxch+gT9GhN3yUfjiw+d/DiF1mKo14+hd62JyMmoBg==}
+    dev: false
+
   /snake-case/2.1.0:
     resolution: {integrity: sha512-FMR5YoPFwOLuh4rRz92dywJjyKYZNLpMn1R5ujVpIYkbA9p01fq8RMg0FkO4M+Yobt4MjHeLTJVm5xFFBHSV2Q==}
     dependencies:
@@ -15670,6 +15739,16 @@ packages:
     resolution: {integrity: sha512-J8NYPyBm4baYLdCbjmf1bhPu45Cr1MWTm77qd9istEkzWpnN6O9tMsEbB2JhNnBCqGENRqEWomQ+He6au0B27Q==}
     dependencies:
       unist-util-is: 4.1.0
+    dev: false
+
+  /unist-util-select/3.0.4:
+    resolution: {integrity: sha512-xf1zCu4okgPqGLdhCDpRnjwBNyv3EqjiXRUbz2SdK1+qnLMB7uXXajfzuBvvbHoQ+JLyp4AEbFCGndmc6S72sw==}
+    dependencies:
+      css-selector-parser: 1.4.1
+      not: 0.1.0
+      nth-check: 2.1.1
+      unist-util-is: 4.1.0
+      zwitch: 1.0.5
     dev: false
 
   /unist-util-stringify-position/1.1.2:

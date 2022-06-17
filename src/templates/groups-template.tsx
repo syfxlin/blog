@@ -18,7 +18,7 @@ export type GroupsPageProps = {
   total: number;
 };
 
-const GroupsPage: React.FC<GroupsPageProps> = (props) => {
+const GroupsTemplate: React.FC<GroupsPageProps> = (props) => {
   return (
     <>
       {/*prettier-ignore*/}
@@ -68,4 +68,4 @@ const GroupsPage: React.FC<GroupsPageProps> = (props) => {
   );
 };
 
-export default GroupsPage;
+export default GroupsTemplate;

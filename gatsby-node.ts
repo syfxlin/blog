@@ -22,8 +22,10 @@ export const onCreateNode: GatsbyNode["onCreateNode"] = (args) => {
 
     // 固定链接
     const slug = layout(
-      frontmatter.slug,
-      frontmatter.layout === "post" ? "post" : "page"
+      frontmatter.layout === LayoutType.POST
+        ? LayoutType.POST
+        : LayoutType.PAGE,
+      frontmatter.slug
     );
     actions.createNodeField({
       node: args.node,
@@ -103,8 +105,8 @@ export const createPages: GatsbyNode["createPages"] = async (args) => {
     (await graphql(groupsQuery.tags, { status })).data as any
   );
 
-  const pages = articles.filter((i) => i.layout !== "post");
-  const posts = articles.filter((i) => i.layout === "post");
+  const pages = articles.filter((i) => i.layout !== LayoutType.POST);
+  const posts = articles.filter((i) => i.layout === LayoutType.POST);
 
   // 文章列表
   createPageable(
@@ -152,5 +154,35 @@ export const createPages: GatsbyNode["createPages"] = async (args) => {
         status,
       }
     );
+  }
+
+  // 页面
+  for (const page of pages) {
+    actions.createPage({
+      path: join(page.link),
+      component: path.resolve(`src/templates/${page.layout}.tsx`),
+      context: {
+        link: page.link,
+        layout: page.layout,
+        status,
+      },
+    });
+  }
+  // 文章
+  for (let i = 0; i < posts.length; i++) {
+    const post = posts[i];
+    const prev = i === 0 ? null : posts[i - 1];
+    const next = i === posts.length - 1 ? null : posts[i + 1];
+    actions.createPage({
+      path: join(post.link),
+      component: path.resolve(`src/templates/page.tsx`),
+      context: {
+        link: post.link,
+        layout: post.layout,
+        prev,
+        next,
+        status,
+      },
+    });
   }
 };

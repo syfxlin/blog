@@ -1,6 +1,6 @@
 import React from "react";
 import { convert } from "../queries/groups";
-import GroupsPage from "./groups";
+import GroupsTemplate from "./groups-template";
 import { LayoutType } from "../utils/urls";
 import { graphql } from "gatsby";
 
@@ -18,7 +18,7 @@ const TagsPage: React.FC<TagsPageProps> = (props) => {
   const data = convert(props.data);
   const ctx = props.pageContext;
   return (
-    <GroupsPage
+    <GroupsTemplate
       data={data}
       id={ctx.tag}
       type="分类"
