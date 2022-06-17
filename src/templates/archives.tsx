@@ -4,10 +4,10 @@ import { convert } from "../queries/archives";
 import { Header } from "../layouts/Header";
 import { layout, LayoutType } from "../utils/urls";
 import { Main } from "../layouts/Main";
-import { Hero } from "../components/Hero";
 import { Card } from "../components/Card";
 import { Pagination } from "../components/Pagination";
 import { Footer } from "../layouts/Footer";
+import { Meta } from "../components/Meta";
 
 export type ArchivesPageProps = {
   data: Queries.ArchivesPageQueryQuery;
@@ -37,7 +37,14 @@ const ArchivesPage: React.FC<ArchivesPageProps> = (props) => {
         }
       />
       <Main>
-        <Hero />
+        {/*prettier-ignore*/}
+        <Meta
+          name={ctx.current === 1
+            ? `归档：${ctx.archive}`
+            : `归档：${ctx.archive} - 第 ${ctx.current} 页`
+          }
+          description={`共 ${ctx.total} 篇文章`}
+        />
         <section>
           {data.map((item) => (
             <Card

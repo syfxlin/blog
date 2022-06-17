@@ -20,7 +20,7 @@ export const Pagination: React.FC<PaginationProps> = ({
   const { css } = useU();
   const desktop = useUp("md");
   return (
-    <div
+    <section
       css={css`
         display: flex;
         justify-content: center;
@@ -43,6 +43,9 @@ export const Pagination: React.FC<PaginationProps> = ({
         <LinkButton
           to={onLink?.(current - 1) ?? "#"}
           onClick={() => onPage?.(current - 1)}
+          css={css`
+            gap: .sp(1);
+          `}
         >
           <Left /> 上一页
         </LinkButton>
@@ -85,10 +88,13 @@ export const Pagination: React.FC<PaginationProps> = ({
         <LinkButton
           to={onLink?.(current + 1) ?? "#"}
           onClick={() => onPage?.(current + 1)}
+          css={css`
+            gap: .sp(1);
+          `}
         >
           下一页 <Right />
         </LinkButton>
       )}
-    </div>
+    </section>
   );
 };

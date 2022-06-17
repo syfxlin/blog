@@ -9,7 +9,7 @@ export const Hero: React.FC<HeroProps> = () => {
   const { css } = useU();
   const author = useAuthorData();
   return (
-    <div
+    <section
       css={css`
         margin: .sp(4) 0;
       `}
@@ -28,25 +28,27 @@ export const Hero: React.FC<HeroProps> = () => {
           }
         `}
       />
-      <div
+      <h1
         css={css`
           font-family: "Comic Sans MS", "Comic Sans", cursive;
           font-size: .fs(2);
           line-height: 1.5;
-          margin-top: .sp(2);
+          margin: .sp(2) 0 0 0;
+          font-weight: 400;
         `}
       >
         {author.firstName} {author.lastName}
-      </div>
-      <div
+      </h1>
+      <p
         css={css`
           font-size: .fs(1);
           line-height: 1.5;
           color: .c(gray6);
+          margin: 0;
         `}
       >
         {author.description}
-      </div>
-    </div>
+      </p>
+    </section>
   );
 };

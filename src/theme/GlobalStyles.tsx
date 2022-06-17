@@ -31,6 +31,10 @@ export const GlobalStyles: React.FC = () => {
 
         .i-icon {
           vertical-align: middle;
+          text-align: center;
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
         }
       `}
     />
