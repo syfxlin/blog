@@ -20,7 +20,7 @@ export const ExpireNotify: React.FC<ExpireNotifyProps> = ({ date }) => {
       {day >= 180 && (
         <section
           css={css`
-            background-color: .c(yellow3_3);
+            background-color: .c(yellow2_3, yellow4_3);
             color: .c(yellow6);
             padding: .sp(5) .sp(6);
             margin-top: .sp(4);

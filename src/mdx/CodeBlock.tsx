@@ -30,7 +30,7 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({ children }) => {
             position: relative;
             font-size: .fs(0.9) !important;
             padding: 0 !important;
-            background: .c(gray3_3) !important;
+            background: .c(gray3_3, gray6_3) !important;
 
             &:before {
               color: .c(gray6);

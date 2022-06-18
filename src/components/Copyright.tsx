@@ -21,7 +21,7 @@ export const Copyright: React.FC<CopyrightProps> = (props) => {
       css={css`
         position: relative;
         font-size: .fs(0.6);
-        background: .c(blue3_3);
+        background: .c(blue2_3, blue4_3);
         color: .c(gray7, dark0);
         display: block;
         overflow: hidden;
