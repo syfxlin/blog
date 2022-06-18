@@ -9,6 +9,8 @@ import { Canvas } from "../components/Canvas";
 import "katex/dist/katex.min.css";
 import "tippy.js/dist/tippy.css";
 import "tippy.js/animations/shift-away.css";
+import "han-css/dist/han.css";
+import * as mdx from "../mdx";
 
 export type RootProps = PropsWithChildren<{}>;
 
@@ -18,7 +20,7 @@ export const Root: React.FC<RootProps> = ({ children }) => {
       <NormalizeCSS />
       <GlobalStyles />
       <Canvas />
-      <MDXProvider components={{}}>{children}</MDXProvider>
+      <MDXProvider components={mdx}>{children}</MDXProvider>
     </UstyledProvider>
   );
 };

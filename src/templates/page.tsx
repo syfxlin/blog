@@ -59,7 +59,7 @@ const Page: React.FC<PageProps> = (props) => {
               />
             </AspectRatio>
           )}
-          <header
+          <section
             css={css`
               text-align: center;
               padding: .sp(6) 0 .sp(1) 0;
@@ -80,7 +80,7 @@ const Page: React.FC<PageProps> = (props) => {
               categories={data.categories}
               tags={data.tags}
             />
-          </header>
+          </section>
           <ExpireNotify date={data.dateUpdated} />
           <MDXRenderer>{data.body}</MDXRenderer>
           {ctx.layout === LayoutType.POST && (
