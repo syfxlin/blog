@@ -14,7 +14,7 @@ export const Link: React.FC<LinkProps> = ({ to, tippy, ...props }) => {
     text-decoration: none;
     position: relative;
     color: .c(primary7, primary3);
-    border-bottom: .bw(2) solid .c(primary1, primary9);
+    border-bottom: .bw(1) solid .c(primary1, primary9);
     transition: border 0.3s;
 
     &:hover,

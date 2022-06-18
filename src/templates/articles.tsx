@@ -39,7 +39,7 @@ const ArticlesPage: React.FC<ArticlesPageProps> = (props) => {
         <section>
           {data.map((item) => (
             <Card
-              key={`list-item-${item.link}`}
+              key={`article-${item.link}`}
               title={item.title}
               link={item.link}
               date={item.date}

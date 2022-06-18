@@ -1,4 +1,5 @@
 import React from "react";
+import loadable from "@loadable/component";
 import { graphql } from "gatsby";
 import { convert } from "../queries/page";
 import { Header } from "../layouts/Header";
@@ -10,6 +11,13 @@ import { Footer } from "../layouts/Footer";
 import { useU } from "@syfxlin/ustyled";
 import { MoreInfo } from "../components/MoreInfo";
 import { ExpireNotify } from "../components/ExpireNotify";
+import { Copyright } from "../components/Copyright";
+import { LayoutType } from "../utils/urls";
+import { useArtalkData } from "../queries/artalk";
+import { Left, Right } from "@icon-park/react";
+import { LinkButton } from "../components/Button";
+
+const Artalk = loadable(() => import("../components/Artalk"), { ssr: false });
 
 export type PageProps = {
   data: any;
@@ -31,11 +39,12 @@ const Page: React.FC<PageProps> = (props) => {
   const { css } = useU();
   const data = convert(props.data);
   const ctx = props.pageContext;
+  const artalk = useArtalkData();
   return (
     <>
       {/*prettier-ignore*/}
       <Header
-        url={`{url}${ctx.link}`}
+        url={`{url}${data.link}`}
         title={`${data.title} | {title}`}
         description={data.excerpt}
         image={data.thumbnail?.images?.fallback?.src && `{url}${data.thumbnail?.images?.fallback?.src}`}
@@ -74,7 +83,55 @@ const Page: React.FC<PageProps> = (props) => {
           </header>
           <ExpireNotify date={data.dateUpdated} />
           <MDXRenderer>{data.body}</MDXRenderer>
+          {ctx.layout === LayoutType.POST && (
+            <Copyright
+              title={data.title}
+              link={data.link}
+              date={data.dateCreated}
+            />
+          )}
         </article>
+        <section
+          css={css`
+            padding: .sp(4) 0;
+            display: flex;
+            gap: .sp(2);
+          `}
+        >
+          {ctx.prev && (
+            <LinkButton
+              to={ctx.prev.link}
+              css={css`
+                gap: .sp(1);
+                font-size: .fs(1.2);
+                flex: 1;
+                text-align: left;
+                justify-content: flex-start;
+                padding: .sp(4);
+              `}
+            >
+              <Left /> {ctx.prev.title}
+            </LinkButton>
+          )}
+          {ctx.next && (
+            <LinkButton
+              to={ctx.next.link}
+              css={css`
+                gap: .sp(1);
+                font-size: .fs(1.2);
+                flex: 1;
+                text-align: right;
+                justify-content: flex-end;
+                padding: .sp(4);
+              `}
+            >
+              {ctx.next.title} <Right />
+            </LinkButton>
+          )}
+        </section>
+        {Artalk && artalk && (
+          <Artalk pageTitle={data.title} pageKey={data.link} {...artalk} />
+        )}
       </Main>
       <Footer />
     </>

@@ -21,7 +21,7 @@ export const GlobalStyles: React.FC = () => {
         body {
           --mode: ${mode};
           font-family: .f(sans);
-          color: .c(gray9, dark0);
+          color: .c(gray7, dark0);
           font-size: .fs(1);
           font-weight: 400;
           line-height: 1.5;

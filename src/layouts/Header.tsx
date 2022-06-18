@@ -44,7 +44,7 @@ export const Header: React.FC<HeaderProps> = (props) => {
             // prettier-ignore
             {
               url: format(props.image || seo.logo?.images?.fallback?.src || "", seo),
-              alt: format(props.title || "{title}", seo),
+              alt: format(props.title || "{title}", seo)
             },
           ],
         }}
@@ -131,7 +131,7 @@ export const Header: React.FC<HeaderProps> = (props) => {
             return (
               element && (
                 <LinkButton
-                  key={item.url}
+                  key={`nav-${item.url}`}
                   to={item.url}
                   aria-label={item.title}
                   tippy={{

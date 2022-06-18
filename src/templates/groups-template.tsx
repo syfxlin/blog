@@ -44,7 +44,7 @@ const GroupsTemplate: React.FC<GroupsPageProps> = (props) => {
         <section>
           {props.data.map((item) => (
             <Card
-              key={`list-item-${item.link}`}
+              key={`group-${item.link}`}
               title={item.title}
               link={item.link}
               date={item.date}
