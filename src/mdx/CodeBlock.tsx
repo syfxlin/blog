@@ -24,13 +24,12 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({ children }) => {
       showLineNumbers={true}
       data-language={language}
       PreTag={(props) => (
-        <pre
+        <div
           {...props}
           css={css`
             position: relative;
             font-size: .fs(0.9) !important;
-            padding-left: 0 !important;
-            padding-right: 0 !important;
+            padding: 0 !important;
             background: .c(gray3_3) !important;
 
             &:before {
@@ -39,16 +38,21 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({ children }) => {
               content: attr(data-language);
               font-size: .fs(1.2);
               position: absolute;
-              right: .fs(1);
-              top: .fs(0.5);
+              right: .fs(0.9);
+              top: .fs(0.3);
             }
           `}
         />
       )}
       CodeTag={(props) => (
-        <code
+        <pre
           {...props}
           css={css`
+            max-height: 50em;
+            overflow: auto;
+            padding: .fs(0.9) 0 !important;
+            margin: 0 !important;
+
             .linenumber {
               border-right: 1px solid .c(gray6);
               padding-right: .sp(2) !important;
