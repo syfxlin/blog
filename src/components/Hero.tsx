@@ -30,7 +30,7 @@ export const Hero: React.FC<HeroProps> = () => {
       />
       <h1
         css={css`
-          font-family: "Comic Sans MS", "Comic Sans", cursive;
+          font-family: "Comic Sans MS", "Comic Sans", cursive !important;
           font-size: .fs(2);
           line-height: 1.5;
           margin: .sp(2) 0 0 0;
