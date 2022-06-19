@@ -25,6 +25,7 @@ export const GlobalStyles: React.FC = () => {
           font-size: .fs(1);
           font-weight: 400;
           line-height: 1.5;
+          letter-spacing: .ls(wide);
           transition: color 0.3s, background-color 0.3s;
           scroll-behavior: smooth;
         }

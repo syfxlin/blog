@@ -6,10 +6,9 @@ import { GlobalStyles } from "../theme/GlobalStyles";
 import { Canvas } from "../components/Canvas";
 
 // styles
-import "katex/dist/katex.min.css";
 import "tippy.js/dist/tippy.css";
 import "tippy.js/animations/shift-away.css";
-import "han-css/dist/han.css";
+import "katex/dist/katex.css";
 import * as mdx from "../mdx";
 
 export type RootProps = PropsWithChildren<{}>;

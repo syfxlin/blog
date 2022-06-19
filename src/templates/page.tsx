@@ -91,44 +91,46 @@ const Page: React.FC<PageProps> = (props) => {
             />
           )}
         </article>
-        <section
-          css={css`
-            padding: .sp(4) 0;
-            display: flex;
-            gap: .sp(2);
-          `}
-        >
-          {ctx.prev && (
-            <LinkButton
-              to={ctx.prev.link}
-              css={css`
-                gap: .sp(1);
-                font-size: .fs(1.2);
-                flex: 1;
-                text-align: left;
-                justify-content: flex-start;
-                padding: .sp(4);
-              `}
-            >
-              <Left /> {ctx.prev.title}
-            </LinkButton>
-          )}
-          {ctx.next && (
-            <LinkButton
-              to={ctx.next.link}
-              css={css`
-                gap: .sp(1);
-                font-size: .fs(1.2);
-                flex: 1;
-                text-align: right;
-                justify-content: flex-end;
-                padding: .sp(4);
-              `}
-            >
-              {ctx.next.title} <Right />
-            </LinkButton>
-          )}
-        </section>
+        {ctx.layout === LayoutType.POST && (ctx.prev || ctx.next) && (
+          <section
+            css={css`
+              padding: .sp(4) 0;
+              display: flex;
+              gap: .sp(2);
+            `}
+          >
+            {ctx.prev && (
+              <LinkButton
+                to={ctx.prev.link}
+                css={css`
+                  gap: .sp(1);
+                  font-size: .fs(1.2);
+                  flex: 1;
+                  text-align: left;
+                  justify-content: flex-start;
+                  padding: .sp(4);
+                `}
+              >
+                <Left /> {ctx.prev.title}
+              </LinkButton>
+            )}
+            {ctx.next && (
+              <LinkButton
+                to={ctx.next.link}
+                css={css`
+                  gap: .sp(1);
+                  font-size: .fs(1.2);
+                  flex: 1;
+                  text-align: right;
+                  justify-content: flex-end;
+                  padding: .sp(4);
+                `}
+              >
+                {ctx.next.title} <Right />
+              </LinkButton>
+            )}
+          </section>
+        )}
         {Artalk && artalk && (
           <Artalk pageTitle={data.title} pageKey={data.link} {...artalk} />
         )}

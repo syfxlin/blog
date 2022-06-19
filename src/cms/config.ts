@@ -101,6 +101,87 @@ export const config: CmsConfig = {
       ],
     },
     {
+      name: "page",
+      label: "页面",
+      folder: "content/pages",
+      create: true,
+      slug: "index",
+      media_folder: "",
+      public_folder: "",
+      path: "{{title}}/index",
+      preview_path: "/{{fields.slug}}",
+      sortable_fields: ["title", "date", "date_updated"],
+      fields: [
+        {
+          name: "title",
+          label: "标题",
+          widget: "string",
+        },
+        {
+          name: "slug",
+          label: "链接",
+          widget: "string",
+        },
+        {
+          name: "status",
+          label: "状态",
+          widget: "select",
+          default: "draft",
+          options: [
+            {
+              value: "draft",
+              label: "草稿",
+            },
+            {
+              value: "publish",
+              label: "发布",
+            },
+            {
+              value: "archive",
+              label: "归档",
+            },
+          ],
+        },
+        {
+          name: "layout",
+          label: "布局",
+          widget: "select",
+          default: "page",
+          options: [
+            {
+              value: "page",
+              label: "页面",
+            },
+            {
+              value: "links",
+              label: "友链",
+            },
+          ],
+        },
+        {
+          name: "date",
+          label: "发布时间",
+          widget: "datetime",
+        },
+        {
+          name: "date_updated",
+          label: "修改时间",
+          widget: "datetime",
+        },
+        {
+          name: "thumbnail",
+          label: "缩略图",
+          widget: "image",
+          required: false,
+        },
+        {
+          name: "body",
+          label: "内容",
+          widget: "markdown",
+        },
+      ],
+    },
+    {
       name: "settings",
       label: "设置",
       media_folder: "img",
@@ -130,6 +211,55 @@ export const config: CmsConfig = {
               name: "description",
               label: "描述",
               widget: "text",
+            },
+          ],
+        },
+        {
+          file: "content/settings/seo.json",
+          name: "seo",
+          label: "SEO",
+          fields: [
+            {
+              name: "language",
+              label: "语言",
+              widget: "string",
+            },
+            {
+              name: "url",
+              label: "站点地址",
+              widget: "string",
+            },
+            {
+              name: "title",
+              label: "站点名称",
+              widget: "string",
+            },
+            {
+              name: "description",
+              label: "站点描述",
+              widget: "text",
+            },
+            {
+              name: "logo",
+              label: "站点图片",
+              widget: "image",
+            },
+            {
+              name: "twitter",
+              label: "Twitter",
+              widget: "string",
+            },
+            {
+              name: "meta_tags",
+              label: "Meta 标签",
+              widget: "code",
+              default_language: "json",
+            },
+            {
+              name: "link_tags",
+              label: "Link 标签",
+              widget: "code",
+              default_language: "json",
             },
           ],
         },
@@ -192,51 +322,116 @@ export const config: CmsConfig = {
           ],
         },
         {
-          file: "content/settings/seo.json",
-          name: "seo",
-          label: "SEO",
+          file: "content/settings/license.json",
+          name: "license",
+          label: "版权声明",
           fields: [
             {
-              name: "language",
-              label: "语言",
+              name: "label",
+              label: "协议名称",
               widget: "string",
             },
             {
-              name: "url",
-              label: "站点地址",
+              name: "href",
+              label: "协议链接",
+              widget: "string",
+            },
+          ],
+        },
+        {
+          file: "content/settings/artalk.json",
+          name: "artalk",
+          label: "Artalk",
+          fields: [
+            {
+              name: "server",
+              label: "服务器链接",
               widget: "string",
             },
             {
-              name: "title",
+              name: "site",
               label: "站点名称",
               widget: "string",
             },
+          ],
+        },
+        {
+          file: "content/settings/algolia.json",
+          name: "algolia",
+          label: "Algolia",
+          fields: [
             {
-              name: "description",
-              label: "站点描述",
-              widget: "text",
-            },
-            {
-              name: "logo",
-              label: "站点图片",
-              widget: "image",
-            },
-            {
-              name: "twitter",
-              label: "Twitter",
+              name: "appId",
+              label: "App Id",
               widget: "string",
             },
             {
-              name: "meta_tags",
-              label: "Meta 标签",
-              widget: "code",
-              default_language: "json",
+              name: "appKey",
+              label: "App Key",
+              widget: "string",
             },
             {
-              name: "link_tags",
-              label: "Link 标签",
-              widget: "code",
-              default_language: "json",
+              name: "indexName",
+              label: "索引名称",
+              widget: "string",
+            },
+          ],
+        },
+        {
+          file: "content/settings/links.json",
+          name: "links",
+          label: "友链",
+          fields: [
+            {
+              name: "links",
+              label: "友链",
+              widget: "list",
+              fields: [
+                {
+                  name: "name",
+                  label: "站点名称",
+                  widget: "string",
+                },
+                {
+                  name: "author",
+                  label: "作者",
+                  widget: "string",
+                  required: false,
+                },
+                {
+                  name: "url",
+                  label: "站点链接",
+                  widget: "string",
+                },
+                {
+                  name: "avatar",
+                  label: "头像",
+                  widget: "image",
+                },
+                {
+                  name: "bio",
+                  label: "简介",
+                  widget: "string",
+                  required: false,
+                },
+              ],
+            },
+            {
+              name: "lostConnection",
+              label: "已失联的友链",
+              widget: "list",
+              fields: [
+                {
+                  name: "name",
+                  label: "站点名称",
+                  widget: "string",
+                },
+                {
+                  name: "url",
+                  label: "站点链接",
+                  widget: "string",
+                },
+              ],
             },
           ],
         },

@@ -31,9 +31,9 @@ export const MoreInfo: React.FC<MoreInfoProps> = (props) => {
       >
         {props.date}
       </Link>
-      <Divider orientation="vertical" />
-      {(props.categories ?? [])
-        .slice(0, 2)
+      {props.categories?.length && <Divider orientation="vertical" />}
+      {props.categories
+        ?.slice(0, 2)
         .map((c) => (
           <Link
             key={`category-${c}`}
@@ -54,9 +54,9 @@ export const MoreInfo: React.FC<MoreInfoProps> = (props) => {
           all.push(item);
           return all;
         }, [])}
-      <Divider orientation="vertical" />
-      {(props.tags ?? [])
-        .slice(0, 3)
+      {props.tags?.length && <Divider orientation="vertical" />}
+      {props.tags
+        ?.slice(0, 3)
         .map((t) => (
           <Link
             key={`tag-${t}`}

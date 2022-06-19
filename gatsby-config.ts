@@ -22,6 +22,13 @@ const plugins: GatsbyConfig["plugins"] = [
   {
     resolve: "gatsby-source-filesystem",
     options: {
+      name: "pages",
+      path: "content/pages/",
+    },
+  },
+  {
+    resolve: "gatsby-source-filesystem",
+    options: {
       name: "settings",
       path: "content/settings/",
     },

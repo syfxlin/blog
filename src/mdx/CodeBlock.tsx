@@ -14,7 +14,7 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({ children }) => {
     const matches = className.match(/language-(?<lang>.*)/);
     return matches && matches.groups && matches.groups.lang
       ? matches.groups.lang
-      : "language-markup";
+      : "";
   }, [children.props.className]);
 
   return (
@@ -32,14 +32,22 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({ children }) => {
             padding: 0 !important;
             background: .c(gray3_3, gray6_3) !important;
 
-            &:before {
-              color: .c(gray6);
-              opacity: 0.3;
+            &::before {
+              color: .c(primary7, primary3);
+              text-shadow: 1px 1px 3px .c(gray5);
+              opacity: 1;
               content: attr(data-language);
-              font-size: .fs(1.2);
+              font-size: .fs(1);
+              padding: .fs(0.3) .fs(0.9);
               position: absolute;
-              right: .fs(0.9);
-              top: .fs(0.3);
+              right: 0;
+              top: 0;
+              z-index: 1;
+              transition: opacity 0.3s;
+            }
+
+            &:hover::before {
+              opacity: 0;
             }
           `}
         />
