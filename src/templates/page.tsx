@@ -102,6 +102,7 @@ const Page: React.FC<PageProps> = (props) => {
         >
           {ctx.prev && (
             <LinkButton
+              aria-label={`上一篇：${ctx.prev.title}`}
               to={ctx.prev.link}
               css={css`
                 gap: .sp(1);
@@ -117,6 +118,7 @@ const Page: React.FC<PageProps> = (props) => {
           )}
           {ctx.next && (
             <LinkButton
+              aria-label={`下一篇：${ctx.next.title}`}
               to={ctx.next.link}
               css={css`
                 gap: .sp(1);

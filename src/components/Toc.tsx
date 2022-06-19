@@ -18,6 +18,7 @@ const TocItem: React.FC<TocProps & { activeId: string }> = ({
       {items.map((item) => (
         <li key={`toc-${item.url}`}>
           <LinkButton
+            aria-label={`导航到 ${item.title} 部分`}
             to={item.url}
             className={cx(item.url === `#${activeId}` && "active")}
           >

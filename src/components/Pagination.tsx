@@ -41,6 +41,7 @@ export const Pagination: React.FC<PaginationProps> = ({
     >
       {current !== 1 && (
         <LinkButton
+          aria-label="上一页"
           to={onLink?.(current - 1) ?? "#"}
           onClick={() => onPage?.(current - 1)}
           css={css`
@@ -52,6 +53,7 @@ export const Pagination: React.FC<PaginationProps> = ({
       )}
       {size >= 1 && (
         <LinkButton
+          aria-label="第 1 页"
           to={onLink?.(1) ?? "#"}
           onClick={() => onPage?.(1)}
           className={current === 1 ? "pagination-active" : ""}
@@ -67,6 +69,7 @@ export const Pagination: React.FC<PaginationProps> = ({
         .filter((i) => i > 1 && i < size)
         .map((i) => (
           <LinkButton
+            aria-label={`第 ${i} 页`}
             to={onLink?.(i) ?? "#"}
             onClick={() => onPage?.(i)}
             className={current === i ? "pagination-active" : ""}
@@ -80,6 +83,7 @@ export const Pagination: React.FC<PaginationProps> = ({
       )}
       {size >= 2 && (
         <LinkButton
+          aria-label={`第 ${size} 页`}
           to={onLink?.(size) ?? "#"}
           onClick={() => onPage?.(size)}
           className={current === size ? "pagination-active" : ""}
@@ -90,6 +94,7 @@ export const Pagination: React.FC<PaginationProps> = ({
       )}
       {current !== size && (
         <LinkButton
+          aria-label="下一页"
           to={onLink?.(current + 1) ?? "#"}
           onClick={() => onPage?.(current + 1)}
           css={css`

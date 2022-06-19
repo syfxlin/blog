@@ -29,7 +29,7 @@ const Artalk: React.FC<Props> = ({ pageTitle, pageKey, server, site }) => {
       darkMode: ctx.mode === "dark",
     });
   }, [pageKey, server, site, ctx.mode]);
-  return <section id="comment" />;
+  return <section id="comment" aria-label="评论系统" />;
 };
 
 export default Artalk;

@@ -64,6 +64,7 @@ export const Header: React.FC<HeaderProps> = (props) => {
         `}
       >
         <LinkButton
+          aria-label="首页"
           to="/"
           css={css`
             display: flex;
