@@ -1,5 +1,11 @@
 import { IGatsbyImageData } from "gatsby-plugin-image";
 
+export type TocData = {
+  url: string;
+  title: string;
+  items?: TocData[];
+};
+
 export type PageData = {
   link: string;
   title: string;
@@ -10,12 +16,7 @@ export type PageData = {
   thumbnail?: IGatsbyImageData;
   categories?: string[];
   tags?: string[];
-  toc?: {
-    items: {
-      url: string;
-      title: string;
-    }[];
-  };
+  toc: TocData[];
 };
 
 // prettier-ignore

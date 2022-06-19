@@ -22,6 +22,7 @@ export const wrapper: React.FC<any> = (props) => {
           border-bottom: 1px dashed .c(black_1);
           margin-top: .sp(5);
           margin-bottom: .sp(3);
+          padding-bottom: .sp(1);
 
           &::before {
             content: "";

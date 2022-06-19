@@ -35,6 +35,7 @@ export const Button: React.FC<ButtonProps> = ({ tippy, ...props }) => {
         transition: color 0.3s, background-color 0.3s, box-shadow 0.3s;
         cursor: pointer;
 
+        &.active,
         &:hover {
           background-color: .c(primary1_3, primary9_3);
         }
@@ -81,6 +82,7 @@ export const LinkButton: React.FC<LinkButtonProps> = ({
     transition: color 0.3s, background-color 0.3s, box-shadow 0.3s;
     cursor: pointer;
 
+    &.active,
     &:hover {
       background-color: .c(primary1_3, primary9_3);
     }

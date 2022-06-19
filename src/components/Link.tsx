@@ -17,6 +17,7 @@ export const Link: React.FC<LinkProps> = ({ to, tippy, ...props }) => {
     border-bottom: .bw(1) solid .c(primary1, primary9);
     transition: border 0.3s;
 
+    &.active,
     &:hover,
     &:focus,
     &:active {
