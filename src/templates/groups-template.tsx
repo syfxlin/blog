@@ -8,7 +8,7 @@ import { Pagination } from "../components/Pagination";
 import { Footer } from "../layouts/Footer";
 import { Meta } from "../components/Meta";
 
-export type GroupsPageProps = {
+export type GroupsTemplateProps = {
   data: GroupsPageData;
   id: string | number;
   type: string;
@@ -18,7 +18,7 @@ export type GroupsPageProps = {
   total: number;
 };
 
-const GroupsTemplate: React.FC<GroupsPageProps> = (props) => {
+const GroupsTemplate: React.FC<GroupsTemplateProps> = (props) => {
   return (
     <>
       {/*prettier-ignore*/}

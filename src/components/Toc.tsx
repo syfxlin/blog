@@ -4,6 +4,7 @@ import { TocData } from "../queries/page";
 import { LinkButton } from "./Button";
 import cx from "classnames";
 import { useIntersectionObserver } from "../hooks/use-intersection-observer";
+import scrollIntoView from "scroll-into-view-if-needed";
 
 export type TocProps = {
   items: TocData[];
@@ -16,11 +17,11 @@ const TocItem: React.FC<TocProps & { activeId: string }> = ({
   return (
     <ul>
       {items.map((item) => (
-        <li key={`toc-${item.url}`}>
+        <li key={`toc-${item.url}`} id={`toc-${item.url.substring(1)}`}>
           <LinkButton
             aria-label={`导航到 ${item.title} 部分`}
             to={item.url}
-            className={cx(item.url === `#${activeId}` && "active")}
+            className={cx(item.url.substring(1) === activeId && "active")}
           >
             {item.title}
           </LinkButton>
@@ -34,7 +35,16 @@ const TocItem: React.FC<TocProps & { activeId: string }> = ({
 export const Toc: React.FC<TocProps> = ({ items }) => {
   const { css } = useU();
   const [activeId, setActiveId] = useState<string>("");
-  useIntersectionObserver(setActiveId);
+  useIntersectionObserver((id) => {
+    const toc = document.getElementById(`toc-${id}`);
+    if (toc) {
+      scrollIntoView(toc, {
+        behavior: "smooth",
+        scrollMode: "if-needed",
+      });
+    }
+    setActiveId(id);
+  });
   return (
     <aside
       css={css`

@@ -7,7 +7,7 @@ export type CodeBlockProps = {
   children: ReactElement;
 };
 
-export const CodeBlock: React.FC<CodeBlockProps> = ({ children }) => {
+const CodeBlock: React.FC<CodeBlockProps> = ({ children }) => {
   const { ctx, css } = useU();
   const language = useMemo(() => {
     const className = children.props.className || "";
@@ -75,3 +75,5 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({ children }) => {
     </PrismAsyncLight>
   );
 };
+
+export default CodeBlock;
