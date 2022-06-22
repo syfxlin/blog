@@ -7,6 +7,7 @@ import { Button, LinkButton } from "../components/Button";
 import { NavViewType, useNavData } from "../queries/nav";
 import { Icon } from "../components/Icon";
 import { DarkMode } from "@icon-park/react";
+import { useAuthorData } from "../queries/author";
 
 export type HeaderProps = {
   title?: string;
@@ -27,6 +28,7 @@ export const Header: React.FC<HeaderProps> = (props) => {
   const desktop = useUp("md");
   const seo = useSeoData();
   const nav = useNavData();
+  const author = useAuthorData();
   return (
     <>
       <GatsbySeo
@@ -40,6 +42,9 @@ export const Header: React.FC<HeaderProps> = (props) => {
           url: format(props.url || "{url}", seo),
           title: format(props.title || "{title}", seo),
           description: format(props.description || "{description}", seo),
+          article: {
+            authors: [`${author.firstName} ${author.lastName}`],
+          },
           images: [
             // prettier-ignore
             {

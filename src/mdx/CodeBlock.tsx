@@ -31,6 +31,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ children }) => {
             font-size: .fs(0.9) !important;
             padding: 0 !important;
             background: .c(gray3_3, gray6_3) !important;
+            margin-bottom: .sp(4);
 
             &::before {
               color: .c(primary7, primary3);

@@ -38,8 +38,8 @@ const Page: React.FC<PageProps> = (props) => {
       tags={data.tags}
       toc={data.toc}
       layout={ctx.layout}
+      prev={ctx.prev}
       next={ctx.next}
-      prev={ctx.next}
     />
   );
 };

@@ -21,6 +21,8 @@ const MessageBox: React.FC<MessageBoxProps> = ({ type, children }) => {
         background-color: .c(${color}2_3, ${color}4_3);
         color: .c(${color}6);
         padding: .sp(5) .sp(6);
+        font-size: .fs(0.9);
+        margin-bottom: .sp(4);
       `}
     >
       {children}
