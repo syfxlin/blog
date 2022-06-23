@@ -1,8 +1,8 @@
 import { IGatsbyImageData } from "gatsby-plugin-image";
 
 export type TocData = {
-  url: string;
-  title: string;
+  url?: string;
+  title?: string;
   items?: TocData[];
 };
 

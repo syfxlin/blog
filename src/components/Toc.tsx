@@ -7,32 +7,44 @@ import { useIntersectionObserver } from "../hooks/use-intersection-observer";
 import scrollIntoView from "scroll-into-view-if-needed";
 
 export type TocProps = {
-  items: TocData[];
+  items?: TocData[];
 };
 
 const TocItem: React.FC<TocProps & { activeId: string }> = ({
   items,
   activeId,
 }) => {
+  if (!items || items.length) {
+    return null;
+  }
+
   return (
     <ul>
-      {items.map((item) => (
-        <li key={`toc-${item.url}`} id={`toc-${item.url.substring(1)}`}>
-          <LinkButton
-            aria-label={`导航到 ${item.title} 部分`}
-            to={item.url}
-            className={cx(item.url.substring(1) === activeId && "active")}
-          >
-            {item.title}
-          </LinkButton>
-          {item.items && <TocItem items={item.items} activeId={activeId} />}
-        </li>
-      ))}
+      {items.map(
+        (item) =>
+          item.title &&
+          item.url && (
+            <li key={`toc-${item.url}`} id={`toc-${item.url.substring(1)}`}>
+              <LinkButton
+                aria-label={`导航到 ${item.title} 部分`}
+                to={item.url}
+                className={cx(item.url.substring(1) === activeId && "active")}
+              >
+                {item.title}
+              </LinkButton>
+              {item.items && <TocItem items={item.items} activeId={activeId} />}
+            </li>
+          )
+      )}
     </ul>
   );
 };
 
 export const Toc: React.FC<TocProps> = ({ items }) => {
+  if (!items || items.length) {
+    return null;
+  }
+
   const { css } = useU();
   const [activeId, setActiveId] = useState<string>("");
   useIntersectionObserver((id) => {
