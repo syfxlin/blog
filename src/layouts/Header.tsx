@@ -25,6 +25,7 @@ const format = (value: string, vars: Record<string, any>) => {
 
 export const Header: React.FC<HeaderProps> = (props) => {
   const { css, mode, setMode } = useU();
+  // SSG 会导致 desktop 为 false，从而引起首次加载时跳变
   const desktop = useUp("md");
   const seo = useSeoData();
   const nav = useNavData();

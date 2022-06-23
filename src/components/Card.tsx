@@ -17,9 +17,7 @@ export type CardProps = {
 export const Card: React.FC<CardProps> = (props) => {
   const { css } = useU();
   return (
-    <GLink
-      to={props.link}
-      aria-label={props.title}
+    <article
       css={css`
         appearance: none;
         text-decoration: none;
@@ -32,7 +30,8 @@ export const Card: React.FC<CardProps> = (props) => {
         border-radius: .br(0.8);
         color: .c(primary7, primary3);
         transition: color 0.3s, background-color 0.3s, box-shadow 0.3s;
-        cursor: pointer;
+        position: relative;
+        //cursor: pointer;
 
         &:hover {
           background-color: .c(primary1_3, primary9_3);
@@ -44,21 +43,24 @@ export const Card: React.FC<CardProps> = (props) => {
         }
       `}
     >
-      <article
+      <section
         css={css`
           flex: 1;
         `}
       >
-        <h3
+        <GLink
+          to={props.link}
+          aria-label={props.title}
           css={css`
             margin: 0;
             font-weight: 400;
             font-size: .fs(1.25);
             color: .c(gray9, dark0);
+            text-decoration: none;
           `}
         >
           {props.title}
-        </h3>
+        </GLink>
         <p
           css={css`
             margin: .sp(1) 0;
@@ -74,7 +76,7 @@ export const Card: React.FC<CardProps> = (props) => {
           categories={props.categories}
           tags={props.tags}
         />
-      </article>
+      </section>
       {props.thumbnail && (
         <GatsbyImage
           alt={`缩略图：${props.title}`}
@@ -90,6 +92,17 @@ export const Card: React.FC<CardProps> = (props) => {
           `}
         />
       )}
-    </GLink>
+      <GLink
+        to={props.link}
+        aria-hidden={true}
+        css={css`
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+        `}
+      />
+    </article>
   );
 };
