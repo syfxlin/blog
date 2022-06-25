@@ -93,6 +93,13 @@ const plugins: GatsbyConfig["plugins"] = [
   // 拓展组件
   "gatsby-plugin-offline",
   {
+    resolve: `gatsby-plugin-nprogress`,
+    options: {
+      color: "#7048e8",
+      showSpinner: true,
+    },
+  },
+  {
     resolve: "gatsby-plugin-manifest",
     options: {
       short_name: siteMetadata.title,

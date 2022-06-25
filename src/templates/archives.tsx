@@ -8,6 +8,7 @@ import { Meta } from "../components/Meta";
 import { Link } from "../components/Link";
 import { layout, LayoutType } from "../utils/urls";
 import { useU } from "@syfxlin/ustyled";
+import { Root } from "../layouts/Root";
 
 export type ArchivesPageProps = {
   data: Queries.ArchivesPageQueryQuery;
@@ -19,7 +20,7 @@ const ArchivesPage: React.FC<ArchivesPageProps> = (props) => {
   const data = convert(props.data);
 
   return (
-    <>
+    <Root>
       <Header title="归档" url="{url}/archives" />
       <Main>
         {/*prettier-ignore*/}
@@ -125,7 +126,7 @@ const ArchivesPage: React.FC<ArchivesPageProps> = (props) => {
         </article>
       </Main>
       <Footer />
-    </>
+    </Root>
   );
 };
 

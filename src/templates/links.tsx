@@ -53,7 +53,7 @@ const FriendsPage: React.FC<FriendsPageProps> = (props) => {
                 to={link.url}
                 aria-label={`友链：${link.name}`}
                 target="_blank"
-                rel="noreferrer"
+                rel="nofollow noopener noreferrer"
                 css={css`
                   display: flex;
                   gap: .sp(4);

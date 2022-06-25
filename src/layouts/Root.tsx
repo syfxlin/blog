@@ -3,6 +3,8 @@ import { UstyledProvider } from "@syfxlin/ustyled";
 import { MDXProvider } from "@mdx-js/react";
 import { NormalizeCSS } from "../theme/NormalizeCSS";
 import { GlobalStyles } from "../theme/GlobalStyles";
+import { ErrorBoundary } from "react-error-boundary";
+import { ErrorFallback } from "./ErrorFallback";
 
 // styles
 import "tippy.js/dist/tippy.css";
@@ -17,7 +19,9 @@ export const Root: React.FC<RootProps> = ({ children }) => {
     <UstyledProvider>
       <NormalizeCSS />
       <GlobalStyles />
-      <MDXProvider components={mdx}>{children}</MDXProvider>
+      <ErrorBoundary FallbackComponent={ErrorFallback}>
+        <MDXProvider components={mdx}>{children}</MDXProvider>
+      </ErrorBoundary>
     </UstyledProvider>
   );
 };

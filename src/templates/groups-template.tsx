@@ -7,6 +7,7 @@ import { Card } from "../components/Card";
 import { Pagination } from "../components/Pagination";
 import { Footer } from "../layouts/Footer";
 import { Meta } from "../components/Meta";
+import { Root } from "../layouts/Root";
 
 export type GroupsTemplateProps = {
   data: GroupsPageData;
@@ -20,7 +21,7 @@ export type GroupsTemplateProps = {
 
 const GroupsTemplate: React.FC<GroupsTemplateProps> = (props) => {
   return (
-    <>
+    <Root>
       {/*prettier-ignore*/}
       <Header
         title={props.current === 1
@@ -65,7 +66,7 @@ const GroupsTemplate: React.FC<GroupsTemplateProps> = (props) => {
         />
       </Main>
       <Footer />
-    </>
+    </Root>
   );
 };
 

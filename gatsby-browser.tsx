@@ -1,12 +1,7 @@
 import React from "react";
 import { GatsbyBrowser } from "gatsby";
-import { Root } from "./src/layouts/Root";
 import { CheckSSR } from "./src/layouts/CheckSSR";
 
 export const wrapRootElement: GatsbyBrowser["wrapRootElement"] = (props) => {
-  return (
-    <CheckSSR.Provider value={false}>
-      <Root>{props.element}</Root>
-    </CheckSSR.Provider>
-  );
+  return <CheckSSR.Provider value={false}>{props.element}</CheckSSR.Provider>;
 };

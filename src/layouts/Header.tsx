@@ -1,5 +1,4 @@
 import React, { ReactNode, useState } from "react";
-import { GatsbySeo } from "gatsby-plugin-next-seo";
 import { useSeoData } from "../queries/seo";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { useU, useUp } from "@syfxlin/ustyled";
@@ -7,23 +6,11 @@ import { Button, LinkButton } from "../components/Button";
 import { NavViewType, useNavData } from "../queries/nav";
 import { Icon } from "../components/Icon";
 import { DarkMode, Search } from "@icon-park/react";
-import { useAuthorData } from "../queries/author";
 import { Canvas } from "../components/Canvas";
 import { Spotlight } from "../components/Spotlight";
+import { SEO, SEOProps } from "./SEO";
 
-export type HeaderProps = {
-  title?: string;
-  description?: string;
-  url?: string;
-  image?: string;
-};
-
-const format = (value: string, vars: Record<string, any>) => {
-  return value.replace(
-    /\{(\w+)}/g,
-    (match, name) => vars[name] ?? `{${match}}`
-  );
-};
+export type HeaderProps = SEOProps;
 
 export const Header: React.FC<HeaderProps> = (props) => {
   const { css, mode, setMode } = useU();
@@ -31,41 +18,16 @@ export const Header: React.FC<HeaderProps> = (props) => {
   const desktop = useUp("md");
   const seo = useSeoData();
   const nav = useNavData();
-  const author = useAuthorData();
 
   const [active, setActive] = useState(false);
 
   return (
     <>
-      <GatsbySeo
-        language={seo.language}
-        title={format(props.title || "{title}", seo)}
-        description={format(props.description || "{description}", seo)}
-        openGraph={{
-          site_name: seo.title,
-          type: "website",
-          locale: seo.language,
-          url: format(props.url || "{url}", seo),
-          title: format(props.title || "{title}", seo),
-          description: format(props.description || "{description}", seo),
-          article: {
-            authors: [`${author.firstName} ${author.lastName}`],
-          },
-          images: [
-            // prettier-ignore
-            {
-              url: format(props.image || seo.logo?.images?.fallback?.src || "", seo),
-              alt: format(props.title || "{title}", seo)
-            },
-          ],
-        }}
-        twitter={{
-          handle: seo.twitter,
-          site: seo.twitter,
-          cardType: "summary_large_image",
-        }}
-        metaTags={seo.metaTags}
-        linkTags={seo.linkTags}
+      <SEO
+        title={props.title}
+        description={props.description}
+        url={props.url}
+        image={props.image}
       />
       <header
         css={css`
