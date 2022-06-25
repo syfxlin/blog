@@ -10,9 +10,9 @@ export type PageData = {
   link: string;
   title: string;
   dateCreated: string;
-  dateUpdated: string;
-  excerpt: string;
-  body: string;
+  dateUpdated?: string;
+  excerpt?: string;
+  body?: string;
   thumbnail?: IGatsbyImageData;
   categories?: string[];
   tags?: string[];

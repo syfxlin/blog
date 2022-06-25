@@ -1,6 +1,6 @@
 import { IGatsbyImageData } from "gatsby-plugin-image";
 
-export type ArticlesPageData = {
+export type ArticlePageData = {
   link: string;
   title: string;
   date: string;
@@ -11,7 +11,7 @@ export type ArticlesPageData = {
 }[];
 
 // prettier-ignore
-export const convert = (data: Queries.ArticlesPageQueryQuery): ArticlesPageData => {
+export const convert = (data: Queries.ArticlePageQueryQuery): ArticlePageData => {
   return data.allMdx.nodes.map((i) => ({
     link: i.fields?.slug as string,
     title: i.frontmatter?.title as string,
@@ -19,6 +19,6 @@ export const convert = (data: Queries.ArticlesPageQueryQuery): ArticlesPageData 
     thumbnail: i.frontmatter?.thumbnail?.childImageSharp?.gatsbyImageData || undefined,
     categories: (i.frontmatter?.categories as string[]) || undefined,
     tags: (i.frontmatter?.tags as string[]) || undefined,
-    excerpt: i.excerpt || "",
+    excerpt: i.excerpt || ""
   }));
 };

@@ -17,6 +17,7 @@ const Wrapper: React.FC<any> = (props) => {
         h4,
         h5,
         h6 {
+          position: relative;
           font-weight: 400;
           border-bottom: 1px dashed .c(black_1);
           margin-top: .sp(5);
@@ -64,7 +65,7 @@ const Wrapper: React.FC<any> = (props) => {
         }
 
         h1 {
-          font-size: .fs(1.7);
+          font-size: .fs(1.8);
 
           .anchor::before {
             content: "H1";

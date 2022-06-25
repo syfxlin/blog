@@ -1,6 +1,6 @@
 import { graphql } from "gatsby";
 import React from "react";
-import { convert } from "../queries/articles";
+import { convert } from "../queries/article";
 import { Header } from "../layouts/Header";
 import { Main } from "../layouts/Main";
 import { Hero } from "../components/Hero";

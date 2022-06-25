@@ -19,6 +19,12 @@ export const MoreInfo: React.FC<MoreInfoProps> = (props) => {
         font-weight: 400;
         font-size: .fs(0.8);
         color: .c(gray6);
+        position: relative;
+
+        a {
+          position: relative;
+          z-index: 1;
+        }
       `}
     >
       <Link

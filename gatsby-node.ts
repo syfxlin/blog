@@ -182,4 +182,13 @@ export const createPages: GatsbyNode["createPages"] = async (args) => {
       },
     });
   }
+
+  // 归档页
+  actions.createPage({
+    path: `/archives`,
+    component: path.resolve(`src/templates/archives.tsx`),
+    context: {
+      status,
+    },
+  });
 };

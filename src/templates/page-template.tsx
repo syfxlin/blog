@@ -64,7 +64,7 @@ export const PageTemplate: React.FC<PageTemplateProps> = (props) => {
               css={css`
                 margin: 0;
                 font-weight: 400;
-                font-size: .fs(1.7);
+                font-size: .fs(1.8);
                 color: .c(gray9, dark0);
               `}
             >
@@ -76,12 +76,15 @@ export const PageTemplate: React.FC<PageTemplateProps> = (props) => {
               tags={props.tags}
             />
           </section>
-          <ExpireNotify date={props.dateUpdated} />
-          {props.render ? (
-            props.render(<MDXRenderer>{props.body}</MDXRenderer>)
-          ) : (
-            <MDXRenderer>{props.body}</MDXRenderer>
+          {props.layout === LayoutType.POST && props.dateUpdated && (
+            <ExpireNotify date={props.dateUpdated} />
           )}
+          {props.body &&
+            (props.render ? (
+              props.render(<MDXRenderer>{props.body}</MDXRenderer>)
+            ) : (
+              <MDXRenderer>{props.body}</MDXRenderer>
+            ))}
           {props.layout === LayoutType.POST && (
             <Copyright
               title={props.title}

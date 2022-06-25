@@ -16,7 +16,7 @@ export const Meta: React.FC<MetaProps> = (props) => {
     >
       <h1
         css={css`
-          font-size: .fs(1.7);
+          font-size: .fs(1.8);
           line-height: 1.5;
           margin: .sp(2) 0 0 0;
           font-weight: 400;
