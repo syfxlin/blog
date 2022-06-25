@@ -8,7 +8,7 @@ import { Card } from "../components/Card";
 import { Pagination } from "../components/Pagination";
 import { join } from "../utils/urls";
 import { Footer } from "../layouts/Footer";
-import { Root } from "../layouts/Root";
+import { Layout } from "../layouts/Layout";
 
 export type ArticlePageProps = {
   data: Queries.ArticlePageQueryQuery;
@@ -23,7 +23,7 @@ const ArticlePage: React.FC<ArticlePageProps> = (props) => {
   const ctx = props.pageContext;
 
   return (
-    <Root>
+    <Layout>
       {/*prettier-ignore*/}
       <Header
         title={ctx.current === 1
@@ -58,7 +58,7 @@ const ArticlePage: React.FC<ArticlePageProps> = (props) => {
         />
       </Main>
       <Footer />
-    </Root>
+    </Layout>
   );
 };
 

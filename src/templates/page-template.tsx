@@ -16,7 +16,7 @@ import { Left, Right } from "@icon-park/react";
 import { Footer } from "../layouts/Footer";
 import loadable from "@loadable/component";
 import { Meta } from "../components/Meta";
-import { Root } from "../layouts/Root";
+import { Layout } from "../layouts/Layout";
 
 const Artalk = loadable(() => import("../components/Artalk"), { ssr: false });
 
@@ -36,7 +36,7 @@ export type PageTemplateProps = PageData & {
 export const PageTemplate: React.FC<PageTemplateProps> = (props) => {
   const { css } = useU();
   return (
-    <Root>
+    <Layout>
       {/*prettier-ignore*/}
       <Header
         url={`{url}${props.link}`}
@@ -122,6 +122,6 @@ export const PageTemplate: React.FC<PageTemplateProps> = (props) => {
         {Artalk && <Artalk pageTitle={props.title} pageKey={props.link} />}
       </Main>
       <Footer />
-    </Root>
+    </Layout>
   );
 };
