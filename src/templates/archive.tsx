@@ -1,28 +1,28 @@
+import { graphql } from "gatsby";
 import React from "react";
 import { convert } from "../queries/groups";
-import GroupsTemplate from "./groups-template";
 import { LayoutType } from "../utils/urls";
-import { graphql } from "gatsby";
+import GroupsTemplate from "./groups-template";
 
-export type TagsPageProps = {
-  data: Queries.TagsPageQueryQuery;
+export type ArchivePageProps = {
+  data: Queries.ArchivePageQueryQuery;
   pageContext: {
-    tag: number;
+    archive: number;
     current: number;
     size: number;
     total: number;
   };
 };
 
-const TagsPage: React.FC<TagsPageProps> = (props) => {
+const ArchivePage: React.FC<ArchivePageProps> = (props) => {
   const data = convert(props.data);
   const ctx = props.pageContext;
   return (
     <GroupsTemplate
       data={data}
-      id={ctx.tag}
-      type="分类"
-      layout={LayoutType.CATEGORY}
+      id={ctx.archive}
+      type="归档"
+      layout={LayoutType.ARCHIVE}
       current={ctx.current}
       size={ctx.size}
       total={ctx.total}
@@ -30,11 +30,11 @@ const TagsPage: React.FC<TagsPageProps> = (props) => {
   );
 };
 
-export default TagsPage;
+export default ArchivePage;
 
 export const query = graphql`
-  query TagsPageQuery(
-    $tag: String!
+  query ArchivePageQuery(
+    $archive: Int
     $skip: Int!
     $limit: Int!
     $status: [String!]!
@@ -43,11 +43,8 @@ export const query = graphql`
       skip: $skip
       limit: $limit
       filter: {
-        frontmatter: {
-          layout: { eq: "post" }
-          tags: { eq: $tag }
-          status: { in: $status }
-        }
+        fields: { date_year: { eq: $archive } }
+        frontmatter: { layout: { eq: "post" }, status: { in: $status } }
       }
       sort: { order: DESC, fields: frontmatter___date }
     ) {

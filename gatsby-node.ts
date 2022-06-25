@@ -109,19 +109,16 @@ export const createPages: GatsbyNode["createPages"] = async (args) => {
   const posts = articles.filter((i) => i.layout === LayoutType.POST);
 
   // 文章列表
-  createPageable(
-    posts.length,
-    "/",
-    path.resolve("src/templates/articles.tsx"),
-    { status }
-  );
+  createPageable(posts.length, "/", path.resolve("src/templates/article.tsx"), {
+    status,
+  });
 
   // 归档列表
   for (const archive of archives) {
     createPageable(
       archive.count,
       layout(LayoutType.ARCHIVE, archive.name),
-      path.resolve("src/templates/archives.tsx"),
+      path.resolve("src/templates/archive.tsx"),
       {
         archive: parseInt(archive.name),
         total: archive.count,
@@ -134,7 +131,7 @@ export const createPages: GatsbyNode["createPages"] = async (args) => {
     createPageable(
       category.count,
       layout(LayoutType.CATEGORY, category.name),
-      path.resolve("src/templates/categories.tsx"),
+      path.resolve("src/templates/category.tsx"),
       {
         category: category.name,
         total: category.count,
@@ -147,7 +144,7 @@ export const createPages: GatsbyNode["createPages"] = async (args) => {
     createPageable(
       tag.count,
       layout(LayoutType.TAG, tag.name),
-      path.resolve("src/templates/tags.tsx"),
+      path.resolve("src/templates/tag.tsx"),
       {
         tag: tag.name,
         total: tag.count,

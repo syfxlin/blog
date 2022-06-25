@@ -1,26 +1,26 @@
-import { graphql } from "gatsby";
 import React from "react";
 import { convert } from "../queries/groups";
 import GroupsTemplate from "./groups-template";
 import { LayoutType } from "../utils/urls";
+import { graphql } from "gatsby";
 
-export type CategoriesPageProps = {
-  data: Queries.CategoriesPageQueryQuery;
+export type TagPageProps = {
+  data: Queries.TagPageQueryQuery;
   pageContext: {
-    category: number;
+    tag: number;
     current: number;
     size: number;
     total: number;
   };
 };
 
-const CategoriesPage: React.FC<CategoriesPageProps> = (props) => {
+const TagPage: React.FC<TagPageProps> = (props) => {
   const data = convert(props.data);
   const ctx = props.pageContext;
   return (
     <GroupsTemplate
       data={data}
-      id={ctx.category}
+      id={ctx.tag}
       type="分类"
       layout={LayoutType.CATEGORY}
       current={ctx.current}
@@ -30,11 +30,11 @@ const CategoriesPage: React.FC<CategoriesPageProps> = (props) => {
   );
 };
 
-export default CategoriesPage;
+export default TagPage;
 
 export const query = graphql`
-  query CategoriesPageQuery(
-    $category: String!
+  query TagPageQuery(
+    $tag: String!
     $skip: Int!
     $limit: Int!
     $status: [String!]!
@@ -44,8 +44,8 @@ export const query = graphql`
       limit: $limit
       filter: {
         frontmatter: {
-          categories: { eq: $category }
           layout: { eq: "post" }
+          tags: { eq: $tag }
           status: { in: $status }
         }
       }

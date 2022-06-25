@@ -9,15 +9,15 @@ import { Pagination } from "../components/Pagination";
 import { join } from "../utils/urls";
 import { Footer } from "../layouts/Footer";
 
-export type ArticlesPageProps = {
-  data: Queries.ArticlesPageQueryQuery;
+export type ArticlePageProps = {
+  data: Queries.ArticlePageQueryQuery;
   pageContext: {
     current: number;
     size: number;
   };
 };
 
-const ArticlesPage: React.FC<ArticlesPageProps> = (props) => {
+const ArticlePage: React.FC<ArticlePageProps> = (props) => {
   const data = convert(props.data);
   const ctx = props.pageContext;
 
@@ -61,10 +61,10 @@ const ArticlesPage: React.FC<ArticlesPageProps> = (props) => {
   );
 };
 
-export default ArticlesPage;
+export default ArticlePage;
 
 export const query = graphql`
-  query ArticlesPageQuery($skip: Int!, $limit: Int!, $status: [String!]!) {
+  query ArticlePageQuery($skip: Int!, $limit: Int!, $status: [String!]!) {
     allMdx(
       skip: $skip
       limit: $limit
