@@ -73,7 +73,9 @@ export const Copyright: React.FC<CopyrightProps> = (props) => {
           <li>
             <p>许可协议</p>
             <p>
-              <Link to={license.href}>{license.label}</Link>
+              <Link to={license.href} aria-label={`许可协议：${license.label}`}>
+                {license.label}
+              </Link>
             </p>
           </li>
         )}
