@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { graphql } from "gatsby";
 import { convert } from "../queries/links";
 import { PageTemplate } from "./page-template";
@@ -22,6 +22,8 @@ const FriendsPage: React.FC<FriendsPageProps> = (props) => {
   const data = convert(props.data);
   const ctx = props.pageContext;
 
+  const links = useMemo(() => shuffle(data.links), [data.links]);
+
   return (
     <PageTemplate
       link={data.link}
@@ -44,7 +46,7 @@ const FriendsPage: React.FC<FriendsPageProps> = (props) => {
               flex-wrap: wrap;
             `}
           >
-            {shuffle(data.links).map((link) => (
+            {links.map((link) => (
               <section
                 key={`link-${link.url}`}
                 css={css`
