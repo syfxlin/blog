@@ -28,6 +28,7 @@ const PostCard: React.FC<PostCardProps> = ({ link }) => {
         aria-label={`文章：${link}`}
         css={css`
           display: flex;
+          margin-top: .sp(4);
           margin-bottom: .sp(4);
         `}
       >
@@ -45,6 +46,7 @@ const PostCard: React.FC<PostCardProps> = ({ link }) => {
         padding: .sp(5) .sp(6);
         background: .c(gray3_3, gray6_3);
         overflow: hidden;
+        margin-top: .sp(4);
         margin-bottom: .sp(4);
         display: flex;
         flex-direction: column;

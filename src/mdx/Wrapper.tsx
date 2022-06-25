@@ -112,7 +112,7 @@ const Wrapper: React.FC<any> = (props) => {
         }
 
         p {
-          margin-top: 0;
+          margin-top: .sp(4);
           margin-bottom: .sp(4);
         }
 
@@ -133,6 +133,7 @@ const Wrapper: React.FC<any> = (props) => {
           }
 
           p:last-of-type {
+            margin-top: 0;
             margin-bottom: 0;
           }
         }
