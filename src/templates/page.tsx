@@ -1,10 +1,7 @@
 import React from "react";
-import loadable from "@loadable/component";
 import { graphql } from "gatsby";
 import { convert } from "../queries/page";
 import { PageTemplate } from "./page-template";
-
-const Artalk = loadable(() => import("../components/Artalk"), { ssr: false });
 
 export type PageProps = {
   data: Queries.PageQueryQuery;
