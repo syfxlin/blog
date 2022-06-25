@@ -7,19 +7,15 @@ import { useU } from "@syfxlin/ustyled";
 type Props = {
   pageTitle: string;
   pageKey: string;
-  server: string;
-  site: string;
 };
 
-const Artalk: React.FC<Props> = ({ pageTitle, pageKey, server, site }) => {
+const Artalk: React.FC<Props> = ({ pageTitle, pageKey }) => {
   const { ctx } = useU();
   useEffect(() => {
     new ArtalkComment({
       el: `#comment`,
       pageTitle,
       pageKey,
-      server,
-      site,
       placeholder: "留下你的足迹 ∠( ᐛ 」∠)＿",
       noComment: "快来成为第一个评论的人吧~",
       readMore: {
@@ -27,8 +23,10 @@ const Artalk: React.FC<Props> = ({ pageTitle, pageKey, server, site }) => {
         autoLoad: true,
       },
       darkMode: ctx.mode === "dark",
+      server: process.env.GATSBY_ARTALK_SERVER_URL,
+      site: process.env.GATSBY_ARTALK_SITE_NAME,
     });
-  }, [pageKey, server, site, ctx.mode]);
+  }, [pageTitle, pageKey, ctx.mode]);
   return <section id="comment" aria-label="评论系统" />;
 };
 

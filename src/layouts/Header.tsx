@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, useState } from "react";
 import { GatsbySeo } from "gatsby-plugin-next-seo";
 import { useSeoData } from "../queries/seo";
 import { GatsbyImage } from "gatsby-plugin-image";
@@ -6,8 +6,10 @@ import { useU, useUp } from "@syfxlin/ustyled";
 import { Button, LinkButton } from "../components/Button";
 import { NavViewType, useNavData } from "../queries/nav";
 import { Icon } from "../components/Icon";
-import { DarkMode } from "@icon-park/react";
+import { DarkMode, Search } from "@icon-park/react";
 import { useAuthorData } from "../queries/author";
+import { Canvas } from "../components/Canvas";
+import { Spotlight } from "../components/Spotlight";
 
 export type HeaderProps = {
   title?: string;
@@ -25,11 +27,14 @@ const format = (value: string, vars: Record<string, any>) => {
 
 export const Header: React.FC<HeaderProps> = (props) => {
   const { css, mode, setMode } = useU();
-  // SSG 会导致 desktop 为 false，从而引起首次加载时跳变
+  // TODO: SSG 会导致 desktop 为 false，从而引起首次加载时跳变
   const desktop = useUp("md");
   const seo = useSeoData();
   const nav = useNavData();
   const author = useAuthorData();
+
+  const [active, setActive] = useState(false);
+
   return (
     <>
       <GatsbySeo
@@ -152,6 +157,16 @@ export const Header: React.FC<HeaderProps> = (props) => {
             );
           })}
           <Button
+            aria-label="搜索"
+            tippy={{
+              content: "搜索",
+              animation: "shift-away",
+            }}
+            onClick={() => setActive((p) => !p)}
+          >
+            <Search />
+          </Button>
+          <Button
             aria-label="切换暗色模式"
             tippy={{
               content: `当前模式：${mode}`,
@@ -176,6 +191,8 @@ export const Header: React.FC<HeaderProps> = (props) => {
           </Button>
         </div>
       </header>
+      <Canvas />
+      <Spotlight active={active} setActive={setActive} />
     </>
   );
 };

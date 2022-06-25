@@ -3,7 +3,6 @@ import { UstyledProvider } from "@syfxlin/ustyled";
 import { MDXProvider } from "@mdx-js/react";
 import { NormalizeCSS } from "../theme/NormalizeCSS";
 import { GlobalStyles } from "../theme/GlobalStyles";
-import { Canvas } from "../components/Canvas";
 
 // styles
 import "tippy.js/dist/tippy.css";
@@ -18,7 +17,6 @@ export const Root: React.FC<RootProps> = ({ children }) => {
     <UstyledProvider>
       <NormalizeCSS />
       <GlobalStyles />
-      <Canvas />
       <MDXProvider components={mdx}>{children}</MDXProvider>
     </UstyledProvider>
   );

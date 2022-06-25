@@ -1,7 +1,6 @@
 import React from "react";
 import { useU } from "@syfxlin/ustyled";
 import { PageData } from "../queries/page";
-import { useArtalkData } from "../queries/artalk";
 import { Header } from "../layouts/Header";
 import { Main } from "../layouts/Main";
 import { AspectRatio } from "../components/AspectRatio";
@@ -35,7 +34,6 @@ export type PageTemplateProps = PageData & {
 
 export const PageTemplate: React.FC<PageTemplateProps> = (props) => {
   const { css } = useU();
-  const artalk = useArtalkData();
   return (
     <>
       {/*prettier-ignore*/}
@@ -120,9 +118,7 @@ export const PageTemplate: React.FC<PageTemplateProps> = (props) => {
             </LinkButton>
           )}
         </section>
-        {Artalk && artalk && (
-          <Artalk pageTitle={props.title} pageKey={props.link} {...artalk} />
-        )}
+        {Artalk && <Artalk pageTitle={props.title} pageKey={props.link} />}
       </Main>
       <Footer />
     </>

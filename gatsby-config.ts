@@ -4,6 +4,7 @@ import remarkMath from "remark-math";
 import remarkKatex from "remark-html-katex";
 import seo from "./content/settings/seo.json";
 import * as feedQuery from "./src/queries/init/feed";
+import * as searchQuery from "./src/queries/init/search";
 
 const siteMetadata: GatsbyConfig["siteMetadata"] = {
   title: seo.title,
@@ -69,6 +70,26 @@ const plugins: GatsbyConfig["plugins"] = [
       },
     },
   },
+  // 搜索
+  {
+    resolve: "gatsby-plugin-algolia",
+    options: {
+      appId: process.env.GATSBY_ALGOLIA_APP_ID,
+      indexName: process.env.GATSBY_ALGOLIA_INDEX_NAME,
+      apiKey: process.env.ALGOLIA_ADMIN_KEY,
+      queries: [
+        {
+          query: searchQuery.query,
+          transformer: ({ data }: any) => searchQuery.convert(data),
+        },
+      ],
+      matchFields: ["link", "title", "date", "categories", "tags", "content"],
+      concurrentQueries: false,
+      skipIndexing:
+        process.env.NODE_ENV !== "production" ||
+        process.env.ALGOLIA_SKIP_INDEXING,
+    },
+  },
   // 拓展组件
   "gatsby-plugin-offline",
   {
@@ -117,7 +138,7 @@ const plugins: GatsbyConfig["plugins"] = [
   {
     resolve: "gatsby-plugin-google-analytics",
     options: {
-      trackingId: process.env.GOOGLE_ANALUTICS_ID,
+      trackingId: process.env.GATSBY_GOOGLE_ANALUTICS_ID,
     },
   },
   {

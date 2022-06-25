@@ -339,45 +339,6 @@ export const config: CmsConfig = {
           ],
         },
         {
-          file: "content/settings/artalk.json",
-          name: "artalk",
-          label: "Artalk",
-          fields: [
-            {
-              name: "server",
-              label: "服务器链接",
-              widget: "string",
-            },
-            {
-              name: "site",
-              label: "站点名称",
-              widget: "string",
-            },
-          ],
-        },
-        {
-          file: "content/settings/algolia.json",
-          name: "algolia",
-          label: "Algolia",
-          fields: [
-            {
-              name: "appId",
-              label: "App Id",
-              widget: "string",
-            },
-            {
-              name: "appKey",
-              label: "App Key",
-              widget: "string",
-            },
-            {
-              name: "indexName",
-              label: "索引名称",
-              widget: "string",
-            },
-          ],
-        },
-        {
           file: "content/settings/links.json",
           name: "links",
           label: "友链",
