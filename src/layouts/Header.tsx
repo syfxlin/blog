@@ -96,7 +96,7 @@ export const Header: React.FC<HeaderProps> = (props) => {
               `}
             />
           )}
-          {seo.title}
+          {desktop && seo.title}
         </LinkButton>
         <div
           css={css`
