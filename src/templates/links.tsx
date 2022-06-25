@@ -6,7 +6,7 @@ import { shuffle } from "../utils/vender";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { useU } from "@syfxlin/ustyled";
 import Tippy from "@tippyjs/react";
-import { Link } from "../components/Link";
+import { LinkButton } from "../components/Button";
 
 export type FriendsPageProps = {
   data: Queries.FriendsPageQueryQuery;
@@ -42,17 +42,22 @@ const FriendsPage: React.FC<FriendsPageProps> = (props) => {
           {article}
           <section
             css={css`
-              display: flex;
-              flex-wrap: wrap;
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+              gap: .sp(2);
             `}
           >
             {links.map((link) => (
-              <section
+              <LinkButton
                 key={`link-${link.url}`}
+                to={link.url}
+                aria-label={`友链：${link.name}`}
+                target="_blank"
+                rel="noreferrer"
                 css={css`
                   display: flex;
                   gap: .sp(4);
-                  width: 50%;
+                  text-align: left;
                   padding: .sp(4);
                 `}
               >
@@ -78,21 +83,19 @@ const FriendsPage: React.FC<FriendsPageProps> = (props) => {
                       white-space: nowrap;
                       overflow: hidden;
                       font-size: .fs(0.9);
+                      color: .c(gray7, dark0);
+                      line-height: 1.5;
                     }
                   `}
                 >
-                  <Link
-                    to={link.url}
-                    aria-label={`友链：${link.name}`}
-                    target="_blank"
-                    rel="noreferrer"
+                  <span
                     css={css`
-                      border-bottom: none;
-                      font-size: .fs(1.1);
+                      color: .c(primary7, primary3) !important;
+                      font-size: .fs(1.1) !important;
                     `}
                   >
                     {link.name}
-                  </Link>
+                  </span>
                   <span>{link.author ?? <span>&nbsp;</span>}</span>
                   <Tippy
                     content={link.bio}
@@ -102,7 +105,7 @@ const FriendsPage: React.FC<FriendsPageProps> = (props) => {
                     <span>{link.bio ?? <span>No Note</span>}</span>
                   </Tippy>
                 </div>
-              </section>
+              </LinkButton>
             ))}
           </section>
         </>

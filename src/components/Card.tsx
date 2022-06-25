@@ -2,7 +2,8 @@ import React from "react";
 import { Link as GLink } from "gatsby";
 import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image";
 import { useU } from "@syfxlin/ustyled";
-import { MoreInfo } from "./MoreInfo";
+import { MetaInfo } from "./MetaInfo";
+import { LinkButton } from "./Button";
 
 export type CardProps = {
   title: string;
@@ -71,7 +72,7 @@ export const Card: React.FC<CardProps> = (props) => {
         >
           {props.excerpt}
         </p>
-        <MoreInfo
+        <MetaInfo
           date={props.date}
           categories={props.categories}
           tags={props.tags}
@@ -92,7 +93,7 @@ export const Card: React.FC<CardProps> = (props) => {
           `}
         />
       )}
-      <GLink
+      <LinkButton
         to={props.link}
         aria-hidden={true}
         css={css`
@@ -101,6 +102,7 @@ export const Card: React.FC<CardProps> = (props) => {
           bottom: 0;
           left: 0;
           right: 0;
+          background: none !important;
         `}
       />
     </article>

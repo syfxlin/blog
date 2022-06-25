@@ -35,12 +35,13 @@ const GroupsTemplate: React.FC<GroupsTemplateProps> = (props) => {
       <Main>
         {/*prettier-ignore*/}
         <Meta
-          name={props.current === 1
+          title={props.current === 1
             ? `${props.type}：${props.id}`
             : `${props.type}：${props.id} - 第 ${props.current} 页`
           }
-          description={`共 ${props.total} 篇文章`}
-        />
+        >
+          共 {props.total} 篇文章
+        </Meta>
         <section>
           {props.data.map((item) => (
             <Card

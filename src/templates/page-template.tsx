@@ -6,7 +6,7 @@ import { Header } from "../layouts/Header";
 import { Main } from "../layouts/Main";
 import { AspectRatio } from "../components/AspectRatio";
 import { GatsbyImage } from "gatsby-plugin-image";
-import { MoreInfo } from "../components/MoreInfo";
+import { MetaInfo } from "../components/MetaInfo";
 import { ExpireNotify } from "../components/ExpireNotify";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import { LayoutType } from "../utils/urls";
@@ -16,6 +16,7 @@ import { LinkButton } from "../components/Button";
 import { Left, Right } from "@icon-park/react";
 import { Footer } from "../layouts/Footer";
 import loadable from "@loadable/component";
+import { Meta } from "../components/Meta";
 
 const Artalk = loadable(() => import("../components/Artalk"), { ssr: false });
 
@@ -54,28 +55,13 @@ export const PageTemplate: React.FC<PageTemplateProps> = (props) => {
               />
             </AspectRatio>
           )}
-          <section
-            css={css`
-              text-align: center;
-              padding: .sp(6) 0 .sp(1) 0;
-            `}
-          >
-            <h1
-              css={css`
-                margin: 0;
-                font-weight: 400;
-                font-size: .fs(1.8);
-                color: .c(gray9, dark0);
-              `}
-            >
-              {props.title}
-            </h1>
-            <MoreInfo
+          <Meta title={props.title}>
+            <MetaInfo
               date={props.dateCreated}
               categories={props.categories}
               tags={props.tags}
             />
-          </section>
+          </Meta>
           {props.layout === LayoutType.POST && props.dateUpdated && (
             <ExpireNotify date={props.dateUpdated} />
           )}

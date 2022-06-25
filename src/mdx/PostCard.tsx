@@ -4,7 +4,7 @@ import { useAsync } from "react-use";
 import { Link } from "../components/Link";
 import { join } from "../utils/urls";
 import { convert } from "../queries/page";
-import { MoreInfo } from "../components/MoreInfo";
+import { MetaInfo } from "../components/MetaInfo";
 
 export type PostCardProps = {
   link: string;
@@ -75,7 +75,7 @@ const PostCard: React.FC<PostCardProps> = ({ link }) => {
         {article.title}
       </Link>
       <section>{article.excerpt}</section>
-      <MoreInfo
+      <MetaInfo
         date={article.dateCreated}
         categories={article.categories}
         tags={article.tags}

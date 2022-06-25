@@ -4,21 +4,22 @@ import { layout, LayoutType } from "../utils/urls";
 import { Divider } from "./Divider";
 import { useU } from "@syfxlin/ustyled";
 
-export type MoreInfoProps = {
+export type MetaInfoProps = {
   date: string;
   categories?: string[];
   tags?: string[];
 };
 
-export const MoreInfo: React.FC<MoreInfoProps> = (props) => {
+export const MetaInfo: React.FC<MetaInfoProps> = (props) => {
   const { css } = useU();
-
   return (
     <div
       css={css`
         font-weight: 400;
         font-size: .fs(0.8);
+        line-height: 1.5;
         color: .c(gray6);
+        margin: 0;
         position: relative;
 
         a {

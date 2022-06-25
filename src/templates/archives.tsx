@@ -22,10 +22,10 @@ const ArchivesPage: React.FC<ArchivesPageProps> = (props) => {
     <>
       <Header title="归档" url="{url}/archives" />
       <Main>
-        <Meta
-          name="归档"
-          description={`${data.archives.length} 归档 × ${data.categories.length} 分类 × ${data.tags.length} 标签 × ${data.articles} 文章 × ${data.pages} 页面`}
-        />
+        {/*prettier-ignore*/}
+        <Meta title="归档">
+          {data.archives.length} 归档 × {data.categories.length} 分类 × {data.tags.length} 标签 × {data.articles} 文章 × {data.pages} 页面
+        </Meta>
         <article
           css={css`
             h2 {
