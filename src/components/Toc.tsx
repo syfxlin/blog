@@ -14,7 +14,7 @@ const TocItem: React.FC<TocProps & { activeId: string }> = ({
   items,
   activeId,
 }) => {
-  if (!items || items.length) {
+  if (!items || !items.length) {
     return null;
   }
 
@@ -41,7 +41,7 @@ const TocItem: React.FC<TocProps & { activeId: string }> = ({
 };
 
 export const Toc: React.FC<TocProps> = ({ items }) => {
-  if (!items || items.length) {
+  if (!items || !items.length) {
     return null;
   }
 

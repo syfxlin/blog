@@ -23,7 +23,14 @@ const PostCard: React.FC<PostCardProps> = ({ link }) => {
 
   if (query.loading || query.error) {
     return (
-      <Link to={link} aria-label={`文章：${link}`}>
+      <Link
+        to={link}
+        aria-label={`文章：${link}`}
+        css={css`
+          display: flex;
+          margin-bottom: .sp(4);
+        `}
+      >
         文章：{link}
       </Link>
     );

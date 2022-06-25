@@ -26,6 +26,10 @@ const RepoCard: React.FC<RepoCardProps> = ({ name, repo }) => {
         target="_blank"
         rel="nofollow noopener noreferrer"
         aria-label={`GitHub: ${name}/${repo}`}
+        css={css`
+          display: flex;
+          margin-bottom: .sp(4);
+        `}
       >
         GitHub：{name}/{repo}
       </Link>
