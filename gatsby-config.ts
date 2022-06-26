@@ -75,8 +75,8 @@ const plugins: GatsbyConfig["plugins"] = [
     resolve: "gatsby-plugin-algolia",
     options: {
       appId: process.env.GATSBY_ALGOLIA_APP_ID,
+      apiKey: process.env.ALGOLIA_ADMIN_API_KEY,
       indexName: process.env.GATSBY_ALGOLIA_INDEX_NAME,
-      apiKey: process.env.ALGOLIA_ADMIN_KEY,
       queries: [
         {
           query: searchQuery.query,
@@ -87,7 +87,7 @@ const plugins: GatsbyConfig["plugins"] = [
       concurrentQueries: false,
       skipIndexing:
         process.env.NODE_ENV !== "production" ||
-        process.env.ALGOLIA_SKIP_INDEXING,
+        process.env.ALGOLIA_SKIP_INDEXING !== "false",
     },
   },
   // 拓展组件

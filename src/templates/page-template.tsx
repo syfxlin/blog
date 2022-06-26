@@ -94,7 +94,7 @@ export const PageTemplate: React.FC<PageTemplateProps> = (props) => {
                 gap: .sp(1);
                 font-size: .fs(1.2);
                 flex: 1;
-                text-align: left;
+                text-align: center;
                 justify-content: flex-start;
                 padding: .sp(4);
               `}
@@ -110,7 +110,7 @@ export const PageTemplate: React.FC<PageTemplateProps> = (props) => {
                 gap: .sp(1);
                 font-size: .fs(1.2);
                 flex: 1;
-                text-align: right;
+                text-align: center;
                 justify-content: flex-end;
                 padding: .sp(4);
               `}
