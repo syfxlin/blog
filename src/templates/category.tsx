@@ -7,7 +7,7 @@ import { LayoutType } from "../utils/urls";
 export type CategoryPageProps = {
   data: Queries.CategoryPageQueryQuery;
   pageContext: {
-    category: number;
+    category: string;
     current: number;
     size: number;
     total: number;

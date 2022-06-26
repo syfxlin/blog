@@ -7,7 +7,7 @@ import { graphql } from "gatsby";
 export type TagPageProps = {
   data: Queries.TagPageQueryQuery;
   pageContext: {
-    tag: number;
+    tag: string;
     current: number;
     size: number;
     total: number;
@@ -21,7 +21,7 @@ const TagPage: React.FC<TagPageProps> = (props) => {
     <GroupsTemplate
       data={data}
       id={ctx.tag}
-      type="分类"
+      type="标签"
       layout={LayoutType.CATEGORY}
       current={ctx.current}
       size={ctx.size}
