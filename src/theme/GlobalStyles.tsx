@@ -1,9 +1,9 @@
 import React from "react";
-import { Global } from "@emotion/react";
+import { css, Global } from "@emotion/react";
 import { useU } from "@syfxlin/ustyled";
 
 export const GlobalStyles: React.FC = () => {
-  const { css, mode } = useU();
+  const { u, mode } = useU();
   return (
     <Global
       styles={css`
@@ -14,18 +14,18 @@ export const GlobalStyles: React.FC = () => {
         }
 
         html {
-          background-color: .c(white, dark7);
+          background-color: ${u.c("white", "dark7")};
         }
 
         html,
         body {
           --mode: ${mode};
-          font-family: .f(sans);
-          color: .c(gray7, dark0);
-          font-size: .fs(1);
+          font-family: ${u.f("sans")};
+          color: ${u.c("gray7", "dark0")};
+          font-size: ${u.fs(1)};
           font-weight: 400;
           line-height: 1.5;
-          letter-spacing: .ls(wide);
+          letter-spacing: ${u.ls("wide")};
           transition: color 0.3s, background-color 0.3s;
           scroll-behavior: smooth;
         }

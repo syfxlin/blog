@@ -3,6 +3,7 @@ import { useAsync } from "react-use";
 import { Link } from "../components/Link";
 import { useU } from "@syfxlin/ustyled";
 import colors from "../utils/github-colors";
+import { css } from "@emotion/react";
 
 export type RepoCardProps = {
   name: string;
@@ -10,7 +11,7 @@ export type RepoCardProps = {
 };
 
 const RepoCard: React.FC<RepoCardProps> = ({ name, repo }) => {
-  const { css } = useU();
+  const { u } = useU();
   const query = useAsync(async () => {
     const res = await fetch(`https://api.github.com/repos/${name}/${repo}`);
     if (res.status >= 400) {
@@ -28,8 +29,8 @@ const RepoCard: React.FC<RepoCardProps> = ({ name, repo }) => {
         aria-label={`GitHub: ${name}/${repo}`}
         css={css`
           display: flex;
-          margin-top: .sp(4);
-          margin-bottom: .sp(4);
+          margin-top: ${u.sp(4)};
+          margin-bottom: ${u.sp(4)};
         `}
       >
         GitHub：{name}/{repo}
@@ -41,15 +42,15 @@ const RepoCard: React.FC<RepoCardProps> = ({ name, repo }) => {
     <div
       css={css`
         position: relative;
-        padding: .sp(5) .sp(6);
-        background: .c(gray3_3, gray6_3);
+        padding: ${u.sp(5)} ${u.sp(6)};
+        background: ${u.c("gray3,3", "gray6,3")};
         overflow: hidden;
-        margin-top: .sp(4);
-        margin-bottom: .sp(4);
+        margin-top: ${u.sp(4)};
+        margin-bottom: ${u.sp(4)};
         display: flex;
         flex-direction: column;
-        gap: .sp(2);
-        font-size: .fs(0.9);
+        gap: ${u.sp(2)};
+        font-size: ${u.fs(0.9)};
 
         &:after {
           position: absolute;
@@ -67,18 +68,18 @@ const RepoCard: React.FC<RepoCardProps> = ({ name, repo }) => {
         section {
           display: flex;
           align-items: center;
-          color: .c(gray6);
-          fill: .c(gray6);
-          gap: .sp(6);
+          color: ${u.c("gray6")};
+          fill: ${u.c("gray6")};
+          gap: ${u.sp(6)};
 
           &:first-of-type {
-            gap: .sp(2);
-            font-size: .fs(1);
+            gap: ${u.sp(2)};
+            font-size: ${u.fs(1)};
 
             svg {
-              width: .fs(1);
-              height: .fs(1);
-              margin-top: .fs(0.25);
+              width: ${u.fs(1)};
+              height: ${u.fs(1)};
+              margin-top: ${u.fs(0.25)};
             }
           }
 
@@ -87,18 +88,18 @@ const RepoCard: React.FC<RepoCardProps> = ({ name, repo }) => {
           }
 
           svg {
-            width: .fs(0.9);
-            height: .fs(0.9);
+            width: ${u.fs(0.9)};
+            height: ${u.fs(0.9)};
           }
 
           span {
-            font-size: .fs(0.9);
+            font-size: ${u.fs(0.9)};
           }
 
           div {
             display: flex;
             align-items: center;
-            gap: .sp(2);
+            gap: ${u.sp(2)};
           }
         }
       `}
@@ -122,8 +123,8 @@ const RepoCard: React.FC<RepoCardProps> = ({ name, repo }) => {
         <div>
           <span
             css={css`
-              width: .fs(0.8);
-              height: .fs(0.8);
+              width: ${u.fs(0.8)};
+              height: ${u.fs(0.8)};
               display: inline-block;
               border-radius: 50%;
               background: ${colors[query.value.language]?.color ?? "#fff"};

@@ -4,6 +4,7 @@ import { useLicenseData } from "../queries/license";
 import { useAuthorData } from "../queries/author";
 import { useSeoData } from "../queries/seo";
 import { useU } from "@syfxlin/ustyled";
+import { css } from "@emotion/react";
 
 export type CopyrightProps = {
   title: string;
@@ -12,7 +13,7 @@ export type CopyrightProps = {
 };
 
 export const Copyright: React.FC<CopyrightProps> = (props) => {
-  const { css } = useU();
+  const { u } = useU();
   const seo = useSeoData();
   const license = useLicenseData();
   const author = useAuthorData();
@@ -20,13 +21,13 @@ export const Copyright: React.FC<CopyrightProps> = (props) => {
     <section
       css={css`
         position: relative;
-        font-size: .fs(0.6);
-        background: .c(blue2_3, blue4_3);
-        color: .c(gray7, dark0);
+        font-size: ${u.fs(0.6)};
+        background: ${u.c("blue2,3", "blue4,3")};
+        color: ${u.c("gray7", "dark0")};
         display: block;
         overflow: hidden;
-        margin-top: .sp(4);
-        padding: .sp(5) .sp(6);
+        margin-top: ${u.sp(4)};
+        padding: ${u.sp(5)} ${u.sp(6)};
 
         &::after {
           position: absolute;
@@ -44,7 +45,7 @@ export const Copyright: React.FC<CopyrightProps> = (props) => {
         }
 
         & > p {
-          font-size: .fs(0.9);
+          font-size: ${u.fs(0.9)};
         }
 
         & > ul {
@@ -53,12 +54,12 @@ export const Copyright: React.FC<CopyrightProps> = (props) => {
           justify-content: flex-start;
           flex-wrap: wrap;
           list-style: none;
-          margin: .sp(3) 0;
+          margin: ${u.sp(3)} 0;
           padding: 0;
-          gap: .sp(6);
+          gap: ${u.sp(6)};
 
           p:last-of-type {
-            font-size: .fs(0.9);
+            font-size: ${u.fs(0.9)};
           }
         }
       `}

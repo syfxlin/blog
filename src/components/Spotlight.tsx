@@ -8,6 +8,7 @@ import useAlgolia from "../hooks/use-algolia";
 import { SearchItem } from "../queries/init/search";
 import { Pagination } from "./Pagination";
 import { Loading } from "./Loading";
+import { css } from "@emotion/react";
 
 export type SpotlightProps = {
   active: boolean;
@@ -23,7 +24,7 @@ export const Spotlight: React.FC<SpotlightProps> = (props) => {
     return null;
   }
 
-  const { css } = useU();
+  const { u } = useU();
   const [search, setSearch] = useState("");
   const [state, requestDispatch] = useAlgolia<SearchItem>(
     process.env.GATSBY_ALGOLIA_APP_ID,
@@ -87,8 +88,8 @@ export const Spotlight: React.FC<SpotlightProps> = (props) => {
           display: flex;
           flex-direction: column;
           align-items: center;
-          padding-top: .sp(20);
-          padding-bottom: .sp(10);
+          padding-top: ${u.sp(20)};
+          padding-bottom: ${u.sp(10)};
           pointer-events: none;
 
           transition-property: opacity;
@@ -100,21 +101,21 @@ export const Spotlight: React.FC<SpotlightProps> = (props) => {
       >
         <div
           css={css`
-            border-top-left-radius: .br(0.8);
-            border-top-right-radius: .br(0.8);
-            background-color: .c(white, dark7);
-            border-bottom: .bw(1) solid .c(gray3, gray6);
-            padding: .sp(4);
+            border-top-left-radius: ${u.br(0.8)};
+            border-top-right-radius: ${u.br(0.8)};
+            background-color: ${u.c("white", "dark7")};
+            border-bottom: ${u.bw(1)} solid ${u.c("gray3", "gray6")};
+            padding: ${u.sp(4)};
             width: 100%;
-            max-width: .fs(40);
+            max-width: ${u.fs(40)};
             display: flex;
-            gap: .sp(2);
+            gap: ${u.sp(2)};
             pointer-events: auto;
           `}
         >
           <Search
             css={css`
-              color: .c(primary7, primary3);
+              color: ${u.c("primary7", "primary3")};
             `}
           />
           <input
@@ -125,14 +126,14 @@ export const Spotlight: React.FC<SpotlightProps> = (props) => {
             css={css`
               outline: none;
               border: none;
-              font-size: .fs(1.1);
+              font-size: ${u.fs(1.1)};
               line-height: 1.5;
               width: 100%;
               background: transparent;
-              color: .c(gray7, dark0);
+              color: ${u.c("gray7", "dark0")};
 
               &::placeholder {
-                color: .c(gray4, gray7);
+                color: ${u.c("gray4", "gray7")};
               }
             `}
           />
@@ -150,12 +151,12 @@ export const Spotlight: React.FC<SpotlightProps> = (props) => {
         {(state.loading || state.response) && (
           <div
             css={css`
-              border-bottom-left-radius: .br(0.8);
-              border-bottom-right-radius: .br(0.8);
-              background-color: .c(white, dark7);
-              padding: .sp(1) .sp(7);
+              border-bottom-left-radius: ${u.br(0.8)};
+              border-bottom-right-radius: ${u.br(0.8)};
+              background-color: ${u.c("white", "dark7")};
+              padding: ${u.sp(1)} ${u.sp(7)};
               width: 100%;
-              max-width: .fs(40);
+              max-width: ${u.fs(40)};
               overflow-y: auto;
               pointer-events: auto;
             `}
@@ -165,7 +166,7 @@ export const Spotlight: React.FC<SpotlightProps> = (props) => {
                 css={css`
                   display: flex;
                   justify-content: center;
-                  padding: .sp(2);
+                  padding: ${u.sp(2)};
                 `}
               >
                 <Loading />

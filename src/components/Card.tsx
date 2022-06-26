@@ -4,6 +4,7 @@ import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image";
 import { useU } from "@syfxlin/ustyled";
 import { MetaInfo } from "./MetaInfo";
 import { LinkButton } from "./Button";
+import { css } from "@emotion/react";
 
 export type CardProps = {
   title: string;
@@ -16,7 +17,7 @@ export type CardProps = {
 };
 
 export const Card: React.FC<CardProps> = (props) => {
-  const { css } = useU();
+  const { u } = useU();
   return (
     <article
       css={css`
@@ -26,21 +27,21 @@ export const Card: React.FC<CardProps> = (props) => {
         border: none;
         background-color: unset;
         display: flex;
-        padding: .sp(4) .sp(5);
-        margin: .sp(2) .sp(-5);
-        border-radius: .br(0.8);
-        color: .c(primary7, primary3);
+        padding: ${u.sp(4)} ${u.sp(5)};
+        margin: ${u.sp(2)} ${u.sp(-5)};
+        border-radius: ${u.br(0.8)};
+        color: ${u.c("primary7", "primary3")};
         transition: color 0.3s, background-color 0.3s, box-shadow 0.3s;
         position: relative;
         //cursor: pointer;
 
         &:hover {
-          background-color: .c(primary1_3, primary9_3);
+          background-color: ${u.c("primary1,3", "primary9,3")};
         }
 
         &:focus,
         &:active {
-          box-shadow: 0 0 0 .bw(2) .c(primary1, primary9);
+          box-shadow: 0 0 0 ${u.bw(2)} ${u.c("primary1", "primary9")};
         }
       `}
     >
@@ -55,8 +56,8 @@ export const Card: React.FC<CardProps> = (props) => {
           css={css`
             margin: 0;
             font-weight: 400;
-            font-size: .fs(1.25);
-            color: .c(gray9, dark0);
+            font-size: ${u.fs(1.25)};
+            color: ${u.c("gray9", "dark0")};
             text-decoration: none;
           `}
         >
@@ -64,10 +65,10 @@ export const Card: React.FC<CardProps> = (props) => {
         </GLink>
         <p
           css={css`
-            margin: .sp(1) 0;
+            margin: ${u.sp(1)} 0;
             font-weight: 400;
-            font-size: .fs(0.9);
-            color: .c(gray7, dark2);
+            font-size: ${u.fs(0.9)};
+            color: ${u.c("gray7", "dark2")};
           `}
         >
           {props.excerpt}
@@ -84,10 +85,10 @@ export const Card: React.FC<CardProps> = (props) => {
           image={props.thumbnail}
           css={css`
             flex-basis: 30%;
-            margin-left: .sp(4);
+            margin-left: ${u.sp(4)};
             transition: filter 0.3s;
 
-            .dark() {
+            ${u.dark()} {
               filter: brightness(0.7);
             }
           `}

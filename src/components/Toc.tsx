@@ -5,6 +5,7 @@ import { LinkButton } from "./Button";
 import cx from "classnames";
 import { useIntersectionObserver } from "../hooks/use-intersection-observer";
 import scrollIntoView from "scroll-into-view-if-needed";
+import { css } from "@emotion/react";
 
 export type TocProps = {
   items?: TocData[];
@@ -45,7 +46,7 @@ export const Toc: React.FC<TocProps> = ({ items }) => {
     return null;
   }
 
-  const { css } = useU();
+  const { u } = useU();
   const [activeId, setActiveId] = useState<string>("");
   useIntersectionObserver((id) => {
     const toc = document.getElementById(`toc-${id}`);
@@ -63,10 +64,10 @@ export const Toc: React.FC<TocProps> = ({ items }) => {
         position: fixed;
         top: 50%;
         transform: translateY(-50%);
-        margin-left: .fs(-14);
-        width: .fs(12);
-        max-height: .fs(30);
-        padding: .sp(1);
+        margin-left: ${u.fs(-14)};
+        width: ${u.fs(12)};
+        max-height: ${u.fs(30)};
+        padding: ${u.sp(1)};
         overflow-y: auto;
 
         @media (max-width: 70rem) {
@@ -75,8 +76,8 @@ export const Toc: React.FC<TocProps> = ({ items }) => {
 
         ul {
           list-style: none;
-          padding-left: .fs(1);
-          gap: .sp(1);
+          padding-left: ${u.fs(1)};
+          gap: ${u.sp(1)};
           display: flex;
           flex-direction: column;
         }

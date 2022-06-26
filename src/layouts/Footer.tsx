@@ -2,11 +2,12 @@ import React, { useMemo } from "react";
 import { useU } from "@syfxlin/ustyled";
 import { useFooterData } from "../queries/footer";
 import { vars } from "../utils/vars";
+import { css } from "@emotion/react";
 
 export type FooterProps = {};
 
 export const Footer: React.FC<FooterProps> = () => {
-  const { css } = useU();
+  const { u } = useU();
   const footer = useFooterData();
 
   const html = useMemo(
@@ -20,9 +21,9 @@ export const Footer: React.FC<FooterProps> = () => {
     <footer
       css={css`
         position: relative;
-        max-width: .fs(45);
+        max-width: ${u.fs(45)};
         margin: 0 auto;
-        padding: .sp(5) .sp(8);
+        padding: ${u.sp(5)} ${u.sp(8)};
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -31,9 +32,9 @@ export const Footer: React.FC<FooterProps> = () => {
         p,
         span,
         a {
-          margin: .sp(0.25);
-          color: .c(gray6);
-          font-size: .fs(0.875);
+          margin: ${u.sp(0.25)};
+          color: ${u.c("gray6")};
+          font-size: ${u.fs(0.875)};
         }
       `}
     >

@@ -12,7 +12,7 @@ specifiers:
   '@loadable/component': ^5.15.2
   '@mdx-js/mdx': v1
   '@mdx-js/react': v1
-  '@syfxlin/ustyled': ^2.1.2
+  '@syfxlin/ustyled': ^2.2.0
   '@tippyjs/react': ^4.2.6
   '@types/loadable__component': ^5.13.4
   '@types/mdx-js__react': ^1.5.5
@@ -90,7 +90,7 @@ dependencies:
   '@loadable/component': 5.15.2_react@18.1.0
   '@mdx-js/mdx': 1.6.22
   '@mdx-js/react': 1.6.22_react@18.1.0
-  '@syfxlin/ustyled': 2.1.2_hco7cfoe57tmko5xfc6soe7sh4
+  '@syfxlin/ustyled': 2.2.0_hco7cfoe57tmko5xfc6soe7sh4
   '@tippyjs/react': 4.2.6_ef5jwxihqo6n7gxfmzogljlgcm
   '@types/reach__router': 1.3.10
   algoliasearch: 4.13.1
@@ -3505,8 +3505,8 @@ packages:
       tslib: 2.4.0
     dev: false
 
-  /@syfxlin/ustyled/2.1.2_hco7cfoe57tmko5xfc6soe7sh4:
-    resolution: {integrity: sha512-MlFuwKlEpsssb0sCSwWvOa//ozncMp5wE46bH060PVxTUFB8XfD168p/bnM7Y5RWM8DJMLNu7JEIAbJppik6dQ==}
+  /@syfxlin/ustyled/2.2.0_hco7cfoe57tmko5xfc6soe7sh4:
+    resolution: {integrity: sha512-//VwzT35bUbyhcA/lDb6LJbO9dtQkg8RTiNTbwxY31fafJcOhgQyMuCPInu9iGIRkvQTJ8lYNzUfQiAGyxHHKQ==}
     dependencies:
       '@emotion/react': 11.9.0_nukrbe2ceorjjjbkcf47ucc7pe
       '@emotion/serialize': 1.0.3

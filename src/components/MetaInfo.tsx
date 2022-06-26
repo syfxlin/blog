@@ -3,6 +3,7 @@ import { Link } from "./Link";
 import { layout, LayoutType } from "../utils/urls";
 import { Divider } from "./Divider";
 import { useU } from "@syfxlin/ustyled";
+import { css } from "@emotion/react";
 
 export type MetaInfoProps = {
   date: string;
@@ -11,14 +12,14 @@ export type MetaInfoProps = {
 };
 
 export const MetaInfo: React.FC<MetaInfoProps> = (props) => {
-  const { css } = useU();
+  const { u } = useU();
   return (
     <div
       css={css`
         font-weight: 400;
-        font-size: .fs(0.8);
+        font-size: ${u.fs(0.8)};
         line-height: 1.5;
-        color: .c(gray6);
+        color: ${u.c("gray6")};
         margin: 0;
         position: relative;
 

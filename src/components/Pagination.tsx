@@ -3,6 +3,7 @@ import { Left, Right } from "@icon-park/react";
 import { range } from "../utils/vender";
 import { LinkButton } from "./Button";
 import { useU, useUp } from "@syfxlin/ustyled";
+import { css } from "@emotion/react";
 
 export type PaginationProps = {
   current: number;
@@ -17,7 +18,7 @@ export const Pagination: React.FC<PaginationProps> = ({
   onLink,
   onPage,
 }) => {
-  const { css } = useU();
+  const { u } = useU();
   const desktop = useUp("md");
   return (
     <section
@@ -25,17 +26,17 @@ export const Pagination: React.FC<PaginationProps> = ({
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: .sp(1);
-        margin: .sp(4) 0;
+        gap: ${u.sp(1)};
+        margin: ${u.sp(4)} 0;
 
         .pagination-active {
-          background-color: .c(primary7, primary3);
-          color: .c(white, dark7);
+          background-color: ${u.c("primary7", "primary3")};
+          color: ${u.c("white", "dark7")};
         }
 
         .pagination-more {
-          padding-left: .sp(1);
-          padding-right: .sp(1);
+          padding-left: ${u.sp(1)};
+          padding-right: ${u.sp(1)};
         }
       `}
     >
@@ -45,7 +46,7 @@ export const Pagination: React.FC<PaginationProps> = ({
           to={onLink?.(current - 1) ?? "#"}
           onClick={() => onPage?.(current - 1)}
           css={css`
-            gap: .sp(1);
+            gap: ${u.sp(1)};
           `}
         >
           <Left /> 上一页
@@ -98,7 +99,7 @@ export const Pagination: React.FC<PaginationProps> = ({
           to={onLink?.(current + 1) ?? "#"}
           onClick={() => onPage?.(current + 1)}
           css={css`
-            gap: .sp(1);
+            gap: ${u.sp(1)};
           `}
         >
           下一页 <Right />

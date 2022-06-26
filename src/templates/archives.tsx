@@ -9,6 +9,7 @@ import { Link } from "../components/Link";
 import { layout, LayoutType } from "../utils/urls";
 import { useU } from "@syfxlin/ustyled";
 import { Layout } from "../layouts/Layout";
+import { css } from "@emotion/react";
 
 export type ArchivesPageProps = {
   data: Queries.ArchivesPageQueryQuery;
@@ -16,7 +17,7 @@ export type ArchivesPageProps = {
 };
 
 const ArchivesPage: React.FC<ArchivesPageProps> = (props) => {
-  const { css } = useU();
+  const { u } = useU();
   const data = convert(props.data);
 
   return (
@@ -30,12 +31,12 @@ const ArchivesPage: React.FC<ArchivesPageProps> = (props) => {
         <article
           css={css`
             h2 {
-              font-size: .fs(1.5);
+              font-size: ${u.fs(1.5)};
               font-weight: 400;
-              border-bottom: 1px dashed .c(black_1);
-              margin-top: .sp(5);
-              margin-bottom: .sp(3);
-              padding-bottom: .sp(1);
+              border-bottom: 1px dashed ${u.c("black,1")};
+              margin-top: ${u.sp(5)};
+              margin-bottom: ${u.sp(3)};
+              padding-bottom: ${u.sp(1)};
               position: relative;
 
               &::before {
@@ -44,13 +45,13 @@ const ArchivesPage: React.FC<ArchivesPageProps> = (props) => {
                 left: 0;
                 bottom: -1px;
                 display: block;
-                width: .fs(2);
-                height: .bw(2.5);
+                width: ${u.fs(2)};
+                height: ${u.bw(2.5)};
                 background: linear-gradient(
-                  .c(primary7, primary3) 30%,
-                  .c(primary7, primary3) 70%
+                  ${u.c("primary7", "primary3")} 30%,
+                  ${u.c("primary7", "primary3")} 70%
                 );
-                box-shadow: .c(primary7_4, primary3_4) 0 3px 3px;
+                box-shadow: ${u.c("primary7,4", "primary3,4")} 0 3px 3px;
                 border-radius: 4px;
                 transition: all 0.25s ease 0s;
                 z-index: 1;
@@ -63,7 +64,7 @@ const ArchivesPage: React.FC<ArchivesPageProps> = (props) => {
               padding: 0;
               display: flex;
               flex-direction: column;
-              gap: .sp(4) .sp(6);
+              gap: ${u.sp(4)} ${u.sp(6)};
               flex-wrap: wrap;
             }
           `}

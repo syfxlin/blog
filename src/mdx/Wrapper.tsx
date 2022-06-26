@@ -1,9 +1,10 @@
 import React from "react";
 import { useU } from "@syfxlin/ustyled";
 import cx from "classnames";
+import { css } from "@emotion/react";
 
 const Wrapper: React.FC<any> = (props) => {
-  const { css, ctx } = useU();
+  const { u, ctx } = useU();
   return (
     <section
       {...props}
@@ -19,10 +20,10 @@ const Wrapper: React.FC<any> = (props) => {
         h6 {
           position: relative;
           font-weight: 400;
-          border-bottom: 1px dashed .c(black_1);
-          margin-top: .sp(5);
-          margin-bottom: .sp(3);
-          padding-bottom: .sp(1);
+          border-bottom: 1px dashed ${u.c("black,1")};
+          margin-top: ${u.sp(5)};
+          margin-bottom: ${u.sp(3)};
+          padding-bottom: ${u.sp(1)};
 
           &::before {
             content: "";
@@ -30,13 +31,13 @@ const Wrapper: React.FC<any> = (props) => {
             left: 0;
             bottom: -1px;
             display: block;
-            width: .fs(2);
-            height: .bw(2.5);
+            width: ${u.fs(2)};
+            height: ${u.bw(2.5)};
             background: linear-gradient(
-              .c(primary7, primary3) 30%,
-              .c(primary7, primary3) 70%
+              ${u.c("primary7", "primary3")} 30%,
+              ${u.c("primary7", "primary3")} 70%
             );
-            box-shadow: .c(primary7_4, primary3_4) 0 3px 3px;
+            box-shadow: ${u.c("primary7,4", "primary3,4")} 0 3px 3px;
             border-radius: 4px;
             transition: all 0.25s ease 0s;
             z-index: 1;
@@ -52,9 +53,9 @@ const Wrapper: React.FC<any> = (props) => {
 
             &::before {
               content: "H2";
-              color: .c(gray6);
-              font-size: .fs(0.5);
-              padding-left: .sp(1);
+              color: ${u.c("gray6")};
+              font-size: ${u.fs(0.5)};
+              padding-left: ${u.sp(1)};
               transition: opacity 0.3s;
             }
           }
@@ -65,7 +66,7 @@ const Wrapper: React.FC<any> = (props) => {
         }
 
         h1 {
-          font-size: .fs(1.8);
+          font-size: ${u.fs(1.8)};
 
           .anchor::before {
             content: "H1";
@@ -73,7 +74,7 @@ const Wrapper: React.FC<any> = (props) => {
         }
 
         h2 {
-          font-size: .fs(1.5);
+          font-size: ${u.fs(1.5)};
 
           .anchor::before {
             content: "H2";
@@ -81,7 +82,7 @@ const Wrapper: React.FC<any> = (props) => {
         }
 
         h3 {
-          font-size: .fs(1.3);
+          font-size: ${u.fs(1.3)};
 
           .anchor::before {
             content: "H3";
@@ -89,7 +90,7 @@ const Wrapper: React.FC<any> = (props) => {
         }
 
         h4 {
-          font-size: .fs(1.1);
+          font-size: ${u.fs(1.1)};
 
           .anchor::before {
             content: "H4";
@@ -97,7 +98,7 @@ const Wrapper: React.FC<any> = (props) => {
         }
 
         h5 {
-          font-size: .fs(0.9);
+          font-size: ${u.fs(0.9)};
 
           .anchor::before {
             content: "H5";
@@ -105,7 +106,7 @@ const Wrapper: React.FC<any> = (props) => {
         }
 
         h6 {
-          font-size: .fs(0.7);
+          font-size: ${u.fs(0.7)};
 
           .anchor::before {
             content: "H6";
@@ -113,24 +114,24 @@ const Wrapper: React.FC<any> = (props) => {
         }
 
         p {
-          margin-top: .sp(4);
-          margin-bottom: .sp(4);
+          margin-top: ${u.sp(4)};
+          margin-bottom: ${u.sp(4)};
         }
 
         figure,
         blockquote {
-          border-left: .bw(3) solid .c(primary7, primary3);
-          margin-left: .fs(1);
-          padding-left: .fs(1);
+          border-left: ${u.bw(3)} solid ${u.c("primary7", "primary3")};
+          margin-left: ${u.fs(1)};
+          padding-left: ${u.fs(1)};
           box-sizing: border-box;
         }
 
         ul,
         ol {
-          padding-inline-start: .fs(2);
+          padding-inline-start: ${u.fs(2)};
 
           li {
-            margin: .sp(2) 0;
+            margin: ${u.sp(2)} 0;
           }
 
           p:last-of-type {
@@ -146,25 +147,25 @@ const Wrapper: React.FC<any> = (props) => {
 
           th,
           td {
-            padding: .sp(2) .sp(3);
+            padding: ${u.sp(2)} ${u.sp(3)};
           }
 
           tr {
-            border-top: .bw(1) solid .c(gray3, gray6);
-            border-bottom: .bw(1) solid .c(gray3, gray6);
+            border-top: ${u.bw(1)} solid ${u.c("gray3", "gray6")};
+            border-bottom: ${u.bw(1)} solid ${u.c("gray3", "gray6")};
           }
 
           thead {
-            background-color: .c(primary1_3, primary9_3);
+            background-color: ${u.c("primary1,3", "primary9,3")};
           }
         }
 
         code {
-          background-color: .c(red1_3);
-          color: .c(red7);
-          font-size: .fs(0.86);
-          padding: .fs(0.12) .fs(0.24);
-          border-radius: .br(0.8);
+          background-color: ${u.c("red1,3")};
+          color: ${u.c("red7")};
+          font-size: ${u.fs(0.86)};
+          padding: ${u.fs(0.12)} ${u.fs(0.24)};
+          border-radius: ${u.br(0.8)};
         }
 
         em {
@@ -174,26 +175,26 @@ const Wrapper: React.FC<any> = (props) => {
         hr {
           width: 80%;
           border: 0;
-          height: .bw(2);
+          height: ${u.bw(2)};
           background-image: linear-gradient(
             to right,
-            .c(primary6_0),
-            .c(primary6_7),
-            .c(primary6_0)
+            ${u.c("primary6,0")},
+            ${u.c("primary6,7")},
+            ${u.c("primary6,0")}
           );
         }
 
         a:not(.anchor) {
           text-decoration: none;
           position: relative;
-          color: .c(primary7, primary3);
-          border-bottom: .bw(1) solid .c(primary1, primary9);
+          color: ${u.c("primary7", "primary3")};
+          border-bottom: ${u.bw(1)} solid ${u.c("primary1", "primary9")};
           transition: border 0.3s;
 
           &:hover,
           &:focus,
           &:active {
-            border-bottom-color: .c(primary7, primary3);
+            border-bottom-color: ${u.c("primary7", "primary3")};
           }
         }
 

@@ -2,28 +2,29 @@ import React from "react";
 import { useAuthorData } from "../queries/author";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { useU } from "@syfxlin/ustyled";
+import { css } from "@emotion/react";
 
 export type HeroProps = {};
 
 export const Hero: React.FC<HeroProps> = () => {
-  const { css } = useU();
+  const { u } = useU();
   const author = useAuthorData();
   return (
     <section
       css={css`
-        margin: .sp(4) 0;
+        margin: ${u.sp(4)} 0;
       `}
     >
       <GatsbyImage
         alt="头像"
         image={author.avatar}
         css={css`
-          width: .s(25);
-          height: .s(25);
+          width: ${u.s(25)};
+          height: ${u.s(25)};
           border-radius: 50%;
           transition: filter 0.3s;
 
-          .dark() {
+          ${u.dark()} {
             filter: brightness(0.7);
           }
         `}
@@ -31,9 +32,9 @@ export const Hero: React.FC<HeroProps> = () => {
       <h1
         css={css`
           font-family: "Comic Sans MS", "Comic Sans", cursive !important;
-          font-size: .fs(2);
+          font-size: ${u.fs(2)};
           line-height: 1.5;
-          margin: .sp(2) 0 0 0;
+          margin: ${u.sp(2)} 0 0 0;
           font-weight: 400;
         `}
       >
@@ -41,9 +42,9 @@ export const Hero: React.FC<HeroProps> = () => {
       </h1>
       <p
         css={css`
-          font-size: .fs(1);
+          font-size: ${u.fs(1)};
           line-height: 1.5;
-          color: .c(gray6);
+          color: ${u.c("gray6")};
           margin: 0;
         `}
       >

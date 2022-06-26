@@ -17,6 +17,7 @@ import { Footer } from "../layouts/Footer";
 import loadable from "@loadable/component";
 import { Meta } from "../components/Meta";
 import { Layout } from "../layouts/Layout";
+import { css } from "@emotion/react";
 
 const Artalk = loadable(() => import("../components/Artalk"), { ssr: false });
 
@@ -34,7 +35,7 @@ export type PageTemplateProps = PageData & {
 };
 
 export const PageTemplate: React.FC<PageTemplateProps> = (props) => {
-  const { css } = useU();
+  const { u } = useU();
   return (
     <Layout>
       {/*prettier-ignore*/}
@@ -81,9 +82,9 @@ export const PageTemplate: React.FC<PageTemplateProps> = (props) => {
         <Toc items={props.toc} />
         <section
           css={css`
-            padding: .sp(4) 0;
+            padding: ${u.sp(4)} 0;
             display: flex;
-            gap: .sp(2);
+            gap: ${u.sp(2)};
           `}
         >
           {props.prev && (
@@ -91,12 +92,12 @@ export const PageTemplate: React.FC<PageTemplateProps> = (props) => {
               aria-label={`上一篇：${props.prev.title}`}
               to={props.prev.link}
               css={css`
-                gap: .sp(1);
-                font-size: .fs(1.2);
+                gap: ${u.sp(1)};
+                font-size: ${u.fs(1.2)};
                 flex: 1;
                 text-align: center;
                 justify-content: flex-start;
-                padding: .sp(4);
+                padding: ${u.sp(4)};
               `}
             >
               <Left /> {props.prev.title}
@@ -107,12 +108,12 @@ export const PageTemplate: React.FC<PageTemplateProps> = (props) => {
               aria-label={`下一篇：${props.next.title}`}
               to={props.next.link}
               css={css`
-                gap: .sp(1);
-                font-size: .fs(1.2);
+                gap: ${u.sp(1)};
+                font-size: ${u.fs(1.2)};
                 flex: 1;
                 text-align: center;
                 justify-content: flex-end;
-                padding: .sp(4);
+                padding: ${u.sp(4)};
               `}
             >
               {props.next.title} <Right />

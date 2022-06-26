@@ -9,11 +9,12 @@ import { DarkMode, Search } from "@icon-park/react";
 import { Canvas } from "../components/Canvas";
 import { Spotlight } from "../components/Spotlight";
 import { SEO, SEOProps } from "./SEO";
+import { css } from "@emotion/react";
 
 export type HeaderProps = SEOProps;
 
 export const Header: React.FC<HeaderProps> = (props) => {
-  const { css, mode, setMode } = useU();
+  const { u, mode, setMode } = useU();
   // TODO: SSG 会导致 desktop 为 false，从而引起首次加载时跳变
   const desktop = useUp("md");
   const seo = useSeoData();
@@ -41,7 +42,7 @@ export const Header: React.FC<HeaderProps> = (props) => {
           to="/"
           css={css`
             display: flex;
-            margin: .fs(1);
+            margin: ${u.fs(1)};
           `}
         >
           {seo.logo && (
@@ -50,14 +51,14 @@ export const Header: React.FC<HeaderProps> = (props) => {
               image={seo.logo}
               css={css`
                 display: block;
-                width: .fs(2);
-                height: .fs(2);
+                width: ${u.fs(2)};
+                height: ${u.fs(2)};
                 border-radius: 50%;
                 overflow: hidden;
                 transition: filter 0.3s;
-                margin-right: .sp(2);
+                margin-right: ${u.sp(2)};
 
-                .dark() {
+                ${u.dark()} {
                   filter: brightness(0.7);
                 }
               `}
@@ -68,8 +69,8 @@ export const Header: React.FC<HeaderProps> = (props) => {
         <div
           css={css`
             display: flex;
-            gap: .sp(1);
-            padding-right: .fs(1.5);
+            gap: ${u.sp(1)};
+            padding-right: ${u.fs(1.5)};
           `}
         >
           {nav.map((item) => {

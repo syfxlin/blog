@@ -1,9 +1,10 @@
 import React, { useEffect, useRef } from "react";
 import { useU } from "@syfxlin/ustyled";
 import { render } from "../utils/canvas";
+import { css } from "@emotion/react";
 
 export const Canvas: React.FC = () => {
-  const { css, ctx } = useU();
+  const { ctx } = useU();
   const ref = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {

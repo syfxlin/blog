@@ -1,5 +1,5 @@
 import React, { HTMLAttributes } from "react";
-import { useU } from "@syfxlin/ustyled";
+import { css } from "@emotion/react";
 
 export type AspectRatioProps = HTMLAttributes<HTMLDivElement> & {
   ratio: number;
@@ -9,7 +9,6 @@ export const AspectRatio: React.FC<AspectRatioProps> = ({
   ratio,
   ...props
 }) => {
-  const { css } = useU();
   return (
     <div
       {...props}

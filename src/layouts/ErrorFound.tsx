@@ -3,6 +3,7 @@ import { useU } from "@syfxlin/ustyled";
 import { SEO } from "./SEO";
 import { Canvas } from "../components/Canvas";
 import { Link } from "../components/Link";
+import { css } from "@emotion/react";
 
 export type ErrorFoundProps = {
   code: number;
@@ -11,7 +12,7 @@ export type ErrorFoundProps = {
 };
 
 export const ErrorFound: React.FC<ErrorFoundProps> = (props) => {
-  const { css } = useU();
+  const { u } = useU();
 
   return (
     <>
@@ -26,19 +27,19 @@ export const ErrorFound: React.FC<ErrorFoundProps> = (props) => {
           flex-direction: column;
           justify-content: center;
           align-items: center;
-          gap: .sp(4);
+          gap: ${u.sp(4)};
         `}
       >
         <section
           css={css`
-            font-size: .fs(1.2);
+            font-size: ${u.fs(1.2)};
             display: flex;
 
             div {
-              padding: 0 .sp(4);
+              padding: 0 ${u.sp(4)};
 
               &:first-of-type {
-                border-right: .bw(1) solid .c(gray6);
+                border-right: ${u.bw(1)} solid ${u.c("gray6")};
               }
             }
           `}
@@ -49,7 +50,7 @@ export const ErrorFound: React.FC<ErrorFoundProps> = (props) => {
         {props.children && (
           <section
             css={css`
-              font-size: .fs(0.9);
+              font-size: ${u.fs(0.9)};
             `}
           >
             {props.children}

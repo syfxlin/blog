@@ -7,6 +7,7 @@ import { GatsbyImage } from "gatsby-plugin-image";
 import { useU } from "@syfxlin/ustyled";
 import Tippy from "@tippyjs/react";
 import { LinkButton } from "../components/Button";
+import { css } from "@emotion/react";
 
 export type FriendsPageProps = {
   data: Queries.FriendsPageQueryQuery;
@@ -17,7 +18,7 @@ export type FriendsPageProps = {
 };
 
 const FriendsPage: React.FC<FriendsPageProps> = (props) => {
-  const { css } = useU();
+  const { u } = useU();
 
   const data = convert(props.data);
   const ctx = props.pageContext;
@@ -44,7 +45,7 @@ const FriendsPage: React.FC<FriendsPageProps> = (props) => {
             css={css`
               display: grid;
               grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-              gap: .sp(2);
+              gap: ${u.sp(2)};
             `}
           >
             {links.map((link) => (
@@ -56,18 +57,18 @@ const FriendsPage: React.FC<FriendsPageProps> = (props) => {
                 rel="nofollow noopener noreferrer"
                 css={css`
                   display: flex;
-                  gap: .sp(4);
+                  gap: ${u.sp(4)};
                   text-align: left;
-                  padding: .sp(4);
+                  padding: ${u.sp(4)};
                 `}
               >
                 <GatsbyImage
                   alt={link.name}
                   image={link.avatar}
                   css={css`
-                    width: .s(20);
-                    height: .s(20);
-                    flex-basis: .s(20);
+                    width: ${u.s(20)};
+                    height: ${u.s(20)};
+                    flex-basis: ${u.s(20)};
                     border-radius: 50%;
                     overflow: hidden;
                   `}
@@ -82,16 +83,16 @@ const FriendsPage: React.FC<FriendsPageProps> = (props) => {
                       text-overflow: ellipsis;
                       white-space: nowrap;
                       overflow: hidden;
-                      font-size: .fs(0.9);
-                      color: .c(gray7, dark0);
+                      font-size: ${u.fs(0.9)};
+                      color: ${u.c("gray7", "dark0")};
                       line-height: 1.5;
                     }
                   `}
                 >
                   <span
                     css={css`
-                      color: .c(primary7, primary3) !important;
-                      font-size: .fs(1.1) !important;
+                      color: ${u.c("primary7", "primary3")} !important;
+                      font-size: ${u.fs(1.1)} !important;
                     `}
                   >
                     {link.name}

@@ -5,13 +5,14 @@ import { Link } from "../components/Link";
 import { join } from "../utils/urls";
 import { convert } from "../queries/page";
 import { MetaInfo } from "../components/MetaInfo";
+import { css } from "@emotion/react";
 
 export type PostCardProps = {
   link: string;
 };
 
 const PostCard: React.FC<PostCardProps> = ({ link }) => {
-  const { css } = useU();
+  const { u } = useU();
   // prettier-ignore
   const query = useAsync(async () => {
     const res = await fetch(join("page-data", link, "page-data.json"));
@@ -28,8 +29,8 @@ const PostCard: React.FC<PostCardProps> = ({ link }) => {
         aria-label={`文章：${link}`}
         css={css`
           display: flex;
-          margin-top: .sp(4);
-          margin-bottom: .sp(4);
+          margin-top: ${u.sp(4)};
+          margin-bottom: ${u.sp(4)};
         `}
       >
         文章：{link}
@@ -43,15 +44,15 @@ const PostCard: React.FC<PostCardProps> = ({ link }) => {
     <div
       css={css`
         position: relative;
-        padding: .sp(5) .sp(6);
-        background: .c(gray3_3, gray6_3);
+        padding: ${u.sp(5)} ${u.sp(6)};
+        background: ${u.c("gray3,3", "gray6,3")};
         overflow: hidden;
-        margin-top: .sp(4);
-        margin-bottom: .sp(4);
+        margin-top: ${u.sp(4)};
+        margin-bottom: ${u.sp(4)};
         display: flex;
         flex-direction: column;
-        gap: .sp(2);
-        font-size: .fs(0.9);
+        gap: ${u.sp(2)};
+        font-size: ${u.fs(0.9)};
 
         &:after {
           position: absolute;

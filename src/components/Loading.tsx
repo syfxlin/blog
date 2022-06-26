@@ -1,17 +1,18 @@
 import React from "react";
 import { useU } from "@syfxlin/ustyled";
+import { css } from "@emotion/react";
 
 export const Loading: React.FC = () => {
-  const { css } = useU();
+  const { u } = useU();
   return (
     <svg
       viewBox="0 0 135 140"
       xmlns="http://www.w3.org/2000/svg"
       css={css`
-        color: .c(primary7, primary3);
-        fill: .c(primary7, primary3);
-        width: .s(8);
-        height: .s(8);
+        color: ${u.c("primary7", "primary3")};
+        fill: ${u.c("primary7", "primary3")};
+        width: ${u.s(8)};
+        height: ${u.s(8)};
       `}
     >
       <rect y="10" width="15" height="120" rx="6">

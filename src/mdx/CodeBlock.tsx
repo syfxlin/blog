@@ -2,13 +2,14 @@ import React, { ReactElement, useMemo } from "react";
 import { useU } from "@syfxlin/ustyled";
 import { PrismAsyncLight } from "react-syntax-highlighter";
 import { okaidia, prism } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { css } from "@emotion/react";
 
 export type CodeBlockProps = {
   children: ReactElement;
 };
 
 const CodeBlock: React.FC<CodeBlockProps> = ({ children }) => {
-  const { ctx, css } = useU();
+  const { ctx, u } = useU();
   const language = useMemo(() => {
     const className = children.props.className || "";
     const matches = className.match(/language-(?<lang>.*)/);
@@ -28,19 +29,19 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ children }) => {
           {...props}
           css={css`
             position: relative;
-            font-size: .fs(0.9) !important;
+            font-size: ${u.fs(0.9)} !important;
             padding: 0 !important;
-            background: .c(gray3_3, gray6_3) !important;
-            margin-top: .sp(4);
-            margin-bottom: .sp(4);
+            background: ${u.c("gray3,3", "gray6,3")} !important;
+            margin-top: ${u.sp(4)};
+            margin-bottom: ${u.sp(4)};
 
             &::before {
-              color: .c(primary7, primary3);
-              text-shadow: 1px 1px 3px .c(gray5);
+              color: ${u.c("primary7", "primary3")};
+              text-shadow: 1px 1px 3px ${u.c("gray5")};
               opacity: 1;
               content: attr(data-language);
-              font-size: .fs(1);
-              padding: .fs(0.3) .fs(0.9);
+              font-size: ${u.fs(1)};
+              padding: ${u.fs(0.3)} ${u.fs(0.9)};
               position: absolute;
               right: 0;
               top: 0;
@@ -60,14 +61,14 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ children }) => {
           css={css`
             max-height: 50em;
             overflow: auto;
-            padding: .fs(0.9) 0 !important;
+            padding: ${u.fs(0.9)} 0 !important;
             margin: 0 !important;
 
             .linenumber {
-              border-right: 1px solid .c(gray6);
-              padding-right: .sp(2) !important;
-              margin-right: .sp(2);
-              min-width: .fs(2.7) !important;
+              border-right: 1px solid ${u.c("gray6")};
+              padding-right: ${u.sp(2)} !important;
+              margin-right: ${u.sp(2)};
+              min-width: ${u.fs(2.7)} !important;
             }
           `}
         />
