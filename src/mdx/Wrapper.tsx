@@ -166,6 +166,7 @@ const Wrapper: React.FC<any> = (props) => {
           font-size: ${u.fs(0.86)};
           padding: ${u.fs(0.12)} ${u.fs(0.24)};
           border-radius: ${u.br(0.8)};
+          word-break: break-all;
         }
 
         em {

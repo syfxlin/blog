@@ -28,6 +28,7 @@ export const GlobalStyles: React.FC = () => {
           letter-spacing: ${u.ls("wide")};
           transition: color 0.3s, background-color 0.3s;
           scroll-behavior: smooth;
+          word-break: break-word;
         }
 
         .i-icon {
