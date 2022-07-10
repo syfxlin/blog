@@ -7,7 +7,6 @@ const Wrapper: React.FC<any> = (props) => {
   const { u, ctx } = useU();
   return (
     <section
-      {...props}
       className={cx("han-init-context", props.className)}
       css={css`
         --mode: ${ctx.mode};
