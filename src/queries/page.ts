@@ -12,7 +12,6 @@ export type PageData = {
   dateCreated: string;
   dateUpdated?: string;
   excerpt?: string;
-  body?: string;
   thumbnail?: IGatsbyImageData;
   categories?: string[];
   tags?: string[];
@@ -20,14 +19,13 @@ export type PageData = {
 };
 
 // prettier-ignore
-export const convert = (data: Queries.PageQueryQuery): PageData => {
+export const convert = (data: any): PageData => {
   return {
     link: data.mdx?.fields?.slug as string,
     title: data.mdx?.frontmatter?.title as string,
     dateCreated: data.mdx?.frontmatter?.date as string,
     dateUpdated: (data.mdx?.frontmatter?.date_updated || data.mdx?.frontmatter?.date) as string,
     excerpt: data.mdx?.excerpt || "",
-    body: data.mdx?.body || "",
     thumbnail: data.mdx?.frontmatter?.thumbnail?.childImageSharp?.gatsbyImageData,
     categories: (data.mdx?.frontmatter?.categories as string[]) || undefined,
     tags: (data.mdx?.frontmatter?.tags as string[]) || undefined,

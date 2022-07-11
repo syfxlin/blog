@@ -2,6 +2,7 @@ export type ArticlesData = {
   link: string;
   layout: string;
   title: string;
+  contentPath: string;
 }[];
 
 type QueryData = {
@@ -24,6 +25,11 @@ export const query = `
         fields {
           slug
         }
+        parent {
+          ... on File {
+            absolutePath
+          }
+        }
       }
     }
   }
@@ -34,5 +40,7 @@ export const convert = (data: QueryData): ArticlesData => {
     link: item.fields?.slug as string,
     layout: item.frontmatter?.layout as string,
     title: item.frontmatter?.title as string,
+    // @ts-ignore
+    contentPath: item.parent?.absolutePath as string,
   }));
 };

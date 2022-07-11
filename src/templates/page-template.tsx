@@ -7,7 +7,6 @@ import { AspectRatio } from "../components/AspectRatio";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { MetaInfo } from "../components/MetaInfo";
 import { ExpireNotify } from "../components/ExpireNotify";
-import { MDXRenderer } from "gatsby-plugin-mdx";
 import { LayoutType } from "../utils/urls";
 import { Copyright } from "../components/Copyright";
 import { Toc } from "../components/Toc";
@@ -31,7 +30,7 @@ export type PageTemplateProps = PageData & {
     link: string;
     title: string;
   };
-  render?: (article: JSX.Element) => JSX.Element | React.ReactNode;
+  children?: React.ReactNode;
 };
 
 export const PageTemplate: React.FC<PageTemplateProps> = (props) => {
@@ -65,12 +64,7 @@ export const PageTemplate: React.FC<PageTemplateProps> = (props) => {
           {props.layout === LayoutType.POST && props.dateUpdated && (
             <ExpireNotify date={props.dateUpdated} />
           )}
-          {props.body &&
-            (props.render ? (
-              props.render(<MDXRenderer>{props.body}</MDXRenderer>)
-            ) : (
-              <MDXRenderer>{props.body}</MDXRenderer>
-            ))}
+          {props.children}
           {props.layout === LayoutType.POST && (
             <Copyright
               title={props.title}

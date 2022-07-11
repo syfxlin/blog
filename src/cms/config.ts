@@ -25,7 +25,7 @@ export const config: CmsConfig = {
       slug: "index",
       media_folder: "",
       public_folder: "",
-      path: "{{title}}/index",
+      path: "{{slug}}/index",
       preview_path: "/post/{{fields.slug}}",
       sortable_fields: ["title", "date", "date_updated"],
       fields: [

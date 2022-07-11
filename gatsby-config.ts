@@ -41,7 +41,6 @@ const plugins: GatsbyConfig["plugins"] = [
     resolve: "gatsby-plugin-mdx",
     options: {
       extensions: [".mdx", ".md"],
-      remarkPlugins: [remarkMath, remarkKatex],
       gatsbyRemarkPlugins: [
         "gatsby-remark-responsive-iframe",
         "gatsby-remark-copy-linked-files",
@@ -50,6 +49,9 @@ const plugins: GatsbyConfig["plugins"] = [
         "gatsby-remark-external-links",
         "gatsby-remark-images",
       ],
+      mdxOptions: {
+        remarkPlugins: [remarkMath, remarkKatex],
+      },
     },
   },
   // 转换器

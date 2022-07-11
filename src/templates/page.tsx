@@ -4,7 +4,8 @@ import { convert } from "../queries/page";
 import { PageTemplate } from "./page-template";
 
 export type PageProps = {
-  data: Queries.PageQueryQuery;
+  data: any;
+  children: React.ReactNode;
   pageContext: {
     link: string;
     layout: string;
@@ -29,7 +30,6 @@ const Page: React.FC<PageProps> = (props) => {
       dateCreated={data.dateCreated}
       dateUpdated={data.dateUpdated}
       excerpt={data.excerpt}
-      body={data.body}
       thumbnail={data.thumbnail}
       categories={data.categories}
       tags={data.tags}
@@ -37,14 +37,16 @@ const Page: React.FC<PageProps> = (props) => {
       layout={ctx.layout}
       prev={ctx.prev}
       next={ctx.next}
-    />
+    >
+      {props.children}
+    </PageTemplate>
   );
 };
 
 export default Page;
 
 export const query = graphql`
-  query PageQuery($link: String!) {
+  query ($link: String!) {
     mdx(fields: { slug: { eq: $link } }) {
       frontmatter {
         title
@@ -63,7 +65,6 @@ export const query = graphql`
       }
       excerpt
       tableOfContents
-      body
     }
   }
 `;

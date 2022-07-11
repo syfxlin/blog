@@ -157,7 +157,8 @@ export const createPages: GatsbyNode["createPages"] = async (args) => {
   for (const page of pages) {
     actions.createPage({
       path: join(page.link),
-      component: path.resolve(`src/templates/${page.layout}.tsx`),
+      // prettier-ignore
+      component: `${path.resolve(`src/templates/${page.layout}.tsx`)}?__contentFilePath=${page.contentPath}`,
       context: {
         link: page.link,
         layout: page.layout,
@@ -172,7 +173,8 @@ export const createPages: GatsbyNode["createPages"] = async (args) => {
     const next = i === posts.length - 1 ? null : posts[i + 1];
     actions.createPage({
       path: join(post.link),
-      component: path.resolve(`src/templates/page.tsx`),
+      // prettier-ignore
+      component: `${path.resolve(`src/templates/page.tsx`)}?__contentFilePath=${post.contentPath}`,
       context: {
         link: post.link,
         layout: post.layout,
