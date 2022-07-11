@@ -6,6 +6,7 @@ const CMS = loadable(
   async () => {
     const netlify = await import("netlify-cms-app").then((m) => m.default);
     const cms = await import("../cms");
+    cms.init(netlify);
     netlify.init({ config: cms.config });
     return { default: () => null } as any;
   },
