@@ -2,8 +2,8 @@
 title: "PHP GD图片处理[转换格式-水印-缩略图]"
 slug: php-gd-image-processing
 status: publish
-date: "2019-02-14T00:00:00.000Z"
-date_updated: "2021-07-28T07:20:42.679Z"
+date: 2019-02-14T00:00:00.000Z
+date_updated: 2021-07-28T07:20:42.679Z
 layout: post
 categories:
   - 折腾记录

@@ -2,8 +2,8 @@
 title: Acrylic - VSCode Extension
 slug: vscode-acrylic
 status: publish
-date: "2019-07-19T00:00:00.000Z"
-date_updated: "2021-07-28T07:15:57.515Z"
+date: 2019-07-19T00:00:00.000Z
+date_updated: 2021-07-28T07:15:57.515Z
 layout: post
 categories:
   - 折腾记录

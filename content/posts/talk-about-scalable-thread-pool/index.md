@@ -2,8 +2,8 @@
 title: 浅谈可扩展线程池
 slug: talk-about-scalable-thread-pool
 status: publish
-date: "2020-11-17T00:00:00.000Z"
-date_updated: "2021-07-28T06:56:09.653Z"
+date: 2020-11-17T00:00:00.000Z
+date_updated: 2021-07-28T06:56:09.653Z
 layout: post
 categories:
   - 折腾记录

@@ -2,8 +2,8 @@
 title: MVVM 简单实现
 slug: mvvm-simple-implementation
 status: publish
-date: "2020-04-20T00:00:00.000Z"
-date_updated: "2021-07-28T07:05:08.459Z"
+date: 2020-04-20T00:00:00.000Z
+date_updated: 2021-07-28T07:05:08.459Z
 layout: post
 categories:
   - 折腾记录

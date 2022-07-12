@@ -2,8 +2,8 @@
 title: "VSCode配置PHP调试环境[Windows]"
 slug: vscode-configuration-php-gdb-debugging-environment-windows
 status: publish
-date: "2018-09-06T00:00:00.000Z"
-date_updated: "2021-07-28T07:43:10.977Z"
+date: 2018-09-06T00:00:00.000Z
+date_updated: 2021-07-28T07:43:10.977Z
 layout: post
 categories:
   - 折腾记录

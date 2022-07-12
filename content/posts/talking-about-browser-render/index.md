@@ -2,8 +2,8 @@
 title: 浅谈浏览器渲染
 slug: talking-about-browser-render
 status: publish
-date: "2020-03-06T00:00:00.000Z"
-date_updated: "2021-07-28T07:09:19.285Z"
+date: 2020-03-06T00:00:00.000Z
+date_updated: 2021-07-28T07:09:19.285Z
 layout: post
 categories:
   - 折腾记录

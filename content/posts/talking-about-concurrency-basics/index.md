@@ -2,8 +2,8 @@
 title: 浅谈并发：基础
 slug: talking-about-concurrency-basics
 status: publish
-date: "2020-08-16T00:00:00.000Z"
-date_updated: "2021-07-28T06:58:10.347Z"
+date: 2020-08-16T00:00:00.000Z
+date_updated: 2021-07-28T06:58:10.347Z
 layout: post
 categories:
   - 折腾记录

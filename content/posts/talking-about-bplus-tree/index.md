@@ -2,8 +2,8 @@
 title: 浅谈B+树
 slug: talking-about-bplus-tree
 status: publish
-date: "2019-09-28T00:00:00.000Z"
-date_updated: "2021-07-28T07:13:27.977Z"
+date: 2019-09-28T00:00:00.000Z
+date_updated: 2021-07-28T07:13:27.977Z
 layout: post
 categories:
   - 折腾记录

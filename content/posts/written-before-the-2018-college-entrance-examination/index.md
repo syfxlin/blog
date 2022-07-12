@@ -2,8 +2,8 @@
 title: 写在2018年高考前
 slug: written-before-the-2018-college-entrance-examination
 status: publish
-date: "2018-06-05T00:00:00.000Z"
-date_updated: "2021-07-28T06:19:58.809Z"
+date: 2018-06-05T00:00:00.000Z
+date_updated: 2021-07-28T06:19:58.809Z
 layout: post
 categories:
   - 站长杂谈

@@ -2,8 +2,8 @@
 title: "VSCode配置C/C++ GDB调试环境[Windows]"
 slug: vscode-configuration-c-cpp-gdb-debugging-environment-windows
 status: publish
-date: "2018-09-04T00:00:00.000Z"
-date_updated: "2021-07-28T07:43:44.175Z"
+date: 2018-09-04T00:00:00.000Z
+date_updated: 2021-07-28T07:43:44.175Z
 layout: post
 categories:
   - 折腾记录

@@ -2,8 +2,8 @@
 title: "聊聊现状-[2020-09]"
 slug: talk-about-the-status-quo-2020-09
 status: publish
-date: "2020-09-20T00:00:00.000Z"
-date_updated: "2021-07-28T06:57:36.921Z"
+date: 2020-09-20T00:00:00.000Z
+date_updated: 2021-07-28T06:57:36.921Z
 layout: post
 categories:
   - 站长杂谈

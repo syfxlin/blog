@@ -2,8 +2,8 @@
 title: PHP GD生成验证码
 slug: php-gd-generates-verification-code
 status: publish
-date: "2019-02-14T00:00:00.000Z"
-date_updated: "2021-07-28T07:20:22.479Z"
+date: 2019-02-14T00:00:00.000Z
+date_updated: 2021-07-28T07:20:22.479Z
 layout: post
 categories:
   - 折腾记录

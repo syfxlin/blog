@@ -2,8 +2,8 @@
 title: 浅谈组合注解 & 注解别名
 slug: talking-about-merged-annotation
 status: publish
-date: "2021-01-15T00:00:00.000Z"
-date_updated: "2021-07-28T06:53:15.583Z"
+date: 2021-01-15T00:00:00.000Z
+date_updated: 2021-07-28T06:53:15.583Z
 layout: post
 categories:
   - 折腾记录

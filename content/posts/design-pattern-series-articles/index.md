@@ -2,8 +2,8 @@
 title: 设计模式系列文章
 slug: design-pattern-series-articles
 status: publish
-date: "2021-05-14T00:00:00.000Z"
-date_updated: "2021-07-28T06:30:09.419Z"
+date: 2021-05-14T00:00:00.000Z
+date_updated: 2021-07-28T06:30:09.419Z
 layout: post
 categories:
   - 折腾记录

@@ -2,8 +2,8 @@
 title: Windows IP变化自动发送邮件
 slug: windows-ip-changes-to-automatically-send-mail
 status: publish
-date: "2018-12-30T00:00:00.000Z"
-date_updated: "2021-07-28T07:24:08.383Z"
+date: 2018-12-30T00:00:00.000Z
+date_updated: 2021-07-28T07:24:08.383Z
 layout: post
 categories:
   - 折腾记录

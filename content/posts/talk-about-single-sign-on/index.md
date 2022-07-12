@@ -2,8 +2,8 @@
 title: 浅谈单点登录
 slug: talk-about-single-sign-on
 status: publish
-date: "2021-06-06T00:00:00.000Z"
-date_updated: "2021-07-28T06:26:44.199Z"
+date: 2021-06-06T00:00:00.000Z
+date_updated: 2021-07-28T06:26:44.199Z
 layout: post
 categories:
   - 折腾记录

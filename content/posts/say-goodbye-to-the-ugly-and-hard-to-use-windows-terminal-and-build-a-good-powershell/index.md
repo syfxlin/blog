@@ -3,8 +3,8 @@ title: 告别 Windows 终端的难看难用，打造好用的  PowerShell
 slug: >-
   say-goodbye-to-the-ugly-and-hard-to-use-windows-terminal-and-build-a-good-powershell
 status: publish
-date: "2020-03-14T00:00:00.000Z"
-date_updated: "2021-07-28T07:08:11.576Z"
+date: 2020-03-14T00:00:00.000Z
+date_updated: 2021-07-28T07:08:11.576Z
 layout: post
 categories:
   - 折腾记录

@@ -2,8 +2,8 @@
 title: 为WordPress启用WorkBox
 slug: wordpress-enabled-workbox
 status: publish
-date: "2019-02-02T00:00:00.000Z"
-date_updated: "2021-07-28T07:21:56.454Z"
+date: 2019-02-02T00:00:00.000Z
+date_updated: 2021-07-28T07:21:56.454Z
 layout: post
 categories:
   - 折腾记录

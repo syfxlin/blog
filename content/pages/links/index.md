@@ -2,7 +2,7 @@
 title: 永远的好伙伴
 slug: links
 status: publish
-date: "2018-07-01T00:00:00.000Z"
+date: 2018-07-01T00:00:00.000Z
 date_updated: null
 layout: links
 categories:

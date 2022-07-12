@@ -2,8 +2,8 @@
 title: 聊聊写框架
 slug: talk-about-writing-framework
 status: publish
-date: "2020-11-10T00:00:00.000Z"
-date_updated: "2021-07-28T06:57:16.041Z"
+date: 2020-11-10T00:00:00.000Z
+date_updated: 2021-07-28T06:57:16.041Z
 layout: post
 categories:
   - 站长杂谈

@@ -2,8 +2,8 @@
 title: 博客一年记录
 slug: one-year-record
 status: publish
-date: "2018-07-01T00:00:00.000Z"
-date_updated: "2021-07-28T07:46:15.461Z"
+date: 2018-07-01T00:00:00.000Z
+date_updated: 2021-07-28T07:46:15.461Z
 layout: post
 categories:
   - 站长杂谈

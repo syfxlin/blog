@@ -2,8 +2,8 @@
 title: 一年来的经验总结
 slug: summary-of-experience-over-the-past-year
 status: publish
-date: "2019-08-26T00:00:00.000Z"
-date_updated: "2021-07-28T07:15:21.437Z"
+date: 2019-08-26T00:00:00.000Z
+date_updated: 2021-07-28T07:15:21.437Z
 layout: post
 categories:
   - 站长杂谈

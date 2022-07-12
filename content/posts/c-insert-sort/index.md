@@ -2,8 +2,8 @@
 title: C 插入排序
 slug: c-insert-sort
 status: publish
-date: "2018-11-20T00:00:00.000Z"
-date_updated: "2021-07-28T07:38:14.273Z"
+date: 2018-11-20T00:00:00.000Z
+date_updated: 2021-07-28T07:38:14.273Z
 layout: post
 categories:
   - 折腾记录

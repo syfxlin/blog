@@ -2,8 +2,8 @@
 title: Vue-Cli@2 项目迁移日志
 slug: vue-cli2-project-migration-log
 status: publish
-date: "2020-02-21T00:00:00.000Z"
-date_updated: "2021-07-28T07:09:42.858Z"
+date: 2020-02-21T00:00:00.000Z
+date_updated: 2021-07-28T07:09:42.858Z
 layout: post
 categories:
   - 折腾记录

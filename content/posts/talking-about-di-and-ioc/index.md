@@ -2,8 +2,8 @@
 title: 浅谈 DI 和 IoC
 slug: talking-about-di-and-ioc
 status: publish
-date: "2020-04-09T00:00:00.000Z"
-date_updated: "2021-07-28T07:05:29.951Z"
+date: 2020-04-09T00:00:00.000Z
+date_updated: 2021-07-28T07:05:29.951Z
 layout: post
 categories:
   - 折腾记录

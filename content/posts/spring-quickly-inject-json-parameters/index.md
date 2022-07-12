@@ -2,8 +2,8 @@
 title: 无须定义类，Spring 快速注入 Json 参数
 slug: spring-quickly-inject-json-parameters
 status: publish
-date: "2020-08-04T00:00:00.000Z"
-date_updated: "2021-07-28T06:58:49.807Z"
+date: 2020-08-04T00:00:00.000Z
+date_updated: 2021-07-28T06:58:49.807Z
 layout: post
 categories:
   - 折腾记录

@@ -2,8 +2,8 @@
 title: C 选择排序
 slug: c-select-sort
 status: publish
-date: "2018-10-27T00:00:00.000Z"
-date_updated: "2021-07-28T07:39:51.359Z"
+date: 2018-10-27T00:00:00.000Z
+date_updated: 2021-07-28T07:39:51.359Z
 layout: post
 categories:
   - 折腾记录

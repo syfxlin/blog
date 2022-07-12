@@ -2,8 +2,8 @@
 title: 浅谈并发：synchronized & ReentrantLock
 slug: talking-about-concurrent-synchronized-and-reentrantlock
 status: publish
-date: "2021-02-17T00:00:00.000Z"
-date_updated: "2021-07-28T06:32:05.822Z"
+date: 2021-02-17T00:00:00.000Z
+date_updated: 2021-07-28T06:32:05.822Z
 layout: post
 categories:
   - 折腾记录

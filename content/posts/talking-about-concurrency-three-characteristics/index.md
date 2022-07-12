@@ -2,8 +2,8 @@
 title: 浅谈并发：三大特性
 slug: talking-about-concurrency-three-characteristics
 status: publish
-date: "2021-02-09T00:00:00.000Z"
-date_updated: "2021-07-28T06:52:57.841Z"
+date: 2021-02-09T00:00:00.000Z
+date_updated: 2021-07-28T06:52:57.841Z
 layout: post
 categories:
   - 折腾记录

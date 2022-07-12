@@ -2,8 +2,8 @@
 title: 浅谈泛型擦除
 slug: talking-about-type-erasure
 status: publish
-date: "2021-07-01T00:00:00.000Z"
-date_updated: "2021-07-29T14:39:15.799Z"
+date: 2021-07-01T00:00:00.000Z
+date_updated: 2021-07-29T14:39:15.799Z
 layout: post
 categories:
   - 折腾记录

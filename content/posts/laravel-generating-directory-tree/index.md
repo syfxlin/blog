@@ -2,8 +2,8 @@
 title: Laravel生成目录树
 slug: laravel-generating-directory-tree
 status: publish
-date: "2019-03-15T00:00:00.000Z"
-date_updated: "2021-07-28T07:19:11.829Z"
+date: 2019-03-15T00:00:00.000Z
+date_updated: 2021-07-28T07:19:11.829Z
 layout: post
 categories:
   - 折腾记录

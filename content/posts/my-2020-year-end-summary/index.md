@@ -2,8 +2,8 @@
 title: "[青空之蓝-2020]-迷茫"
 slug: my-2020-year-end-summary
 status: publish
-date: "2020-12-31T00:00:00.000Z"
-date_updated: "2021-07-28T06:53:42.881Z"
+date: 2020-12-31T00:00:00.000Z
+date_updated: 2021-07-28T06:53:42.881Z
 layout: post
 categories:
   - 站长杂谈
@@ -80,4 +80,4 @@ tags:
 
 不知不觉也写了 2.5k 字了，陆陆续续的写了 10 天了，修改了好几次，差不多该发布了，溜了溜了。
 
-<message>2021 望一切顺利，祝各位新年快乐。</message>
+<Message>2021 望一切顺利，祝各位新年快乐。</Message>

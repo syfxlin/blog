@@ -2,8 +2,8 @@
 title: C链表实现重制版
 slug: c-linked-list-implementation-new
 status: publish
-date: "2018-12-26T00:00:00.000Z"
-date_updated: "2021-07-28T07:24:29.881Z"
+date: 2018-12-26T00:00:00.000Z
+date_updated: 2021-07-28T07:24:29.881Z
 layout: post
 categories:
   - 折腾记录

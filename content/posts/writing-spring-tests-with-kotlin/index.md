@@ -2,8 +2,8 @@
 title: 使用 Kotlin 编写 Spring 测试
 slug: writing-spring-tests-with-kotlin
 status: publish
-date: "2021-05-23T00:00:00.000Z"
-date_updated: "2021-07-29T14:40:01.089Z"
+date: 2021-05-23T00:00:00.000Z
+date_updated: 2021-07-29T14:40:01.089Z
 layout: post
 categories:
   - 折腾记录

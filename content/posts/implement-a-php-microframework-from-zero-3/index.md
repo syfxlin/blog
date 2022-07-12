@@ -2,8 +2,8 @@
 title: 从零实现一个 PHP 微框架 - IoC 容器
 slug: implement-a-php-microframework-from-zero-3
 status: publish
-date: "2020-05-13T00:00:00.000Z"
-date_updated: "2021-07-28T07:04:24.709Z"
+date: 2020-05-13T00:00:00.000Z
+date_updated: 2021-07-28T07:04:24.709Z
 layout: post
 categories:
   - 折腾记录

@@ -2,8 +2,8 @@
 title: The Fox主题汉化分享
 slug: the-fox-theme-chinese-share
 status: publish
-date: "2018-04-12T00:00:00.000Z"
-date_updated: "2021-07-28T06:15:23.286Z"
+date: 2018-04-12T00:00:00.000Z
+date_updated: 2021-07-28T06:15:23.286Z
 layout: post
 categories:
   - 分享推荐

@@ -2,8 +2,8 @@
 title: 浅谈 Proxy 和 Aop
 slug: talking-about-proxy-and-aop
 status: publish
-date: "2020-08-01T00:00:00.000Z"
-date_updated: "2021-07-28T06:59:07.000Z"
+date: 2020-08-01T00:00:00.000Z
+date_updated: 2021-07-28T06:59:07.000Z
 layout: post
 categories:
   - 折腾记录

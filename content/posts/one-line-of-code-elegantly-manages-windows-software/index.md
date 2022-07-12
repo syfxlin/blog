@@ -2,8 +2,8 @@
 title: 「一行代码」优雅管理 Windows 软件
 slug: one-line-of-code-elegantly-manages-windows-software
 status: publish
-date: "2020-01-22T00:00:00.000Z"
-date_updated: "2021-07-28T07:11:30.359Z"
+date: 2020-01-22T00:00:00.000Z
+date_updated: 2021-07-28T07:11:30.359Z
 layout: post
 categories:
   - 折腾记录

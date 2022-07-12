@@ -2,8 +2,8 @@
 title: 为apt方式安装的nginx重新编译增加WebDAV
 slug: recompilation-of-nginx-installed-for-apt-mode-adds-webdav
 status: publish
-date: "2019-05-05T00:00:00.000Z"
-date_updated: "2021-07-28T07:17:37.117Z"
+date: 2019-05-05T00:00:00.000Z
+date_updated: 2021-07-28T07:17:37.117Z
 layout: post
 categories:
   - 折腾记录

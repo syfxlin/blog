@@ -2,7 +2,7 @@
 title: 留言板
 slug: message-board
 status: publish
-date: "2018-04-12T16:00:39.000Z"
+date: 2018-04-12T16:00:39.000Z
 date_updated: null
 layout: page
 categories:

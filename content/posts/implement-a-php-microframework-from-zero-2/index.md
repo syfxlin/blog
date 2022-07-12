@@ -2,8 +2,8 @@
 title: 从零实现一个 PHP 微框架 - PSR & Composer
 slug: implement-a-php-microframework-from-zero-2
 status: publish
-date: "2020-05-09T00:00:00.000Z"
-date_updated: "2021-07-28T07:04:36.809Z"
+date: 2020-05-09T00:00:00.000Z
+date_updated: 2021-07-28T07:04:36.809Z
 layout: post
 categories:
   - 折腾记录

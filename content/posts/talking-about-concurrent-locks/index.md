@@ -2,8 +2,8 @@
 title: 浅谈并发：锁
 slug: talking-about-concurrent-locks
 status: publish
-date: "2020-08-26T00:00:00.000Z"
-date_updated: "2021-07-28T06:57:54.990Z"
+date: 2020-08-26T00:00:00.000Z
+date_updated: 2021-07-28T06:57:54.990Z
 layout: post
 categories:
   - 折腾记录

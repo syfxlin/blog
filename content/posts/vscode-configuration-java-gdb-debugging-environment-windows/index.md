@@ -2,8 +2,8 @@
 title: "VSCode配置Java调试环境[Windows]"
 slug: vscode-configuration-java-gdb-debugging-environment-windows
 status: publish
-date: "2018-11-06T00:00:00.000Z"
-date_updated: "2021-07-28T07:39:31.085Z"
+date: 2018-11-06T00:00:00.000Z
+date_updated: 2021-07-28T07:39:31.085Z
 layout: post
 categories:
   - 折腾记录

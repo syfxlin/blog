@@ -2,8 +2,8 @@
 title: VSCode Java手动导入jar和源码包
 slug: vscode-java-manually-imports-jar-and-source-package
 status: publish
-date: "2018-12-30T00:00:00.000Z"
-date_updated: "2021-07-28T07:23:48.036Z"
+date: 2018-12-30T00:00:00.000Z
+date_updated: 2021-07-28T07:23:48.036Z
 layout: post
 categories:
   - 折腾记录

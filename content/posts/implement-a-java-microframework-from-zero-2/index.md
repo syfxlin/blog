@@ -2,8 +2,8 @@
 title: 从零实现一个 Java 微框架 - IoC
 slug: implement-a-java-microframework-from-zero-2
 status: publish
-date: "2021-04-11T00:00:00.000Z"
-date_updated: "2021-07-28T06:30:37.253Z"
+date: 2021-04-11T00:00:00.000Z
+date_updated: 2021-07-28T06:30:37.253Z
 layout: post
 categories:
   - 折腾记录
@@ -17,7 +17,7 @@ tags:
 
 IoC 容器在之前的文章中就有说明。
 
-<post link={"/post/talking-about-di-and-ioc"} />
+<Post link={"/post/talking-about-di-and-ioc"} />
 
 之前的文章其实是基于 PHP 的，虽然思想是类似的，不过还是再次说明一下吧。
 

@@ -2,8 +2,8 @@
 title: Java二叉树实现
 slug: java-binary-tree-implementation
 status: publish
-date: "2019-05-05T00:00:00.000Z"
-date_updated: "2021-07-28T07:17:09.399Z"
+date: 2019-05-05T00:00:00.000Z
+date_updated: 2021-07-28T07:17:09.399Z
 layout: post
 categories:
   - 折腾记录

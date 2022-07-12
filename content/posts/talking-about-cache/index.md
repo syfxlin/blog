@@ -2,8 +2,8 @@
 title: 浅谈缓存
 slug: talking-about-cache
 status: publish
-date: "2020-08-13T00:00:00.000Z"
-date_updated: "2021-07-28T06:58:39.089Z"
+date: 2020-08-13T00:00:00.000Z
+date_updated: 2021-07-28T06:58:39.089Z
 layout: post
 categories:
   - 折腾记录

@@ -2,8 +2,8 @@
 title: Laragon & Scoop 集成踩坑记录
 slug: laragon-scoop-integrated-pit-logging
 status: publish
-date: "2020-01-24T00:00:00.000Z"
-date_updated: "2021-07-28T07:10:13.104Z"
+date: 2020-01-24T00:00:00.000Z
+date_updated: 2021-07-28T07:10:13.104Z
 layout: post
 categories:
   - 折腾记录

@@ -2,8 +2,8 @@
 title: "浅谈浏览器Event Loop [更新]"
 slug: talking-about-browser-event-loop
 status: publish
-date: "2020-06-24T00:00:00.000Z"
-date_updated: "2021-07-28T07:03:57.301Z"
+date: 2020-06-24T00:00:00.000Z
+date_updated: 2021-07-28T07:03:57.301Z
 layout: post
 categories:
   - 折腾记录

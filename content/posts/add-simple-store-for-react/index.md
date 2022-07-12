@@ -2,8 +2,8 @@
 title: 为React添加简单的Store
 slug: add-simple-store-for-react
 status: publish
-date: "2019-11-29T00:00:00.000Z"
-date_updated: "2021-07-28T07:12:28.551Z"
+date: 2019-11-29T00:00:00.000Z
+date_updated: 2021-07-28T07:12:28.551Z
 layout: post
 categories:
   - 折腾记录

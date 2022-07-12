@@ -2,8 +2,8 @@
 title: 为Vue添加简单的Store
 slug: add-simple-store-for-vue
 status: publish
-date: "2019-12-03T00:00:00.000Z"
-date_updated: "2021-07-28T07:12:04.638Z"
+date: 2019-12-03T00:00:00.000Z
+date_updated: 2021-07-28T07:12:04.638Z
 layout: post
 categories:
   - 折腾记录

@@ -2,8 +2,8 @@
 title: 浅谈 EatWhatYouKill
 slug: talk-about-eatwhatyoukill
 status: publish
-date: "2020-11-19T00:00:00.000Z"
-date_updated: "2021-07-28T06:54:30.913Z"
+date: 2020-11-19T00:00:00.000Z
+date_updated: 2021-07-28T06:54:30.913Z
 layout: post
 categories:
   - 折腾记录

@@ -2,8 +2,8 @@
 title: 本博客评论规则
 slug: blog-comment-rules
 status: publish
-date: "2017-07-01T00:00:00.000Z"
-date_updated: "2021-07-28T07:55:24.363Z"
+date: 2017-07-01T00:00:00.000Z
+date_updated: 2021-07-28T07:55:24.363Z
 layout: post
 categories:
   - 折腾记录

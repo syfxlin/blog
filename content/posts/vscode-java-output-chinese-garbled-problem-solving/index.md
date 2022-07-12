@@ -2,8 +2,8 @@
 title: "VSCode Java输出中文乱码问题解决[更新]"
 slug: vscode-java-output-chinese-garbled-problem-solving
 status: publish
-date: "2020-03-13T00:00:00.000Z"
-date_updated: "2021-07-28T07:08:30.684Z"
+date: 2020-03-13T00:00:00.000Z
+date_updated: 2021-07-28T07:08:30.684Z
 layout: post
 categories:
   - 折腾记录

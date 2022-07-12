@@ -2,8 +2,8 @@
 title: 为WordPress启用Service Worker
 slug: wordpress-enabled-service-worker
 status: publish
-date: "2018-07-01T00:00:00.000Z"
-date_updated: "2021-07-28T16:03:31.229Z"
+date: 2018-07-01T00:00:00.000Z
+date_updated: 2021-07-28T16:03:31.229Z
 layout: post
 categories:
   - 折腾记录

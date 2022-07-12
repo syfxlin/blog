@@ -2,8 +2,8 @@
 title: WordPress友情链接模板
 slug: wordpress-links-template
 status: publish
-date: "2018-08-28T00:00:00.000Z"
-date_updated: "2021-07-28T07:44:06.778Z"
+date: 2018-08-28T00:00:00.000Z
+date_updated: 2021-07-28T07:44:06.778Z
 layout: post
 categories:
   - 折腾记录

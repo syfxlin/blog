@@ -2,8 +2,8 @@
 title: "[青空之蓝-2019]-年度总结"
 slug: my-blog-2019-year-end-summary
 status: publish
-date: "2019-12-31T00:00:00.000Z"
-date_updated: "2021-07-28T07:11:47.996Z"
+date: 2019-12-31T00:00:00.000Z
+date_updated: 2021-07-28T07:11:47.996Z
 layout: post
 categories:
   - 站长杂谈

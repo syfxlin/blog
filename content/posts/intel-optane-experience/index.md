@@ -2,8 +2,8 @@
 title: Intel Optane 傲腾内存体验
 slug: intel-optane-experience
 status: publish
-date: "2018-08-21T00:00:00.000Z"
-date_updated: "2021-07-28T07:45:53.632Z"
+date: 2018-08-21T00:00:00.000Z
+date_updated: 2021-07-28T07:45:53.632Z
 layout: post
 categories:
   - 折腾记录

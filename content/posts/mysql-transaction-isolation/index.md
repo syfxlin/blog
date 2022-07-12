@@ -2,8 +2,8 @@
 title: MySQL事务隔离
 slug: mysql-transaction-isolation
 status: publish
-date: "2019-09-05T00:00:00.000Z"
-date_updated: "2021-07-28T07:14:53.034Z"
+date: 2019-09-05T00:00:00.000Z
+date_updated: 2021-07-28T07:14:53.034Z
 layout: post
 categories:
   - 折腾记录

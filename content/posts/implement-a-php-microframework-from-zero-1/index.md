@@ -2,8 +2,8 @@
 title: 从零实现一个 PHP 微框架 - 前言
 slug: implement-a-php-microframework-from-zero-1
 status: publish
-date: "2020-05-07T00:00:00.000Z"
-date_updated: "2021-07-28T07:04:48.872Z"
+date: 2020-05-07T00:00:00.000Z
+date_updated: 2021-07-28T07:04:48.872Z
 layout: post
 categories:
   - 折腾记录

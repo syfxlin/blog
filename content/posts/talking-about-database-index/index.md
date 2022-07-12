@@ -2,8 +2,8 @@
 title: 浅谈数据库索引
 slug: talking-about-database-index
 status: publish
-date: "2019-09-07T00:00:00.000Z"
-date_updated: "2021-07-28T07:14:33.212Z"
+date: 2019-09-07T00:00:00.000Z
+date_updated: 2021-07-28T07:14:33.212Z
 layout: post
 categories:
   - 折腾记录

@@ -2,8 +2,8 @@
 title: C 快速排序
 slug: c-quick-sort
 status: publish
-date: "2018-11-27T00:00:00.000Z"
-date_updated: "2021-07-28T07:37:55.590Z"
+date: 2018-11-27T00:00:00.000Z
+date_updated: 2021-07-28T07:37:55.590Z
 layout: post
 categories:
   - 折腾记录

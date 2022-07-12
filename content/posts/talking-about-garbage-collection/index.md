@@ -2,8 +2,8 @@
 title: 浅谈垃圾回收
 slug: talking-about-garbage-collection
 status: publish
-date: "2021-08-08T08:59:47.000Z"
-date_updated: "2021-08-08T09:00:08.413Z"
+date: 2021-08-08T08:59:47.000Z
+date_updated: 2021-08-08T09:00:08.413Z
 layout: post
 categories:
   - 折腾记录

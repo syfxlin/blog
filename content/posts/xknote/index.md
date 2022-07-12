@@ -2,8 +2,8 @@
 title: XK-Note - 集各种神奇功能的云笔记
 slug: xknote
 status: publish
-date: "2019-03-10T00:00:00.000Z"
-date_updated: "2021-07-28T07:20:02.636Z"
+date: 2019-03-10T00:00:00.000Z
+date_updated: 2021-07-28T07:20:02.636Z
 layout: post
 categories:
   - 折腾记录

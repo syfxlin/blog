@@ -2,8 +2,8 @@
 title: Mysql双机热备实战
 slug: mysql-dual-hot-backup
 status: publish
-date: "2018-07-11T00:00:00.000Z"
-date_updated: "2021-07-28T16:07:29.944Z"
+date: 2018-07-11T00:00:00.000Z
+date_updated: 2021-07-28T16:07:29.944Z
 layout: post
 categories:
   - 折腾记录

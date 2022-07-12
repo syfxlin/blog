@@ -2,8 +2,8 @@
 title: 浅谈 IO
 slug: talking-about-io
 status: publish
-date: "2021-02-27T00:00:00.000Z"
-date_updated: "2021-07-28T06:31:43.692Z"
+date: 2021-02-27T00:00:00.000Z
+date_updated: 2021-07-28T06:31:43.692Z
 layout: post
 categories:
   - 折腾记录

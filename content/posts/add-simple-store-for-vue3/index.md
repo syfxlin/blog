@@ -2,8 +2,8 @@
 title: 为 Vue3 添加一个简单的 Store
 slug: add-simple-store-for-vue3
 status: publish
-date: "2020-07-11T00:00:00.000Z"
-date_updated: "2021-07-28T07:00:21.046Z"
+date: 2020-07-11T00:00:00.000Z
+date_updated: 2021-07-28T07:00:21.046Z
 layout: post
 categories:
   - 折腾记录

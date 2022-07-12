@@ -2,8 +2,8 @@
 title: 从零实现一个 PHP 微框架 - Bootstrap 启动加载
 slug: implement-a-php-microframework-from-zero-4
 status: publish
-date: "2020-06-18T00:00:00.000Z"
-date_updated: "2021-07-28T07:04:12.680Z"
+date: 2020-06-18T00:00:00.000Z
+date_updated: 2021-07-28T07:04:12.680Z
 layout: post
 categories:
   - 折腾记录

@@ -2,8 +2,8 @@
 title: 浅谈并发：CAS & AQS
 slug: talking-about-concurrent-cas-and-aqs
 status: publish
-date: "2021-02-13T00:00:00.000Z"
-date_updated: "2021-07-28T06:32:26.794Z"
+date: 2021-02-13T00:00:00.000Z
+date_updated: 2021-07-28T06:32:26.794Z
 layout: post
 categories:
   - 折腾记录

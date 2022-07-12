@@ -2,8 +2,8 @@
 title: Origami - 简洁轻快的WordPress主题
 slug: theme-origami
 status: publish
-date: "2019-02-05T00:00:00.000Z"
-date_updated: "2021-07-28T07:21:21.103Z"
+date: 2019-02-05T00:00:00.000Z
+date_updated: 2021-07-28T07:21:21.103Z
 layout: post
 categories:
   - 折腾记录

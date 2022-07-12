@@ -2,8 +2,8 @@
 title: XK-Editor - 一个支持富文本和Markdown的编辑器
 slug: xkeditor
 status: publish
-date: "2019-04-27T00:00:00.000Z"
-date_updated: "2021-07-28T16:16:12.132Z"
+date: 2019-04-27T00:00:00.000Z
+date_updated: 2021-07-28T16:16:12.132Z
 layout: post
 categories:
   - 折腾记录

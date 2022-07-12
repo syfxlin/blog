@@ -2,8 +2,8 @@
 title: 图的搜索(遍历) - BFS & DFS
 slug: graph-search-bfs-dfs
 status: publish
-date: "2018-12-19T00:00:00.000Z"
-date_updated: "2021-07-28T07:25:22.786Z"
+date: 2018-12-19T00:00:00.000Z
+date_updated: 2021-07-28T07:25:22.786Z
 layout: post
 categories:
   - 折腾记录

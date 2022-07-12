@@ -2,8 +2,8 @@
 title: "中间件实现 [PHP]"
 slug: middleware-implementation-with-php
 status: publish
-date: "2020-03-29T00:00:00.000Z"
-date_updated: "2021-07-28T07:07:47.809Z"
+date: 2020-03-29T00:00:00.000Z
+date_updated: 2021-07-28T07:07:47.809Z
 layout: post
 categories:
   - 折腾记录

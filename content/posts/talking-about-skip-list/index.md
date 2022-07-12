@@ -2,8 +2,8 @@
 title: 浅谈跳表
 slug: talking-about-skip-list
 status: publish
-date: "2019-09-14T00:00:00.000Z"
-date_updated: "2021-07-28T07:13:52.532Z"
+date: 2019-09-14T00:00:00.000Z
+date_updated: 2021-07-28T07:13:52.532Z
 layout: post
 categories:
   - 折腾记录

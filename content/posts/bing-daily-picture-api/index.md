@@ -2,8 +2,8 @@
 title: Bing每日一图API
 slug: bing-daily-picture-api
 status: publish
-date: "2018-06-27T00:00:00.000Z"
-date_updated: "2021-07-28T07:46:52.816Z"
+date: 2018-06-27T00:00:00.000Z
+date_updated: 2021-07-28T07:46:52.816Z
 layout: post
 categories:
   - 折腾记录

@@ -2,8 +2,8 @@
 title: 浅谈 JVM：类加载
 slug: talking-about-jvm-classloader
 status: publish
-date: "2021-03-13T00:00:00.000Z"
-date_updated: "2021-07-28T06:31:23.415Z"
+date: 2021-03-13T00:00:00.000Z
+date_updated: 2021-07-28T06:31:23.415Z
 layout: post
 categories:
   - 折腾记录

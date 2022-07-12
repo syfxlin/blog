@@ -2,8 +2,8 @@
 title: 为Vuex添加同步Action
 slug: add-sync-action-for-vuex
 status: publish
-date: "2019-11-16T00:00:00.000Z"
-date_updated: "2021-07-28T07:12:51.465Z"
+date: 2019-11-16T00:00:00.000Z
+date_updated: 2021-07-28T07:12:51.465Z
 layout: post
 categories:
   - 折腾记录

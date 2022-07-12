@@ -2,8 +2,8 @@
 title: WSL2 踩坑记录
 slug: wsl-2-recording
 status: publish
-date: "2020-06-28T00:00:00.000Z"
-date_updated: "2021-07-28T07:01:03.447Z"
+date: 2020-06-28T00:00:00.000Z
+date_updated: 2021-07-28T07:01:03.447Z
 layout: post
 categories:
   - 折腾记录

@@ -2,8 +2,8 @@
 title: "[青空之蓝-2017]-崭新"
 slug: my-blog-2017-year-end-summary
 status: publish
-date: "2017-12-31T00:00:00.000Z"
-date_updated: "2021-07-28T07:49:38.919Z"
+date: 2017-12-31T00:00:00.000Z
+date_updated: 2021-07-28T07:49:38.919Z
 layout: post
 categories:
   - 站长杂谈

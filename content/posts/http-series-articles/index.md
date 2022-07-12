@@ -2,8 +2,8 @@
 title: HTTP 系列文章
 slug: http-series-articles
 status: publish
-date: "2020-12-09T00:00:00.000Z"
-date_updated: "2021-07-28T06:54:17.022Z"
+date: 2020-12-09T00:00:00.000Z
+date_updated: 2021-07-28T06:54:17.022Z
 layout: post
 categories:
   - 折腾记录

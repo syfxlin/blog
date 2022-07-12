@@ -2,8 +2,8 @@
 title: C语言链表实现
 slug: c-linked-list-implementation
 status: publish
-date: "2018-11-12T00:00:00.000Z"
-date_updated: "2021-07-28T07:39:10.020Z"
+date: 2018-11-12T00:00:00.000Z
+date_updated: 2021-07-28T07:39:10.020Z
 layout: post
 categories:
   - 折腾记录

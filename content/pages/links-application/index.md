@@ -2,7 +2,7 @@
 title: 友链申请
 slug: links-application
 status: publish
-date: "2017-06-30T16:00:39.000Z"
+date: 2017-06-30T16:00:39.000Z
 date_updated: null
 layout: page
 categories:

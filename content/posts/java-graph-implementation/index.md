@@ -2,8 +2,8 @@
 title: Java图实现
 slug: java-graph-implementation
 status: publish
-date: "2019-05-05T00:00:00.000Z"
-date_updated: "2021-07-28T07:16:41.199Z"
+date: 2019-05-05T00:00:00.000Z
+date_updated: 2021-07-28T07:16:41.199Z
 layout: post
 categories:
   - 折腾记录

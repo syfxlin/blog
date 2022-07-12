@@ -2,8 +2,8 @@
 title: 浅谈并发：ThreadLocal
 slug: talking-about-concurrency-threadlocal
 status: publish
-date: "2021-02-12T00:00:00.000Z"
-date_updated: "2021-07-28T06:32:43.840Z"
+date: 2021-02-12T00:00:00.000Z
+date_updated: 2021-07-28T06:32:43.840Z
 layout: post
 categories:
   - 折腾记录

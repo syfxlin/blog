@@ -2,8 +2,8 @@
 title: JS生成列表树
 slug: js-generate-list-tree
 status: publish
-date: "2019-04-19T00:00:00.000Z"
-date_updated: "2021-07-28T07:18:39.157Z"
+date: 2019-04-19T00:00:00.000Z
+date_updated: 2021-07-28T07:18:39.157Z
 layout: post
 categories:
   - 折腾记录

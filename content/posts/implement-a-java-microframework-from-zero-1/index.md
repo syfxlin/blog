@@ -26,12 +26,12 @@ tags:
 
 ## 项目地址
 
-<repo name={"syfxlin"} repo={"xkjava"} />
+<Repo name={"syfxlin"} repo={"xkjava"} />
 
-<message>
+<Message>
   系列文章讲解的代码都会通过注解标记到代码的第一行，由于文章编写的时候框架应该还会继续开发，所以请尽量按链接访问指定
   commit 的代码，避免代码不同的情况。
-</message>
+</Message>
 
 ## 整体结构
 

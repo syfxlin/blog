@@ -2,8 +2,8 @@
 title: ace编辑器设置惯性滚动
 slug: ace-editor-sets-inertial-scrolling
 status: publish
-date: "2019-05-11T00:00:00.000Z"
-date_updated: "2021-07-28T07:16:26.317Z"
+date: 2019-05-11T00:00:00.000Z
+date_updated: 2021-07-28T07:16:26.317Z
 layout: post
 categories:
   - 折腾记录

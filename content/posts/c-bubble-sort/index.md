@@ -2,8 +2,8 @@
 title: C 冒泡排序
 slug: c-bubble-sort
 status: publish
-date: "2018-10-05T00:00:00.000Z"
-date_updated: "2021-07-28T07:40:17.191Z"
+date: 2018-10-05T00:00:00.000Z
+date_updated: 2021-07-28T07:40:17.191Z
 layout: post
 categories:
   - 折腾记录

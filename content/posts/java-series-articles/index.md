@@ -2,8 +2,8 @@
 title: Java 系列文章
 slug: java-series-articles
 status: publish
-date: "2020-12-21T00:00:00.000Z"
-date_updated: "2021-07-28T06:54:00.805Z"
+date: 2020-12-21T00:00:00.000Z
+date_updated: 2021-07-28T06:54:00.805Z
 layout: post
 categories:
   - 折腾记录

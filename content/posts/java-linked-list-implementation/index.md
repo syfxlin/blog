@@ -2,8 +2,8 @@
 title: Java链表实现
 slug: java-linked-list-implementation
 status: publish
-date: "2018-11-29T00:00:00.000Z"
-date_updated: "2021-07-28T07:37:19.496Z"
+date: 2018-11-29T00:00:00.000Z
+date_updated: 2021-07-28T07:37:19.496Z
 layout: post
 categories:
   - 折腾记录
