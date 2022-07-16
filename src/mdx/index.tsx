@@ -3,7 +3,7 @@ import Wrapper from "./Wrapper";
 
 // inner component
 export const wrapper = Wrapper;
-export const pre = loadable(() => import("./CodeBlock"));
+// export const pre = loadable(() => import("./CodeBlock"));
 
 // custom component
 export const Message = loadable(() => import("./MessageBox"));

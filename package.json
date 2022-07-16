@@ -17,6 +17,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@code-hike/mdx": "0.7.0-next.2",
     "@emotion/react": "^11.9.0",
     "@icon-park/react": "^1.4.0",
     "@loadable/component": "^5.15.2",
@@ -69,7 +70,8 @@
     "react-use": "^17.4.0",
     "remark-html-katex": "3.0.0",
     "remark-math": "3.0.1",
-    "scroll-into-view-if-needed": "^2.2.29"
+    "scroll-into-view-if-needed": "^2.2.29",
+    "shiki": "^0.10.1"
   },
   "devDependencies": {
     "@algolia/client-search": "^4.13.1",

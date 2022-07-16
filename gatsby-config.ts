@@ -3,6 +3,8 @@ import { GatsbyConfig } from "gatsby";
 import remarkMath from "remark-math";
 import remarkKatex from "remark-html-katex";
 import seo from "./content/settings/seo.json";
+import { remarkCodeHike } from "@code-hike/mdx";
+import darkTheme from "shiki/themes/one-dark-pro.json";
 import * as feedQuery from "./src/queries/init/feed";
 import * as searchQuery from "./src/queries/init/search";
 
@@ -50,7 +52,19 @@ const plugins: GatsbyConfig["plugins"] = [
         "gatsby-remark-images",
       ],
       mdxOptions: {
-        remarkPlugins: [remarkMath, remarkKatex],
+        remarkPlugins: [
+          remarkMath,
+          remarkKatex,
+          [
+            remarkCodeHike,
+            {
+              lineNumbers: true,
+              showCopyButton: true,
+              autoImport: true,
+              theme: darkTheme,
+            },
+          ],
+        ],
       },
     },
   },

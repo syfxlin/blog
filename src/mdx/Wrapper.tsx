@@ -159,7 +159,7 @@ const Wrapper: React.FC<any> = (props) => {
           }
         }
 
-        code {
+        code:not(.ch-code-scroll-parent) {
           background-color: ${u.c("red1,3")};
           color: ${u.c("red7")};
           font-size: ${u.fs(0.86)};
@@ -204,6 +204,24 @@ const Wrapper: React.FC<any> = (props) => {
 
         img {
           max-width: 100%;
+        }
+
+        .ch-code-scroll-parent {
+          font-size: ${u.fs(0.9)};
+        }
+
+        .ch-spotlight,
+        .ch-scrollycoding {
+          .ch-spotlight-sticker,
+          .ch-scrollycoding-sticker {
+            width: ${u.fs(28)};
+            margin-right: ${u.fs(-14)};
+
+            @media (max-width: ${u.fs(75)}) {
+              width: 50%;
+              margin-right: 0;
+            }
+          }
         }
       `}
     >
