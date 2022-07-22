@@ -233,6 +233,12 @@ const Wrapper: React.FC<any> = (props) => {
           }
         }
 
+        .ch-codeblock {
+          .ch-code-scroll-parent {
+            max-height: 80vh;
+          }
+        }
+
         .ch-spotlight,
         .ch-scrollycoding {
           .ch-spotlight-sticker,
