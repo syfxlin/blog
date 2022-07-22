@@ -42,16 +42,22 @@ const Wrapper: React.FC<any> = (props) => {
             z-index: 1;
           }
 
-          .anchor {
+          > a {
             opacity: 0;
-            transition: opacity 0.3s;
+            transition: opacity 0.3s !important;
+            text-decoration: none !important;
+            border: none !important;
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            transform: translateX(-100%) !important;
+            padding-right: 4px !important;
 
             svg {
               display: none;
             }
 
             &::before {
-              content: "H2";
               color: ${u.c("gray6")};
               font-size: ${u.fs(0.5)};
               padding-left: ${u.sp(1)};
@@ -59,7 +65,7 @@ const Wrapper: React.FC<any> = (props) => {
             }
           }
 
-          &:hover .anchor {
+          &:hover > a {
             opacity: 1;
           }
         }
@@ -67,7 +73,7 @@ const Wrapper: React.FC<any> = (props) => {
         h1 {
           font-size: ${u.fs(1.8)};
 
-          .anchor::before {
+          > a::before {
             content: "H1";
           }
         }
@@ -75,7 +81,7 @@ const Wrapper: React.FC<any> = (props) => {
         h2 {
           font-size: ${u.fs(1.5)};
 
-          .anchor::before {
+          > a::before {
             content: "H2";
           }
         }
@@ -83,7 +89,7 @@ const Wrapper: React.FC<any> = (props) => {
         h3 {
           font-size: ${u.fs(1.3)};
 
-          .anchor::before {
+          > a::before {
             content: "H3";
           }
         }
@@ -91,7 +97,7 @@ const Wrapper: React.FC<any> = (props) => {
         h4 {
           font-size: ${u.fs(1.1)};
 
-          .anchor::before {
+          > a::before {
             content: "H4";
           }
         }
@@ -99,7 +105,7 @@ const Wrapper: React.FC<any> = (props) => {
         h5 {
           font-size: ${u.fs(0.9)};
 
-          .anchor::before {
+          > a::before {
             content: "H5";
           }
         }
@@ -107,7 +113,7 @@ const Wrapper: React.FC<any> = (props) => {
         h6 {
           font-size: ${u.fs(0.7)};
 
-          .anchor::before {
+          > a::before {
             content: "H6";
           }
         }
@@ -208,6 +214,23 @@ const Wrapper: React.FC<any> = (props) => {
 
         .ch-code-scroll-parent {
           font-size: ${u.fs(0.9)};
+
+          &::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+          }
+
+          &::-webkit-scrollbar-track {
+            border-radius: 3px;
+            background: ${u.c("white,1")};
+            box-shadow: inset 0 0 5px ${u.c("white,1")};
+          }
+
+          &::-webkit-scrollbar-thumb {
+            border-radius: 3px;
+            background: ${u.c("white,2")};
+            box-shadow: inset 0 0 10px ${u.c("white,2")};
+          }
         }
 
         .ch-spotlight,

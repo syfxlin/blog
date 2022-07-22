@@ -2,6 +2,7 @@ import "dotenv/config";
 import { GatsbyConfig } from "gatsby";
 import remarkMath from "remark-math";
 import remarkKatex from "remark-html-katex";
+import remarkGfm from "remark-gfm";
 import seo from "./content/settings/seo.json";
 import { remarkCodeHike } from "@code-hike/mdx";
 import darkTheme from "shiki/themes/one-dark-pro.json";
@@ -53,6 +54,7 @@ const plugins: GatsbyConfig["plugins"] = [
       ],
       mdxOptions: {
         remarkPlugins: [
+          remarkGfm,
           remarkMath,
           remarkKatex,
           [
