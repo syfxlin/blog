@@ -231,6 +231,15 @@ const Wrapper: React.FC<any> = (props) => {
             background: ${u.c("white,2")};
             box-shadow: inset 0 0 10px ${u.c("white,2")};
           }
+
+          .ch-code-scroll-content {
+            position: unset !important;
+            top: unset !important;
+            left: unset !important;
+            transform-origin: unset !important;
+            width: unset !important;
+            height: unset !important;
+          }
         }
 
         .ch-codeblock {

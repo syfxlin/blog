@@ -62,6 +62,7 @@ const plugins: GatsbyConfig["plugins"] = [
             {
               lineNumbers: true,
               showCopyButton: true,
+              showExpandButton: true,
               autoImport: true,
               theme: darkTheme,
             },
