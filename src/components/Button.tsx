@@ -99,7 +99,7 @@ export const LinkButton: React.FC<LinkButtonProps> = ({
     }
   `;
 
-  const internet = /^https?:/.test(to);
+  const internet = /(^https?:|^#)/.test(to);
   const file = /\.[\da-z]+$/i.test(to);
   if (internet || file) {
     // eslint-disable-next-line jsx-a11y/anchor-has-content
