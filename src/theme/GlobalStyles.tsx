@@ -48,16 +48,16 @@ export const GlobalStyles: React.FC = () => {
 
         ::-webkit-scrollbar-track {
           border-radius: 3px;
-          background: rgba(0, 0, 0, 0.06);
-          box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.08);
+          background: ${u.c("black,1", "white,1")};
+          box-shadow: inset 0 0 5px ${u.c("black,1", "white,1")};
         }
 
         /* 滚动条滑块 */
 
         ::-webkit-scrollbar-thumb {
           border-radius: 3px;
-          background: rgba(0, 0, 0, 0.12);
-          box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+          background: ${u.c("black,2", "white,2")};
+          box-shadow: inset 0 0 10px ${u.c("black,2", "white,2")};
         }
 
         * {

@@ -70,7 +70,7 @@ export const Toc: React.FC<TocProps> = ({ items }) => {
         padding: ${u.sp(1)};
         overflow-y: auto;
 
-        @media (max-width: 70rem) {
+        @media (max-width: ${u.fs(75)}) {
           display: none;
         }
 

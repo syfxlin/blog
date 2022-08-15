@@ -2,7 +2,10 @@ import "dotenv/config";
 import { GatsbyConfig } from "gatsby";
 import remarkMath from "remark-math";
 import remarkKatex from "remark-html-katex";
+import remarkGfm from "remark-gfm";
 import seo from "./content/settings/seo.json";
+import { remarkCodeHike } from "@code-hike/mdx";
+import darkTheme from "shiki/themes/one-dark-pro.json";
 import * as feedQuery from "./src/queries/init/feed";
 import * as searchQuery from "./src/queries/init/search";
 
@@ -41,7 +44,6 @@ const plugins: GatsbyConfig["plugins"] = [
     resolve: "gatsby-plugin-mdx",
     options: {
       extensions: [".mdx", ".md"],
-      remarkPlugins: [remarkMath, remarkKatex],
       gatsbyRemarkPlugins: [
         "gatsby-remark-responsive-iframe",
         "gatsby-remark-copy-linked-files",
@@ -50,6 +52,23 @@ const plugins: GatsbyConfig["plugins"] = [
         "gatsby-remark-external-links",
         "gatsby-remark-images",
       ],
+      mdxOptions: {
+        remarkPlugins: [
+          remarkGfm,
+          remarkMath,
+          remarkKatex,
+          [
+            remarkCodeHike,
+            {
+              lineNumbers: true,
+              showCopyButton: true,
+              showExpandButton: true,
+              autoImport: true,
+              theme: darkTheme,
+            },
+          ],
+        ],
+      },
     },
   },
   // 转换器

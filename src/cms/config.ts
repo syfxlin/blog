@@ -1,5 +1,17 @@
 import { CmsConfig } from "netlify-cms-core";
 
+const layouts = {
+  post: "文章",
+  page: "页面",
+  links: "友链",
+};
+
+const status = {
+  draft: "草稿",
+  publish: "发布",
+  archive: "归档",
+};
+
 export const config: CmsConfig = {
   // base
   locale: "zh_Hans",
@@ -23,11 +35,37 @@ export const config: CmsConfig = {
       folder: "content/posts",
       create: true,
       slug: "index",
+      summary: "{{title}} [{{status}}]",
       media_folder: "",
       public_folder: "",
-      path: "{{title}}/index",
+      path: "{{slug}}/index",
       preview_path: "/post/{{fields.slug}}",
       sortable_fields: ["title", "date", "date_updated"],
+      view_filters: [
+        ...Object.entries(status).map(([k, v]) => ({
+          label: `状态 - ${v}`,
+          field: "status",
+          pattern: k,
+        })),
+        ...[0, 1, 2, 3, 4]
+          .map((i) => new Date().getFullYear() - i)
+          .map((i) => ({
+            label: `年份 - ${i}`,
+            field: "date",
+            pattern: `${i}`,
+          })),
+      ],
+      view_groups: [
+        {
+          label: "状态",
+          field: "status",
+        },
+        {
+          label: "发布时间",
+          field: "date",
+          pattern: "\\d{4}-\\d{2}",
+        },
+      ],
       fields: [
         {
           name: "title",
@@ -44,20 +82,10 @@ export const config: CmsConfig = {
           label: "状态",
           widget: "select",
           default: "draft",
-          options: [
-            {
-              value: "draft",
-              label: "草稿",
-            },
-            {
-              value: "publish",
-              label: "发布",
-            },
-            {
-              value: "archive",
-              label: "归档",
-            },
-          ],
+          options: Object.entries(status).map(([k, v]) => ({
+            label: v,
+            value: k,
+          })),
         },
         {
           name: "layout",
@@ -69,11 +97,15 @@ export const config: CmsConfig = {
           name: "date",
           label: "发布时间",
           widget: "datetime",
+          date_format: "YYYY-MM-DD",
+          time_format: "hh:mm:ss",
         },
         {
           name: "date_updated",
           label: "修改时间",
           widget: "datetime",
+          date_format: "YYYY-MM-DD",
+          time_format: "hh:mm:ss",
         },
         {
           name: "thumbnail",
@@ -106,11 +138,46 @@ export const config: CmsConfig = {
       folder: "content/pages",
       create: true,
       slug: "index",
+      summary: "{{title}} [{{status}}]",
       media_folder: "",
       public_folder: "",
       path: "{{title}}/index",
       preview_path: "/{{fields.slug}}",
       sortable_fields: ["title", "date", "date_updated"],
+      view_filters: [
+        ...Object.entries(layouts).map(([k, v]) => ({
+          label: `布局 - ${v}`,
+          field: "layout",
+          pattern: k,
+        })),
+        ...Object.entries(status).map(([k, v]) => ({
+          label: `状态 - ${v}`,
+          field: "status",
+          pattern: k,
+        })),
+        ...[0, 1, 2, 3, 4]
+          .map((i) => new Date().getFullYear() - i)
+          .map((i) => ({
+            label: `年份 - ${i}`,
+            field: "date",
+            pattern: `${i}`,
+          })),
+      ],
+      view_groups: [
+        {
+          label: "布局",
+          field: "layout",
+        },
+        {
+          label: "状态",
+          field: "status",
+        },
+        {
+          label: "发布时间",
+          field: "date",
+          pattern: "\\d{4}-\\d{2}",
+        },
+      ],
       fields: [
         {
           name: "title",
@@ -127,46 +194,34 @@ export const config: CmsConfig = {
           label: "状态",
           widget: "select",
           default: "draft",
-          options: [
-            {
-              value: "draft",
-              label: "草稿",
-            },
-            {
-              value: "publish",
-              label: "发布",
-            },
-            {
-              value: "archive",
-              label: "归档",
-            },
-          ],
+          options: Object.entries(status).map(([k, v]) => ({
+            label: v,
+            value: k,
+          })),
         },
         {
           name: "layout",
           label: "布局",
           widget: "select",
           default: "page",
-          options: [
-            {
-              value: "page",
-              label: "页面",
-            },
-            {
-              value: "links",
-              label: "友链",
-            },
-          ],
+          options: Object.entries(layouts).map(([k, v]) => ({
+            label: v,
+            value: k,
+          })),
         },
         {
           name: "date",
           label: "发布时间",
           widget: "datetime",
+          date_format: "YYYY-MM-DD",
+          time_format: "hh:mm:ss",
         },
         {
           name: "date_updated",
           label: "修改时间",
           widget: "datetime",
+          date_format: "YYYY-MM-DD",
+          time_format: "hh:mm:ss",
         },
         {
           name: "thumbnail",

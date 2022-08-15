@@ -16,6 +16,7 @@ export const Root: React.FC<RootProps> = ({ ssr, children }) => {
       <UstyledProvider>
         <NormalizeCSS />
         <GlobalStyles />
+        {/*@ts-ignore*/}
         <MDXProvider components={mdx}>{children}</MDXProvider>
       </UstyledProvider>
     </CheckSSR.Provider>

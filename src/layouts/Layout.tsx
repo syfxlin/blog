@@ -6,6 +6,7 @@ import { ErrorFallback } from "./ErrorFallback";
 import "tippy.js/dist/tippy.css";
 import "tippy.js/animations/shift-away.css";
 import "katex/dist/katex.css";
+import "@code-hike/mdx/dist/index.css";
 
 export type LayoutProps = PropsWithChildren<{}>;
 
