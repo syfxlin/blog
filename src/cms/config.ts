@@ -38,7 +38,7 @@ export const config: CmsConfig = {
       summary: "{{title}} [{{status}}]",
       media_folder: "",
       public_folder: "",
-      path: "{{slug}}/index",
+      path: "{{fields.slug}}/index",
       preview_path: "/post/{{fields.slug}}",
       sortable_fields: ["title", "date", "date_updated"],
       view_filters: [
@@ -141,7 +141,7 @@ export const config: CmsConfig = {
       summary: "{{title}} [{{status}}]",
       media_folder: "",
       public_folder: "",
-      path: "{{title}}/index",
+      path: "{{fields.slug}}/index",
       preview_path: "/{{fields.slug}}",
       sortable_fields: ["title", "date", "date_updated"],
       view_filters: [
