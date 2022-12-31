@@ -4,9 +4,9 @@ slug: my-2021-year-end-summary
 status: publish
 layout: post
 date: 2021-12-31T16:34:36.894Z
-date_updated: 2022-07-12T17:37:33.232Z
+date_updated: 2022-12-31T06:59:50.839Z
 categories:
-  - 折腾记录
+  - 站长杂谈
 tags:
   - 博客记录
   - 年终总结
