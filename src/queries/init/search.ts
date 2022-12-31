@@ -25,7 +25,7 @@ type QueryData = {
         tags: string[] | null;
       };
       excerpt: string;
-      rawBody: string;
+      body: string;
     }[];
   };
 };
@@ -45,7 +45,7 @@ export const query = `
           tags
         }
         excerpt
-        rawBody
+        body
       }
     }
   }
@@ -60,6 +60,6 @@ export const convert = (data: QueryData): SearchData => {
     categories: node.frontmatter.categories || undefined,
     tags: node.frontmatter.tags || undefined,
     excerpt: node.excerpt,
-    content: node.rawBody,
+    content: node.body,
   }));
 };
