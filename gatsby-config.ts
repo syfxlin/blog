@@ -104,7 +104,7 @@ const plugins: GatsbyConfig["plugins"] = [
       ],
       matchFields: ["link", "title", "date", "categories", "tags", "content"],
       concurrentQueries: false,
-      skipIndexing: process.env.ALGOLIA_SKIP_INDEXING !== "false",
+      skipIndexing: process.env.ALGOLIA_SKIP_INDEXING === "true",
     },
   },
   // 拓展组件
