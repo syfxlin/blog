@@ -218,6 +218,7 @@ const plugins: GatsbyConfig["plugins"] = [
 
 const config: GatsbyConfig = {
   graphqlTypegen: true,
+  trailingSlash: "never",
   siteMetadata,
   plugins,
 };

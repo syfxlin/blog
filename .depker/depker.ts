@@ -27,13 +27,13 @@ export const deploy = depker.docker.of(() => ({
           g++ \
           make \
           python3
-      `]
-    })
+      `],
+    }),
   },
   run: {
     traefik: {
       domain: ["blog.ixk.me"],
-      tls: true
-    }
-  }
+      tls: true,
+    },
+  },
 }));
