@@ -66,7 +66,7 @@ const config = (): GatsbyConfig => {
                 lineNumbers: true,
                 showCopyButton: true,
                 showExpandButton: true,
-                autoImport: true,
+                autoImport: false,
                 theme: darkTheme,
               },
             ],

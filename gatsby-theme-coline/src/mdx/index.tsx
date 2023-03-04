@@ -1,11 +1,13 @@
 import loadable from "@loadable/component";
 import Wrapper from "./Wrapper";
 
-// inner component
-export const wrapper = Wrapper;
-// export const pre = loadable(() => import("./CodeBlock"));
+// codehike components
+export { CH } from "@code-hike/mdx/components";
 
-// custom component
+// inner components
+export const wrapper = Wrapper;
+
+// custom components
 export const Message = loadable(() => import("./MessageBox"));
 export const Repo = loadable(() => import("./RepoCard"));
 export const Post = loadable(() => import("./PostCard"));
