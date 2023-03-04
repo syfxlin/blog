@@ -26,7 +26,7 @@ export const archives = `
         frontmatter: { layout: { eq: "post" }, status: { in: $status } }
       }
     ) {
-      group(field: fields___date_year) {
+      group(field: { fields: { date_day: SELECT } }) {
         fieldValue
         totalCount
       }
@@ -41,7 +41,7 @@ export const categories = `
         frontmatter: { layout: { eq: "post" }, status: { in: $status } }
       }
     ) {
-      group(field: frontmatter___categories) {
+      group(field: { frontmatter: { categories: SELECT } }) {
         fieldValue
         totalCount
       }
@@ -56,7 +56,7 @@ export const tags = `
         frontmatter: { layout: { eq: "post" }, status: { in: $status } }
       }
     ) {
-      group(field: frontmatter___tags) {
+      group(field: { frontmatter: { tags: SELECT } }) {
         fieldValue
         totalCount
       }

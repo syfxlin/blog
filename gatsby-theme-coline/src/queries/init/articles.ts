@@ -14,7 +14,7 @@ type QueryData = {
 export const query = `
   query InitArticlesQuery($status: [String!]!) {
     allMdx(
-      sort: { order: DESC, fields: frontmatter___date }
+      sort: { frontmatter: { date: DESC } }
       filter: { frontmatter: { status: { in: $status } } }
     ) {
       nodes {

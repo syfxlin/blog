@@ -47,7 +47,7 @@ export const query = graphql`
         fields: { date_year: { eq: $archive } }
         frontmatter: { layout: { eq: "post" }, status: { in: $status } }
       }
-      sort: { order: DESC, fields: frontmatter___date }
+      sort: { frontmatter: { date: DESC } }
     ) {
       nodes {
         frontmatter {

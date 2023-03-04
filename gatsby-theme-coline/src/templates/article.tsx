@@ -72,7 +72,7 @@ export const query = graphql`
       filter: {
         frontmatter: { layout: { eq: "post" }, status: { in: $status } }
       }
-      sort: { order: DESC, fields: frontmatter___date }
+      sort: { frontmatter: { date: DESC } }
     ) {
       nodes {
         frontmatter {

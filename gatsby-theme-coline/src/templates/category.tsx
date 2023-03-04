@@ -50,7 +50,7 @@ export const query = graphql`
           status: { in: $status }
         }
       }
-      sort: { order: DESC, fields: frontmatter___date }
+      sort: { frontmatter: { date: DESC } }
     ) {
       nodes {
         frontmatter {

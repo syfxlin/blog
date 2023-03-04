@@ -140,7 +140,7 @@ export const query = graphql`
         frontmatter: { layout: { eq: "post" }, status: { in: $status } }
       }
     ) {
-      group(field: fields___date_year) {
+      group(field: { fields: { date_year: SELECT } }) {
         fieldValue
         totalCount
       }
@@ -150,7 +150,7 @@ export const query = graphql`
         frontmatter: { layout: { eq: "post" }, status: { in: $status } }
       }
     ) {
-      group(field: frontmatter___categories) {
+      group(field: { frontmatter: { categories: SELECT } }) {
         fieldValue
         totalCount
       }
@@ -160,7 +160,7 @@ export const query = graphql`
         frontmatter: { layout: { eq: "post" }, status: { in: $status } }
       }
     ) {
-      group(field: frontmatter___tags) {
+      group(field: { frontmatter: { tags: SELECT } }) {
         fieldValue
         totalCount
       }
