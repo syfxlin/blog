@@ -36,7 +36,7 @@ importers:
       '@emotion/react': ^11.9.0
       '@mdx-js/react': ^2.1.2
       '@staticcms/proxy-server': ^2.0.0
-      '@syfxlin/gatsby-theme-coline': '*'
+      '@syfxlin/gatsby-theme-coline': ^0.0.0-semantic-release
       '@tippyjs/react': ^4.2.6
       '@types/node': ^18.14.6
       '@typescript-eslint/eslint-plugin': ^5.54.0
