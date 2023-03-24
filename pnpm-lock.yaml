@@ -36,7 +36,7 @@ importers:
       '@emotion/react': ^11.9.0
       '@mdx-js/react': ^2.1.2
       '@staticcms/proxy-server': ^2.0.0
-      '@syfxlin/gatsby-theme-coline': workspace:*
+      '@syfxlin/gatsby-theme-coline': '*'
       '@tippyjs/react': ^4.2.6
       '@types/node': ^18.14.6
       '@typescript-eslint/eslint-plugin': ^5.54.0
@@ -7533,7 +7533,7 @@ packages:
       '@babel/core': 7.21.3
       '@babel/runtime': 7.21.0
       '@babel/types': 7.21.3
-      gatsby: 5.8.0_qoa4v2lpgensdmmqjb4bcrzng4
+      gatsby: 5.8.0_ygqkwb4gg3aean7xjfdauovyqq
       gatsby-core-utils: 4.8.0
 
   /babel-plugin-styled-components/2.0.7_styled-components@5.3.6:
@@ -9384,7 +9384,6 @@ packages:
       eslint-plugin-react: 7.32.2_eslint@7.32.0
       eslint-plugin-react-hooks: 4.6.0_eslint@7.32.0
       typescript: 4.9.5
-    dev: false
 
   /eslint-config-react-app/6.0.0_lf6s6onpubr2mwxlgjerbpikfu:
     resolution: {integrity: sha512-bpoAAC+YRfzq0dsTk+6v9aHm/uqnDwayNAXleMypGl6CpxI9oXXscVHo4fk3eJPIn+rsbtNetB4r/ZIidFIE8A==}
@@ -10944,7 +10943,7 @@ packages:
       chokidar: 3.5.3
       fs-exists-cached: 1.0.0
       fs-extra: 11.1.1
-      gatsby: 5.8.0_qoa4v2lpgensdmmqjb4bcrzng4
+      gatsby: 5.8.0_ygqkwb4gg3aean7xjfdauovyqq
       gatsby-core-utils: 4.8.0
       gatsby-page-utils: 3.8.0
       gatsby-plugin-utils: 4.8.0_a77uo2ydswxjo34yr4hidruzgq
@@ -11019,7 +11018,7 @@ packages:
       '@babel/preset-typescript': 7.21.0_@babel+core@7.21.3
       '@babel/runtime': 7.21.0
       babel-plugin-remove-graphql-queries: 5.8.0_hecty2hgmarbekipu66nblkmq4
-      gatsby: 5.8.0_qoa4v2lpgensdmmqjb4bcrzng4
+      gatsby: 5.8.0_ygqkwb4gg3aean7xjfdauovyqq
     transitivePeerDependencies:
       - supports-color
 
@@ -11033,7 +11032,7 @@ packages:
       '@babel/runtime': 7.21.0
       fastq: 1.15.0
       fs-extra: 11.1.1
-      gatsby: 5.8.0_qoa4v2lpgensdmmqjb4bcrzng4
+      gatsby: 5.8.0_ygqkwb4gg3aean7xjfdauovyqq
       gatsby-core-utils: 4.8.0
       gatsby-sharp: 1.8.0
       graphql: 16.6.0
@@ -11652,7 +11651,6 @@ packages:
       - webpack-dev-server
       - webpack-hot-middleware
       - webpack-plugin-serve
-    dev: false
 
   /generate-robotstxt/8.0.3:
     resolution: {integrity: sha512-iD//oAVKcHOCz9M0IiT3pyUiF2uN1qvL3qaTA8RGLz7NU7l0XVwyzd3rN+tzhB657DNUgrygXt9w8+0zkTMFrg==}
