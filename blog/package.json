@@ -1,7 +1,7 @@
 {
   "name": "@syfxlin/blog",
   "version": "0.0.0-semantic-release",
-  "private": false,
+  "private": true,
   "description": "Gatsby theme for Coline",
   "author": "syfxlin <i@ixk.me>",
   "keywords": [
