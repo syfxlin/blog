@@ -11,5 +11,13 @@
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "jsxImportSource": "@emotion/react"
-  }
+  },
+  "include": [
+    "./src/**/*",
+    "./gatsby-node.ts",
+    "./gatsby-config.ts",
+    "./gatsby-browser.tsx",
+    "./gatsby-ssr.tsx",
+    "./plugins/**/*"
+  ]
 }

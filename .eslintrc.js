@@ -20,7 +20,7 @@ module.exports = {
     "@typescript-eslint/ban-types": "off",
     "react/prop-types": "off",
     "react/display-name": "off",
-    "react/no-unknown-property": "warn",
+    "react/no-unknown-property": "off",
     "react/jsx-curly-brace-presence": "error",
   },
 };

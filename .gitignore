@@ -4,10 +4,11 @@
 
 # Build directory
 public/
+dist/
 
 # Gatsby cache
 .cache/
-src/gatsby-types.d.ts
+gatsby-types.d.ts
 
 # Logs
 logs
