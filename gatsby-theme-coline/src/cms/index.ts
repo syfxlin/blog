@@ -24,7 +24,18 @@ export const init = (props: CMSProps) => {
       // base
       locale: `zh_Hans`,
       local_backend: true,
-      backend: { ...props.backend, branch: "master" },
+      backend: {
+        ...props.backend,
+        branch: "master",
+        commit_messages: {
+          ...props.backend.commit_messages,
+          create: `blog: Create {{collection}} "{{slug}}"`,
+          update: `blog: Update {{collection}} "{{slug}}"`,
+          delete: `blog: Delete {{collection}} "{{slug}}"`,
+          uploadMedia: `blog: Upload "{{path}}"`,
+          deleteMedia: `blog: Delete "{{path}}"`,
+        },
+      },
       // images
       media_folder: `static/images`,
       public_folder: `/images`,

@@ -11,11 +11,7 @@
   ],
   "main": "index.ts",
   "scripts": {
-    "start": "gatsby develop",
-    "build": "gatsby build",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "typecheck": "tsc --noEmit",
+    "build": "tsup",
     "watch": "tsup --watch"
   },
   "dependencies": {
