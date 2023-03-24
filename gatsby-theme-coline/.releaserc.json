@@ -25,7 +25,7 @@
       }
     ],
     "@semantic-release/release-notes-generator",
-    "@semantic-release/npm",
+    "semantic-release-pnpm",
     "@semantic-release/github"
   ]
 }
