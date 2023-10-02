@@ -3,7 +3,7 @@ import { styled } from "@syfxlin/reve";
 
 export const link = styled.css`
   display: flex;
-  text-align: left;
+  text-align: start;
   gap: ${theme.spacing.calc(4)};
   padding: ${theme.spacing.calc(4)};
   border-bottom: none;
@@ -25,6 +25,7 @@ export const section = styled.css`
 
 export const name = styled.css`
   display: block;
+  text-align: start;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -36,6 +37,7 @@ export const name = styled.css`
 
 export const text = styled.css`
   display: block;
+  text-align: start;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;

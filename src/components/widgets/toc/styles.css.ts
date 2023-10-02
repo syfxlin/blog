@@ -56,7 +56,7 @@ export const list = styled.css`
 export const item = styled.css`
   a {
     display: inline;
-    text-align: left;
+    text-align: start;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow-x: hidden;

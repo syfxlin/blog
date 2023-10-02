@@ -3,7 +3,7 @@ import { theme } from "../../../theme/theme.css";
 
 export const link = styled.css`
   display: flex;
-  text-align: left;
+  text-align: start;
   gap: ${theme.spacing.calc(2)};
   padding: ${theme.spacing.calc(4)};
   border-bottom: none;
