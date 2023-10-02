@@ -4,6 +4,7 @@ import { Katex } from "./components/docs/katex/preview";
 import { Github } from "./components/docs/github/preview";
 import { Article } from "./components/docs/article/preview";
 import { Message } from "./components/docs/message/preview";
+import { IS_DEV } from "./env/public";
 
 const body = (path: string) => {
   return fields.document({
@@ -82,14 +83,17 @@ const body = (path: string) => {
 };
 
 export default config({
-  storage: {
-    kind: "local",
-    // kind: "github",
-    // repo: {
-    //   owner: "syfxlin",
-    //   name: "next-theme-coline",
-    // },
-  },
+  storage: IS_DEV
+    ? {
+        kind: "local",
+      }
+    : {
+        kind: "github",
+        repo: {
+          owner: "syfxlin",
+          name: "blog",
+        },
+      },
   collections: {
     pages: collection({
       label: "页面",
