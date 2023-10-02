@@ -24,8 +24,6 @@ jobs:
           echo "$KEY_PEM" > ~/.docker/key.pem
           echo "$SECRETS_ENV" > .env
 
-#          deno install -A https://raw.githubusercontent.com/syfxlin/depker/master/depker.ts --root /usr/local --name depker
-#          depker service deploy
           docker version
         env:
           TZ: Asia/Shanghai
