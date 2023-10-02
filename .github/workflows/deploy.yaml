@@ -1,0 +1,33 @@
+name: Next Deploy
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    env:
+      TZ: Asia/Shanghai
+      DOCKER_HOST: ${{ secrets.DOCKER_HOST }}
+      DOCKER_TLS_VERIFY: 1
+      CA_PEM: ${{ secrets.CA_PEM }}
+      CERT_PEM: ${{ secrets.CERT_PEM }}
+      KEY_PEM: ${{ secrets.KEY_PEM }}
+      SECRETS_ENV: ${{ secrets.SECRETS_ENV }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Deno
+        uses: denoland/setup-deno@v1
+      - name: Deploy to docker
+        run: |
+          mkdir -p ~/.docker
+          echo "$CA_PEM" > ~/.docker/ca.pem
+          echo "$CERT_PEM" > ~/.docker/cert.pem
+          echo "$KEY_PEM" > ~/.docker/key.pem
+          echo "$SECRETS_ENV" > .env
+
+          deno install -A https://raw.githubusercontent.com/syfxlin/depker/master/depker.ts --root /usr/local --name depker
+          depker service deploy
