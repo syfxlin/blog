@@ -1,10 +1,6 @@
-import { depker, docker, nextjs, proxy, service } from "https://raw.githubusercontent.com/syfxlin/depker/master/mod.ts";
+import { depker, nextjs } from "https://raw.githubusercontent.com/syfxlin/depker/master/mod.ts";
 
 const app = depker();
-
-app.use(proxy());
-app.use(service());
-app.master(docker());
 
 app.service(
   nextjs({
