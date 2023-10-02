@@ -51,8 +51,8 @@ export const TemplateArticles: React.FC<TemplateArticlesProps> = (props) => {
           </LinkButton>
         )}
         {props.display === "articles" && (
-          <LinkButton tippy aria-label="博客" href="/">
-            博客
+          <LinkButton tippy aria-label="首页" href="/">
+            首页
           </LinkButton>
         )}
       </Header>
