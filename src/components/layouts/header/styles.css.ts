@@ -9,17 +9,17 @@ export const container = styled.css`
 `;
 
 export const logo = styled.css`
-  display: flex;
-  overflow: hidden;
-  width: ${theme.fontSize.calc(2)};
-  height: ${theme.fontSize.calc(2)};
-  border-radius: ${theme.borderRadius.half};
+  display: flex !important;
+  overflow: hidden !important;
+  width: ${theme.fontSize.calc(2)} !important;
+  height: ${theme.fontSize.calc(2)} !important;
+  border-radius: ${theme.borderRadius.half} !important;
 `;
 
 export const left = styled.css`
-  display: flex;
-  gap: ${theme.spacing.calc(1)};
-  margin: 0 ${theme.spacing.calc(4)};
+  display: flex !important;
+  gap: ${theme.spacing.calc(1)} !important;
+  margin: 0 ${theme.spacing.calc(4)} !important;
 `;
 
 export const right = styled.css`
