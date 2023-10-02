@@ -15,6 +15,9 @@ jobs:
         uses: denoland/setup-deno@v1
       - name: Deploy to docker
         run: |
+          export DOCKER_HOST=${{ secrets.DOCKER_HOST }}
+          export DOCKER_TLS_VERIFY=1
+
           mkdir -p ~/.docker
           echo "$CA_PEM" > ~/.docker/ca.pem
           echo "$CERT_PEM" > ~/.docker/cert.pem
@@ -25,8 +28,6 @@ jobs:
           depker service deploy
         env:
           TZ: Asia/Shanghai
-          DOCKER_HOST: ${{ secrets.DOCKER_HOST }}
-          DOCKER_TLS_VERIFY: 1
           CA_PEM: ${{ secrets.CA_PEM }}
           CERT_PEM: ${{ secrets.CERT_PEM }}
           KEY_PEM: ${{ secrets.KEY_PEM }}
