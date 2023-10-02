@@ -13,9 +13,12 @@ jobs:
         uses: actions/checkout@v2
       - name: Setup Deno
         uses: denoland/setup-deno@v1
-      - name: Deploy to docker
+      - name: Setup Depker
         run: |
           deno install -A https://raw.githubusercontent.com/syfxlin/depker/master/depker.ts --root /usr/local --name depker
+      - name: Deploy to docker
+        run: |
+          echo "$SECRETS_ENV" > .env
           depker service deploy
         env:
           TZ: Asia/Shanghai
