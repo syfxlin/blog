@@ -12,68 +12,69 @@ import { Pagination } from "../../ui/pagination";
 import { Renderer } from "../../docs";
 import { LinkButton } from "../../ui/button";
 
-export type TemplateHomeComponentProps = {
-  document?: DocumentData;
+export type TemplateArticlesProps =
+  | {
+      display: "document";
+      document?: DocumentData;
+    }
+  | {
+      display: "articles";
+      articles: {
+        index: number;
+        pages: number;
+        total: number;
+        items: ReadonlyArray<ArticleList>;
+      };
+    };
+
+export const metadataArticles = (props: TemplateArticlesProps): Promise<Metadata> => {
+  if (props.display === "document") {
+    return generateMetadata({
+      title: undefined,
+      link: "/",
+    });
+  } else {
+    return generateMetadata({
+      title: props.articles.index !== 1 ? `文章列表：第 ${props.articles.index} 页` : undefined,
+      link: props.articles.index !== 1 ? resolve("page", props.articles.index) : "/",
+    });
+  }
 };
 
-export type TemplateArticlesMetadataProps = {
-  index: number;
-  pages: number;
-  total: number;
-};
-
-export type TemplateArticlesComponentProps = {
-  index: number;
-  pages: number;
-  total: number;
-  items: ReadonlyArray<ArticleList>;
-};
-
-export const metadataHome = () => {
-  return generateMetadata({
-    title: undefined,
-    link: "/",
-  });
-};
-
-export const TemplateHome: React.FC<TemplateHomeComponentProps> = (props) => {
+export const TemplateArticles: React.FC<TemplateArticlesProps> = (props) => {
   return (
     <>
       <Header>
-        <LinkButton tippy aria-label="博客" href={resolve("page", 1)}>
-          博客
-        </LinkButton>
+        {props.display === "document" && (
+          <LinkButton tippy aria-label="博客" href={resolve("page", 1)}>
+            博客
+          </LinkButton>
+        )}
+        {props.display === "articles" && (
+          <LinkButton tippy aria-label="博客" href="/">
+            博客
+          </LinkButton>
+        )}
       </Header>
       <Main>
         <Hero />
-        <section>
-          <Renderer document={props.document?.document} />
-        </section>
-      </Main>
-      <Footer />
-    </>
-  );
-};
-
-export const metadataArticles = (props: TemplateArticlesMetadataProps): Promise<Metadata> => {
-  return generateMetadata({
-    title: `文章列表：第 ${props.index} 页`,
-    link: resolve("page", props.index),
-  });
-};
-
-export const TemplateArticles: React.FC<TemplateArticlesComponentProps> = (props) => {
-  return (
-    <>
-      <Header />
-      <Main>
-        <Hero />
-        <section>
-          {props.items.map((item, index) => (
-            <ArticleInfo key={`article-${item.link}`} data={item} step={index} />
-          ))}
-        </section>
-        <Pagination links="/" index={props.index} pages={props.pages} />
+        {props.display === "document" && (
+          <>
+            <section>
+              <Renderer document={props.document?.document} />
+            </section>
+          </>
+        )}
+        {props.display === "articles" && (
+          <>
+            <section>
+              {props.articles.items.map((item, index) => (
+                <ArticleInfo key={`article-${item.link}`} data={item} step={index} />
+              ))}
+            </section>
+            <Pagination links="/" index={props.articles.index} pages={props.articles.pages} />
+          </>
+        )}
       </Main>
       <Footer />
     </>

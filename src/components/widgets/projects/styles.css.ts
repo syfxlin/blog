@@ -35,6 +35,7 @@ export const name = styled.css`
 
 export const text = styled.css`
   display: block;
+  text-align: start;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
