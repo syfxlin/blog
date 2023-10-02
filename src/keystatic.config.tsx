@@ -388,9 +388,9 @@ export default config({
       schema: {
         display: fields.select({
           label: "显示模式",
-          defaultValue: "list",
+          defaultValue: "articles",
           options: [
-            { label: "文章列表", value: "list" },
+            { label: "文章列表", value: "articles" },
             { label: "内容文档", value: "document" },
           ],
         }),

@@ -135,7 +135,7 @@ const license: () => SingletonResult<LicenseData> = React.cache(async () => {
 const home: () => SingletonResult<HomeData> = React.cache(async () => {
   const info = await reader.singletons.home.read();
   if (!info) {
-    return { display: "list" };
+    return { display: "articles" };
   }
   return {
     display: info.display,

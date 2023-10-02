@@ -71,7 +71,7 @@ export default async function ArchivesPage() {
   return (
     <Template
       name="归档"
-      slug="/archives"
+      link="/archives"
       desc={`${data.archives.length} 归档 × ${data.categories.length} 分类 × ${data.tags.length} 标签 × ${data.articles.length} 文章`}
     >
       {data.categories.length !== 0 && (
