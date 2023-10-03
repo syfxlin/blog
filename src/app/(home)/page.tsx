@@ -10,17 +10,17 @@ type Props = {
   };
 };
 
-const query = async ({ params }: Props): Promise<TemplateArticlesProps | undefined> => {
+const query = React.cache(async (_index?: string): Promise<TemplateArticlesProps | undefined> => {
   try {
     const home = await fetcher.home();
-    if (home.display === "document" && !params?.index) {
+    if (home.display === "document" && !_index) {
       return {
         display: "document",
         document: home.content,
       };
     } else {
       const query = await fetcher.posts();
-      const index = params?.index ? parseInt(params.index) : 1;
+      const index = _index ? parseInt(_index) : 1;
       const value = query.pages;
       if (!value || value.pages < index) {
         return undefined;
@@ -38,18 +38,18 @@ const query = async ({ params }: Props): Promise<TemplateArticlesProps | undefin
   } catch (e) {
     return undefined;
   }
-};
+});
 
-export const generateMetadata = async (props: Props): Promise<Metadata> => {
-  const data = await query(props);
+export const generateMetadata = async ({ params }: Props): Promise<Metadata> => {
+  const data = await query(params?.index);
   if (!data) {
     return notFound();
   }
   return metadataArticles(data);
 };
 
-export default async function ArticlesPage(props: Props) {
-  const data = await query(props);
+export default async function ArticlesPage({ params }: Props) {
+  const data = await query(params?.index);
   if (!data) {
     return notFound();
   }

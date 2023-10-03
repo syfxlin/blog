@@ -85,8 +85,8 @@ export const github = styled.css`
   white-space: nowrap;
 
   svg {
-    margin-top: ${theme.fontSize.calc(0.1)};
-    width: ${theme.fontSize.calc(0.9)};
-    height: ${theme.fontSize.calc(0.9)};
+    margin-top: ${theme.fontSize.calc(0.1)} !important;
+    width: ${theme.fontSize.calc(0.9)} !important;
+    height: ${theme.fontSize.calc(0.9)} !important;
   }
 `;

@@ -8,7 +8,7 @@ import { Heading } from "../../../components/docs/heading";
 import { List } from "../../../components/docs/list";
 import { notFound } from "next/navigation";
 
-const query = async () => {
+const query = React.cache(async () => {
   const [posts, archives, categories, tags] = await Promise.all([
     fetcher.posts(),
     fetcher.archives(),
@@ -40,7 +40,7 @@ const query = async () => {
       count: i.items.length,
     })),
   };
-};
+});
 
 export const generateMetadata = async (): Promise<Metadata> => {
   const data = await query();
