@@ -4,7 +4,7 @@ import { Katex } from "./components/docs/katex/preview";
 import { Github } from "./components/docs/github/preview";
 import { Article } from "./components/docs/article/preview";
 import { Message } from "./components/docs/message/preview";
-import { IS_DEV } from "./env/public";
+import { IS_DEV } from "./env/public.mjs";
 
 const body = (path: string) => {
   return fields.document({
