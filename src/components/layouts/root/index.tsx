@@ -1,11 +1,11 @@
-import "./client";
+import "./styles";
 import React, { ReactNode } from "react";
-import { Providers } from "../../../theme/providers";
-import { HelloWorldScript } from "../../scripts/hello-world-script";
+import { fetcher } from "../../../contents";
 import { Canvas } from "../../root/canvas";
 import { Analytics } from "../../root/analytics";
+import { Providers } from "../../../theme/providers";
 import { ProgressBar } from "../../root/progress-bar";
-import { fetcher } from "../../../contents";
+import { HelloWorldScript } from "../../scripts/hello-world-script";
 
 export type RootProps = {
   children: ReactNode;

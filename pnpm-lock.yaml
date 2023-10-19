@@ -58,9 +58,6 @@ dependencies:
   next:
     specifier: 13.5.2
     version: 13.5.2(@babel/core@7.23.0)(react-dom@18.2.0)(react@18.2.0)
-  next-nprogress-bar:
-    specifier: ^2.1.2
-    version: 2.1.2
   next-pwa:
     specifier: ^5.6.0
     version: 5.6.0(@babel/core@7.23.0)(esbuild@0.19.4)(next@13.5.2)(webpack@5.88.2)
@@ -70,6 +67,9 @@ dependencies:
   nextjs-google-analytics:
     specifier: ^2.3.3
     version: 2.3.3(next@13.5.2)(react@18.2.0)
+  nextjs-toploader:
+    specifier: ^1.5.3
+    version: 1.5.3(next@13.5.2)(react-dom@18.2.0)(react@18.2.0)
   open-graph-scraper:
     specifier: ^6.2.2
     version: 6.2.2
@@ -4022,6 +4022,10 @@ packages:
   /@types/node@20.8.0:
     resolution: {integrity: sha512-LzcWltT83s1bthcvjBmiBvGJiiUe84NWRHkw+ZV6Fr41z2FbIzvc815dk2nQ3RAKMuN2fkenM/z3Xv2QzEpYxQ==}
 
+  /@types/nprogress@0.2.2:
+    resolution: {integrity: sha512-2wLrSJXLztGmr7wXwM0hA/wuIOY9DznVdd+ZFofHOiXcj9JnVt+2ZeLRJ7v5ZVlmheSkUOSg3Q3O4Ce7yji79A==}
+    dev: false
+
   /@types/parse-json@4.0.0:
     resolution: {integrity: sha512-//oorEZjL6sbPcKUaCdIGlIUeH26mgzimjBB77G6XRgnDl/L5wOnpyBGRe/Mmf5CVW3PwEBE1NjiMZ/ssFh4wA==}
     dev: false
@@ -7228,12 +7232,6 @@ packages:
   /neo-async@2.6.2:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
 
-  /next-nprogress-bar@2.1.2:
-    resolution: {integrity: sha512-2Df5d7fr6uPx+BX8MkoWCfl+RjG+uWI5mA399e5sEe8mbT3q/GIUvCXLzBgJBIISpKuMmdLAOYEzqpjlsRVOWw==}
-    dependencies:
-      nprogress: 0.2.0
-    dev: false
-
   /next-pwa@5.6.0(@babel/core@7.23.0)(esbuild@0.19.4)(next@13.5.2)(webpack@5.88.2):
     resolution: {integrity: sha512-XV8g8C6B7UmViXU8askMEYhWwQ4qc/XqJGnexbLV68hzKaGHZDMtHsm2TNxFcbR7+ypVuth/wwpiIlMwpRJJ5A==}
     peerDependencies:
@@ -7317,6 +7315,21 @@ packages:
       react: 18.2.0
     optionalDependencies:
       fsevents: 2.3.3
+    dev: false
+
+  /nextjs-toploader@1.5.3(next@13.5.2)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-kNqgpOxVeo7ihMZqNzxtsCNcO0lo1NNjxhCtnJ2qgTKxgppMGpuSVU4FTMaCOefamVop1mWk1Ij3C2pBP5NwPg==}
+    peerDependencies:
+      next: '>= 6.0.0'
+      react: '>= 16.0.0'
+      react-dom: '>= 16.0.0'
+    dependencies:
+      '@types/nprogress': 0.2.2
+      next: 13.5.2(@babel/core@7.23.0)(react-dom@18.2.0)(react@18.2.0)
+      nprogress: 0.2.0
+      prop-types: 15.8.1
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
     dev: false
 
   /node-abi@3.47.0:
