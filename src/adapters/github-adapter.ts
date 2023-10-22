@@ -24,7 +24,7 @@ export class GithubAdapter extends Adapter<GithubRequest, GithubResponse> {
     try {
       const response = await fetch(`https://api.github.com/repos/${params.repo}`, {
         headers: COLINE_GITHUB_TOKEN ? { Authorization: `token ${COLINE_GITHUB_TOKEN}` } : {},
-        next: { revalidate: 3600 },
+        next: { revalidate: 86400 },
       });
 
       const json = await response.json();
