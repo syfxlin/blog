@@ -17,17 +17,21 @@ export type IconsProps = {
 export const Icons: React.FC<IconsProps> = async (props) => {
   const match = /https?:\/\/(?:www\.)?github\.com\/([^\/]+)\/([^\/]+)/.exec(props.link);
   if (match) {
-    const data = await adapter.component({ repo: `${match[1]}/${match[2]}` });
-    if (data?.data) {
-      return (
-        <>
-          <Iconify icon="uil:github" className={styles.icon} />
-          <span className={styles.github}>
-            <Iconify icon="ri:star-s-line" />
-            <span>{stars(data.data.stars)}</span>
-          </span>
-        </>
-      );
+    try {
+      const data = await adapter.component({ repo: `${match[1]}/${match[2]}` });
+      if (data?.data) {
+        return (
+          <>
+            <Iconify icon="uil:github" className={styles.icon} />
+            <span className={styles.github}>
+              <Iconify icon="ri:star-s-line" />
+              <span>{stars(data.data.stars)}</span>
+            </span>
+          </>
+        );
+      }
+    } catch (e) {
+      console.log(e);
     }
   }
   return <Iconify icon="ri:link" className={styles.icon} />;
