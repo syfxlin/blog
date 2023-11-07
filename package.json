@@ -56,7 +56,7 @@
     "@types/node": "^20.8.7",
     "@types/react": "^18.2.29",
     "@types/react-dom": "^18.2.14",
-    "@types/rss": "^0.0.31",
+    "@types/rss": "^0.0.32",
     "@typescript-eslint/eslint-plugin": "^6.8.0",
     "@typescript-eslint/parser": "^6.8.0",
     "@vanilla-extract/next-plugin": "^2.3.1",
