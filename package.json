@@ -21,7 +21,7 @@
     "@iconify/json": "^2.2.130",
     "@iconify/utils": "^2.1.11",
     "@keystatic/core": "^0.2.0",
-    "@keystatic/next": "^1.0.1",
+    "@keystatic/next": "^2.0.0",
     "@markdoc/markdoc": "^0.3.3",
     "@radix-ui/colors": "3.0.0",
     "@syfxlin/reve": "^1.0.5",
