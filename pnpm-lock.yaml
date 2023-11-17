@@ -21,11 +21,11 @@ dependencies:
     specifier: ^2.1.11
     version: 2.1.11
   '@keystatic/core':
-    specifier: ^0.1.6
-    version: 0.1.6(next@14.0.3)(react-dom@18.2.0)(react@18.2.0)
+    specifier: ^0.2.0
+    version: 0.2.3(next@14.0.3)(react-dom@18.2.0)(react@18.2.0)
   '@keystatic/next':
     specifier: ^1.0.1
-    version: 1.0.1(@keystatic/core@0.1.6)(next@14.0.3)(react-dom@18.2.0)(react@18.2.0)
+    version: 1.0.1(@keystatic/core@0.2.3)(next@14.0.3)(react-dom@18.2.0)(react@18.2.0)
   '@markdoc/markdoc':
     specifier: ^0.3.3
     version: 0.3.3(@types/react@18.2.29)(react@18.2.0)
@@ -2039,43 +2039,6 @@ packages:
       graphql: 16.8.1
     dev: false
 
-  /@hapi/b64@6.0.1:
-    resolution: {integrity: sha512-ZvjX4JQReUmBheeCq+S9YavcnMMHWqx3S0jHNXWIM1kQDxB9cyfSycpVvjfrKcIS8Mh5N3hmu/YKo4Iag9g2Kw==}
-    dependencies:
-      '@hapi/hoek': 11.0.2
-    dev: false
-
-  /@hapi/boom@10.0.1:
-    resolution: {integrity: sha512-ERcCZaEjdH3OgSJlyjVk8pHIFeus91CjKP3v+MpgBNp5IvGzP2l/bRiD78nqYcKPaZdbKkK5vDBVPd2ohHBlsA==}
-    dependencies:
-      '@hapi/hoek': 11.0.2
-    dev: false
-
-  /@hapi/bourne@3.0.0:
-    resolution: {integrity: sha512-Waj1cwPXJDucOib4a3bAISsKJVb15MKi9IvmTI/7ssVEm6sywXGjVJDhl6/umt1pK1ZS7PacXU3A1PmFKHEZ2w==}
-    dev: false
-
-  /@hapi/cryptiles@6.0.1:
-    resolution: {integrity: sha512-9GM9ECEHfR8lk5ASOKG4+4ZsEzFqLfhiryIJ2ISePVB92OHLp/yne4m+zn7z9dgvM98TLpiFebjDFQ0UHcqxXQ==}
-    engines: {node: '>=14.0.0'}
-    dependencies:
-      '@hapi/boom': 10.0.1
-    dev: false
-
-  /@hapi/hoek@11.0.2:
-    resolution: {integrity: sha512-aKmlCO57XFZ26wso4rJsW4oTUnrgTFw2jh3io7CAtO9w4UltBNwRXvXIVzzyfkaaLRo3nluP/19msA8vDUUuKw==}
-    dev: false
-
-  /@hapi/iron@7.0.1:
-    resolution: {integrity: sha512-tEZnrOujKpS6jLKliyWBl3A9PaE+ppuL/+gkbyPPDb/l2KSKQyH4lhMkVb+sBhwN+qaxxlig01JRqB8dk/mPxQ==}
-    dependencies:
-      '@hapi/b64': 6.0.1
-      '@hapi/boom': 10.0.1
-      '@hapi/bourne': 3.0.0
-      '@hapi/cryptiles': 6.0.1
-      '@hapi/hoek': 11.0.2
-    dev: false
-
   /@humanwhocodes/config-array@0.11.11:
     resolution: {integrity: sha512-N2brEuAadi0CcdeMXUkhbZB84eskAc8MEX1By6qEchoVywSgXPIjou4rYsl0V3Hj0ZnuGycGCjdNgockbzeWNA==}
     engines: {node: '>=10.10.0'}
@@ -2139,6 +2102,12 @@ packages:
       '@swc/helpers': 0.5.3
     dev: false
 
+  /@internationalized/number@3.4.0:
+    resolution: {integrity: sha512-8TvotW3qVDHC4uv/BVoN6Qx0Dm8clHY1/vpH+dh+XRiPW/9NVpKn1P8d1A+WLphWrMwyqyWXI7uWehJPviaeIw==}
+    dependencies:
+      '@swc/helpers': 0.5.3
+    dev: false
+
   /@internationalized/string@3.1.1:
     resolution: {integrity: sha512-fvSr6YRoVPgONiVIUhgCmIAlifMVCeej/snPZVzbzRPxGpHl3o1GRe+d/qh92D8KhgOciruDUH8I5mjdfdjzfA==}
     dependencies:
@@ -2180,10 +2149,10 @@ packages:
     resolution: {integrity: sha512-dfLbk+PwWvFzSxwk3n5ySL0hfBog779o8h68wK/7/APo/7cgyWp5jcXockbxdk5kFRkbeXWm4Fbi9FrdN381sA==}
     dev: false
 
-  /@keystar/ui@0.3.2(next@14.0.3)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-5iuSiTRmUwqOIaDbB1UODqKUShe7REwEdTRkIGIwU8WqMMzMbfQ0BUNtsACm8WfBNoHnDN25rmv/dyW9hdnMfg==}
+  /@keystar/ui@0.4.3(next@14.0.3)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-8xGGjy7f/GOINHSSKhuqn3jhW5IYaucOhyMqEqaOEdzHk48iT884miGuziZKEsvukPVzdOXDi4OEPXa017NSvA==}
     peerDependencies:
-      next: '13'
+      next: 13 || 14
       react: ^18.2.0
       react-dom: ^18.2.0
     peerDependenciesMeta:
@@ -2228,7 +2197,7 @@ packages:
       '@react-aria/toast': 3.0.0-beta.2(react@18.2.0)
       '@react-aria/tooltip': 3.6.4(react@18.2.0)
       '@react-aria/utils': 3.21.1(react@18.2.0)
-      '@react-aria/virtualizer': 3.9.4(react-dom@18.2.0)(react@18.2.0)
+      '@react-aria/virtualizer': 3.9.7(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/visually-hidden': 3.8.6(react@18.2.0)
       '@react-stately/calendar': 3.4.1(react@18.2.0)
       '@react-stately/checkbox': 3.5.1(react@18.2.0)
@@ -2252,7 +2221,7 @@ packages:
       '@react-stately/tooltip': 3.4.5(react@18.2.0)
       '@react-stately/tree': 3.7.3(react@18.2.0)
       '@react-stately/utils': 3.8.0(react@18.2.0)
-      '@react-stately/virtualizer': 3.6.4(react@18.2.0)
+      '@react-stately/virtualizer': 3.6.5(react@18.2.0)
       '@react-types/actiongroup': 3.4.5(react@18.2.0)
       '@react-types/breadcrumbs': 3.7.1(react@18.2.0)
       '@react-types/button': 3.9.0(react@18.2.0)
@@ -2267,6 +2236,7 @@ packages:
       '@react-types/select': 3.8.4(react@18.2.0)
       '@react-types/shared': 3.21.0(react@18.2.0)
       '@react-types/switch': 3.4.2(react@18.2.0)
+      '@react-types/table': 3.9.0(react@18.2.0)
       '@react-types/tabs': 3.3.3(react@18.2.0)
       emery: 1.4.2
       facepaint: 1.2.1
@@ -2276,8 +2246,8 @@ packages:
       react-transition-group: 4.4.5(react-dom@18.2.0)(react@18.2.0)
     dev: false
 
-  /@keystatic/core@0.1.6(next@14.0.3)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-OwEDQkL8eoxH+jISJ9M5trRybINuRMWgib6cf1W5S34waz/WB7ZrV1rXXBlRlLoFV0OPZ5G4W7yhfAlsjBI1HA==}
+  /@keystatic/core@0.2.3(next@14.0.3)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-caRHL3L518VXC6X8ty8pc7e011383TCKmy+MrG/K9kib1p42Z7sjAoY5HnOfnJPUWBRREYQoKrPF9kLBVDEjCw==}
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
@@ -2287,9 +2257,8 @@ packages:
       '@emotion/css': 11.11.2
       '@emotion/weak-memoize': 0.3.1
       '@floating-ui/react': 0.24.8(react-dom@18.2.0)(react@18.2.0)
-      '@hapi/iron': 7.0.1
       '@internationalized/string': 3.1.1
-      '@keystar/ui': 0.3.2(next@14.0.3)(react-dom@18.2.0)(react@18.2.0)
+      '@keystar/ui': 0.4.3(next@14.0.3)(react-dom@18.2.0)(react@18.2.0)
       '@markdoc/markdoc': 0.3.3(@types/react@18.2.29)(react@18.2.0)
       '@react-aria/focus': 3.14.3(react@18.2.0)
       '@react-aria/i18n': 3.8.4(react@18.2.0)
@@ -2311,7 +2280,7 @@ packages:
       '@urql/core': 4.1.3(graphql@16.8.1)
       '@urql/exchange-auth': 2.1.6(graphql@16.8.1)
       '@urql/exchange-graphcache': 6.3.3(graphql@16.8.1)
-      '@urql/exchange-persisted': 3.0.1(graphql@16.8.1)
+      '@urql/exchange-persisted': 4.1.0(graphql@16.8.1)
       cookie: 0.5.0
       emery: 1.4.2
       escape-string-regexp: 4.0.0
@@ -2319,6 +2288,7 @@ packages:
       graphql: 16.8.1
       idb-keyval: 6.2.1
       ignore: 5.2.4
+      iron-webcrypto: 0.10.1
       is-hotkey: 0.2.0
       js-base64: 3.7.5
       js-yaml: 4.1.0
@@ -2350,7 +2320,7 @@ packages:
       - supports-color
     dev: false
 
-  /@keystatic/next@1.0.1(@keystatic/core@0.1.6)(next@14.0.3)(react-dom@18.2.0)(react@18.2.0):
+  /@keystatic/next@1.0.1(@keystatic/core@0.2.3)(next@14.0.3)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-FQtm3q1VkAypP3oBVhyMqN50uLubhHMeiTZ+Mso+GoOlvkUmV+RcRG/b+sNkl98vUz1Eh4r8EwVmFNXVtqBXdw==}
     peerDependencies:
       '@keystatic/core': '*'
@@ -2359,7 +2329,7 @@ packages:
       react-dom: ^18.2.0
     dependencies:
       '@babel/runtime': 7.23.2
-      '@keystatic/core': 0.1.6(next@14.0.3)(react-dom@18.2.0)(react@18.2.0)
+      '@keystatic/core': 0.2.3(next@14.0.3)(react-dom@18.2.0)(react@18.2.0)
       '@types/react': 18.2.29
       chokidar: 3.5.3
       next: 14.0.3(@babel/core@7.23.2)(react-dom@18.2.0)(react@18.2.0)
@@ -2807,7 +2777,7 @@ packages:
       '@react-stately/collections': 3.10.2(react@18.2.0)
       '@react-stately/grid': 3.8.2(react@18.2.0)
       '@react-stately/selection': 3.14.0(react@18.2.0)
-      '@react-stately/virtualizer': 3.6.4(react@18.2.0)
+      '@react-stately/virtualizer': 3.6.5(react@18.2.0)
       '@react-types/checkbox': 3.5.2(react@18.2.0)
       '@react-types/grid': 3.2.2(react@18.2.0)
       '@react-types/shared': 3.21.0(react@18.2.0)
@@ -2852,6 +2822,22 @@ packages:
       react: 18.2.0
     dev: false
 
+  /@react-aria/i18n@3.9.0(react@18.2.0):
+    resolution: {integrity: sha512-ebGP/sVG0ZtNF4RNFzs/W01tl7waYpBManh1kKWgA4roDPFt/odkgkDBzKGl+ggBb7TQRHsfUFHuqKsrsMy9TA==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+    dependencies:
+      '@internationalized/date': 3.5.0
+      '@internationalized/message': 3.1.1
+      '@internationalized/number': 3.4.0
+      '@internationalized/string': 3.1.1
+      '@react-aria/ssr': 3.9.0(react@18.2.0)
+      '@react-aria/utils': 3.22.0(react@18.2.0)
+      '@react-types/shared': 3.22.0(react@18.2.0)
+      '@swc/helpers': 0.5.3
+      react: 18.2.0
+    dev: false
+
   /@react-aria/interactions@3.19.1(react@18.2.0):
     resolution: {integrity: sha512-2QFOvq/rJfMGEezmtYcGcJmfaD16kHKcSTLFrZ8aeBK6hYFddGVZJZk+dXf+G7iNaffa8rMt6uwzVe/malJPBA==}
     peerDependencies:
@@ -2860,6 +2846,18 @@ packages:
       '@react-aria/ssr': 3.8.0(react@18.2.0)
       '@react-aria/utils': 3.21.1(react@18.2.0)
       '@react-types/shared': 3.21.0(react@18.2.0)
+      '@swc/helpers': 0.5.3
+      react: 18.2.0
+    dev: false
+
+  /@react-aria/interactions@3.20.0(react@18.2.0):
+    resolution: {integrity: sha512-JCCEyK2Nb4mEHucrgmqhTHTNAEqhsiM07jJmmY22eikxnCQnsEfdwXyg9cgZLG79D5V7jyqVRqOp2OsG7Qx7kQ==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+    dependencies:
+      '@react-aria/ssr': 3.9.0(react@18.2.0)
+      '@react-aria/utils': 3.22.0(react@18.2.0)
+      '@react-types/shared': 3.22.0(react@18.2.0)
       '@swc/helpers': 0.5.3
       react: 18.2.0
     dev: false
@@ -3133,6 +3131,16 @@ packages:
       react: 18.2.0
     dev: false
 
+  /@react-aria/ssr@3.9.0(react@18.2.0):
+    resolution: {integrity: sha512-Bz6BqP6ZorCme9tSWHZVmmY+s7AU8l6Vl2NUYmBzezD//fVHHfFo4lFBn5tBuAaJEm3AuCLaJQ6H2qhxNSb7zg==}
+    engines: {node: '>= 12'}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+    dependencies:
+      '@swc/helpers': 0.5.3
+      react: 18.2.0
+    dev: false
+
   /@react-aria/switch@3.5.6(react@18.2.0):
     resolution: {integrity: sha512-W6H/0TFa72MJY02AatUERt5HKgaDTF8lOaTjNNmS6U6U20+//uvrVCqcBof8OMe4M60mQpkp7Bd6756CJAMX1w==}
     peerDependencies:
@@ -3162,7 +3170,7 @@ packages:
       '@react-stately/collections': 3.10.2(react@18.2.0)
       '@react-stately/flags': 3.0.0
       '@react-stately/table': 3.11.2(react@18.2.0)
-      '@react-stately/virtualizer': 3.6.4(react@18.2.0)
+      '@react-stately/virtualizer': 3.6.5(react@18.2.0)
       '@react-types/checkbox': 3.5.2(react@18.2.0)
       '@react-types/grid': 3.2.2(react@18.2.0)
       '@react-types/shared': 3.21.0(react@18.2.0)
@@ -3266,18 +3274,30 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@react-aria/virtualizer@3.9.4(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-KgFi5DhCncZDrNV3tEhlIKYgcXKP8QiwPkzutt1vAzZwwWRPHZiLZxb2p+XGjwzvwxn2Hnz1JaC770nsNPO6pQ==}
+  /@react-aria/utils@3.22.0(react@18.2.0):
+    resolution: {integrity: sha512-Qi/m65GFFljXA/ayj1m5g3KZdgbZY3jacSSqD5vNUOEGiKsn4OQcsw8RfC2c0SgtLV1hLzsfvFI1OiryPlGCcw==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+    dependencies:
+      '@react-aria/ssr': 3.9.0(react@18.2.0)
+      '@react-stately/utils': 3.9.0(react@18.2.0)
+      '@react-types/shared': 3.22.0(react@18.2.0)
+      '@swc/helpers': 0.5.3
+      clsx: 1.2.1
+      react: 18.2.0
+    dev: false
+
+  /@react-aria/virtualizer@3.9.7(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-xaLnzRypiJuGi91ns+LXLGfEhi4a2oz2ZUrZmIrMnBF3asEqULX1PEZoeSWrTWENzumM9D49fvB4JqonK0Ktwg==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
       react-dom: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
     dependencies:
-      '@react-aria/focus': 3.14.3(react@18.2.0)
-      '@react-aria/i18n': 3.8.4(react@18.2.0)
-      '@react-aria/interactions': 3.19.1(react@18.2.0)
-      '@react-aria/utils': 3.21.1(react@18.2.0)
-      '@react-stately/virtualizer': 3.6.4(react@18.2.0)
-      '@react-types/shared': 3.21.0(react@18.2.0)
+      '@react-aria/i18n': 3.9.0(react@18.2.0)
+      '@react-aria/interactions': 3.20.0(react@18.2.0)
+      '@react-aria/utils': 3.22.0(react@18.2.0)
+      '@react-stately/virtualizer': 3.6.5(react@18.2.0)
+      '@react-types/shared': 3.22.0(react@18.2.0)
       '@swc/helpers': 0.5.3
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -3411,7 +3431,7 @@ packages:
     dependencies:
       '@react-stately/collections': 3.10.2(react@18.2.0)
       '@react-stately/table': 3.11.2(react@18.2.0)
-      '@react-stately/virtualizer': 3.6.4(react@18.2.0)
+      '@react-stately/virtualizer': 3.6.5(react@18.2.0)
       '@react-types/grid': 3.2.2(react@18.2.0)
       '@react-types/shared': 3.21.0(react@18.2.0)
       '@react-types/table': 3.9.0(react@18.2.0)
@@ -3607,13 +3627,22 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@react-stately/virtualizer@3.6.4(react@18.2.0):
-    resolution: {integrity: sha512-lf3+FDRnyLyY1IhLfwA6GuE/9F3nIEc5p245NkUSN1ngKlXI5PvLHNatiVbONC3wt90abkpMK+WMhu2S/B+4lA==}
+  /@react-stately/utils@3.9.0(react@18.2.0):
+    resolution: {integrity: sha512-yPKFY1F88HxuZ15BG2qwAYxtpE4HnIU0Ofi4CuBE0xC6I8mwo4OQjDzi+DZjxQngM9D6AeTTD6F1V8gkozA0Gw==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
     dependencies:
-      '@react-aria/utils': 3.21.1(react@18.2.0)
-      '@react-types/shared': 3.21.0(react@18.2.0)
+      '@swc/helpers': 0.5.3
+      react: 18.2.0
+    dev: false
+
+  /@react-stately/virtualizer@3.6.5(react@18.2.0):
+    resolution: {integrity: sha512-v0cZeNCGPMeo3LP4UrGuDo3Xpq7ufNaZyGObgSvdrIW49qK5F02kczcKy6NKg+QfOgC/+Nc9Tof/2S8dcxDrCA==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+    dependencies:
+      '@react-aria/utils': 3.22.0(react@18.2.0)
+      '@react-types/shared': 3.22.0(react@18.2.0)
       '@swc/helpers': 0.5.3
       react: 18.2.0
     dev: false
@@ -3811,6 +3840,14 @@ packages:
 
   /@react-types/shared@3.21.0(react@18.2.0):
     resolution: {integrity: sha512-wJA2cUF8dP4LkuNUt9Vh2kkfiQb2NLnV2pPXxVnKJZ7d4x2/7VPccN+LYPnH8m0X3+rt50cxWuPKQmjxSsCFOg==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+    dependencies:
+      react: 18.2.0
+    dev: false
+
+  /@react-types/shared@3.22.0(react@18.2.0):
+    resolution: {integrity: sha512-yVOekZWbtSmmiThGEIARbBpnmUIuePFlLyctjvCbgJgGhz8JnEJOipLQ/a4anaWfzAgzSceQP8j/K+VOOePleA==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
     dependencies:
@@ -4345,8 +4382,8 @@ packages:
       - graphql
     dev: false
 
-  /@urql/exchange-persisted@3.0.1(graphql@16.8.1):
-    resolution: {integrity: sha512-KDELDmqNe7Z4nbOgF9oE2w3FwkBBfgaORAGZ/3o5jdOeoszpXNfSPRiwUnFyExXMw4rXqyHfDKg5nzvNB7w4Tw==}
+  /@urql/exchange-persisted@4.1.0(graphql@16.8.1):
+    resolution: {integrity: sha512-zB6RcAF1z1TVFOvU8lOv02iUCHpzYVwp5G0aX3PlW3MVE2eueezw9XMzvYsEjXE78Rzz04Irf450YV0dkxKAaQ==}
     dependencies:
       '@urql/core': 4.1.3(graphql@16.8.1)
       wonka: 6.3.4
@@ -6567,6 +6604,10 @@ packages:
       '@formatjs/fast-memoize': 2.2.0
       '@formatjs/icu-messageformat-parser': 2.7.0
       tslib: 2.6.2
+    dev: false
+
+  /iron-webcrypto@0.10.1:
+    resolution: {integrity: sha512-QGOS8MRMnj/UiOa+aMIgfyHcvkhqNUsUxb1XzskENvbo+rEfp6TOwqd1KPuDzXC4OnGHcMSVxDGRoilqB8ViqA==}
     dev: false
 
   /is-alphabetical@1.0.4:
