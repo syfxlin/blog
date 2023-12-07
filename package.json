@@ -45,7 +45,7 @@
     "react-use": "^17.4.0",
     "rss": "^1.2.2",
     "sharp": "^0.32.6",
-    "shikiji": "^0.6.13",
+    "shikiji": "^0.8.0",
     "swr": "^2.2.4"
   },
   "devDependencies": {
