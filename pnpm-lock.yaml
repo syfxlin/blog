@@ -27,8 +27,8 @@ dependencies:
     specifier: ^2.0.0
     version: 2.0.0(@keystatic/core@0.2.3)(next@14.0.4)(react-dom@18.2.0)(react@18.2.0)
   '@markdoc/markdoc':
-    specifier: ^0.3.5
-    version: 0.3.5(@types/react@18.2.37)(react@18.2.0)
+    specifier: ^0.4.0
+    version: 0.4.0(@types/react@18.2.37)(react@18.2.0)
   '@radix-ui/colors':
     specifier: 3.0.0
     version: 3.0.0
@@ -2540,6 +2540,24 @@ packages:
 
   /@markdoc/markdoc@0.3.5(@types/react@18.2.37)(react@18.2.0):
     resolution: {integrity: sha512-Z3agu2wnodoOYd5kzKbtwZduSfX19Kbsg/FlK0TeMn29cTTEEVPJtjfgKSMTN/Wq+kUQXnPtOEhHRgke5d/Xiw==}
+    engines: {node: '>=14.7.0'}
+    peerDependencies:
+      '@types/react': '*'
+      react: '*'
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+      react:
+        optional: true
+    dependencies:
+      '@types/react': 18.2.37
+      react: 18.2.0
+    optionalDependencies:
+      '@types/markdown-it': 12.2.3
+    dev: false
+
+  /@markdoc/markdoc@0.4.0(@types/react@18.2.37)(react@18.2.0):
+    resolution: {integrity: sha512-fSh4P3Y4E7oaKYc2oNzSIJVPDto7SMzAuQN1Iyx53UxzleA6QzRdNWRxmiPqtVDaDi5dELd2yICoG91csrGrAw==}
     engines: {node: '>=14.7.0'}
     peerDependencies:
       '@types/react': '*'
