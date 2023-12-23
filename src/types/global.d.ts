@@ -12,7 +12,6 @@ declare global {
       COLINE_GITHUB_REPO?: string;
       COLINE_GITHUB_TOKEN?: string;
       // keystatic
-      KEYSTATIC_ROOT?: string;
       KEYSTATIC_SECRET?: string;
       KEYSTATIC_GITHUB_CLIENT_ID?: string;
       KEYSTATIC_GITHUB_CLIENT_SECRET?: string;
