@@ -5,7 +5,7 @@ import { Canvas } from "../../root/canvas";
 import { Analytics } from "../../root/analytics";
 import { Providers } from "../../../theme/providers";
 import { ProgressBar } from "../../root/progress-bar";
-import { HelloWorldScript } from "../../scripts/hello-world-script";
+import { HelloWorld } from "../../root/hello-world";
 
 export type RootProps = {
   children: ReactNode;
@@ -17,11 +17,11 @@ export const Root: React.FC<RootProps> = async (props) => {
     <html lang={seo.language} data-theme="light" suppressHydrationWarning>
       <body>
         <Providers>
-          <HelloWorldScript />
           {props.children}
           <Canvas />
           <Analytics />
           <ProgressBar />
+          <HelloWorld />
         </Providers>
       </body>
     </html>
