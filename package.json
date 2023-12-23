@@ -15,7 +15,7 @@
   "scripts": {
     "dev": "next dev",
     "start": "next start",
-    "build": "esno ./src/contents/generate.ts && next build"
+    "build": "next build"
   },
   "dependencies": {
     "@iconify/json": "^2.2.154",

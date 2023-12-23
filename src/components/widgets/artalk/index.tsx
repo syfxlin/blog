@@ -3,7 +3,7 @@ import "artalk/dist/Artalk.css";
 import * as styles from "./styles.css";
 import React, { useEffect } from "react";
 import ArtalkComment from "artalk";
-import { COLINE_ARTALK_SERVER_URL, COLINE_ARTALK_SITE_NAME } from "../../../env/public.mjs";
+import { COLINE_ARTALK_SERVER_URL, COLINE_ARTALK_SITE_NAME } from "../../../env/public";
 import { useTheme } from "next-themes";
 
 type Props = {

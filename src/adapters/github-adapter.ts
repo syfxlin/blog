@@ -1,6 +1,6 @@
 import colors from "gh-lang-colors";
 import { Adapter, AdapterError } from "./adapter";
-import { COLINE_GITHUB_TOKEN } from "../env/private.mjs";
+import { COLINE_GITHUB_TOKEN } from "../env/private";
 
 export type GithubRequest = {
   repo: string;
@@ -26,7 +26,7 @@ export class GithubAdapter extends Adapter<GithubRequest, GithubResponse> {
 
   async query(params: GithubRequest): Promise<GithubResponse> {
     const response = await fetch(`https://api.github.com/repos/${params.repo}`, {
-      headers: COLINE_GITHUB_TOKEN ? { Authorization: `Bearer ${COLINE_GITHUB_TOKEN}1` } : {},
+      headers: COLINE_GITHUB_TOKEN ? { Authorization: `Bearer ${COLINE_GITHUB_TOKEN}` } : {},
       next: { revalidate: 43200 },
     });
 

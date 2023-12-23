@@ -1,5 +1,5 @@
-import config from "../keystatic.config";
-import { makeReader as makePro } from "./make-reader.pro";
-import { makeReader as makeDev } from "./make-reader.dev";
+import config from "../../keystatic.config";
+import { createReader } from "@keystatic/core/reader";
+import { KEYSTATIC_ROOT } from "../env/private.mjs";
 
-export const reader = process.env.NODE_ENV === "production" ? makePro(config) : makeDev(config);
+export const reader = createReader(KEYSTATIC_ROOT ?? ".", config);
