@@ -32,6 +32,9 @@ dependencies:
   '@radix-ui/colors':
     specifier: 3.0.0
     version: 3.0.0
+  '@syfxlin/reks':
+    specifier: ^1.0.0
+    version: 1.0.0(@keystatic/core@0.2.6)(@markdoc/markdoc@0.4.0)
   '@syfxlin/reve':
     specifier: ^1.0.5
     version: 1.0.5(@vanilla-extract/css@1.14.0)
@@ -4149,6 +4152,16 @@ packages:
     resolution: {integrity: sha512-FaruWX6KdudYloq1AHD/4nU+UsMTdNE8CKyrseXWEcgjDAbvkwJg2QGPAnfIJLIWsjZOSPLOAykK6fuYp4vp4A==}
     dependencies:
       tslib: 2.6.2
+    dev: false
+
+  /@syfxlin/reks@1.0.0(@keystatic/core@0.2.6)(@markdoc/markdoc@0.4.0):
+    resolution: {integrity: sha512-i2dZ799NpUUIOjwaUtzkKUPJ4zVL33xXdcupqWnYaK9OV+b7RCDZABru6MhE2zZbrjxYfe+Sep/TydQLauFCMg==}
+    peerDependencies:
+      '@keystatic/core': ^0.1.6
+      '@markdoc/markdoc': ^0.4.0
+    dependencies:
+      '@keystatic/core': 0.2.6(next@14.0.4)(react-dom@18.2.0)(react@18.2.0)
+      '@markdoc/markdoc': 0.4.0(@types/react@18.2.42)(react@18.2.0)
     dev: false
 
   /@syfxlin/reve@1.0.5(@vanilla-extract/css@1.14.0):

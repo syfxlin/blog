@@ -1,5 +1,5 @@
 import { collection, component, config, singleton } from "@keystatic/core";
-import { fields } from "./contents/fields";
+import { fields } from "@syfxlin/reks";
 import { Katex } from "./components/docs/katex/preview";
 import { Github } from "./components/docs/github/preview";
 import { Article } from "./components/docs/article/preview";
