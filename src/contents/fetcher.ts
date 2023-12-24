@@ -1,9 +1,9 @@
 import React from "react";
+import { utils } from "@syfxlin/reks";
 import { reader } from "./reader";
 import { IS_DEV } from "../env/public";
 import { slugger } from "./slugger";
 import { resolve } from "../utils/vender";
-import { document, pagination } from "@syfxlin/reks";
 import {
   ArticleData,
   AuthorData,
@@ -84,7 +84,7 @@ const home: SingletonResult<HomeData> = React.cache(async () => {
   }
   return {
     display: info.display,
-    content: document(info.content),
+    content: utils.document(info.content),
   } as HomeData;
 });
 
@@ -95,7 +95,7 @@ const friends: SingletonResult<FriendsData> = React.cache(async () => {
   }
   return {
     display: info.display,
-    content: document(info.content),
+    content: utils.document(info.content),
     links: info.links,
     lost_links: info.lost_links,
   } as FriendsData;
@@ -108,7 +108,7 @@ const projects: SingletonResult<ProjectsData> = React.cache(async () => {
   }
   return {
     display: info.display,
-    content: document(info.content),
+    content: utils.document(info.content),
     categories: info.categories,
   } as ProjectsData;
 });
@@ -124,7 +124,7 @@ const pages: CollectionResult<ArticleData, PageData<ArticleData>> = React.cache(
     }
 
     const year = String(new Date(entry.published_time).getFullYear());
-    const body = document(entry.body);
+    const body = utils.document(entry.body);
     results.push({
       title: entry.title,
       slug: info.slug.toLowerCase(),
@@ -149,7 +149,7 @@ const pages: CollectionResult<ArticleData, PageData<ArticleData>> = React.cache(
   }
 
   const items = results.sort((a, b) => b.published.getTime() - a.published.getTime());
-  const pages = pagination(10, items);
+  const pages = utils.pagination(10, items);
 
   return {
     items,
@@ -168,7 +168,7 @@ const posts: CollectionResult<ArticleData, PageData<ArticleData>> = React.cache(
     }
 
     const year = String(new Date(entry.published_time).getFullYear());
-    const body = document(entry.body);
+    const body = utils.document(entry.body);
     results.push({
       title: entry.title,
       slug: info.slug.toLowerCase(),
@@ -205,7 +205,7 @@ const posts: CollectionResult<ArticleData, PageData<ArticleData>> = React.cache(
   }
 
   const items = results.sort((a, b) => b.published.getTime() - a.published.getTime());
-  const pages = pagination(10, items);
+  const pages = utils.pagination(10, items);
 
   return {
     items,
@@ -240,7 +240,7 @@ const categories: CollectionResult<GroupData<ArticleData>, Array<GroupPageData<A
       name: item.name,
       slug: item.slug,
       link: item.link,
-      ...pagination(10, item.items),
+      ...utils.pagination(10, item.items),
     });
   }
 
@@ -277,7 +277,7 @@ const tags: CollectionResult<GroupData<ArticleData>, Array<GroupPageData<Article
       name: item.name,
       slug: item.slug,
       link: item.link,
-      ...pagination(10, item.items),
+      ...utils.pagination(10, item.items),
     });
   }
 
@@ -312,7 +312,7 @@ const archives: CollectionResult<GroupData<ArticleData>, Array<GroupPageData<Art
       name: item.name,
       slug: item.slug,
       link: item.link,
-      ...pagination(10, item.items),
+      ...utils.pagination(10, item.items),
     });
   }
 
