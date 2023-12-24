@@ -1,5 +1,8 @@
-import config from "../keystatic.config";
-import { makeReader as makePro } from "./make-reader.pro";
-import { makeReader as makeDev } from "./make-reader.dev";
+import path from "path";
+import config from "../../keystatic.config";
+import { createReader } from "@keystatic/core/reader";
 
-export const reader = process.env.NODE_ENV === "production" ? makePro(config) : makeDev(config);
+// fix vercel build
+export const root = path.resolve("public/content");
+
+export const reader = createReader(".", config);
