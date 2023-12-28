@@ -10,8 +10,8 @@ export type RssProps = {
 
 export const Blog: React.FC<RssProps> = ({ icon }) => {
   return (
-    <LinkButton tippy aria-label="博客" href={resolve("page", 1)} className={styles.elastic}>
-      <span>博客</span>
+    <LinkButton tippy aria-label="创作" href={resolve("page", 1)} className={styles.elastic}>
+      <span>创作</span>
       {icon}
     </LinkButton>
   );
