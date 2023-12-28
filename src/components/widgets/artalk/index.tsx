@@ -1,7 +1,8 @@
 "use client";
 import "artalk/dist/Artalk.css";
 import * as styles from "./styles.css";
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
+import type ArtalkComment from "artalk";
 import { COLINE_ARTALK_SERVER_URL, COLINE_ARTALK_SITE_NAME } from "../../../env/public";
 import { useTheme } from "next-themes";
 
@@ -12,17 +13,26 @@ type Props = {
 
 export const Artalk: React.FC<Props> = ({ name, link }) => {
   const { resolvedTheme } = useTheme();
+  const artalk = useRef<ArtalkComment>();
+  const element = useRef<HTMLElement>(null);
   useEffect(() => {
     import("artalk").then((mod) => {
-      new mod.default({
-        el: `#artalk`,
-        pageTitle: name,
-        pageKey: link,
-        darkMode: resolvedTheme === "dark",
-        server: COLINE_ARTALK_SERVER_URL,
-        site: COLINE_ARTALK_SITE_NAME,
-      });
+      if (element.current) {
+        artalk.current = new mod.default({
+          el: element.current,
+          pageTitle: name,
+          pageKey: link,
+          darkMode: resolvedTheme === "dark",
+          server: COLINE_ARTALK_SERVER_URL,
+          site: COLINE_ARTALK_SITE_NAME,
+        });
+      }
     });
+    return () => {
+      if (artalk.current) {
+        artalk.current?.destroy();
+      }
+    };
   }, [name, link, resolvedTheme]);
-  return <section id="artalk" aria-label="评论系统" className={styles.container} />;
+  return <section ref={element} aria-label="评论系统" className={styles.container} />;
 };
