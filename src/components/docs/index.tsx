@@ -20,6 +20,7 @@ import { Blockquote } from "./blockquote";
 import { cx } from "@syfxlin/reve";
 import { DocumentElement } from "@keystatic/core";
 import { Layout } from "./layout";
+import { Articles } from "./articles";
 
 export const renderers: DocumentRendererProps["renderers"] = {
   inline: {
@@ -44,6 +45,7 @@ export const components: DocumentRendererProps["componentBlocks"] = {
   github: Github,
   article: Article,
   message: Message,
+  articles: Articles,
 };
 
 export type RendererProps = {

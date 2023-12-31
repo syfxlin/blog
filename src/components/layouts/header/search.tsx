@@ -12,7 +12,7 @@ export const Search: React.FC<SearchProps> = ({ icon }) => {
   const [active, setActive] = useState(false);
   return (
     <>
-      <Button tippy aria-label="搜索" onClick={() => setActive((p) => !p)} className={styles.always_icon}>
+      <Button tippy aria-label="搜索" onClick={() => setActive((p) => !p)} className={styles.view_icon}>
         <span>搜索</span>
         {icon}
       </Button>

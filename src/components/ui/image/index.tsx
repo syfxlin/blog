@@ -3,6 +3,7 @@ import * as styles from "./styles.css";
 import React, { forwardRef, HTMLAttributes, useMemo } from "react";
 import NImage from "next/image";
 import { cx, sx } from "@syfxlin/reve";
+import { breakpoints } from "../../../theme/tokens";
 
 const parse = (src: string) => {
   const exec = /\.(\d+)x(\d+)(\.\w+)$/.exec(src);
@@ -40,13 +41,15 @@ export const Image = forwardRef<HTMLDivElement, ImageProps>(({ src, alt, ...prop
           style={{ paddingBottom: `${((parsed.sizes.height / parsed.sizes.width) * 100).toFixed(4)}%` }}
         />
       )}
+      {/*prettier-ignore*/}
       <NImage
         src={parsed.src}
         alt={alt ?? "image"}
         blurDataURL={parsed.blurDataURL}
         placeholder={parsed.blurDataURL ? "blur" : "empty"}
         className={styles.image}
-        {...(parsed.sizes ? parsed.sizes : { fill: true, sizes: "50vw" })}
+        sizes={Object.values(breakpoints).map((p) => `(max-width: ${p}) 100vw`).join(",")}
+        {...(parsed.sizes ? parsed.sizes : { fill: true })}
       />
     </span>
   );

@@ -26,10 +26,11 @@ export const Header: React.FC = async () => {
             href={item.link}
             aria-label={item.title}
             className={cx(
-              item.view === "always" && styles.always,
-              item.view === "elastic" && styles.elastic,
-              item.view === "always-icon" && styles.always_icon,
-              item.view === "elastic-icon" && styles.elastic_icon,
+              item.view === "text" && styles.view_text,
+              item.view === "icon" && styles.view_icon,
+              item.view === "elastic" && styles.view_elastic,
+              item.view === "elastic-text" && styles.view_elastic_text,
+              item.view === "elastic-icon" && styles.view_elastic_icon,
             )}
           >
             <span>{item.title}</span>
