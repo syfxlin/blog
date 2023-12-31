@@ -5,6 +5,7 @@ import { Github } from "./src/components/docs/github/preview";
 import { Article } from "./src/components/docs/article/preview";
 import { Message } from "./src/components/docs/message/preview";
 import { COLINE_GITHUB_REPO, IS_DEV } from "./src/env/private";
+import { Articles } from "./src/components/docs/articles/preview";
 
 const storage = () => {
   if (IS_DEV || !COLINE_GITHUB_REPO) {
@@ -84,6 +85,13 @@ const content = (path: string) => {
         },
         preview: (props) => {
           return <Message type={props.fields.type.value as any}>{props.fields.children.value}</Message>;
+        },
+      }),
+      articles: component({
+        label: "Articles",
+        schema: {},
+        preview: () => {
+          return <Articles />;
         },
       }),
     },
@@ -321,9 +329,10 @@ export default config({
               label: "显示模式",
               defaultValue: "elastic",
               options: [
-                { label: "总是显示描述", value: "always" },
-                { label: "弹性显示描述", value: "elastic" },
-                { label: "总是显示图标", value: "always-icon" },
+                { label: "总是显示描述", value: "text" },
+                { label: "总是显示图标", value: "icon" },
+                { label: "弹性图标描述", value: "elastic" },
+                { label: "弹性显示描述", value: "elastic-text" },
                 { label: "弹性显示图标", value: "elastic-icon" },
               ],
             }),

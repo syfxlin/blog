@@ -12,7 +12,7 @@ export const Theme: React.FC<ThemeProps> = ({ icon }) => {
   const { theme, resolvedTheme, setTheme } = useTheme();
   return (
     <Button
-      className={styles.always_icon}
+      className={styles.view_icon}
       aria-label="切换暗色模式"
       tippy={{ content: `当前模式：${theme === "system" ? `${theme} (${resolvedTheme})` : theme}` }}
       onClick={() => {

@@ -38,7 +38,7 @@ export interface HeaderData {
     title: string;
     link: string;
     icon: string;
-    view: "always" | "elastic" | "always-icon" | "elastic-icon";
+    view: "text" | "icon" | "elastic" | "elastic-text" | "elastic-icon";
   }>;
 }
 
