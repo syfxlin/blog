@@ -19,6 +19,7 @@ import { DocumentRendererProps } from "@keystatic/core/dist/declarations/src/ren
 import { Blockquote } from "./blockquote";
 import { cx } from "@syfxlin/reve";
 import { DocumentElement } from "@keystatic/core";
+import { Layout } from "./layout";
 
 export const renderers: DocumentRendererProps["renderers"] = {
   inline: {
@@ -30,6 +31,7 @@ export const renderers: DocumentRendererProps["renderers"] = {
     list: List,
     image: Image,
     table: Table,
+    layout: Layout,
     divider: Divider,
     heading: Heading,
     paragraph: Paragraph,
