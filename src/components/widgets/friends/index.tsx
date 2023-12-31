@@ -24,6 +24,7 @@ export const Friends: React.FC<FriendsProps> = ({ data }) => {
             href={i.link}
             aria-label={`友链：${i.name}`}
             target="_blank"
+            rel="nofollow noopener"
           >
             <Image src={i.avatar} alt={i.name} className={styles.avatar} />
             <span className={styles.section}>
