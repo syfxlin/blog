@@ -10,8 +10,7 @@ const storage = () => {
   if (IS_DEV || !COLINE_GITHUB_REPO) {
     return { kind: "local" } as const;
   } else {
-    const [name, repo] = COLINE_GITHUB_REPO.split("/");
-    return { kind: "github", repo: { owner: name, name: repo } } as const;
+    return { kind: "github", repo: COLINE_GITHUB_REPO as `${string}/${string}` } as const;
   }
 };
 
