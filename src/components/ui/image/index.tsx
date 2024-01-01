@@ -12,13 +12,11 @@ const parse = (src: string) => {
     const height = parseInt(exec[2]);
     return {
       src: src,
-      blurDataURL: `/_next/image?w=8&q=70&url=${encodeURIComponent(src)}`,
       sizes: { width, height },
     };
   } else {
     return {
       src: src,
-      blurDataURL: `/_next/image?w=8&q=70&url=${encodeURIComponent(src)}`,
       sizes: undefined,
     };
   }
@@ -45,10 +43,9 @@ export const Image = forwardRef<HTMLDivElement, ImageProps>(({ src, alt, ...prop
       <NImage
         src={parsed.src}
         alt={alt ?? "image"}
-        blurDataURL={parsed.blurDataURL}
-        placeholder={parsed.blurDataURL ? "blur" : "empty"}
-        className={styles.image}
         sizes={Object.values(breakpoints).map((p) => `(max-width: ${p}) 100vw`).join(",")}
+        className={styles.image}
+        placeholder="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 160'%3E%3Cfilter id='b' color-interpolation-filters='sRGB'%3E%3CfeGaussianBlur stdDeviation='20'/%3E%3CfeColorMatrix values='1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 100 -1' result='s'/%3E%3CfeFlood x='0' y='0' width='100%25' height='100%25'/%3E%3CfeComposite operator='out' in='s'/%3E%3CfeComposite in2='SourceGraphic'/%3E%3CfeGaussianBlur stdDeviation='20'/%3E%3C/filter%3E%3Cimage width='100%25' height='100%25' x='0' y='0' preserveAspectRatio='none' style='filter: url(%23b);' href='data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=='/%3E%3C/svg%3E"
         {...(parsed.sizes ? parsed.sizes : { fill: true })}
       />
     </span>
