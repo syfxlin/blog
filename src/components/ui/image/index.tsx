@@ -12,12 +12,16 @@ const parse = (src: string) => {
     const height = parseInt(exec[2]);
     return {
       src: src,
-      sizes: { width, height },
+      fill: false,
+      width: width,
+      height: height,
     };
   } else {
     return {
       src: src,
-      sizes: undefined,
+      fill: true,
+      width: undefined,
+      height: undefined,
     };
   }
 };
@@ -31,22 +35,24 @@ export const Image = forwardRef<HTMLDivElement, ImageProps>(({ src, alt, ...prop
       {...props}
       ref={ref}
       className={cx(styles.container, props.className)}
-      style={sx(props.style, { maxWidth: parsed.sizes ? `${parsed.sizes.width}px` : `100%` })}
+      style={sx(props.style, { maxWidth: parsed.width !== undefined ? `${parsed.width}px` : `100%` })}
     >
-      {parsed.sizes && (
+      {parsed.width !== undefined && parsed.height !== undefined && (
         <span
           className={styles.placeholder}
-          style={{ paddingBottom: `${((parsed.sizes.height / parsed.sizes.width) * 100).toFixed(4)}%` }}
+          style={{ paddingBottom: `${((parsed.height / parsed.width) * 100).toFixed(4)}%` }}
         />
       )}
       {/*prettier-ignore*/}
       <NImage
         src={parsed.src}
         alt={alt ?? "image"}
+        fill={parsed.fill}
         sizes={Object.values(breakpoints).map((p) => `(max-width: ${p}) 100vw`).join(",")}
+        width={parsed.width}
+        height={parsed.height}
         className={styles.image}
         placeholder="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 160'%3E%3Cfilter id='b' color-interpolation-filters='sRGB'%3E%3CfeGaussianBlur stdDeviation='20'/%3E%3CfeColorMatrix values='1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 100 -1' result='s'/%3E%3CfeFlood x='0' y='0' width='100%25' height='100%25'/%3E%3CfeComposite operator='out' in='s'/%3E%3CfeComposite in2='SourceGraphic'/%3E%3CfeGaussianBlur stdDeviation='20'/%3E%3C/filter%3E%3Cimage width='100%25' height='100%25' x='0' y='0' preserveAspectRatio='none' style='filter: url(%23b);' href='data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=='/%3E%3C/svg%3E"
-        {...(parsed.sizes ? parsed.sizes : { fill: true })}
       />
     </span>
   );
