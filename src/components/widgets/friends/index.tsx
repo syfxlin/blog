@@ -22,7 +22,7 @@ export const Friends: React.FC<FriendsProps> = ({ data }) => {
             key={`link-${i.link}`}
             className={styles.link}
             href={i.link}
-            aria-label={`友链：${i.name}`}
+            aria-label={i.name}
             target="_blank"
             rel="nofollow noopener"
           >

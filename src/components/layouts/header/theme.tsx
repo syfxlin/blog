@@ -3,6 +3,7 @@ import React, { ReactNode } from "react";
 import { useTheme } from "next-themes";
 import { Button } from "../../ui/button";
 import * as styles from "./styles.css";
+import { t } from "../../../locales";
 
 export type ThemeProps = {
   icon: ReactNode;
@@ -13,8 +14,8 @@ export const Theme: React.FC<ThemeProps> = ({ icon }) => {
   return (
     <Button
       className={styles.view_icon}
-      aria-label="切换暗色模式"
-      tooltip={{ content: `当前模式：${theme === "system" ? `${theme} (${resolvedTheme})` : theme}` }}
+      aria-label={t("theme.switch")}
+      tooltip={{ content: t("theme.mode", theme === "system" ? `${theme} (${resolvedTheme})` : theme) }}
       onClick={() => {
         if (theme === "system") {
           setTheme("light");
@@ -25,7 +26,7 @@ export const Theme: React.FC<ThemeProps> = ({ icon }) => {
         }
       }}
     >
-      <span>主题</span>
+      <span>{t("theme.name")}</span>
       {icon}
     </Button>
   );

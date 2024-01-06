@@ -23,7 +23,6 @@ export interface GroupPageData<V> extends PageData<V> {
 }
 
 export interface SeoData {
-  language: string;
   link: string;
   logo: string;
   title: string;

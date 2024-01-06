@@ -27,7 +27,6 @@ const seo: SingletonResult<SeoData> = React.cache(async () => {
     throw new TypeError("No seo data configured.");
   }
   return {
-    language: info.language,
     link: info.link,
     logo: info.logo,
     title: info.title,

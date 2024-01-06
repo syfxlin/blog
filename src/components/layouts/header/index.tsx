@@ -9,13 +9,14 @@ import { Theme } from "./theme";
 import { Search } from "./search";
 import { Iconify } from "../../ui/iconify";
 import { Blog } from "./blog";
+import { t } from "../../../locales";
 
 export const Header: React.FC = async () => {
   const [seo, header] = await Promise.all([fetcher.seo(), fetcher.header()]);
   return (
     <header className={styles.container}>
-      <LinkButton className={styles.left} aria-label="首页" href="/">
-        <Image className={styles.logo} src={seo.logo} alt="站点图标" />
+      <LinkButton className={styles.left} aria-label={t("header.home")} href="/">
+        <Image className={styles.logo} src={seo.logo} alt={t("header.icon")} />
       </LinkButton>
       <div className={styles.right}>
         <Blog icon={<Iconify icon="ri:article-line" />} />
