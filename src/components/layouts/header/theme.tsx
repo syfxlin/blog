@@ -14,7 +14,7 @@ export const Theme: React.FC<ThemeProps> = ({ icon }) => {
     <Button
       className={styles.view_icon}
       aria-label="切换暗色模式"
-      tippy={{ content: `当前模式：${theme === "system" ? `${theme} (${resolvedTheme})` : theme}` }}
+      tooltip={{ content: `当前模式：${theme === "system" ? `${theme} (${resolvedTheme})` : theme}` }}
       onClick={() => {
         if (theme === "system") {
           setTheme("light");

@@ -12,12 +12,12 @@ export type MetaInfoProps = {
 export const MetaInfo: React.FC<MetaInfoProps> = ({ data }) => {
   return (
     <div className={styles.container}>
-      <Link tippy href={data.archives.link} className={styles.link} aria-label={`归档：${data.archives.name}`}>
+      <Link tooltip href={data.archives.link} className={styles.link} aria-label={`归档：${data.archives.name}`}>
         {date(data.published)}
       </Link>
       {ago(data.published, data.modified) > 1 && (
         <Link
-          tippy
+          tooltip
           href={data.archives.link}
           className={styles.link}
           aria-label={`修改于 ${ago(new Date(), data.modified)} 天前`}
@@ -29,7 +29,7 @@ export const MetaInfo: React.FC<MetaInfoProps> = ({ data }) => {
       {data.categories
         ?.slice(0, 2)
         .map((i) => (
-          <Link key={`category-${i.link}`} tippy href={i.link} aria-label={`分类：${i.name}`} className={styles.link}>
+          <Link key={`category-${i.link}`} tooltip href={i.link} aria-label={`分类：${i.name}`} className={styles.link}>
             {i.name}
           </Link>
         ))
@@ -44,7 +44,7 @@ export const MetaInfo: React.FC<MetaInfoProps> = ({ data }) => {
       {data.tags
         ?.slice(0, 3)
         .map((i) => (
-          <Link key={`tag-${i.link}`} tippy href={i.link} aria-label={`标签：${i.name}`} className={styles.link}>
+          <Link key={`tag-${i.link}`} tooltip href={i.link} aria-label={`标签：${i.name}`} className={styles.link}>
             {i.name}
           </Link>
         ))

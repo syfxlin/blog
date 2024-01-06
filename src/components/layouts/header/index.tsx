@@ -21,7 +21,7 @@ export const Header: React.FC = async () => {
         <Blog icon={<Iconify icon="ri:article-line" />} />
         {header.main.map((item) => (
           <LinkButton
-            tippy
+            tooltip
             key={`nav-${item.link}`}
             href={item.link}
             aria-label={item.title}
