@@ -16,13 +16,13 @@ export type LinkButtonProps = AnchorHTMLAttributes<HTMLAnchorElement> & LinkProp
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(({ tooltip, unstyled, ...props }, ref) => {
   const element = <button {...props} className={cx(props.className, !unstyled && styles.button)} ref={ref} />;
-  return tooltip
-    ? (
-      <Tippy animation="shift-away" content={props["aria-label"]} {...(typeof tooltip === "boolean" ? {} : tooltip)}>
-        {element}
-      </Tippy>
-      )
-    : (
+  return tooltip ?
+      (
+        <Tippy animation="shift-away" content={props["aria-label"]} {...(typeof tooltip === "boolean" ? {} : tooltip)}>
+          {element}
+        </Tippy>
+      ) :
+      (
         element
       );
 });
@@ -33,26 +33,26 @@ export const LinkButton = forwardRef<HTMLAnchorElement, LinkButtonProps>(
       const element = (
         <a {...props} className={cx(props.className, !unstyled && styles.button)} href={href} ref={ref} />
       );
-      return tooltip
-        ? (
-          <Tippy animation="shift-away" content={props["aria-label"]} {...(typeof tooltip === "boolean" ? {} : tooltip)}>
-            {element}
-          </Tippy>
-          )
-        : (
+      return tooltip ?
+          (
+            <Tippy animation="shift-away" content={props["aria-label"]} {...(typeof tooltip === "boolean" ? {} : tooltip)}>
+              {element}
+            </Tippy>
+          ) :
+          (
             element
           );
     } else {
       const element = (
         <Link {...props} className={cx(props.className, !unstyled && styles.button)} href={href} ref={ref} />
       );
-      return tooltip
-        ? (
-          <Tippy animation="shift-away" content={props["aria-label"]} {...(typeof tooltip === "boolean" ? {} : tooltip)}>
-            {element}
-          </Tippy>
-          )
-        : (
+      return tooltip ?
+          (
+            <Tippy animation="shift-away" content={props["aria-label"]} {...(typeof tooltip === "boolean" ? {} : tooltip)}>
+              {element}
+            </Tippy>
+          ) :
+          (
             element
           );
     }
