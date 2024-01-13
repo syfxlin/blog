@@ -1,9 +1,9 @@
 import React from "react";
 import { utils } from "@syfxlin/reks";
-import { reader } from "./reader";
 import { IS_DEV } from "../env/public";
-import { slugger } from "./slugger";
 import { resolve } from "../utils/vender";
+import { reader } from "./reader";
+import { slugger } from "./slugger";
 import {
   ArticleData,
   AuthorData,
@@ -212,7 +212,6 @@ const posts: CollectionResult<ArticleData, PageData<ArticleData>> = React.cache(
   };
 });
 
-// prettier-ignore
 const categories: CollectionResult<GroupData<ArticleData>, Array<GroupPageData<ArticleData>>> = React.cache(async () => {
   const query = await posts();
 
@@ -249,7 +248,6 @@ const categories: CollectionResult<GroupData<ArticleData>, Array<GroupPageData<A
   };
 });
 
-// prettier-ignore
 const tags: CollectionResult<GroupData<ArticleData>, Array<GroupPageData<ArticleData>>> = React.cache(async () => {
   const query = await posts();
 
@@ -286,7 +284,6 @@ const tags: CollectionResult<GroupData<ArticleData>, Array<GroupPageData<Article
   };
 });
 
-// prettier-ignore
 const archives: CollectionResult<GroupData<ArticleData>, Array<GroupPageData<ArticleData>>> = React.cache(async () => {
   const query = await posts();
 
