@@ -1,10 +1,10 @@
 {
   "name": "@syfxlin/blog",
+  "type": "module",
   "version": "0.0.0-semantic-release",
+  "private": true,
   "description": "Otstar's Blog",
   "author": "syfxlin <i@ixk.me>",
-  "private": true,
-  "type": "module",
   "keywords": [
     "blog",
     "next-blog",
@@ -52,6 +52,7 @@
   },
   "devDependencies": {
     "@next/bundle-analyzer": "14.0.4",
+    "@syfxlin/eslint-config": "^1.0.2",
     "@types/fs-extra": "^11.0.4",
     "@types/katex": "^0.16.7",
     "@types/next-pwa": "^5.6.9",
@@ -59,28 +60,11 @@
     "@types/react": "^18.2.45",
     "@types/react-dom": "^18.2.18",
     "@types/rss": "^0.0.32",
-    "@typescript-eslint/eslint-plugin": "^6.16.0",
-    "@typescript-eslint/parser": "^6.16.0",
     "@vanilla-extract/next-plugin": "^2.3.2",
     "esbuild": "^0.19.10",
     "eslint": "^8.56.0",
-    "eslint-config-next": "14.0.4",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-prettier": "^5.1.2",
     "esno": "^4.0.0",
-    "prettier": "^3.1.1",
     "typescript": "^5.3.3",
     "webpack": "^5.89.0"
-  },
-  "pnpm": {
-    "overrides": {
-      "@opentelemetry/api": "1.4.1",
-      "@opentelemetry/core": "1.13.0",
-      "@opentelemetry/exporter-trace-otlp-grpc": "0.39.1",
-      "@opentelemetry/resources": "1.13.0",
-      "@opentelemetry/sdk-trace-base": "1.13.0",
-      "@opentelemetry/sdk-trace-node": "1.13.0",
-      "@opentelemetry/semantic-conventions": "1.13.0"
-    }
   }
 }

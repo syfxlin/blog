@@ -15,10 +15,11 @@ jobs:
         uses: denoland/setup-deno@v1
       - name: Setup Depker
         run: |
-          deno install -A https://raw.githubusercontent.com/syfxlin/depker/master/depker.ts --root /usr/local --name depker
+          wget -O /usr/local/bin/depker https://github.com/syfxlin/depker/releases/latest/download/depker.linux.amd64
+          chmod +x /usr/local/bin/depker
       - name: Deploy to docker
         run: |
-          echo "$SECRETS_ENV" > .env
+          depker --version
           depker service deploy
         env:
           TZ: Asia/Shanghai
@@ -26,4 +27,3 @@ jobs:
           REMOTE_CA: ${{ secrets.REMOTE_CA }}
           REMOTE_CERT: ${{ secrets.REMOTE_CERT }}
           REMOTE_KEY: ${{ secrets.REMOTE_KEY }}
-          SECRETS_ENV: ${{ secrets.SECRETS_ENV }}
