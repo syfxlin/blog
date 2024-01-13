@@ -21,18 +21,18 @@ const query = React.cache(async (_slug: string) => {
       if (curr.slug === slug) {
         return {
           data: curr,
-          prev: prev
-            ? {
+          prev: prev ?
+              {
                 name: prev.title,
                 link: prev.link,
-              }
-            : undefined,
-          next: next
-            ? {
+              } :
+            undefined,
+          next: next ?
+              {
                 name: next.title,
                 link: next.link,
-              }
-            : undefined,
+              } :
+            undefined,
         };
       }
     }

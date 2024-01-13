@@ -8,15 +8,15 @@ export interface DividerProps {
 
 export const Divider: React.FC<DividerProps> = ({ orientation }) => {
   const span = <span className={styles.container} />;
-  return orientation === "vertical"
-    ? (
+  return orientation === "vertical" ?
+      (
         span
-      )
-    : (
-      <div>
-        {span}
-        {span}
-        {span}
-      </div>
+      ) :
+      (
+        <div>
+          {span}
+          {span}
+          {span}
+        </div>
       );
 };

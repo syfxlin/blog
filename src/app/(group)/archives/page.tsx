@@ -46,10 +46,10 @@ const query = React.cache(async () => {
 export async function generateMetadata(): Promise<Metadata> {
   const data = await query();
   if (
-    data.articles.length === 0
-    && data.archives.length === 0
-    && data.categories.length === 0
-    && data.tags.length === 0
+    data.articles.length === 0 &&
+    data.archives.length === 0 &&
+    data.categories.length === 0 &&
+    data.tags.length === 0
   ) {
     return notFound();
   }
@@ -62,10 +62,10 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function ArchivesPage() {
   const data = await query();
   if (
-    data.articles.length === 0
-    && data.archives.length === 0
-    && data.categories.length === 0
-    && data.tags.length === 0
+    data.articles.length === 0 &&
+    data.archives.length === 0 &&
+    data.categories.length === 0 &&
+    data.tags.length === 0
   ) {
     return notFound();
   }
