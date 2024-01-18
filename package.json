@@ -35,7 +35,7 @@
     "github-slugger": "^2.0.0",
     "katex": "^0.16.9",
     "medium-zoom": "^1.1.0",
-    "next": "14.0.4",
+    "next": "14.1.0",
     "next-pwa": "^5.6.0",
     "next-themes": "^0.2.1",
     "nextjs-google-analytics": "^2.3.3",
@@ -51,7 +51,7 @@
     "swr": "^2.2.4"
   },
   "devDependencies": {
-    "@next/bundle-analyzer": "14.0.4",
+    "@next/bundle-analyzer": "14.1.0",
     "@syfxlin/eslint-config": "^1.0.2",
     "@types/fs-extra": "^11.0.4",
     "@types/katex": "^0.16.7",
