@@ -15,8 +15,8 @@ dependencies:
     specifier: ^0.2.12
     version: 0.2.12(next@14.1.0)(react-dom@18.2.0)(react@18.2.0)
   '@keystatic/next':
-    specifier: ^2.0.1
-    version: 2.0.1(@keystatic/core@0.2.12)(next@14.1.0)(react-dom@18.2.0)(react@18.2.0)
+    specifier: ^3.0.0
+    version: 3.0.0(@keystatic/core@0.2.12)(next@14.1.0)(react-dom@18.2.0)(react@18.2.0)
   '@markdoc/markdoc':
     specifier: ^0.4.0
     version: 0.4.0(@types/react@18.2.48)(react@18.2.0)
@@ -2261,8 +2261,8 @@ packages:
       - supports-color
     dev: false
 
-  /@keystatic/next@2.0.1(@keystatic/core@0.2.12)(next@14.1.0)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-IpN8TlH0CMFcoil4pDJBbjkMXJttEfnLRMPxgl6yxhH/hgGcDQ2vLo4P6fMXm2JCyE0iIm4xIxO6UwoeDNH0kw==}
+  /@keystatic/next@3.0.0(@keystatic/core@0.2.12)(next@14.1.0)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-6snsE7mQDHYxuZzjjZrlRvAKTLbDp3+sCVjz8PsltHPwbJuYhs1WaDw66b8on2XKiUXRF6qRIh2nyXZ2d1K30g==}
     peerDependencies:
       '@keystatic/core': '*'
       next: 13 || 14
