@@ -1,0 +1,17 @@
+name: Sync Repo
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+jobs:
+  sync:
+    name: Sync
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sync
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          token: ${{ secrets.SYNC_NTC_TOKEN }}
+          repository: syfxlin/next-theme-coline
+          event-type: sync-repo
