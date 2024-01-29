@@ -51,23 +51,30 @@ export const list = styled.css`
 `;
 
 export const item = styled.css`
+  margin: 0 ${theme.spacing.calc(2.5)};
+  color: ${theme.color.text.description};
+  font-size: ${theme.fontSize.calc(0.9)};
+  text-align: start;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow-x: hidden;
+
   a {
     display: inline;
-    text-align: start;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow-x: hidden;
     font-size: ${theme.fontSize.calc(0.9)};
-    margin: 0 ${theme.spacing.calc(2.5)};
     color: ${theme.color.text.description};
     border: none;
-    transition: color 0.3s, color 0.3s, background-color 0.3s;
+    transition: background-size 0.3s, color 0.3s, background-color 0.3s;
+    background: linear-gradient(to right, transparent, transparent), linear-gradient(to right, ${theme.color.background.focus}, ${theme.color.background.focus});
+    background-size: 100% 40%, 0 40%;
+    background-repeat: no-repeat;
+    background-position: 100% 100%, 0 100%;
 
     &.active,
     &:hover,
     &:focus,
     &:active {
-      color: ${theme.color.text.primary};
+      background-size: 0 40%, 100% 40%;
     }
   }
 `;
