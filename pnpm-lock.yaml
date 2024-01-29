@@ -93,8 +93,8 @@ dependencies:
     specifier: ^0.32.6
     version: 0.32.6
   shikiji:
-    specifier: 0.10.0-beta.8
-    version: 0.10.0-beta.8
+    specifier: 0.10.2
+    version: 0.10.2
   swr:
     specifier: ^2.2.4
     version: 2.2.4(react@18.2.0)
@@ -9260,14 +9260,14 @@ packages:
     resolution: {integrity: sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==}
     engines: {node: '>=8'}
 
-  /shikiji-core@0.10.0-beta.8:
-    resolution: {integrity: sha512-GKkzQwE5WhzI4RsDZAs9QsvYmem3YPF4BvEuKMTrTi2OYbhHwUWmplwMcz7nqMwK4mbUyHeJYKhL9ZS+/jUIcg==}
+  /shikiji-core@0.10.2:
+    resolution: {integrity: sha512-9Of8HMlF96usXJHmCL3Gd0Fcf0EcyJUF9m8EoAKKd98mHXi0La2AZl1h6PegSFGtiYcBDK/fLuKbDa1l16r1fA==}
     dev: false
 
-  /shikiji@0.10.0-beta.8:
-    resolution: {integrity: sha512-yuaUyXmbeGqK6GLMDJVOZKnmdcVppw5iHJsgP77N9XH6RAM5ojjzJBbx5ROV3DjhQGLKFOAOBiCpf6xgh8o3tw==}
+  /shikiji@0.10.2:
+    resolution: {integrity: sha512-wtZg3T0vtYV2PnqusWQs3mDaJBdCPWxFDrBM/SE5LfrX92gjUvfEMlc+vJnoKY6Z/S44OWaCRzNIsdBRWcTAiw==}
     dependencies:
-      shikiji-core: 0.10.0-beta.8
+      shikiji-core: 0.10.2
     dev: false
 
   /side-channel@1.0.4:
