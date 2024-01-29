@@ -63,18 +63,5 @@ export const item = styled.css`
     display: inline;
     font-size: ${theme.fontSize.calc(0.9)};
     color: ${theme.color.text.description};
-    border: none;
-    transition: background-size 0.3s, color 0.3s, background-color 0.3s;
-    background: linear-gradient(to right, transparent, transparent), linear-gradient(to right, ${theme.color.background.focus}, ${theme.color.background.focus});
-    background-size: 100% 40%, 0 40%;
-    background-repeat: no-repeat;
-    background-position: 100% 100%, 0 100%;
-
-    &.active,
-    &:hover,
-    &:focus,
-    &:active {
-      background-size: 0 40%, 100% 40%;
-    }
   }
 `;
