@@ -13,6 +13,14 @@ categories:
           - simple-icons:typescript
           - simple-icons:docker
           - ri:server-line
+      - name: Tiptap Starter Kit
+        link: https://github.com/syfxlin/tiptap-starter-kit
+        description: >-
+          An unofficial suite of Tiptap editors with a collection of common
+          extensions.
+        components:
+          - simple-icons:typescript
+          - simple-icons:css3
   - name: Frameworks
     projects:
       - name: XKJava
@@ -85,14 +93,6 @@ categories:
           - simple-icons:react
           - simple-icons:typescript
           - simple-icons:vite
-      - name: Tiptap Starter Kit
-        link: https://github.com/syfxlin/tiptap-starter-kit
-        description: >-
-          An unofficial suite of Tiptap editors with a collection of common
-          extensions.
-        components:
-          - simple-icons:typescript
-          - simple-icons:css3
       - name: XK-Editor Next
         link: https://github.com/syfxlin/xkeditor-next
         description: An editor with rich text support, based on Rich Markdown Editor.
