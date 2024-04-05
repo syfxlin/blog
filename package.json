@@ -62,7 +62,7 @@
     "@types/rss": "^0.0.32",
     "@vanilla-extract/next-plugin": "^2.4.0",
     "esbuild": "^0.20.2",
-    "eslint": "^8.57.0",
+    "eslint": "^9.0.0",
     "esno": "^4.7.0",
     "typescript": "^5.4.3",
     "webpack": "^5.91.0"
