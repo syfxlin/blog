@@ -168,6 +168,10 @@ links:
     link: https://0m0.co
     avatar: /image/config/friends/links/34/avatar.500x500.png
     author: 冰糕Luminous
+  - name: SaltyLeo's Blog
+    link: https://saltyleo.com
+    avatar: /image/config/friends/links/35/avatar.240x240.jpeg
+    author: SaltyLeo
 lost_links:
   - name: 周海棠啦
     link: https://begonia98.github.io
