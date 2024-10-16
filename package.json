@@ -20,7 +20,7 @@
   "dependencies": {
     "@iconify/json": "^2.2.260",
     "@iconify/utils": "^2.1.33",
-    "@keystatic/core": "0.5.19",
+    "@keystatic/core": "0.5.38",
     "@keystatic/next": "^5.0.1",
     "@markdoc/markdoc": "^0.4.0",
     "@radix-ui/colors": "3.0.0",
@@ -68,7 +68,7 @@
     "webpack": "^5.95.0"
   },
   "overrides": {
-    "@keystatic/core": "0.5.19",
+    "@keystatic/core": "0.5.38",
     "@vanilla-extract/css": "1.14.2",
     "undici": "5.28.4"
   }
