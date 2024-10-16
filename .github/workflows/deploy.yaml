@@ -20,7 +20,7 @@ jobs:
       - name: Deploy to docker
         run: |
           depker --version
-          depker service deploy
+          depker deploy
         env:
           TZ: Asia/Shanghai
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
