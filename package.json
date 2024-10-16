@@ -70,6 +70,6 @@
   "overrides": {
     "@keystatic/core": "0.5.19",
     "@vanilla-extract/css": "1.14.2",
-    "undici": "5.28.4"
+    "undici": "6.20.1"
   }
 }
