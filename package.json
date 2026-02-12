@@ -37,7 +37,7 @@
     "medium-zoom": "^1.1.0",
     "next": "14.2.15",
     "next-pwa": "^5.6.0",
-    "next-themes": "^0.3.0",
+    "next-themes": "^0.4.0",
     "nextjs-google-analytics": "^2.3.7",
     "nextjs-toploader": "^3.7.15",
     "open-graph-scraper": "^6.8.2",
