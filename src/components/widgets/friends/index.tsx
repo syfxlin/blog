@@ -1,12 +1,13 @@
 "use client";
-import React, { useMemo } from "react";
+import * as React from "react";
+import { useMemo } from "react";
 import { FriendsData } from "../../../contents/types";
 import { shuffle } from "../../../utils/vender";
-import { LinkButton } from "../../ui/button";
-import { Image } from "../../ui/image";
 import { Grid } from "../../layouts/grid";
+import { LinkButton } from "../../ui/button";
 import { ClientOnly } from "../../ui/client-only/ClientOnly";
-import * as styles from "./styles.css";
+import { Image } from "../../ui/image";
+import styles from "./styles.module.css";
 
 export interface FriendsProps {
   data: Exclude<FriendsData["links"], undefined>;

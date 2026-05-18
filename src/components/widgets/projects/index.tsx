@@ -1,11 +1,12 @@
-import React, { ReactNode } from "react";
+import * as React from "react";
+import { ReactNode } from "react";
+import { GithubAdapter } from "../../../adapters/github-adapter";
 import { ProjectsData } from "../../../contents/types";
+import { stars } from "../../../utils/vender";
 import { Grid } from "../../layouts/grid";
 import { LinkButton } from "../../ui/button";
 import { Iconify } from "../../ui/iconify";
-import { GithubAdapter } from "../../../adapters/github-adapter";
-import { stars } from "../../../utils/vender";
-import * as styles from "./styles.css";
+import styles from "./styles.module.css";
 
 const adapter = new GithubAdapter();
 
@@ -25,25 +26,31 @@ export interface IconsProps {
   link: string;
 }
 
+async function fetchGithubStars(link: string) {
+  const match = /https?:\/\/(?:www\.)?github\.com\/([^/]+)\/([^/]+)/.exec(link);
+  if (!match) {
+    return undefined;
+  }
+  try {
+    const data = await adapter.component({ repo: `${match[1]}/${match[2]}` });
+    return data?.data?.stars;
+  } catch {
+    return undefined;
+  }
+}
+
 export const Icons: React.FC<IconsProps> = async (props) => {
-  const match = /https?:\/\/(?:www\.)?github\.com\/([^/]+)\/([^/]+)/.exec(props.link);
-  if (match) {
-    try {
-      const data = await adapter.component({ repo: `${match[1]}/${match[2]}` });
-      if (data?.data) {
-        return (
-          <>
-            <Iconify icon="uil:github" className={styles.icon} />
-            <span className={styles.github}>
-              <Iconify icon="ri:star-s-line" />
-              <span>{stars(data.data.stars)}</span>
-            </span>
-          </>
-        );
-      }
-    } catch (e) {
-      console.log(e);
-    }
+  const starCount = await fetchGithubStars(props.link);
+  if (starCount !== undefined) {
+    return (
+      <>
+        <Iconify icon="uil:github" className={styles.icon} />
+        <span className={styles.github}>
+          <Iconify icon="ri:star-s-line" />
+          <span>{stars(starCount)}</span>
+        </span>
+      </>
+    );
   }
   return <Iconify icon="ri:link" className={styles.icon} />;
 };

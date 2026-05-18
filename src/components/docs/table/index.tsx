@@ -1,5 +1,6 @@
-import React, { ReactNode } from "react";
-import * as styles from "./styles.css";
+import * as React from "react";
+import { ReactNode } from "react";
+import styles from "./styles.module.css";
 
 export interface TableProps {
   head?: Array<{

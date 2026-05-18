@@ -1,0 +1,60 @@
+.heading {
+  position: relative;
+  color: var(--color-text-title);
+  font-size: 1.3rem;
+  font-weight: 400;
+  border-bottom: 1px dashed var(--color-background-focus);
+  margin-top: 1.25rem;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.25rem;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    display: block;
+    height: 2.5px;
+    width: 2rem;
+    background: linear-gradient(var(--color-text-primary) 30%, var(--color-text-primary) 70%);
+    box-shadow: var(--color-text-primary) 0 1px 3px;
+    border-radius: 4px;
+    transition:
+      all 0.25s ease 0s,
+      color 0.3s,
+      background-color 0.3s;
+    z-index: 1;
+  }
+}
+
+.document {
+  display: flex;
+  gap: 2rem;
+
+  > section {
+    flex: 1;
+
+    &:first-child {
+      flex-basis: 170%;
+    }
+
+    &:last-child {
+      flex-basis: 100%;
+    }
+  }
+
+  @media screen and (max-width: 1280px) {
+    display: block;
+  }
+}
+
+.more {
+  width: 100% !important;
+  font-size: 1rem !important;
+  line-height: 1.5 !important;
+
+  > .iconify {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+}

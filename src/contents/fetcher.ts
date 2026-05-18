@@ -1,5 +1,5 @@
-import React from "react";
 import { utils } from "@syfxlin/reks";
+import * as React from "react";
 import { IS_DEV } from "../env/public";
 import { resolve } from "../utils/vender";
 import { reader } from "./reader";

@@ -1,0 +1,13 @@
+.container {
+  margin: 1rem 0;
+}
+
+.image {
+  border-radius: 0.25rem;
+}
+
+.caption {
+  text-align: center;
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+}

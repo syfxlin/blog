@@ -1,0 +1,9 @@
+.container {
+  color: var(--color-error-text);
+  background-color: var(--color-error-background);
+  font-family: var(--font-mono);
+  font-size: 0.86rem;
+  padding: 0.12rem 0.24rem;
+  border-radius: 0.2rem;
+  word-break: break-all;
+}

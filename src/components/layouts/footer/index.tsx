@@ -1,8 +1,8 @@
-import React from "react";
+import * as React from "react";
+import { fetcher } from "../../../contents";
 import { Divider } from "../../ui/divider";
 import { Link } from "../../ui/link";
-import { fetcher } from "../../../contents";
-import * as styles from "./styles.css";
+import styles from "./styles.module.css";
 
 export const Footer: React.FC = async () => {
   const [seo, author, footer] = await Promise.all([fetcher.seo(), fetcher.author(), fetcher.footer()]);

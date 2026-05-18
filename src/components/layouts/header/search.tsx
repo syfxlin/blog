@@ -1,10 +1,11 @@
 "use client";
-import React, { ReactNode, useState } from "react";
-import { Button } from "../../ui/button";
-import { Spotlight } from "../../root/spotlight";
+import * as React from "react";
+import { ReactNode, useState } from "react";
 import { t } from "../../../locales";
+import { Spotlight } from "../../root/spotlight";
+import { Button } from "../../ui/button";
 import { hideMenu } from "./menu";
-import * as styles from "./styles.css";
+import styles from "./styles.module.css";
 
 export interface SearchProps {
   icon: ReactNode;

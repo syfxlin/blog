@@ -1,12 +1,13 @@
-import React, { PropsWithChildren, ReactNode } from "react";
 import { TocData } from "@syfxlin/reks";
+import * as React from "react";
+import { PropsWithChildren, ReactNode } from "react";
+import { Footer } from "../../layouts/footer";
 import { Header } from "../../layouts/header";
 import { Main, MainProps } from "../../layouts/main";
 import { Title } from "../../layouts/title";
-import { Toc } from "../../widgets/toc";
 import { TwoPagination } from "../../ui/pagination";
 import { Artalk } from "../../widgets/artalk";
-import { Footer } from "../../layouts/footer";
+import { Toc } from "../../widgets/toc";
 
 export type TemplateProps = PropsWithChildren<{
   size?: MainProps["size"];

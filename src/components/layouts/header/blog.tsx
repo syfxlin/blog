@@ -1,10 +1,11 @@
 "use client";
-import React, { ReactNode } from "react";
-import { LinkButton } from "../../ui/button";
-import { resolve } from "../../../utils/vender";
+import * as React from "react";
+import { ReactNode } from "react";
 import { t } from "../../../locales";
-import * as styles from "./styles.css";
+import { resolve } from "../../../utils/vender";
+import { LinkButton } from "../../ui/button";
 import { hideMenu } from "./menu";
+import styles from "./styles.module.css";
 
 export interface BlogProps {
   icon: ReactNode;

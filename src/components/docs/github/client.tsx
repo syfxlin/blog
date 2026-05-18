@@ -1,7 +1,7 @@
 "use client";
-import React from "react";
-import { useAdapter } from "../../../adapters/use-adapter";
+import * as React from "react";
 import { GithubRequest, GithubResponse } from "../../../adapters/github-adapter";
+import { useAdapter } from "../../../adapters/use-adapter";
 import { GithubInner } from "./inner";
 
 export const Github: React.FC<GithubRequest> = React.memo((props) => {

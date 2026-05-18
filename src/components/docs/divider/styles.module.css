@@ -1,0 +1,11 @@
+.container {
+  width: 80%;
+  border: 0;
+  height: 2px;
+  background-image: linear-gradient(
+    to right,
+    var(--color-background-hover),
+    var(--color-background-focus),
+    var(--color-background-hover)
+  );
+}

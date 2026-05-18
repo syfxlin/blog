@@ -1,17 +1,18 @@
 "use client";
-import React, { useState } from "react";
-import useSWR from "swr";
+import * as React from "react";
+import { useState } from "react";
 import { createPortal } from "react-dom";
 import { useDebounce } from "react-use";
-import { ClientOnly } from "../../ui/client-only/ClientOnly";
-import { Button } from "../../ui/button";
-import { Loading } from "../../ui/loading";
-import { ArticleInfo } from "../../layouts/article-info";
-import { Pagination } from "../../ui/pagination";
+import useSWR from "swr";
 import { SearchResponse } from "../../../app/api/search/route";
-import { Iconify } from "../../ui/iconify/client";
 import { t } from "../../../locales";
-import * as styles from "./styles.css";
+import { ArticleInfo } from "../../layouts/article-info";
+import { Button } from "../../ui/button";
+import { ClientOnly } from "../../ui/client-only/ClientOnly";
+import { Iconify } from "../../ui/iconify/client";
+import { Loading } from "../../ui/loading";
+import { Pagination } from "../../ui/pagination";
+import styles from "./styles.module.css";
 
 async function fetcher([path, page, search]: [string, number, string]) {
   const url = new URL(path, location.href);

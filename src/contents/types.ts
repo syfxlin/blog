@@ -1,6 +1,6 @@
 import { DocumentData } from "@syfxlin/reks";
 
-export type { DocumentData, TocData, PaginationData } from "@syfxlin/reks";
+export type { DocumentData, PaginationData, TocData } from "@syfxlin/reks";
 
 export interface GroupData<V> {
   name: string;

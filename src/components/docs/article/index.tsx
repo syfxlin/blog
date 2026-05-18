@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { ScraperAdapter, ScraperRequest } from "../../../adapters/scraper-adapter";
 import { ArticleInner } from "./inner";
 

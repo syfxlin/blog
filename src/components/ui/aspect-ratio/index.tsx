@@ -1,7 +1,8 @@
 "use client";
-import React, { HTMLAttributes, forwardRef } from "react";
-import { cx, sx } from "@syfxlin/reve";
-import * as styles from "./styles.css";
+import * as React from "react";
+import { forwardRef, HTMLAttributes } from "react";
+import { cx, sx } from "../../../utils/class-name";
+import styles from "./styles.module.css";
 
 export type AspectRatioProps = HTMLAttributes<HTMLDivElement> & {
   ratio: number;
@@ -12,7 +13,7 @@ export const AspectRatio = forwardRef<HTMLDivElement, AspectRatioProps>(({ ratio
     <div
       {...props}
       className={cx(props.className, styles.container)}
-      style={sx(props.style, { [styles.ratio]: `${((1 / r) * 100).toFixed(4)}%` })}
+      style={sx(props.style, { "--ratio": `${((1 / r) * 100).toFixed(4)}%` } as React.CSSProperties)}
       ref={ref}
     />
   );

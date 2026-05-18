@@ -1,5 +1,5 @@
-import React from "react";
 import ogs from "open-graph-scraper";
+import * as React from "react";
 import { fetcher } from "../contents";
 import { Adapter, AdapterError } from "./adapter";
 

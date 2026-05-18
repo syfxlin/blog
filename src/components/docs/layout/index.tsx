@@ -1,5 +1,6 @@
-import React, { ReactElement } from "react";
-import * as styles from "./styles.css";
+import * as React from "react";
+import { ReactElement } from "react";
+import styles from "./styles.module.css";
 
 export interface LayoutProps {
   layout: [number, ...number[]];

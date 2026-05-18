@@ -1,7 +1,7 @@
-import React from "react";
+import * as React from "react";
 import { fetcher } from "../../../contents";
 import { Link } from "../../ui/link";
-import * as styles from "./styles.css";
+import styles from "./styles.module.css";
 
 export const Articles: React.FC = React.memo(async () => {
   const articles = await fetcher.posts();

@@ -1,9 +1,10 @@
 "use client";
-import React, { AnchorHTMLAttributes, ReactElement, forwardRef } from "react";
 import Tippy, { TippyProps } from "@tippyjs/react";
 import NLink, { LinkProps as NLinkProps } from "next/link";
-import { cx } from "@syfxlin/reve";
-import * as styles from "./styles.css";
+import * as React from "react";
+import { AnchorHTMLAttributes, forwardRef, ReactElement } from "react";
+import { cx } from "../../../utils/class-name";
+import styles from "./styles.module.css";
 
 export type LinkProps = AnchorHTMLAttributes<HTMLAnchorElement> & NLinkProps & {
   tooltip?: TippyProps | boolean;

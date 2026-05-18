@@ -1,10 +1,11 @@
-import React, { ReactNode } from "react";
-import { Link } from "../../ui/link";
-import { Divider } from "../../ui/divider";
-import { ago, date } from "../../../utils/vender";
+import * as React from "react";
+import { ReactNode } from "react";
 import { ArticleList } from "../../../contents/types";
 import { t } from "../../../locales";
-import * as styles from "./styles.css";
+import { ago, date } from "../../../utils/vender";
+import { Divider } from "../../ui/divider";
+import { Link } from "../../ui/link";
+import styles from "./styles.module.css";
 
 export interface MetaInfoProps {
   data: ArticleList;

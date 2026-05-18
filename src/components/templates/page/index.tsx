@@ -1,5 +1,5 @@
-import React from "react";
 import { Metadata } from "next";
+import * as React from "react";
 import { metadata as generateMetadata } from "../../layouts/root/metadata";
 import { TemplatePage, TemplatePageProps } from "./default";
 

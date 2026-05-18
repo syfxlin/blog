@@ -1,10 +1,11 @@
 "use client";
-import React, { useState } from "react";
-import { cx } from "@syfxlin/reve";
 import { TocData } from "@syfxlin/reks";
+import * as React from "react";
+import { useState } from "react";
 import { useIntersectionObserver } from "../../../hooks/use-intersection-observer";
+import { cx } from "../../../utils/class-name";
 import { Link } from "../../ui/link";
-import * as styles from "./styles.css";
+import styles from "./styles.module.css";
 
 export interface TocProps {
   data: ReadonlyArray<TocData>;

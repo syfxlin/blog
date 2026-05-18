@@ -1,14 +1,15 @@
-import React from "react";
+import * as React from "react";
 import { bundledLanguages, bundledThemes, getHighlighter } from "shikiji";
-import * as styles from "./styles.css";
+import styles from "./styles.module.css";
 
-const highlighter = await getHighlighter({
+const highlighter = getHighlighter({
   themes: Object.values(bundledThemes),
   langs: Object.values(bundledLanguages),
 });
 
-function parse(theme: "light" | "dark", code: string, lang?: string) {
-  return highlighter.codeToHtml(code, {
+async function parse(theme: "light" | "dark", code: string, lang?: string) {
+  const instance = await highlighter;
+  return instance.codeToHtml(code, {
     lang: lang ?? "markdown",
     theme: theme === "light" ? "vitesse-light" : "vitesse-dark",
   });
@@ -20,7 +21,7 @@ export interface CodeProps {
 }
 
 export const Code: React.FC<CodeProps> = async ({ language, children }) => {
-  const html = parse("light", children, language) + parse("dark", children, language);
+  const html = await parse("light", children, language) + await parse("dark", children, language);
   return (
     <div
       className={styles.container}

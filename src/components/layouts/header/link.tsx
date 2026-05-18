@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import * as React from "react";
 import { LinkButton, LinkButtonProps } from "../../ui/button";
 import { hideMenu } from "./menu";
 

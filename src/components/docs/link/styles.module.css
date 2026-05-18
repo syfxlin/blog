@@ -1,0 +1,14 @@
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+
+  & + & {
+    margin-left: 0.25rem;
+  }
+
+  .iconify {
+    width: 1em;
+    height: 1em;
+  }
+}

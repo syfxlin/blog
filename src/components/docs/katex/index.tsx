@@ -1,7 +1,7 @@
-import "katex/dist/katex.css";
 import katex from "katex";
-import React from "react";
-import * as styles from "./styles.css";
+import * as React from "react";
+import styles from "./styles.module.css";
+import "katex/dist/katex.css";
 
 export interface KatexProps {
   math: string;

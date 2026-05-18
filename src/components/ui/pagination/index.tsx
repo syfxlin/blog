@@ -1,10 +1,10 @@
 "use client";
-import React from "react";
-import { LinkButton } from "../button";
-import { range, resolve } from "../../../utils/vender";
-import { Iconify } from "../iconify/client";
+import * as React from "react";
 import { t } from "../../../locales";
-import * as styles from "./styles.css";
+import { range, resolve } from "../../../utils/vender";
+import { LinkButton } from "../button";
+import { Iconify } from "../iconify/client";
+import styles from "./styles.module.css";
 
 export interface PaginationProps {
   index: number;

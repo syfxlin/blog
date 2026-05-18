@@ -1,8 +1,8 @@
-import React from "react";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
+import * as React from "react";
+import { metadataArticles, TemplateArticles, TemplateArticlesProps } from "../../components/templates/articles";
 import { fetcher } from "../../contents";
-import { TemplateArticles, TemplateArticlesProps, metadataArticles } from "../../components/templates/articles";
 
 interface Props {
   params?: {
@@ -35,7 +35,7 @@ const query = React.cache(async (_index?: string): Promise<TemplateArticlesProps
         },
       };
     }
-  } catch (e) {
+  } catch {
     return undefined;
   }
 });

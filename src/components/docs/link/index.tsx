@@ -1,7 +1,8 @@
-import React, { ReactNode } from "react";
+import * as React from "react";
+import { ReactNode } from "react";
 import { Iconify } from "../../ui/iconify";
 import { Link as ULink } from "../../ui/link";
-import * as styles from "./styles.css";
+import styles from "./styles.module.css";
 
 export interface LinkProps {
   href: string;

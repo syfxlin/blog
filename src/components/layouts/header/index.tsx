@@ -1,15 +1,15 @@
-import React from "react";
-import { cx } from "@syfxlin/reve";
+import * as React from "react";
 import { fetcher } from "../../../contents";
+import { t } from "../../../locales";
+import { cx } from "../../../utils/class-name";
 import { Iconify } from "../../ui/iconify";
 import { Image } from "../../ui/image";
-import { t } from "../../../locales";
-import { Theme } from "./theme";
-import { Search } from "./search";
-import * as styles from "./styles.css";
 import { Blog } from "./blog";
-import { Menu } from "./menu";
 import { Link } from "./link";
+import { Menu } from "./menu";
+import { Search } from "./search";
+import styles from "./styles.module.css";
+import { Theme } from "./theme";
 
 export const Header: React.FC = async () => {
   const [seo, header] = await Promise.all([fetcher.seo(), fetcher.header()]);

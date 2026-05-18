@@ -1,7 +1,6 @@
-import React from "react";
 import NextTopLoader from "nextjs-toploader";
-import * as styles from "./styles.css";
+import * as React from "react";
 
 export const ProgressBar: React.FC = () => {
-  return <NextTopLoader color={styles.color} height={2} />;
+  return <NextTopLoader color="var(--color-text-primary)" height={2} />;
 };

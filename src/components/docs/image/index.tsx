@@ -1,6 +1,6 @@
-import React from "react";
+import * as React from "react";
 import { Image as UImage } from "../../ui/image";
-import * as styles from "./styles.css";
+import styles from "./styles.module.css";
 
 export interface ImageProps {
   src: string;

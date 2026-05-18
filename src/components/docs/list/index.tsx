@@ -1,6 +1,7 @@
-import React, { ReactElement } from "react";
-import { cx } from "@syfxlin/reve";
-import * as styles from "./styles.css";
+import * as React from "react";
+import { ReactElement } from "react";
+import { cx } from "../../../utils/class-name";
+import styles from "./styles.module.css";
 
 export interface ListProps {
   type: "ordered" | "unordered";

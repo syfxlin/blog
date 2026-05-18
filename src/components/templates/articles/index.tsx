@@ -1,19 +1,20 @@
-import React, { ReactNode } from "react";
 import { Metadata } from "next";
-import { Header } from "../../layouts/header";
-import { Main } from "../../layouts/main";
-import { Footer } from "../../layouts/footer";
+import * as React from "react";
+import { ReactNode } from "react";
 import { ArticleList, DocumentData } from "../../../contents/types";
-import { resolve } from "../../../utils/vender";
-import { metadata as generateMetadata } from "../../layouts/root/metadata";
-import { Hero } from "../../layouts/hero";
-import { ArticleInfo } from "../../layouts/article-info";
-import { Pagination } from "../../ui/pagination";
-import { Renderer } from "../../docs";
 import { t } from "../../../locales";
+import { resolve } from "../../../utils/vender";
+import { Renderer } from "../../docs";
+import { ArticleInfo } from "../../layouts/article-info";
+import { Footer } from "../../layouts/footer";
+import { Header } from "../../layouts/header";
+import { Hero } from "../../layouts/hero";
+import { Main } from "../../layouts/main";
+import { metadata as generateMetadata } from "../../layouts/root/metadata";
 import { LinkButton } from "../../ui/button";
 import { Iconify } from "../../ui/iconify";
-import * as styles from "./styles.css";
+import { Pagination } from "../../ui/pagination";
+import styles from "./styles.module.css";
 
 export interface HeadingProps {
   children?: ReactNode;
@@ -32,8 +33,8 @@ export type TemplateArticlesProps =
     display: "document";
     document?: DocumentData;
     articles: ReadonlyArray<ArticleList>;
-  }
-  | {
+  } |
+  {
     display: "articles";
     articles: {
       index: number;

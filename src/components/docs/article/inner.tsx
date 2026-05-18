@@ -1,10 +1,10 @@
-import React from "react";
+import * as React from "react";
 import { AdapterResponse } from "../../../adapters/adapter";
 import { ScraperRequest, ScraperResponse } from "../../../adapters/scraper-adapter";
-import { Link } from "../../ui/link";
-import { AspectRatio } from "../../ui/aspect-ratio";
 import { t } from "../../../locales";
-import * as styles from "./styles.css";
+import { AspectRatio } from "../../ui/aspect-ratio";
+import { Link } from "../../ui/link";
+import styles from "./styles.module.css";
 
 export const ArticleInner: React.FC<AdapterResponse<ScraperRequest, ScraperResponse>> = React.memo((query) => {
   return (

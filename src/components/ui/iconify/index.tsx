@@ -1,5 +1,5 @@
-import React from "react";
-import { cx } from "@syfxlin/reve";
+import * as React from "react";
+import { cx } from "../../../utils/class-name";
 import { iconify } from "./query";
 
 export interface IconifyProps {

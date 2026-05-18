@@ -1,10 +1,11 @@
 "use client";
-import React, { ReactNode } from "react";
 import { useTheme } from "next-themes";
-import { Button } from "../../ui/button";
+import * as React from "react";
+import { ReactNode } from "react";
 import { t } from "../../../locales";
-import * as styles from "./styles.css";
+import { Button } from "../../ui/button";
 import { hideMenu } from "./menu";
+import styles from "./styles.module.css";
 
 export interface ThemeProps {
   icon: ReactNode;

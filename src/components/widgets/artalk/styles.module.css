@@ -1,0 +1,19 @@
+.container {
+  margin: 1rem 0;
+
+  &.artalk {
+    --at-color-main: var(--color-text-primary);
+    --at-color-bg: var(--color-background-full);
+    --at-color-font: var(--color-text-paragraph);
+    --at-color-deep: var(--color-text-paragraph);
+    --at-color-sub: var(--color-text-description);
+    --at-color-grey: var(--color-text-description);
+    --at-color-meta: var(--color-text-description);
+  }
+
+  .atk-main-editor,
+  .atk-list {
+    max-width: 768px;
+    margin: auto;
+  }
+}

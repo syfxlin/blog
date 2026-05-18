@@ -1,8 +1,9 @@
 "use client";
-import React, { ReactNode, useRef } from "react";
-import { Button } from "../../ui/button";
+import * as React from "react";
+import { ReactNode, useRef } from "react";
 import { t } from "../../../locales";
-import * as styles from "./styles.css";
+import { Button } from "../../ui/button";
+import styles from "./styles.module.css";
 
 export function showMenu() {
   document.body.style.transform = "translateX(100px)";

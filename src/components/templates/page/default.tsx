@@ -1,12 +1,12 @@
-import React from "react";
-import { Renderer } from "../../docs";
+import * as React from "react";
 import { ArticleData } from "../../../contents/types";
-import { Template } from "../template";
-import { Image } from "../../ui/image";
-import { AspectRatio } from "../../ui/aspect-ratio";
-import { MetaInfo } from "../../layouts/meta-info";
-import { Copyright } from "../../widgets/copyright";
 import { t } from "../../../locales";
+import { Renderer } from "../../docs";
+import { MetaInfo } from "../../layouts/meta-info";
+import { AspectRatio } from "../../ui/aspect-ratio";
+import { Image } from "../../ui/image";
+import { Copyright } from "../../widgets/copyright";
+import { Template } from "../template";
 
 export interface TemplatePageProps {
   data: ArticleData;

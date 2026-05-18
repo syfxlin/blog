@@ -1,0 +1,33 @@
+.container {
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.container::before {
+  display: block;
+  height: 0;
+  padding-bottom: var(--ratio);
+  content: "";
+}
+
+.container::after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+.container > *:not(style) {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.container > img,
+.container > video {
+  object-fit: cover;
+}

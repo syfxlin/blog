@@ -1,0 +1,13 @@
+.container {
+  font-size: 0.8rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--color-text-description);
+  margin: 0;
+  position: relative;
+}
+
+.link {
+  position: relative !important;
+  z-index: 1 !important;
+}

@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { GithubAdapter, GithubRequest } from "../../../adapters/github-adapter";
 import { GithubInner } from "./inner";
 

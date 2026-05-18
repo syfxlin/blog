@@ -1,6 +1,7 @@
-import React, { PropsWithChildren } from "react";
-import { cx } from "@syfxlin/reve";
-import * as styles from "./styles.css";
+import * as React from "react";
+import { PropsWithChildren } from "react";
+import { cx } from "../../../utils/class-name";
+import styles from "./styles.module.css";
 
 export type MainProps = PropsWithChildren<{
   size?: "sm" | "md" | "lg";

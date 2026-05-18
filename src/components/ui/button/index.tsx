@@ -1,9 +1,10 @@
 "use client";
-import React, { AnchorHTMLAttributes, ButtonHTMLAttributes, forwardRef } from "react";
 import Tippy, { TippyProps } from "@tippyjs/react";
 import Link, { LinkProps } from "next/link";
-import { cx } from "@syfxlin/reve";
-import * as styles from "./styles.css";
+import * as React from "react";
+import { AnchorHTMLAttributes, ButtonHTMLAttributes, forwardRef } from "react";
+import { cx } from "../../../utils/class-name";
+import styles from "./styles.module.css";
 
 export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   tooltip?: TippyProps | boolean;

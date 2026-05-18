@@ -1,11 +1,12 @@
 "use client";
-import "artalk/dist/Artalk.css";
-import React, { useEffect, useRef } from "react";
 import type ArtalkComment from "artalk";
 import { useTheme } from "next-themes";
+import * as React from "react";
+import { useEffect, useRef } from "react";
 import { COLINE_ARTALK_SERVER_URL, COLINE_ARTALK_SITE_NAME } from "../../../env/public";
 import { t } from "../../../locales";
-import * as styles from "./styles.css";
+import styles from "./styles.module.css";
+import "artalk/dist/Artalk.css";
 
 interface Props {
   name: string;
@@ -14,7 +15,7 @@ interface Props {
 
 export const Artalk: React.FC<Props> = ({ name, link }) => {
   const { resolvedTheme } = useTheme();
-  const artalk = useRef<ArtalkComment>();
+  const artalk = useRef<ArtalkComment | null>(null);
   const element = useRef<HTMLElement>(null);
   useEffect(() => {
     import("artalk").then((mod) => {

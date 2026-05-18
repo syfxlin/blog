@@ -1,5 +1,6 @@
-import React, { JSX, ReactNode } from "react";
-import * as styles from "./styles.css";
+import * as React from "react";
+import { JSX, ReactNode } from "react";
+import styles from "./styles.module.css";
 
 export interface HeadingProps {
   name: string;

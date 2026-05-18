@@ -1,0 +1,11 @@
+.container {
+  display: inline-block;
+  width: 0.2rem;
+  height: 0.2rem;
+  margin: 0 0.5rem;
+  border-radius: 50%;
+  background-color: var(--color-text-paragraph);
+  opacity: 0.7;
+  text-align: center;
+  vertical-align: middle;
+}

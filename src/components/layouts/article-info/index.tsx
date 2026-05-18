@@ -1,11 +1,11 @@
-import React from "react";
 import Link from "next/link";
-import { MetaInfo } from "../meta-info";
-import { Image } from "../../ui/image";
-import { LinkButton } from "../../ui/button";
+import * as React from "react";
 import { ArticleList } from "../../../contents/types";
 import { t } from "../../../locales";
-import * as styles from "./styles.css";
+import { LinkButton } from "../../ui/button";
+import { Image } from "../../ui/image";
+import { MetaInfo } from "../meta-info";
+import styles from "./styles.module.css";
 
 export interface ArticleInfoProps {
   data: ArticleList;

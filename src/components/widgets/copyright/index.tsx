@@ -1,10 +1,10 @@
-import React from "react";
-import { Link } from "../../ui/link";
-import { date, resolve } from "../../../utils/vender";
-import { ArticleList } from "../../../contents/types";
+import * as React from "react";
 import { fetcher } from "../../../contents";
+import { ArticleList } from "../../../contents/types";
 import { t } from "../../../locales";
-import * as styles from "./styles.css";
+import { date, resolve } from "../../../utils/vender";
+import { Link } from "../../ui/link";
+import styles from "./styles.module.css";
 
 export interface CopyrightProps {
   data: ArticleList;

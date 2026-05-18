@@ -1,13 +1,13 @@
 "use client";
-import "./styles";
-import React from "react";
-import { Providers } from "../../../theme/providers";
-import { HelloWorld } from "../../root/hello-world";
-import { Canvas } from "../../root/canvas";
-import { Analytics } from "../../root/analytics";
-import { ProgressBar } from "../../root/progress-bar";
+import * as React from "react";
 import { COLINE_LANGUAGE } from "../../../env/public";
+import { Providers } from "../../../theme/providers";
+import { Analytics } from "../../root/analytics";
+import { Canvas } from "../../root/canvas";
+import { HelloWorld } from "../../root/hello-world";
+import { ProgressBar } from "../../root/progress-bar";
 import { RootProps } from "./index";
+import "./styles";
 
 export const ClientRoot: React.FC<RootProps> = (props) => {
   return (
