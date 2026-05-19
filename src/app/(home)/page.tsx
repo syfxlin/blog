@@ -5,9 +5,9 @@ import { metadataArticles, TemplateArticles, TemplateArticlesProps } from "../..
 import { fetcher } from "../../contents";
 
 interface Props {
-  params?: {
+  params: Promise<{
     index?: string;
-  };
+  }>;
 }
 
 const query = React.cache(async (_index?: string): Promise<TemplateArticlesProps | undefined> => {
@@ -41,7 +41,8 @@ const query = React.cache(async (_index?: string): Promise<TemplateArticlesProps
 });
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const data = await query(params?.index);
+  const { index } = await params;
+  const data = await query(index);
   if (!data) {
     return notFound();
   }
@@ -49,7 +50,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function ArticlesPage({ params }: Props) {
-  const data = await query(params?.index);
+  const { index } = await params;
+  const data = await query(index);
   if (!data) {
     return notFound();
   }
