@@ -1,6 +1,5 @@
 import katex from "katex";
 import * as React from "react";
-import styles from "./styles.module.css";
 import "katex/dist/katex.css";
 
 export interface KatexProps {
@@ -9,5 +8,5 @@ export interface KatexProps {
 
 export const Katex: React.FC<KatexProps> = React.memo((props) => {
   const html = katex.renderToString(props.math, { throwOnError: false });
-  return <span className={styles.container} dangerouslySetInnerHTML={{ __html: html }} />;
+  return <span className="my-4 flex w-full items-center justify-center" dangerouslySetInnerHTML={{ __html: html }} />;
 });

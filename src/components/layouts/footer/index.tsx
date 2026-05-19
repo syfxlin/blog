@@ -2,12 +2,11 @@ import * as React from "react";
 import { fetcher } from "../../../contents";
 import { Divider } from "../../ui/divider";
 import { Link } from "../../ui/link";
-import styles from "./styles.module.css";
 
 export const Footer: React.FC = async () => {
   const [seo, author, footer] = await Promise.all([fetcher.seo(), fetcher.author(), fetcher.footer()]);
   return (
-    <footer className={styles.container}>
+    <footer className="relative mx-auto flex w-full max-w-[768px] flex-col items-center px-8 py-5 text-center [&_a]:text-sm [&_a]:text-text-description [&_a]:underline [&_p]:m-[0.0625rem] [&_p]:text-sm [&_p]:text-text-description [&_span]:text-sm [&_span]:text-text-description">
       <p>
         {footer.main.map((item, index) => (
           <React.Fragment key={item.link}>

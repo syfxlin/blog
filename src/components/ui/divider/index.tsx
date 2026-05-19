@@ -1,13 +1,12 @@
 "use client";
 import * as React from "react";
-import styles from "./styles.module.css";
 
 export interface DividerProps {
   orientation: "vertical" | "horizontal";
 }
 
 export const Divider: React.FC<DividerProps> = ({ orientation }) => {
-  const span = <span className={styles.container} />;
+  const span = <span className="mx-2 inline-block h-[0.2rem] w-[0.2rem] rounded-full bg-text-paragraph/70 text-center align-middle" />;
   return orientation === "vertical" ?
       (
         span

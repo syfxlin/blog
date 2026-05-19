@@ -5,19 +5,20 @@ import { t } from "../../../locales";
 import { ago, date } from "../../../utils/vender";
 import { Divider } from "../../ui/divider";
 import { Link } from "../../ui/link";
-import styles from "./styles.module.css";
 
 export interface MetaInfoProps {
   data: ArticleList;
 }
 
+const linkClassName = "relative !z-[1]";
+
 export const MetaInfo: React.FC<MetaInfoProps> = ({ data }) => {
   return (
-    <div className={styles.container}>
+    <div className="relative m-0 text-[0.8rem] leading-normal font-normal text-text-description">
       <Link
         tooltip
         href={data.archives.link}
-        className={styles.link}
+        className={linkClassName}
         aria-label={t("archive.desc", data.archives.name)}
       >
         {date(data.published)}
@@ -25,7 +26,7 @@ export const MetaInfo: React.FC<MetaInfoProps> = ({ data }) => {
       {ago(data.published, data.modified) > 1 && (
         <Link
           tooltip
-          className={styles.link}
+          className={linkClassName}
           href={data.archives.link}
           aria-label={t("article.modified.time", ago(new Date(), data.modified))}
         >
@@ -39,7 +40,7 @@ export const MetaInfo: React.FC<MetaInfoProps> = ({ data }) => {
           <Link
             key={`category-${i.link}`}
             tooltip
-            className={styles.link}
+            className={linkClassName}
             href={i.link}
             aria-label={t("category.desc", i.name)}
           >
@@ -62,7 +63,7 @@ export const MetaInfo: React.FC<MetaInfoProps> = ({ data }) => {
             tooltip
             href={i.link}
             aria-label={t("tag.desc", i.name)}
-            className={styles.link}
+            className={linkClassName}
           >
             #{i.name}
           </Link>

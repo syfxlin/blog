@@ -18,7 +18,6 @@ import { Link } from "./link";
 import { List } from "./list";
 import { Message } from "./message";
 import { Paragraph } from "./paragraph";
-import styles from "./styles.module.css";
 import { Table } from "./table";
 
 type RendererMap = NonNullable<DocumentRendererProps["renderers"]>;
@@ -58,7 +57,7 @@ export interface RendererProps {
 
 export const Renderer: React.FC<RendererProps> = React.memo(({ document, position, children }) => {
   return (
-    <section className={styles.container}>
+    <section className="my-4">
       {position === "none" && children}
       {position === "bottom" && children}
       {position !== "none" && document && (

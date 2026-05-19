@@ -1,6 +1,5 @@
 import * as React from "react";
 import { ReactElement } from "react";
-import styles from "./styles.module.css";
 
 export interface LayoutProps {
   layout: [number, ...number[]];
@@ -9,7 +8,7 @@ export interface LayoutProps {
 
 export const Layout: React.FC<LayoutProps> = (props) => {
   return (
-    <div className={styles.container} style={{ gridTemplateColumns: props.layout.map(i => `${i}fr`).join(" ") }}>
+    <div className="my-4 grid gap-2 [&>div>*]:my-0" style={{ gridTemplateColumns: props.layout.map(i => `${i}fr`).join(" ") }}>
       {props.children.map((item, index) => (
         <div key={index}>{item}</div>
       ))}

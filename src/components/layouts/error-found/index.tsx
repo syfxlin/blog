@@ -2,7 +2,6 @@ import * as React from "react";
 import { ReactNode } from "react";
 import { t } from "../../../locales";
 import { Link } from "../../ui/link";
-import styles from "./styles.module.css";
 
 export interface ErrorFoundProps {
   code: number;
@@ -12,12 +11,12 @@ export interface ErrorFoundProps {
 
 export const ErrorFound: React.FC<ErrorFoundProps> = (props) => {
   return (
-    <main className={styles.main}>
-      <section className={styles.container}>
-        <div className={styles.title}>{props.code}</div>
-        <div className={styles.title}>{props.message}</div>
+    <main className="flex h-screen w-screen flex-col items-center justify-center gap-4 overflow-hidden">
+      <section className="flex text-[1.2rem]">
+        <div className="border-r border-text-description px-4">{props.code}</div>
+        <div className="px-4">{props.message}</div>
       </section>
-      {props.children && <section className={styles.content}>{props.children}</section>}
+      {props.children && <section className="text-[0.9rem]">{props.children}</section>}
       <section>
         <Link href="/" aria-label={t("error.back")}>
           {t("error.back")}

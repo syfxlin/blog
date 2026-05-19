@@ -1,6 +1,5 @@
 import * as React from "react";
 import { ReactNode } from "react";
-import styles from "./styles.module.css";
 
 export interface TableProps {
   head?: Array<{
@@ -19,7 +18,7 @@ export interface TableProps {
 
 export const Table: React.FC<TableProps> = ({ head, body }) => {
   return (
-    <table className={styles.container}>
+    <table className="w-full caption-top border-collapse [&_td]:px-3 [&_td]:py-2 [&_th]:px-3 [&_th]:py-2 [&_thead]:bg-background-hover [&_tr]:border-y [&_tr]:border-text-description">
       {head && (
         <thead>
           <tr>

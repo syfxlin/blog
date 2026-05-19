@@ -4,8 +4,8 @@ import * as React from "react";
 import { ReactNode } from "react";
 import { t } from "../../../locales";
 import { Button } from "../../ui/button";
+import { viewIconClassName } from "./classes";
 import { hideMenu } from "./menu";
-import styles from "./styles.module.css";
 
 export interface ThemeProps {
   icon: ReactNode;
@@ -15,7 +15,7 @@ export const Theme: React.FC<ThemeProps> = ({ icon }) => {
   const { theme, resolvedTheme, setTheme } = useTheme();
   return (
     <Button
-      className={styles.view_icon}
+      className={viewIconClassName}
       aria-label={t("theme.switch")}
       tooltip={{ placement: "left", content: t("theme.mode", theme === "system" ? `${theme} (${resolvedTheme})` : theme) }}
       onClick={() => {
