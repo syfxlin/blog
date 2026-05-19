@@ -4,7 +4,7 @@ import NImage from "next/image";
 import * as React from "react";
 import { forwardRef, HTMLAttributes, useMemo, useRef } from "react";
 import { breakpoints } from "../../../theme/tokens";
-import { cx, sx } from "../../../utils/class-name";
+import { cx, sx } from "../../../utils/styles";
 
 function parse(src: string, alt?: string) {
   const exec = /\.(\d+)x(\d+)\.\w+$/.exec(src);

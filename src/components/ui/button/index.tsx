@@ -3,7 +3,7 @@ import Tippy, { TippyProps } from "@tippyjs/react";
 import Link, { LinkProps } from "next/link";
 import * as React from "react";
 import { AnchorHTMLAttributes, ButtonHTMLAttributes, forwardRef } from "react";
-import { cx } from "../../../utils/class-name";
+import { cx } from "../../../utils/styles";
 
 export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   tooltip?: TippyProps | boolean;

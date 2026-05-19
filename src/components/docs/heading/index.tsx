@@ -1,6 +1,6 @@
 import * as React from "react";
 import { JSX, ReactNode } from "react";
-import { cx } from "../../../utils/class-name";
+import { cx } from "../../../utils/styles";
 
 export interface HeadingProps {
   name: string;

@@ -1,5 +1,5 @@
 import * as React from "react";
-import { cx } from "../../../utils/class-name";
+import { cx } from "../../../utils/styles";
 import { iconify } from "./query";
 
 export interface IconifyProps {

@@ -3,7 +3,7 @@ import { TocData } from "@syfxlin/reks";
 import * as React from "react";
 import { useState } from "react";
 import { useIntersectionObserver } from "../../../hooks/use-intersection-observer";
-import { cx } from "../../../utils/class-name";
+import { cx } from "../../../utils/styles";
 import { Link } from "../../ui/link";
 
 export interface TocProps {

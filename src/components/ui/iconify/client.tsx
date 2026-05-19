@@ -1,6 +1,6 @@
 "use client";
 import * as React from "react";
-import { cx } from "../../../utils/class-name";
+import { cx } from "../../../utils/styles";
 
 export interface IconifyProps {
   icon: string;

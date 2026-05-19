@@ -3,7 +3,7 @@ import Tippy, { TippyProps } from "@tippyjs/react";
 import NLink, { LinkProps as NLinkProps } from "next/link";
 import * as React from "react";
 import { AnchorHTMLAttributes, forwardRef, ReactElement } from "react";
-import { cx } from "../../../utils/class-name";
+import { cx } from "../../../utils/styles";
 
 export type LinkProps = AnchorHTMLAttributes<HTMLAnchorElement> & NLinkProps & {
   tooltip?: TippyProps | boolean;

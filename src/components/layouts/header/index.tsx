@@ -1,7 +1,7 @@
 import * as React from "react";
 import { fetcher } from "../../../contents";
 import { t } from "../../../locales";
-import { cx } from "../../../utils/class-name";
+import { cx } from "../../../utils/styles";
 import { Iconify } from "../../ui/iconify";
 import { Image } from "../../ui/image";
 import { Blog } from "./blog";
