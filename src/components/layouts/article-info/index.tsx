@@ -21,7 +21,7 @@ export const ArticleInfo: React.FC<ArticleInfoProps> = ({ data }) => {
         <MetaInfo data={data} />
       </section>
       {data.thumbnail && <Image className="ml-4 basis-[30%]" src={data.thumbnail} alt={t("article.thumbnail")} />}
-      <LinkButton href={data.link} aria-hidden={true} className="absolute inset-0 bg-none" />
+      <LinkButton href={data.link} aria-hidden={true} className="absolute inset-0 hover:bg-transparent" />
     </article>
   );
 };

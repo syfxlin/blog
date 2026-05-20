@@ -22,7 +22,7 @@ export const Header: React.FC = async () => {
             <Image className="flex h-8 w-8 overflow-hidden rounded-full [writing-mode:horizontal-tb]" src={seo.logo} alt={t("header.icon")} />
           </Link>
         </div>
-        <div className="my-1 flex gap-1 [writing-mode:vertical-lr] [&_a]:px-2 [&_a]:py-2.5 [&_a_span_span]:inline-block [&_a_span_span]:tracking-[-0.3em] [&_a_span_span:first-child]:translate-y-[-0.3em]">
+        <div className="mx-1 flex gap-1 [writing-mode:vertical-lr] [&_a]:leading-none [&_a_span_span]:inline-block [&_a_span_span]:tracking-[-0.3em] [&_a_span_span:first-child]:translate-y-[-0.3em] [&_a>.iconify]:mx-0 [&_a>.iconify]:my-[-0.1rem] [&_button>.iconify]:mx-0 [&_button>.iconify]:my-[-0.1rem]">
           <Blog icon={<Iconify icon="ri:article-line" />} />
           {header.main.map(item => (
             <Link
