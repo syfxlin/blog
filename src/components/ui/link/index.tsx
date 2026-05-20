@@ -16,14 +16,14 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(({ tooltip, unstyle
   let element: ReactElement | undefined;
   if (typeof href === "string") {
     if (/^(?:https?:)?\/\/|\.[\da-z]+$/i.test(href)) {
-      element = <a target="_blank" rel="nofollow noopener noreferrer" {...props} className={cx(props.className, !unstyled && linkClassName)} href={href} ref={ref} />;
+      element = <a target="_blank" rel="nofollow noopener noreferrer" {...props} className={cx(!unstyled && linkClassName, props.className)} href={href} ref={ref} />;
     }
     if (href.startsWith("#")) {
-      element = <a {...props} className={cx(props.className, !unstyled && linkClassName)} href={href} ref={ref} />;
+      element = <a {...props} className={cx(!unstyled && linkClassName, props.className)} href={href} ref={ref} />;
     }
   }
   if (!element) {
-    element = <NLink {...props} className={cx(props.className, !unstyled && linkClassName)} href={href} ref={ref} />;
+    element = <NLink {...props} className={cx(!unstyled && linkClassName, props.className)} href={href} ref={ref} />;
   }
   return tooltip ?
       (
