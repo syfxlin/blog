@@ -16,7 +16,7 @@ export const Header: React.FC = async () => {
   return (
     <>
       <Menu icon={<Iconify icon="ri:menu-line" />} />
-      <header className="fixed top-0 bottom-0 left-0 z-[5] flex h-full max-h-screen w-[100px] flex-col items-center justify-center overflow-y-auto transition-[transform,color,background-color] duration-300 max-md:-translate-x-[100px]">
+      <header className="fixed top-0 bottom-0 left-0 z-[5] flex h-full max-h-screen w-[100px] flex-col items-center justify-center overflow-y-auto transition-[translate,color,background-color] duration-300 max-lg:-translate-x-25">
         <div className="mt-1 mb-2 flex gap-1">
           <Link aria-label={t("header.home")} href="/">
             <Image className="flex h-8 w-8 overflow-hidden rounded-full [writing-mode:horizontal-tb]" src={seo.logo} alt={t("header.icon")} />

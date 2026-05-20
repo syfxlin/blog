@@ -1,11 +1,9 @@
 import type { Config } from "tailwindcss";
-import { breakpoints } from "./src/theme/tokens";
 
 const config: Config = {
   content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
     extend: {
-      screens: breakpoints,
       colors: {
         text: {
           primary: "var(--color-text-primary)",

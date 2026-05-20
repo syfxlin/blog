@@ -19,7 +19,7 @@ export interface MenuProps {
 export const Menu: React.FC<MenuProps> = ({ icon }) => {
   const ref = useRef<HTMLButtonElement>(null);
   return (
-    <nav className="absolute top-0 left-0 flex h-[100px] w-[100px] -translate-x-[100px] items-center justify-center transition-[transform,color,background-color] duration-300 max-md:translate-x-0">
+    <nav className="absolute top-0 left-0 flex h-[100px] w-[100px] -translate-x-[100px] items-center justify-center transition-[translate,color,background-color] duration-300 max-lg:translate-x-0">
       <Button
         ref={ref}
         aria-label={t("header.menu")}
