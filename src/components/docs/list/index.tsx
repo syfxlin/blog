@@ -9,8 +9,10 @@ export interface ListProps {
 }
 
 const containerClassName = "ps-8 [&_li]:my-2 [&_p:last-of-type]:my-0";
+const orderedClassName = "list-decimal";
+const unorderedClassName = "list-disc";
 const horizontalClassName = "m-0 flex list-none flex-row flex-wrap gap-x-3 gap-y-2 p-0";
-const verticalClassName = "m-0 flex list-none flex-col flex-wrap gap-x-3 gap-y-2 p-0";
+const verticalClassName = "m-0 flex flex-col flex-wrap gap-x-3 gap-y-2";
 
 export const List: React.FC<ListProps> = (props) => {
   if (props.type === "ordered") {
@@ -18,6 +20,7 @@ export const List: React.FC<ListProps> = (props) => {
       <ol
         className={cx(
           containerClassName,
+          orderedClassName,
           props.direction === "horizontal" && horizontalClassName,
           props.direction === "vertical" && verticalClassName,
         )}
@@ -32,6 +35,7 @@ export const List: React.FC<ListProps> = (props) => {
       <ul
         className={cx(
           containerClassName,
+          unorderedClassName,
           props.direction === "horizontal" && horizontalClassName,
           props.direction === "vertical" && verticalClassName,
         )}
