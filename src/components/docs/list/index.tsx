@@ -26,6 +26,7 @@ export const List: React.FC<ListProps> = (props) => {
         )}
       >
         {props.children.map((item, index) => (
+          // eslint-disable-next-line react/no-array-index-key -- Document list items are positional.
           <li key={index}>{item}</li>
         ))}
       </ol>
@@ -41,6 +42,7 @@ export const List: React.FC<ListProps> = (props) => {
         )}
       >
         {props.children.map((item, index) => (
+          // eslint-disable-next-line react/no-array-index-key -- Document list items are positional.
           <li key={index}>{item}</li>
         ))}
       </ul>

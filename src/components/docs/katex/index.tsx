@@ -8,5 +8,6 @@ export interface KatexProps {
 
 export const Katex: React.FC<KatexProps> = React.memo((props) => {
   const html = katex.renderToString(props.math, { throwOnError: false });
+  // eslint-disable-next-line react-dom/no-dangerously-set-innerhtml -- KaTeX generates the rendered markup.
   return <span className="my-4 flex w-full items-center justify-center" dangerouslySetInnerHTML={{ __html: html }} />;
 });

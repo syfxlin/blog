@@ -13,6 +13,8 @@ export interface MetaInfoProps {
 const linkClassName = "relative !z-[1]";
 
 export const MetaInfo: React.FC<MetaInfoProps> = ({ data }) => {
+  // eslint-disable-next-line react/purity -- Relative modification time is based on the render-time snapshot.
+  const now = new Date();
   return (
     <div className="relative m-0 text-[0.8rem] leading-normal font-normal text-text-description">
       <Link
@@ -28,7 +30,7 @@ export const MetaInfo: React.FC<MetaInfoProps> = ({ data }) => {
           tooltip
           className={linkClassName}
           href={data.archives.link}
-          aria-label={t("article.modified.time", ago(new Date(), data.modified))}
+          aria-label={t("article.modified.time", ago(now, data.modified))}
         >
           &nbsp;{t("article.modified.desc")}
         </Link>

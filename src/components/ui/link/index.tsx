@@ -2,17 +2,18 @@
 import Tippy, { TippyProps } from "@tippyjs/react";
 import NLink, { LinkProps as NLinkProps } from "next/link";
 import * as React from "react";
-import { AnchorHTMLAttributes, forwardRef, ReactElement } from "react";
+import { AnchorHTMLAttributes, ReactElement } from "react";
 import { cx } from "../../../utils/styles";
 
 export type LinkProps = AnchorHTMLAttributes<HTMLAnchorElement> & NLinkProps & {
   tooltip?: TippyProps | boolean;
   unstyled?: boolean;
+  ref?: React.Ref<HTMLAnchorElement>;
 };
 
 const linkClassName = "bg-[linear-gradient(to_right,transparent,transparent),linear-gradient(to_right,var(--color-background-focus),var(--color-background-focus))] bg-[length:100%_40%,0_40%] bg-[position:100%_100%,0_100%] bg-no-repeat text-text-primary no-underline transition-[background-size,color,background-color] duration-300 hover:bg-[length:0_40%,100%_40%] focus:bg-[length:0_40%,100%_40%] active:bg-[length:0_40%,100%_40%] [&.active]:bg-[length:0_40%,100%_40%]";
 
-export const Link = forwardRef<HTMLAnchorElement, LinkProps>(({ tooltip, unstyled, href, ...props }, ref) => {
+export const Link: React.FC<LinkProps> = ({ tooltip, unstyled, href, ref, ...props }) => {
   let element: ReactElement | undefined;
   if (typeof href === "string") {
     if (/^(?:https?:)?\/\/|\.[\da-z]+$/i.test(href)) {
@@ -34,4 +35,4 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(({ tooltip, unstyle
       (
         element
       );
-});
+};

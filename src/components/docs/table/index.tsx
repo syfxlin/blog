@@ -23,6 +23,7 @@ export const Table: React.FC<TableProps> = ({ head, body }) => {
         <thead>
           <tr>
             {head.map((x, i) => (
+              // eslint-disable-next-line react/no-array-index-key -- Document table headers are positional.
               <th key={i} colSpan={x.colSpan} rowSpan={x.rowSpan}>
                 {x.children}
               </th>
@@ -32,8 +33,10 @@ export const Table: React.FC<TableProps> = ({ head, body }) => {
       )}
       <tbody>
         {body.map((row, i) => (
+          // eslint-disable-next-line react/no-array-index-key -- Document table rows are positional.
           <tr key={i}>
             {row.map((x, j) => (
+              // eslint-disable-next-line react/no-array-index-key -- Document table cells are positional.
               <td key={j} colSpan={x.colSpan} rowSpan={x.rowSpan}>
                 {x.children}
               </td>

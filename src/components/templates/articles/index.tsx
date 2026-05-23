@@ -21,7 +21,7 @@ export interface HeadingProps {
 
 export const Heading: React.FC<HeadingProps> = (props) => {
   return (
-    <h2 className="relative mt-5 mb-3 border-b border-dashed border-background-focus pb-1 text-[1.3rem] font-normal text-text-title before:absolute before:bottom-[-1px] before:left-0 before:z-[1] before:block before:h-[2.5px] before:w-8 before:rounded before:bg-[linear-gradient(var(--color-text-primary)_30%,var(--color-text-primary)_70%)] before:shadow-[var(--color-text-primary)_0_1px_3px] before:transition-all before:duration-[250ms] before:content-['']">
+    <h2 className="relative mt-5 mb-3 border-b border-dashed border-background-focus pb-1 text-[1.3rem] font-normal text-text-title before:absolute before:-bottom-px before:left-0 before:z-1 before:block before:h-[2.5px] before:w-8 before:rounded before:bg-[linear-gradient(var(--color-text-primary)_30%,var(--color-text-primary)_70%)] before:shadow-[var(--color-text-primary)_0_1px_3px] before:transition-all before:duration-250 before:content-['']">
       {props.children}
     </h2>
   );

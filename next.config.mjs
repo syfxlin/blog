@@ -20,4 +20,6 @@ const config = {
   },
 };
 
+// @types/next-pwa targets Next.js 12/13, while this project uses Next.js 16.
+// noinspection JSCheckFunctionSignatures
 export default withPwa(withBundleAnalyzer(config));

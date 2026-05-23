@@ -1,8 +1,8 @@
 "use client";
 import * as React from "react";
 import { t } from "../../../locales";
-import { range, resolve } from "../../../utils/vender";
 import { cx } from "../../../utils/styles";
+import { range, resolve } from "../../../utils/vender";
 import { LinkButton } from "../button";
 import { Iconify } from "../iconify/client";
 
@@ -21,7 +21,7 @@ const iconRightClassName = "[--icon:url(data:image/svg+xml,%3Csvg%20xmlns%3D%22h
 
 export const Pagination: React.FC<PaginationProps> = ({ index, pages, links, onLink, onPage }) => {
   return (
-    <section className="my-4 flex items-center justify-center gap-1 leading-[1]">
+    <section className="my-4 flex items-center justify-center gap-1 leading-none">
       {index !== 1 && (
         <LinkButton
           className="gap-1"
@@ -96,7 +96,7 @@ export interface TwoPaginationProps {
 
 export const TwoPagination: React.FC<TwoPaginationProps> = (props) => {
   return (
-    <section className="my-4 flex gap-2 p-0 leading-[1]">
+    <section className="my-4 flex gap-2 p-0 leading-none">
       {props.prev && (
         <LinkButton
           className="flex-1 justify-center gap-1 p-4 text-center text-[1.2rem]"

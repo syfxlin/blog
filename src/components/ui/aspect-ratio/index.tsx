@@ -1,13 +1,14 @@
 "use client";
 import * as React from "react";
-import { forwardRef, HTMLAttributes } from "react";
+import { HTMLAttributes } from "react";
 import { cx, sx } from "../../../utils/styles";
 
 export type AspectRatioProps = HTMLAttributes<HTMLDivElement> & {
   ratio: number;
+  ref?: React.Ref<HTMLDivElement>;
 };
 
-export const AspectRatio = forwardRef<HTMLDivElement, AspectRatioProps>(({ ratio: r, ...props }, ref) => {
+export const AspectRatio: React.FC<AspectRatioProps> = ({ ratio: r, ref, ...props }) => {
   return (
     <div
       {...props}
@@ -19,4 +20,4 @@ export const AspectRatio = forwardRef<HTMLDivElement, AspectRatioProps>(({ ratio
       ref={ref}
     />
   );
-});
+};
