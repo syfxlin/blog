@@ -14,7 +14,7 @@ export const ArticleInfo: React.FC<ArticleInfoProps> = ({ data }) => {
   return (
     <article className="relative -mx-5 my-2 flex appearance-none rounded-[0.2rem] border-0 bg-transparent px-5 py-4 text-text-primary no-underline transition-[color,background-color,box-shadow] duration-300 outline-none hover:bg-background-hover focus:shadow-[0_0_0_2px_var(--color-background-focus)] active:shadow-[0_0_0_2px_var(--color-background-focus)]">
       <section className="flex-1">
-        <Link href={data.link} aria-label={data.title} className="m-0 text-xl font-normal text-text-title no-underline">
+        <Link href={data.link} aria-label={data.title} className="m-0 text-xl leading-normal font-normal text-text-title no-underline">
           {data.title}
         </Link>
         <p className="my-1 text-[0.9rem] font-normal text-text-paragraph">{data.body.excerpts}</p>
