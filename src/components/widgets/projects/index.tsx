@@ -82,7 +82,7 @@ export const Projects: React.FC<ProjectsProps> = async ({ data }) => {
                         <Iconify key={`component-${component}`} icon={component} className="h-[0.9rem] w-[0.9rem] text-text-description" />
                       ))}
                     </span>
-                    <span className="line-clamp-2 block overflow-hidden text-start text-[0.8rem] leading-normal text-ellipsis whitespace-normal text-text-paragraph">{project.description}</span>
+                    <span className="line-clamp-2 overflow-hidden text-start text-[0.8rem] leading-normal text-ellipsis whitespace-normal text-text-paragraph">{project.description}</span>
                   </span>
                   <span className="flex flex-col items-center justify-center gap-0.5">
                     <Icons link={project.link} />
