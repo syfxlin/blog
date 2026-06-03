@@ -10,28 +10,18 @@ import tabler from "@iconify/json/json/tabler.json";
 import uil from "@iconify/json/json/uil.json";
 import { getIconData, iconToHTML, iconToSVG } from "@iconify/utils";
 
-const icons: Record<string, IconifyJSON> = {
-  "ri": ri as IconifyJSON,
-  "ph": ph as IconifyJSON,
-  "la": la as IconifyJSON,
-  "uil": uil as IconifyJSON,
-  "carbon": carbon as IconifyJSON,
-  "tabler": tabler as IconifyJSON,
-  "lucide": lucide as IconifyJSON,
-  "simple": simple as IconifyJSON,
-  "material-symbols": material as IconifyJSON,
-};
+const icons = [ri, ph, la, uil, carbon, tabler, lucide, simple, material] as Array<IconifyJSON>;
 
 function svg(icon: string) {
   const [prefix, target] = icon.split(":");
   if (!prefix || !target) {
     throw new TypeError(`Invalid icon: ${icon}`);
   }
-  const data = icons[prefix];
+  const data = icons.find(i => i.prefix === prefix);
   if (!data) {
     throw new TypeError(`Invalid icon: ${icon}`);
   }
-  const item = getIconData(data as IconifyJSON, target);
+  const item = getIconData(data, target);
   if (!item) {
     throw new TypeError(`Invalid icon: ${icon}`);
   }
