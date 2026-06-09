@@ -1,15 +1,15 @@
-import React from "react";
 import { Metadata } from "next";
+import * as React from "react";
+import { ArticleList } from "../../../contents/types";
+import { t } from "../../../locales";
+import { resolve } from "../../../utils/vender";
+import { ArticleInfo } from "../../layouts/article-info";
+import { Footer } from "../../layouts/footer";
 import { Header } from "../../layouts/header";
 import { Main } from "../../layouts/main";
-import { Footer } from "../../layouts/footer";
-import { resolve } from "../../../utils/vender";
 import { metadata as generateMetadata } from "../../layouts/root/metadata";
-import { ArticleList } from "../../../contents/types";
 import { Title } from "../../layouts/title";
-import { ArticleInfo } from "../../layouts/article-info";
 import { Pagination } from "../../ui/pagination";
-import { t } from "../../../locales";
 
 export interface TemplateGroupMetadataProps {
   type: string;

@@ -1,15 +1,15 @@
-import React from "react";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
+import * as React from "react";
+import { metadataGroup, TemplateGroup } from "../../../../components/templates/group";
 import { fetcher, slugger } from "../../../../contents";
-import { TemplateGroup, metadataGroup } from "../../../../components/templates/group";
 import { t } from "../../../../locales";
 
 interface Props {
-  params: {
+  params: Promise<{
     slug: string;
     index?: string;
-  };
+  }>;
 }
 
 const query = React.cache(async (_slug: string, _index?: string) => {
@@ -30,13 +30,14 @@ const query = React.cache(async (_slug: string, _index?: string) => {
       total: value.total,
       items: value.page(index),
     };
-  } catch (e) {
+  } catch {
     return undefined;
   }
 });
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const data = await query(params.slug, params.index);
+  const { slug, index } = await params;
+  const data = await query(slug, index);
   if (!data) {
     return notFound();
   }
@@ -51,7 +52,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function ArchivePage({ params }: Props) {
-  const data = await query(params.slug, params.index);
+  const { slug, index } = await params;
+  const data = await query(slug, index);
   if (!data) {
     return notFound();
   }

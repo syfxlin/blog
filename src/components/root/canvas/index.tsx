@@ -1,8 +1,8 @@
 "use client";
-import React, { useEffect, useRef } from "react";
 import { useTheme } from "next-themes";
+import * as React from "react";
+import { useEffect, useRef } from "react";
 import { render } from "../../../utils/canvas";
-import * as styles from "./styles.css";
 
 export const Canvas: React.FC = () => {
   const ref = useRef<HTMLCanvasElement>(null);
@@ -20,5 +20,5 @@ export const Canvas: React.FC = () => {
     }
   }, [resolvedTheme]);
 
-  return <canvas ref={ref} className={styles.container} />;
+  return <canvas ref={ref} className="fixed inset-0 -z-[1] h-screen w-screen" />;
 };

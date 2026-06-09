@@ -1,10 +1,10 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { metadata } from "../../../components/layouts/root/metadata";
-import { fetcher } from "../../../contents";
-import { Template } from "../../../components/templates/template";
 import { Renderer } from "../../../components/docs";
+import { metadata } from "../../../components/layouts/root/metadata";
+import { Template } from "../../../components/templates/template";
 import { Friends } from "../../../components/widgets/friends";
+import { fetcher } from "../../../contents";
 import { t } from "../../../locales";
 
 export async function generateMetadata(): Promise<Metadata> {

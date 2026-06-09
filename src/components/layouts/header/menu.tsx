@@ -1,8 +1,8 @@
 "use client";
-import React, { ReactNode, useRef } from "react";
-import { Button } from "../../ui/button";
+import * as React from "react";
+import { ReactNode, useRef } from "react";
 import { t } from "../../../locales";
-import * as styles from "./styles.css";
+import { Button } from "../../ui/button";
 
 export function showMenu() {
   document.body.style.transform = "translateX(100px)";
@@ -19,7 +19,7 @@ export interface MenuProps {
 export const Menu: React.FC<MenuProps> = ({ icon }) => {
   const ref = useRef<HTMLButtonElement>(null);
   return (
-    <nav className={styles.menu}>
+    <nav className="absolute top-0 left-0 flex h-[100px] w-[100px] -translate-x-[100px] items-center justify-center transition-[translate,color,background-color] duration-300 max-lg:translate-x-0">
       <Button
         ref={ref}
         aria-label={t("header.menu")}

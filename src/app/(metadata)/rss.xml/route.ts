@@ -1,8 +1,8 @@
-import RSS from "rss";
 import { NextResponse } from "next/server";
+import RSS from "rss";
 import { fetcher } from "../../../contents";
-import { resolve } from "../../../utils/vender";
 import { COLINE_LANGUAGE } from "../../../env/public";
+import { resolve } from "../../../utils/vender";
 
 export async function GET() {
   const [seo, author, posts] = await Promise.all([fetcher.seo(), fetcher.author(), fetcher.posts()]);

@@ -1,13 +1,13 @@
-import React from "react";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
+import * as React from "react";
+import { metadataArticles, TemplateArticles, TemplateArticlesProps } from "../../components/templates/articles";
 import { fetcher } from "../../contents";
-import { TemplateArticles, TemplateArticlesProps, metadataArticles } from "../../components/templates/articles";
 
 interface Props {
-  params?: {
+  params: Promise<{
     index?: string;
-  };
+  }>;
 }
 
 const query = React.cache(async (_index?: string): Promise<TemplateArticlesProps | undefined> => {
@@ -35,13 +35,14 @@ const query = React.cache(async (_index?: string): Promise<TemplateArticlesProps
         },
       };
     }
-  } catch (e) {
+  } catch {
     return undefined;
   }
 });
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const data = await query(params?.index);
+  const { index } = await params;
+  const data = await query(index);
   if (!data) {
     return notFound();
   }
@@ -49,7 +50,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function ArticlesPage({ params }: Props) {
-  const data = await query(params?.index);
+  const { index } = await params;
+  const data = await query(index);
   if (!data) {
     return notFound();
   }

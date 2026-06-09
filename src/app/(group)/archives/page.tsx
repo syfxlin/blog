@@ -1,12 +1,12 @@
-import React from "react";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { fetcher } from "../../../contents";
-import { metadata } from "../../../components/layouts/root/metadata";
-import { Link } from "../../../components/ui/link";
-import { Template } from "../../../components/templates/template";
+import * as React from "react";
 import { Heading } from "../../../components/docs/heading";
 import { List } from "../../../components/docs/list";
+import { metadata } from "../../../components/layouts/root/metadata";
+import { Template } from "../../../components/templates/template";
+import { Link } from "../../../components/ui/link";
+import { fetcher } from "../../../contents";
 import { t } from "../../../locales";
 
 const query = React.cache(async () => {

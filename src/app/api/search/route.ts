@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { ArticleList } from "../../../contents/types";
 import { searcher } from "../../../contents";
+import { ArticleList } from "../../../contents/types";
 
 export interface SearchResponse {
   total: number;
@@ -30,7 +30,7 @@ export async function GET(request: NextRequest) {
     if (pagination.page <= 0) {
       return NextResponse.json({ code: 400, message: "Illegal parameters." }, { status: 400 });
     }
-  } catch (e) {
+  } catch {
     return NextResponse.json({ code: 400, message: "Illegal parameters." }, { status: 400 });
   }
 

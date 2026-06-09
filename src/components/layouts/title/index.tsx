@@ -1,5 +1,5 @@
-import React, { ReactNode } from "react";
-import * as styles from "./styles.css";
+import * as React from "react";
+import { ReactNode } from "react";
 
 export interface TitleProps {
   title: ReactNode;
@@ -8,9 +8,9 @@ export interface TitleProps {
 
 export const Title: React.FC<TitleProps> = (props) => {
   return (
-    <section className={styles.container}>
-      <h1 className={styles.title}>{props.title}</h1>
-      {props.children && <div className={styles.description}>{props.children}</div>}
+    <section className="mb-8 pt-6 text-center">
+      <h1 className="m-0 text-[1.8rem] leading-normal font-normal text-text-title">{props.title}</h1>
+      {props.children && <div className="m-0 text-[0.8rem] leading-normal font-normal text-text-description">{props.children}</div>}
     </section>
   );
 };

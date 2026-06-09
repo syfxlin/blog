@@ -1,20 +1,19 @@
-import React from "react";
 import { Caveat } from "next/font/google";
-import { cx } from "@syfxlin/reve";
-import { Image } from "../../ui/image";
+import * as React from "react";
 import { fetcher } from "../../../contents";
 import { t } from "../../../locales";
-import * as styles from "./styles.css";
+import { cx } from "../../../utils/styles";
+import { Image } from "../../ui/image";
 
 const caveat = Caveat({ subsets: ["latin"] });
 
 export const Hero: React.FC = async () => {
   const author = await fetcher.author();
   return (
-    <section className={styles.section}>
-      <Image className={styles.avatar} src={author.avatar} alt={t("article.avatar")} />
-      <h1 className={cx(styles.author, caveat.className)}>{author.fullname}</h1>
-      <p className={styles.description}>{author.description}</p>
+    <section className="my-4">
+      <Image className="mx-0 h-[6.25rem] w-[6.25rem] rounded-full [filter:var(--image-filter)] transition-[filter,color,background-color] duration-300" src={author.avatar} alt={t("article.avatar")} />
+      <h1 className={cx("mt-2 mb-0 text-[2.2rem] font-bold leading-[1.25] tracking-[0.05em] text-text-title", caveat.className)}>{author.fullname}</h1>
+      <p className="m-0 text-base leading-normal text-text-description">{author.description}</p>
     </section>
   );
 };

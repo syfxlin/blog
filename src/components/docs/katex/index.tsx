@@ -1,7 +1,6 @@
-import "katex/dist/katex.css";
 import katex from "katex";
-import React from "react";
-import * as styles from "./styles.css";
+import * as React from "react";
+import "katex/dist/katex.css";
 
 export interface KatexProps {
   math: string;
@@ -9,5 +8,6 @@ export interface KatexProps {
 
 export const Katex: React.FC<KatexProps> = React.memo((props) => {
   const html = katex.renderToString(props.math, { throwOnError: false });
-  return <span className={styles.container} dangerouslySetInnerHTML={{ __html: html }} />;
+  // eslint-disable-next-line react-dom/no-dangerously-set-innerhtml -- KaTeX generates the rendered markup.
+  return <span className="my-4 flex w-full items-center justify-center" dangerouslySetInnerHTML={{ __html: html }} />;
 });

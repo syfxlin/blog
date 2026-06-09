@@ -1,5 +1,5 @@
-import React, { ReactNode } from "react";
-import * as styles from "./styles.css";
+import * as React from "react";
+import { ReactNode } from "react";
 
 export interface ParagraphProps {
   textAlign: "center" | "end" | undefined;
@@ -8,7 +8,7 @@ export interface ParagraphProps {
 
 export const Paragraph: React.FC<ParagraphProps> = (props) => {
   return (
-    <p className={styles.container} style={{ textAlign: props.textAlign }}>
+    <p className="my-4" style={{ textAlign: props.textAlign }}>
       {props.children}
     </p>
   );

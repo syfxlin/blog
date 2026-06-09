@@ -1,9 +1,10 @@
 "use client";
-import React, { ReactNode } from "react";
 import { useTheme } from "next-themes";
-import { Button } from "../../ui/button";
+import * as React from "react";
+import { ReactNode } from "react";
 import { t } from "../../../locales";
-import * as styles from "./styles.css";
+import { Button } from "../../ui/button";
+import { viewIconClassName } from "./classes";
 import { hideMenu } from "./menu";
 
 export interface ThemeProps {
@@ -14,7 +15,7 @@ export const Theme: React.FC<ThemeProps> = ({ icon }) => {
   const { theme, resolvedTheme, setTheme } = useTheme();
   return (
     <Button
-      className={styles.view_icon}
+      className={viewIconClassName}
       aria-label={t("theme.switch")}
       tooltip={{ placement: "left", content: t("theme.mode", theme === "system" ? `${theme} (${resolvedTheme})` : theme) }}
       onClick={() => {

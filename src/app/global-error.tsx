@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import * as React from "react";
 import { ClientRoot } from "../components/layouts/root/client";
 import { ErrorPage, ErrorPageProps } from "./error";
 

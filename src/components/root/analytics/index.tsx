@@ -1,6 +1,6 @@
 "use client";
-import React from "react";
 import { GoogleAnalytics } from "nextjs-google-analytics";
+import * as React from "react";
 import { COLINE_GOOGLE_ANALYTICS } from "../../../env/public";
 
 export const Analytics: React.FC = () => {

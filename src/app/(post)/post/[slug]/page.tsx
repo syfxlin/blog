@@ -1,13 +1,13 @@
-import React from "react";
-import { notFound } from "next/navigation";
 import { Metadata } from "next";
-import { fetcher } from "../../../../contents";
+import { notFound } from "next/navigation";
+import * as React from "react";
 import { layouts, metadataPage } from "../../../../components/templates/page";
+import { fetcher } from "../../../../contents";
 
 interface Props {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 const query = React.cache(async (_slug: string) => {
@@ -37,13 +37,14 @@ const query = React.cache(async (_slug: string) => {
       }
     }
     return undefined;
-  } catch (e) {
+  } catch {
     return undefined;
   }
 });
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const data = await query(params.slug);
+  const { slug } = await params;
+  const data = await query(slug);
   if (!data) {
     return notFound();
   }
@@ -51,7 +52,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page({ params }: Props) {
-  const data = await query(params.slug);
+  const { slug } = await params;
+  const data = await query(slug);
   if (!data) {
     return notFound();
   }

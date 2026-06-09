@@ -1,10 +1,11 @@
 "use client";
-import React, { ReactNode, useState } from "react";
-import { Button } from "../../ui/button";
-import { Spotlight } from "../../root/spotlight";
+import * as React from "react";
+import { ReactNode, useState } from "react";
 import { t } from "../../../locales";
+import { Spotlight } from "../../root/spotlight";
+import { Button } from "../../ui/button";
+import { viewIconClassName } from "./classes";
 import { hideMenu } from "./menu";
-import * as styles from "./styles.css";
 
 export interface SearchProps {
   icon: ReactNode;
@@ -17,7 +18,7 @@ export const Search: React.FC<SearchProps> = ({ icon }) => {
       <Button
         tooltip={{ placement: "left" }}
         aria-label={t("header.search")}
-        className={styles.view_icon}
+        className={viewIconClassName}
         onClick={() => {
           hideMenu();
           setActive(p => !p);

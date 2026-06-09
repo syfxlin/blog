@@ -1,7 +1,7 @@
 import { Metadata } from "next";
-import { image, resolve } from "../../../utils/vender";
 import { fetcher } from "../../../contents";
 import { COLINE_LANGUAGE } from "../../../env/public";
+import { image, resolve } from "../../../utils/vender";
 
 export interface MetadataProps {
   link?: string;

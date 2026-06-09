@@ -1,5 +1,5 @@
-import useSWR from "swr";
 import { useMemo } from "react";
+import useSWR from "swr";
 import { AdapterResponse } from "./adapter";
 
 export async function fetcher<P = any, R = any>([path, params]: [string, P]): Promise<R> {
@@ -9,7 +9,6 @@ export async function fetcher<P = any, R = any>([path, params]: [string, P]): Pr
 }
 
 export function useAdapter<P = any, R = any>(path: string, params: P): AdapterResponse<P, R> {
-  // @ts-expect-error
   const query = useSWR<R>([path, params], fetcher);
   return useMemo(
     () => ({

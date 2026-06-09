@@ -1,7 +1,7 @@
 "use client";
-import React from "react";
-import { useAdapter } from "../../../adapters/use-adapter";
+import * as React from "react";
 import { ScraperRequest, ScraperResponse } from "../../../adapters/scraper-adapter";
+import { useAdapter } from "../../../adapters/use-adapter";
 import { ArticleInner } from "./inner";
 
 export const Article: React.FC<ScraperRequest> = React.memo((props) => {

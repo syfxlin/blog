@@ -1,10 +1,10 @@
 import { collection, component, config, singleton } from "@keystatic/core";
 import { fields } from "@syfxlin/reks";
-import { Katex } from "./src/components/docs/katex/preview";
-import { Github } from "./src/components/docs/github/preview";
 import { Article } from "./src/components/docs/article/preview";
-import { Message } from "./src/components/docs/message/preview";
 import { Articles } from "./src/components/docs/articles/preview";
+import { Github } from "./src/components/docs/github/preview";
+import { Katex } from "./src/components/docs/katex/preview";
+import { Message } from "./src/components/docs/message/preview";
 import { COLINE_GITHUB_REPO, IS_DEV } from "./src/env/private";
 import { t } from "./src/locales";
 

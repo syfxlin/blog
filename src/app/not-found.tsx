@@ -1,6 +1,6 @@
-import React from "react";
-import { Root } from "../components/layouts/root";
+import * as React from "react";
 import { ErrorFound } from "../components/layouts/error-found";
+import { Root } from "../components/layouts/root";
 
 export default function NotFoundPage() {
   return (
