@@ -51,7 +51,7 @@
     "swr": "^2.2.5"
   },
   "devDependencies": {
-    "@next/bundle-analyzer": "14.2.15",
+    "@next/bundle-analyzer": "16.3.4",
     "@syfxlin/eslint-config": "^1.0.8",
     "@types/fs-extra": "^11.0.4",
     "@types/katex": "^0.16.7",
